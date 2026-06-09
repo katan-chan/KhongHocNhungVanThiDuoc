@@ -1,6 +1,16 @@
 % technique: doi-bien-cau-song
 \textbf{Đổi biến cầu $v=r\,u$ cho sóng đối xứng cầu.}
-Nếu nghiệm sóng 3D $u_{tt}=c^2\Delta u$ chỉ phụ thuộc $r=|x|$ và $t$, đặt $v=r\,u$ thì $v$ thỏa
-\textbf{sóng 1D}: $v_{tt}=c^2 v_{rr}$ trên $r>0$, với $v(0,t)=0$ (vì $v=ru$ và $u$ hữu hạn ở tâm). Giải $v$ bằng d'Alembert,
-rồi $u=v/r$. \emph{Biên $v(0,t)=0$ là Dirichlet $\Rightarrow$ thác triển dữ liệu/nguồn \textbf{lẻ} qua $r=0$} (hàm lẻ tự bằng $0$ tại tâm) để dùng công thức toàn trục.
+\emph{$u=u(r,t)$ là nghiệm cần tìm} (biên độ tại khoảng cách $r$ tới tâm); \emph{$v=r\,u$ là hàm phụ} đặt ra để tính cho dễ.
+
+\textbf{Vì sao đặt $v=ru$:} Laplacian của hàm chỉ phụ thuộc $r$ có số hạng phiền $\tfrac{2}{r}u_r$:
+\[
+  \Delta u = u_{rr}+\tfrac{2}{r}u_r .
+\]
+Nhân $u$ với $r$: $v_r=u+ru_r$, $v_{rr}=2u_r+ru_{rr}=r\big(u_{rr}+\tfrac{2}{r}u_r\big)=r\,\Delta u$. Nhân phương trình sóng với $r$:
+\[
+  r\,u_{tt}=c^2 r\,\Delta u+rf \;\Longrightarrow\; v_{tt}=c^2 v_{rr}+rf .
+\]
+Số hạng $\tfrac{2}{r}u_r$ \textbf{biến mất} $\Rightarrow$ $v$ thỏa \textbf{sóng 1D phẳng} trên $r>0$ (có nguồn $rf$ nếu có nguồn).
+
+\textbf{Giải:} dùng d'Alembert cho $v$, rồi lấy lại $u=v/r$. Biên $v(0,t)=ru\big|_{r=0}=0$ (vì $u$ hữu hạn ở tâm) là \textbf{Dirichlet} $\Rightarrow$ thác triển dữ liệu/nguồn \textbf{lẻ} qua $r=0$ (xem ``Thác triển chẵn/lẻ'').
 Dùng khi dữ liệu/nguồn đối xứng cầu (vd $\psi,f$ chỉ phụ thuộc $r$).
