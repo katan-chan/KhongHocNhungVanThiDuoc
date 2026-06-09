@@ -1,0 +1,35 @@
+% technique: thac-trien-chan-le
+\textbf{Thác triển chẵn / lẻ (để dùng công thức toàn trục).}
+Bài cho trên \emph{nửa trục} $x>0$ (hoặc đoạn) với biên \textbf{thuần nhất} tại $x=0$. Muốn xài công thức toàn trục
+(d'Alembert, nhân nhiệt, Poisson) thì thác triển dữ liệu sang $x<0$ sao cho biên \emph{tự thỏa}.
+
+\smallskip
+\textbf{Quy tắc (một biên tại $x=0$):}
+\begin{itemize}
+\item Biên \textbf{Dirichlet} $u(0,t)=0$ $\Rightarrow$ thác triển \textbf{LẺ}: $\tilde f(-x)=-f(x)$. \emph{(Hàm lẻ tự bằng $0$ tại $x=0$.)}
+\item Biên \textbf{Neumann} $u_x(0,t)=0$ $\Rightarrow$ thác triển \textbf{CHẴN}: $\tilde f(-x)=f(x)$. \emph{(Hàm chẵn có đạo hàm $=0$ tại $x=0$.)}
+\end{itemize}
+
+\textbf{Công thức tường minh} (dữ liệu $f$ cho trên $x\ge0$, viết lại cho mọi $x\in\mathbb{R}$):
+\[
+  \text{chẵn: } \tilde f(x)=f(|x|);\qquad
+  \text{lẻ: } \tilde f(x)=\operatorname{sgn}(x)\,f(|x|)=
+  \begin{cases} f(x), & x>0,\\ 0, & x=0,\\ -f(-x), & x<0.\end{cases}
+\]
+
+\textbf{Vì sao là xong:} PDE $+$ dữ liệu đối xứng $\Rightarrow$ nghiệm toàn trục giữ nguyên tính chẵn/lẻ theo $x$ với mọi $t$.
+Lẻ $\Rightarrow u(0,t)=0$ (khớp Dirichlet); chẵn $\Rightarrow u_x(0,t)=0$ (khớp Neumann). Hạn chế nghiệm về $x>0$ chính là nghiệm bài gốc.
+
+\smallskip
+\textbf{Hai biên --- đoạn $[0,L]$ $\Rightarrow$ thác triển TUẦN HOÀN} (lặp quy tắc trên ở cả hai đầu):
+\[
+  \begin{array}{l|c|c|c}
+   \text{Hai đầu} & \text{thác triển} & \text{chu kỳ} & \text{hàm riêng}\\\hline
+   \text{Dirichlet--Dirichlet} & \text{lẻ} & 2L & \sin\frac{n\pi x}{L}\\
+   \text{Neumann--Neumann} & \text{chẵn} & 2L & \cos\frac{n\pi x}{L}\\
+   \text{Dirichlet--Neumann} & \text{lẻ ở }0,\ \text{chẵn ở }L & 4L & \sin\frac{(n+\frac12)\pi x}{L}
+  \end{array}
+\]
+
+\textbf{Nhớ một dòng:} \emph{giá trị $=0$ (Dirichlet) $\to$ LẺ; đạo hàm $=0$ (Neumann) $\to$ CHẴN.}
+Ví dụ: $h=\chi_{(0,1)}$ với biên Neumann $\to$ $\tilde h=\chi_{(-1,1)}$ (chẵn); sóng cầu $v=\rho u$ có $v(0)=0$ Dirichlet $\to$ nguồn $\rho f$ lẻ.
