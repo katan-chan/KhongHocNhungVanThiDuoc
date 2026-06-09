@@ -1,0 +1,90 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 4
+
+Dành cho sinh viên lớp: K67
+
+Ngành học: Toán Tin
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét bài toán Cauchy cho phương trình cấp 1 sau:
+
+ut +
+
+1 u2 = 0 2x
+
+khi x ∈ R, t > 0,
+
+với điều kiện Cauchy u(x, 0) = 2 nếu x < 1, 0 nếu x > 1.
+
+(a) Vẽ các đường đặc trưng của bài toán đã cho. Xác định vùng chỉ có một đường đặc trưng đi qua và vùng sốc. Giải nghiệm u(x, t) trong vùng chỉ có một đường đặc trưng đi qua.
+
+(b) Dùng điều kiện Rankine-Hugoniot tính vận tốc sốc. Từ đó xác định đường sốc và giải nghiệm u(x, t). Vẽ đồ thị của u(x, t) tại các thời điểm t = 0, 1/2, 1.
+
+Câu 2. Một sợi dây dao động tuân theo phương trình truyền sóng với tốc độ lan truyền 1. Ở vị trí cân bằng sợi dây có chiều dài 2. Đặt hệ tọa độ lên sợi dây sao cho một đầu tại gốc, đầu kia tại x = 2. Khi đó hai đầu sợi dây tự do. Sợi dây bắt đầu từ trạng thái f (x) = x − 1, và ở trạng thái nghỉ.
+
+(a) Thiết lập bài toán cho hàm biên độ dao động u(x, t) của sợi dây.
+
+(b) Dùng phương pháp tách biến giải bài toán đã cho.
+
+Câu 3. Xét phương trình sau
+
+uxx + 6uxy + 9uyy + ux + 3uy = ex.
+
+(a) Xác định dạng của phương trình, chuyển về dạng chính tắc.
+
+(b) Tìm nghiệm tổng quát của phương trình.
+
+(c)
+
+Tìm
+
+ít
+
+nhất
+
+2 nghiệm
+
+thỏa
+
+mãn
+
+u(x, 3x)
+
+=
+
+1 2
+
+ex
+
++
+
+1
+
+với
+
+mọi
+
+x.
+
+Thử lại
+
+các nghiệm
+
+vừa
+
+tìm được.
+
+Thang điểm. Câu 1: 2đ+2,5đ. Câu 2: 2đ+2,5đ. Câu 3: 2đ+2đ+2đ.
+
+

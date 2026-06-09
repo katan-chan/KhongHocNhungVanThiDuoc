@@ -1,0 +1,48 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 2
+
+Dành cho sinh viên lớp: K67
+
+Ngành học: Toán Tin
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét bài toán Cauchy cho phương trình cấp 1 sau:
+
+ut(x, t) + (1 + u(x, t))ux(x, t) = 0 khi x ∈ R, t > 0,
+
+với điều kiện Cauchy
+
+u(x, 0) = 2 sign(x) nếu |x| > 1, 0 nếu |x| < 1.
+
+(a) Vẽ các đường đặc trưng bài toán đã cho. Xác định vùng chỉ có một đường đặc trưng đi qua và vùng chân không. Giải nghiệm u(x, t) trong vùng chí có một đường đặc trưng đi qua.
+
+(b) Vẽ thêm các đường đặc trưng ở vùng chân không. Từ đó giải nghiệm u(x, t) ở vùng chân không.
+
+(c) Vẽ đồ thị của u(x, t) tại các thời điểm t = 0, 1, 2.
+
+Câu 2. Xác định loại và chuyển về dạng chính tắc phương trình sau
+
+(1 + sin2 y)uxx + 2 sin y cos x uxy + cos2 x uyy + cos x cos y ux = 0, x ∈ (−π/2, π/2), y ∈ R.
+
+Câu 3. Một sợi dây dao động tuân theo phương trình truyền sóng với tốc độ lan truyền 2.
+Hai đầu sợi dây luôn ở vị trí cân bằng. Khi ở vị trí cân bằng sợi dây có chiều dài π. Đặt hệ
+trục tọa độ lên sợi dây sao cho một đầu ở gốc, còn đầu kia ở x = π. Khi đó sợi bắt đầu từ trạng thái f (x) = −3 sin2(x), vận tốc bạn đầu g(x) = sin(x) cos(2x).
+
+(a) Thiết lập bài toán cho hàm biên độ dao động u(x, t) của sợi dây.
+
+(b) Sử dụng phương pháp tách biến giải bài toán ở câu (a).
+
+Thang điểm. Câu 1: 3đ+1,5đ+1,5đ. Câu 2: 3đ. Câu 3: 2đ+4đ.
+
+

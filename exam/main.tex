@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+% Tài liệu mang vào phòng thi — Phương trình Đạo hàm riêng (PTĐHR)
+% Biên dịch: xelatex (Unicode + tiếng Việt). Dùng: tools\build-exam.ps1
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{truncate}
+\usepackage[most]{tcolorbox}
+
+% --- Trình bày để tra cứu nhanh ---
+\setlist{nosep,leftmargin=1.4em}
+\titleformat{\section}{\large\bfseries\color{blue!45!black}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.2ex}{0.6ex}
+\setlength{\headheight}{14pt}\addtolength{\topmargin}{-2pt}
+\pagestyle{fancy}\fancyhf{}
+% Header trái = tên mục (không in hoa, cỡ nhỏ, cắt bớt nếu quá dài); phải = nhãn ngắn.
+\rhead{\footnotesize PTĐHR}\lhead{\footnotesize\truncate{0.78\headwidth}{\nouppercase{\leftmark}}}\rfoot{\small\thepage}
+\renewcommand{\contentsname}{MỤC LỤC}
+
+% Tích phân trung bình (barred integral) — dùng trong công thức Kirchhoff/Poisson
+\providecommand{\fint}{\,\mathchar'26\mkern-12mu\int}
+
+% === Các block highlight (đóng khung phần quan trọng) ===
+% Điều kiện áp dụng — dùng khi nào thì xài phương pháp này
+\newtcolorbox{dieukienbox}{colback=red!4,colframe=red!55!black,boxrule=0.6pt,
+  arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
+  title=\textbf{Khi nào dùng?},fonttitle=\small\bfseries\color{white},
+  coltitle=white,colbacktitle=red!55!black}
+% Công thức cần nhớ
+\newtcolorbox{nhobox}{colback=blue!4,colframe=blue!55!black,boxrule=0.6pt,
+  arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
+  title=\textbf{Nhớ},fonttitle=\small\bfseries\color{white},
+  coltitle=white,colbacktitle=blue!55!black}
+% Mẹo / lưu ý nhanh
+\newtcolorbox{meobox}{colback=green!4,colframe=green!45!black,boxrule=0.6pt,
+  arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
+  title=\textbf{Mẹo},fonttitle=\small\bfseries\color{white},
+  coltitle=white,colbacktitle=green!45!black}
+% Tương thích ngược: \dieukien{...} -> hộp "Khi nào dùng?"
+\newcommand{\dieukien}[1]{\begin{dieukienbox}#1\end{dieukienbox}}
+% Hộp công thức (Phụ lục B) — mỗi công thức một khung cho dễ nhìn
+\newtcolorbox{ctbox}{colback=gray!5,colframe=gray!60!black,boxrule=0.5pt,
+  arc=3pt,left=8pt,right=8pt,top=5pt,bottom=5pt,breakable}
+% Hộp Lưu ý / cảnh báo (phân biệt khái niệm dễ nhầm)
+\newtcolorbox{luuybox}{colback=orange!6,colframe=orange!75!black,boxrule=0.6pt,
+  arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
+  title=\textbf{Lưu ý},fonttitle=\small\bfseries\color{white},
+  coltitle=white,colbacktitle=orange!75!black}
+
+\title{\textbf{Phương trình Đạo hàm riêng}\\[2pt]\large Sổ tay dạng bài \& phương pháp}
+\author{}\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+% Sinh tự động bởi build-exam.ps1: \input mỗi exam/problem-types/<id>/prob.tex
+\IfFileExists{_problems.tex}{\input{_problems.tex}}{%
+  \section*{(Chưa có dạng bài)}
+  Tài liệu trống. Dùng \texttt{\#capture <đề bài>} trong Claude Code để sinh dạng bài,
+  rồi chạy \texttt{tools\textbackslash build-exam.ps1} để biên dịch lại.
+}
+
+% === PHỤ LỤC (tra cứu nhanh; mọi dạng bài giả định đã biết) ===
+\appendix
+
+% Phụ lục A: khái niệm, gom theo cụm
+\IfFileExists{_concepts.tex}{%
+  \section{Khái niệm}
+  \emph{Định nghĩa ngắn gọn, gom theo cụm. Mọi phương pháp ở trên giả định đã biết.}
+  \medskip
+  \input{_concepts.tex}
+}{}
+
+% Phụ lục B: công thức & tích phân thường gặp
+\IfFileExists{_integrals.tex}{%
+  \newpage
+  \section{Công thức \& tích phân thường gặp}
+  \emph{Sổ tra công thức/tích phân dùng lại nhiều lần.}
+  \medskip
+  \input{_integrals.tex}
+}{}
+
+% Phụ lục C: kỹ thuật tính toán (bổ trợ)
+\IfFileExists{_techniques.tex}{%
+  \newpage
+  \section{Kỹ thuật tính toán}
+  \emph{Các thủ thuật tính tích phân/biến đổi bổ trợ khi giải.}
+  \medskip
+  \input{_techniques.tex}
+}{}
+
+\end{document}

@@ -1,0 +1,450 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2024-2025 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K67
+
+Ngành học: Toán học - SP Toán
+
+Thời gian làm bài 90 phút (không kể thời gian phát đề)
+
+Câu 1. (2 điểm) Xét trụ tứ giác Q = {(x, y, z) ∈ R3 : z + 1 > 2|y| > 2z, 0 < x < 1}. (a) Vẽ trụ tứ giác Q. (b) Chứng minh rằng trụ tứ giác Q là miền chính quy. Từ đó hãy chứng minh tồn tại duy nhất một hàm Green đối với Q.
+
+Câu 2. (4 điểm) Xét bài toán Cauchy cho phương trình truyền sóng utt(x, y, z, t) = ∆u(x, y, z, t) + χ[0,1](t)χ[−1,1](x), (x, y, z) ∈ R3, t > 0,
+với các điều kiện ban đầu u(x, y, z, 0) = 0 và
+
+ut(x, y, z, 0) = χB1(0,0,2)(x, y, z) − χB1(0,0,−2)(x, y, z), trong đó Br(x, y, z) là hình cầu tâm (x, y, z) bán kính r. Hãy tính u(100, y, 0, t), y ∈ R, t > 0. Câu 3. (3,5 điểm) Xét bài toán biên cho phương trình Laplace trong góc phần tư vành khăn
+uxx(x, y) + uyy(x, y) = 0, khi x > 0, y > 0, 1 < x2 + y2 < 4,
+
+với điều kiện biên ux(0, y) = uy(x, 0) = 0 khi 1 < x, y < 2, và u(x, y) = 2x khi x2 + y2 = 1, u(x, y) = y khi x2 + y2 = 4.
+
+(a) Sử dụng phép phản xạ Schwarz qua trục tung x = 0 rồi qua trục hoành y = 0 bài toán đang xét chuyển thành bài toán nào trong vành khăn? Từ đó chứng minh rằng 0 < u(x, y) < 2. (b) Giải bài toán đang xét.
+
+Câu 4. (2,5 điểm) Cho u là nghiệm bị chặn của bài toán biên - ban đầu cho phương trình
+
+ut(x, t) = uxx(x, t) + f (x, t), x ∈ R, t > 0,
+
+điều kiện ban đầu u(x, 0) = g(x), x ∈ R.
+(i) Với f = 0, g(x) = χ[a−12,b](x), với a là tháng sinh, b là ngày sinh của sinh viên. Chứng minh rằng, từ công thức Poisson, nghiệm u(x, t) ∈ (0, 1), x ∈ R, t > 0. (ii) Với f (x, t) = e−t cos(cx) (c là năm sinh của sinh viên ), g(x) = χ[a−12,b](x) (ở ý (i)), hãy tính tường minh nghiệm u(x, t).
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2024-2025 Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306 Dành cho sinh viên khoá: K67
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán học - SP Toán
+
+Lời giải 1.
+
+(a) Vẽ trụ tứ giác Q. (b) Tại các điểm trên biên ∂Q trừ đoạn I = {(x, 0, 0) : x ∈ (0, 1)} đều thỏa mãn điều kiện hình cầu ngoài nên chúng chính quy. Trong hệ tọa độ trụ x = x, y = r sin θ, z = r cos θ ta có:
+
+Q = {0 < x < 1, π/4 < θ < 7π/4, 0 < r < 1/(2| sin θ| − cos θ)},
+
+∆u
+
+=
+
+vxx
+
++
+
+vrr
+
++
+
+1 r
+
+vr
+
++
+
+1 r2
+
+vθθ
+
+với
+
+v(x,
+
+r,
+
+θ)
+
+=
+
+u(x,
+
+r
+
+sin
+
+θ,
+
+r
+
+cos
+
+θ).
+
+Khi đó hàm v = r1/2 sin((θ − π/5)/2) là hàm cản đối với Q tại các điểm biên (x, 0, 0) ∈ I. Do đó Q là miền chính quy.
+
+Khi đó với mỗi X = (x, y, z) ∈ Q, do hàm E(X − ·) liên tục trên biên ∂Q nên bài toán biên
+
+∆Φ = 0 trong Q, Φ = E(X − ·) trên ∂Q
+
+đều có nghiệm. Theo NLCĐ nghiệm này là duy nhất. Từ đó dẫn đến hàm Green đối với Q là tồn tại và duy nhất.
+
+[2 điểm] 0.5 0.5 0.5
+0.5
+
+Lời giải 2.
+
+Tách nghiệm u = v + (u1 − u2) với v và uj, j = 1, 2, là nghiệm của
+
+vtt 
+v(x, y, z, 0) vt(x, y, z, 0)
+
+= ∆v + χ[0,1](t)χ[−1,1](x),
+
+ u
+
+jtt
+
+
+
+= 0,
+
+và uj(x, y, z, 0)
+
+= 0,
+
+ujt(x, y, z, 0)
+
+= ∆uj, = 0, = ψj,
+
+trong đó ψj = χB1(0,0,zj), z1 = 2, z2 = −2. Do hai hình cầu B1(0, 0, zj) đối xứng nhau qua mặt phẳng z = 0 nên
+
+u1(x, y, 0, t) = u2(x, y, 0, t).
+
+[4 điểm] 0.5
+0.5
+
+Do χ[0,1](t)χ[−1,1](x) không phụ thuộc y, z nên v cũng thế. Khi đó:
+
+0.5
+
+v(100, y, 0, t) = 1 2
+
+∆
+
+χ[0,1] (τ )χ[−1,1] ( x )d x dτ
+
+=
+
+|∆ ∩ R| 2
+
+với ∆ = {100 − (t − τ) < x < 100 + (t − τ), 0 < τ < t}, R = [−1, 1] × [0, 1].
+
+Khi đó ta có
+
+1
+
+v(100, y, 0, t) = 0 khi 0 < t < 99, 1 khi t > 102.
+
+1
+
+ (99−t)2
+
+  
+
+4
+
+khi 99 < t < 100,
+
+v(100, y, 0, t) =
+
+2t−199 4
+
+khi 100 < t < 101,
+
+ 1
+
+−
+
+(102−t)2 4
+
+khi 101 < t < 102.
+
+Như vậy
+
+0.5
+
+u(100, y, 0, t) = v(100, y, 0, t) + (u1(100, y, 0, t) − u2(100, y, 0, t)) = v(100, y, 0, t).
+
+Lời giải 3.
+
+[3.5 điểm]
+
+(a) Do ux(0, y) = 0, uy(x, 0) ta thác triển chẵn theo x, rồi chẵn theo y hàm u từ góc phần 0.5 tư vành khăn thành hàm U trên toàn vành khăn. Hàm U thỏa mãn bài toán
+
+Uxx(x, y) + Uyy(x, y) = 0, khi 1 < x2 + y2 < 4,
+
+với điều kiện biên U(x, y) = 2|x| khi x2 + y2 = 1, U(x, y) = |y| khi x2 + y2 = 4.
+
+Do
+
+0.5
+
+0 ≤ 2|x| ≤ 2 khi x2 + y2 = 1, 0 ≤ |y| ≤ 2 khi x2 + y2 = 4
+
+và hàm hằng là hàm điều hòa nên theo NLSS ta có
+
+0 ≤ U(x, y) ≤ 2, 1 < x2 + y2 < 4.
+
+Dùng NLCĐ mạnh với lưu ý U(x, y) là hàm điều hòa, khác hằng trên biên, ta có đpcm.
+
+0.5
+
+(b)Trong hệ tọa độ cực x = r cos θ, y = r sin θ ta có điều kiện biên:
+
+0.5
+
+vθ(r, 0) = vθ(r, π/2) = 0, v(1, θ) = 2 cos θ, v(2, θ) = 2 sin θ.
+
+Do vθ(r, 0) = vθ(r, π/2) = 0 nên chuỗi nghiệm
+
+0.5
+
+∞
+v(r, θ) = a0 ln r + b0 + ∑ (anr2n + bnr−2n) cos(2nθ). n=1
+
+Do v(1, θ) = 2 cos θ, v(2, θ) = 2 sin θ nên
+
+0.5
+
+b0 = 2
+
+π/2
+2 cos θdθ
+
+=
+
+4 , a0 ln 2 + b0
+
+=
+
+2
+
+π/2
+2 sin θdθ
+
+=
+
+4;
+
+π0
+
+π
+
+π0
+
+π
+
+an + bn = 4 π
+
+π/2
+2 cos θ cos(2nθ)dθ
+0
+
+=
+
+8(−1)n π(1 − 4n2) ,
+
+4nan + 4−nbn = 4 π
+
+π/2 0
+
+2 sin θ
+
+cos(2nθ)dθ
+
+=
+
+π(1
+
+8 − 4n2) .
+
+Do đó
+
+0.5
+
+a0
+
+=
+
+0, b0
+
+=
+
+4 , an π
+
+=
+
+π
+
+8(1 − (−4)−n) (1 − 4n2)(4n − 4−n
+
+)
+
+,
+
+bn
+
+=
+
+8((−4)n − 1) π(1 − 4n2)(4n − 4−n)
+
+Như vậy
+
+v(r, θ)
+
+=
+
+4 π
+
++
+
+∞
+∑
+n=1
+
+π(1
+
+−
+
+8 4n2)(4n
+
+− 4−n)
+
+r2n(1 − (−4)−n) + r−2n((−4)n − 1)
+
+cos(2nθ).
+
+Lời giải 4.
+
+(a) Dùng công thức Poisson ta có
+
+u(x, t) = √1 2 πt
+√ Đổi biến z = (y − x)/ 4t ta có
+
+b
+
+e−
+
+(x−y)2 4t
+
+dy.
+
+a
+
+u(x, t)
+
+=
+
+1 2
+
+er f ( b√− x ) − er f ( a√− x )
+
+4t
+
+4t
+
+.
+
+Do b > a, hàm er f tăng thực sự và −1 < er f (z) < 1, z ∈ R, nên ta có đpcm. (b) Dùng Duhamel ta có
+
+u(x, t) = √1
+
+b
+
+e−
+
+(x−y)2 4t
+
+dy
+
++
+
+t
+v(x, t − τ, τ)dτ
+
+2 πt a
+
+0
+
+với v(x, t, τ) (với τ > 0 cố định) là nghiệm của bài toán
+
+vt = vxx với v(x, t, τ) = e−τ cos(cx).
+
+Dùng công thức Poisson:
+
+v(x, t, τ) = √1
+
+∞
+
+e−
+
+(x−y)2 4t
+
+e−τ
+
+cos(cy)dy
+
+=
+
+e−(c2t+τ) cos(cx).
+
+4πt −∞
+
+Như vậy
+
+u(x,
+
+t)
+
+=
+
+1 2
+
+er f ( b√− x ) − er f ( a√− x )
+
+4t
+
+4t
+
+e−t − e−c2t + c2 − 1 cos(cx).
+
+[2.5 điểm] 0.5
+0.5 1
+0.5
+
+Hà Nội, ngày 12 tháng 05 năm 2025 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

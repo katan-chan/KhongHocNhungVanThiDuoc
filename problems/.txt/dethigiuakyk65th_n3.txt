@@ -1,0 +1,56 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2022-2023 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 3
+
+Dành cho sinh viên lớp: K65
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét phương trình sau:
+
+(x + 1)2uxx(x, y) + 2(x + 1)eyuxy(x, y) + 2e2y[uyy(x, y) + uy(x, y)] + (x + 1)3ux(x, y) = 0
+
+trong B = {x2 + y2 < 1}.
+
+(a) Xác định dạng và chuyển phương trình đang xét về dạng chính tắc.
+
+(b) Giả sử u là hàm khả vi liên tục đến cấp 2 trong B thỏa mãn phương trình đang xét và u liên tục trên B¯. Chứng minh rằng u đạt giá trị lớn nhất trên biên ∂B.
+
+(c) Giả sử u là nghiệm của phương trình đang xét và liên tục đến tận biên, có giá trị trên biên u(x, y) = (x + 1)2 khi x2 + y2 = 1. Chứng minh rằng u(x, y) = (x + 1)2 trong B.
+Câu 2. Xét bài toán biên - ban đầu cho phương trình truyền sóng:
+
+utt(x, t) = 4uxx(x, t), x > 0, t > 0, với điều kiện biên Dirichlet u(0, t) = 0 và điều kiện ban đầu
+
+u(x, 0) = 0, ut(x, 0) = (x − 1)χ[1,2](x).
+
+(a) Xác định sóng tiến - sóng lùi.
+
+(b) Vẽ đồ thị nghiệm u(x, t) tại các thời điểm t = 1, 2, 3.
+
+(c) Xác định tập điểm kỳ dị của nghiệm. Câu 3. Xét bài toán biên cho phương trình Laplace trong hình tròn:
+uxx(x, y) + uyy(x, y) = 0 trong B = {x2 + y2 < 4},
+
+với điều kiện biên
+
+u(x, y) = 0, −y,
+
+x2 + y2 = 4, −2 ≤ x ≤ 0, x2 + y2 = 4, 0 ≤ x ≤ 2.
+
+(a) Dùng công thức Poisson tính u(x, 0).
+
+(b) Dùng phương pháp tách biến giải bài toán đang xét.
+
+Thang điểm. Câu 1: 3đ+2đ+1,5đ. Câu 2: 2,5đ+2đ+1đ. Câu 3: 1,5đ+1,5đ.
+
+

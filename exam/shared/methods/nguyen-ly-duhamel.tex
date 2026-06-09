@@ -1,0 +1,45 @@
+% method: nguyen-ly-duhamel
+\begin{dieukienbox}
+Dùng khi: phương trình sóng \textbf{có nguồn} $u_{tt}-c^2\Delta u=f$,
+dữ liệu ban đầu bằng $0$ (hoặc đã tách phần do dữ liệu ban đầu bằng chồng chất).
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Định nghĩa $w(x,t;s)$:} với mỗi $s$ cố định, $w$ giải phương trình \emph{không có nguồn}
+$w_{tt}=c^2\Delta w$, nhưng đặt dữ liệu tại $t=s$ với \textbf{vận tốc đầu $=f(\cdot,s)$} (lát cắt nguồn):
+\[
+  \begin{cases}
+    w_{tt} = c^2\Delta w & (t>s),\\
+    w(x,s;\,s) = 0 & (\text{vị trí đầu}=0),\\
+    w_t(x,s;\,s) = f(x,s) & (\text{vận tốc đầu}=f\neq0).
+  \end{cases}
+\]
+\textbf{Nguyên lý Duhamel} --- gộp theo $s$:
+\[
+  u(x,t) = \int_0^t w(x,t;\,s)\,ds .
+\]
+\end{nhobox}
+
+\begin{nhobox}
+\textbf{Tìm $w$ thế nào:} dùng đúng công thức nghiệm \emph{không nguồn} đã biết (Kirchhoff/d'Alembert),
+với dữ liệu $g=0$, $h=f(\cdot,s)$, và thay thời gian $t\to t-s$ (vì $w$ chỉ phụ thuộc thời gian trôi $t-s$):
+\[
+  \text{1D (d'Alembert): }\ w=\tfrac12\!\int_{x-(t-s)}^{x+(t-s)}\! f(\xi,s)\,d\xi,
+\]
+\[
+  \text{3D (Kirchhoff): }\ w=\frac{1}{4\pi(t-s)}\int_{\partial B_{t-s}(x)}\! f(y,s)\,dS(y).
+\]
+\end{nhobox}
+
+\begin{luuybox}
+\textbf{Đừng nhầm hai chữ ``không nguồn''!}
+\begin{itemize}
+  \item \emph{Phần do dữ liệu} $u^{(g)},u^{(h)}$ (chồng chất): không nguồn $+$ dữ liệu THẬT $(g,h)$. Có thể $=0$ ở vài điểm (vd do đối xứng) --- không liên quan Duhamel.
+  \item \emph{Sóng con $w$} (Duhamel): không nguồn nhưng dữ liệu đầu $=f(\cdot,s)\neq0$, nên $w\neq0$. Đây mới là thứ Duhamel cộng lại.
+\end{itemize}
+``Không nguồn'' nói về \textbf{phương trình} (vế phải $=0$), KHÔNG phải dữ liệu $=0$.
+\end{luuybox}
+
+\begin{meobox}
+$f$ có giá compact theo $s$ (vd $s\in[0,1]$) $\Rightarrow$ tích phân Duhamel tự thu hẹp về đoạn đó.
+\end{meobox}

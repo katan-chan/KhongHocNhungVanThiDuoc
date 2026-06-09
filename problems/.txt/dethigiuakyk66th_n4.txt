@@ -1,0 +1,45 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 4
+
+Dành cho sinh viên lớp: K66
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét phương trình sau
+
+uxx + 7uxy + 10uyy = ex trong R2.
+
+(a) Xác định dạng của phương trình, chuyển về dạng chính tắc.
+
+(b) Tìm nghiệm tổng quát của phương trình. (c) Tìm nghiệm thỏa mãn u(x, 6x) = 3ex, uy(x, 6x) = ex. Kiểm tra lại nghiệm tìm được. Câu 2. Xét bài toán biên cho phương trình Poisson:
+
+uxx(x, y) + uyy(x, y) = 1, 0 < x, y < 1,
+
+với điều kiện biên Neumann
+
+uy(x, 0) = 0, uy(x, 1) = 0
+
+với 0 ≤ x ≤ 1,
+
+ux(0, y) = α + cos(2πy), ux(1, y) = sin2(πy) với 0 ≤ y ≤ 1.
+
+(a) Tìm α để bài toán đang xét vô nghiệm.
+(b) Tìm v(x, y) = bx2 thỏa mãn phương trình đang xét. Khi đó w = u − v thỏa mãn bài toán biên Neumann nào?
+(c) Với α để bài toán đang xét có nghiệm, hãy giải bài toán đã cho.
+Câu 3. Liệt kê một số (ít nhất ba) miền trong không gian 3-chiều có biên chính quy và chỉ ra lý do tại sao chúng chính quy.
+
+Thang điểm. Câu 1: 3đ+1,5đ+1,5đ. Câu 2: 1đ+3đ+3đ. Câu 3: 2đ.
+
+

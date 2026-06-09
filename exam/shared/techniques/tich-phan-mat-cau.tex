@@ -1,0 +1,32 @@
+% technique: tich-phan-mat-cau
+\textbf{Tính tích phân mặt trên mặt cầu} $\displaystyle\int_{\partial B_R(x)}\phi\,dS$.
+
+\emph{Đổi sang góc đặc:} viết $y=x+R\,\omega$ với $\omega\in S^2$ (vector đơn vị), $dS=R^2\,d\omega$:
+\[
+  \int_{\partial B_R(x)}\phi\,dS = R^2\!\int_{S^2}\phi(x+R\omega)\,d\omega .
+\]
+\begin{itemize}
+  \item $\phi\equiv c$ (hằng): tích phân $=c\cdot 4\pi R^2$.
+  \item $\phi=\chi_{\text{vùng}}$: tích phân $=$ diện tích phần mặt cầu nằm trong vùng.
+\end{itemize}
+
+\emph{Diện tích chỏm cầu} (phần mặt cầu ứng với góc cực $\alpha\in[0,\theta]$):
+$\;S_{\text{chỏm}}=2\pi R^2(1-\cos\theta)=2\pi R\,h$, với $h=R(1-\cos\theta)$.
+
+\emph{Mặt cầu $\partial B_R(x)$ cắt quả cầu $B_\rho(c)$} (phần trong là chỏm cầu); ký hiệu:
+$R$ bán kính mặt cầu, $\rho$ bán kính quả cầu, $d=|x-c|$ khoảng cách hai tâm:
+\[
+  \cos\theta=\frac{R^2+d^2-\rho^2}{2Rd}
+  \qquad(\le-1:\text{ trọn trong};\ \ge 1:\text{ ngoài hẳn}).
+\]
+
+\smallskip
+\emph{Ví dụ.} Tính $\displaystyle\int_{\partial B_R(x)}\chi_{B_\rho(c)}\,dS$ với $R=2$, $\rho=1$, $d=|x-c|=2$.
+Đây là diện tích phần mặt cầu bán kính $2$ nằm trong quả cầu bán kính $1$ tâm $c$. Tính góc mở:
+\[
+  \cos\theta=\frac{R^2+d^2-\rho^2}{2Rd}=\frac{4+4-1}{2\cdot2\cdot2}=\frac{7}{8}\ \in(-1,1)\ \Rightarrow\ \text{có cắt}.
+\]
+Diện tích chỏm cầu:
+\[
+  \int_{\partial B_R(x)}\chi_{B_\rho(c)}\,dS = 2\pi R^2(1-\cos\theta)=2\pi\cdot4\cdot\Big(1-\tfrac78\Big)=\pi.
+\]

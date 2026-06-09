@@ -1,0 +1,53 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2025-2026 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên lớp: K68
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Cho phương trình cấp hai sau:
+
+4uxx + 12uxy + 9uyy + 2ux + 3uy = e2x−y.
+
+(a) Xác định dạng của phương trình và các đường đặc trưng. Vẽ các đường đặc trưng trong mặt phẳng Oxy.
+
+(b) Xác định dạng chính tắc của phương trình và tìm nghiệm tổng quát của phương trình.
+
+(c) Tìm các hằng số a, b sao cho phương trình có nghiệm thỏa mãn uy(2x, 3x) = aex + be−x. Khi đó hãy viết ra hai nghiệm thỏa mãn.
+
+Câu 2. Xét phương trình truyền sóng
+
+utt = uxx (x ∈ R+, t > 0),
+
+với điều kiện biên: ux(0, t) = 0, và điều kiện ban đầu
+
+x2  u(x, 0) = 2 − x 0
+
+nếu 0 ≤ x ≤ 1, nếu 1 ≤ x ≤ 2, còn lại,
+
+ut(x, 0) = χ(0,1)(x).
+
+(a) Thác triển các hàm số điều kiện ban đầu thành hàm trên toàn trục. Xác định sóng tiến, sóng lùi.
+
+(b) Vẽ nghiệm u của bài toán đã cho tại thời điểm tại t = 1/2, 1, 3/2. Hàm số u(x, 1/2) không liên tục tại đâu?
+Câu 3. Cho λ là một số thực tùy ý. Giả sử u là một nghiệm trơn của phương trình uxx + uyy = λu trong Q = {(x, y) : 0 < x, y < 1},
+với điều kiện biên ux(0, y) = ux(1, y) = 0, u(x, 0) = u(x, 1) = 0.
+(a) Xét tích phân I(u) = Q(u2x + u2y)dxdy. Chứng minh rằng I(u) = −λ Q u2dxdy.
+
+(b) Chứng minh rằng u ≡ 0 khi λ ≥ 0.
+
+Thang điểm. Câu 1: 1.0đ+3.5đ+2.5đ. Câu 2: 3.0đ+2.0đ. Câu 3: 2.0đ+1.0đ.
+
+

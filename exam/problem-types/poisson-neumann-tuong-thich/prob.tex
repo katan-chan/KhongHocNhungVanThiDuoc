@@ -1,0 +1,85 @@
+% problem-type: poisson-neumann-tuong-thich
+% order: 90
+% Nguon: De thi MAT3365 (PTDHR), HK2 2023-2024, K67 Toan tin, Cau 1. (tu giai, KHONG co dap an chinh thuc)
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Poisson--Neumann trong quạt --- điều kiện tương thích \& năng lượng}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Xét bài toán biên Neumann cho phương trình Poisson
+\[
+  \Delta u=1\ \text{trong } Q=\{(x,y): 1<y<x,\ (x-1)^2+(y-1)^2<1\},
+\]
+với $\partial_\nu u=0$ khi $(x-y)(1-y)=0$ (hai cạnh thẳng) và $\partial_\nu u=x+C$ trên cung
+$(x-1)^2+(y-1)^2=1$. \ (a) Tìm $C$ để có nghiệm. (b) Bằng tích phân năng lượng, chỉ ra có vô số
+nghiệm sai khác hằng số. (c) Giải bài toán.
+
+\emph{\small(Nguồn: Đề thi MAT3365 --- PTĐHR, HK2 2023--2024, K67 Toán tin, Câu 1. Lời giải dưới đây tự soạn.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item Bài toán \textbf{Neumann} (cho $\partial_\nu u$ trên TOÀN biên) cho Laplace/Poisson.
+  \item Phải kiểm tra \textbf{điều kiện tương thích} mới có nghiệm; nghiệm KHÔNG duy nhất (sai khác hằng).
+\end{itemize}
+\begin{meobox}
+Tương thích: tổng thông lượng biên $\int_{\partial}\partial_\nu u=$ tích phân nguồn $\iint_Q\Delta u$ ($=$ diện tích nếu nguồn $=1$).
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\subsubsection*{Tích phân năng lượng (sai khác hằng)}
+\input{shared/techniques/tich-phan-nang-luong.tex}
+\subsubsection*{Tách biến cực để giải}
+\input{shared/methods/tach-bien-cuc.tex}
+\emph{(Gợi ý đề: đổi sang cực tâm tại đỉnh quạt $x=1+r\cos\theta,\ y=1+r\sin\theta$.)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Hình học miền.} Đổi $x=1+r\cos\theta,\ y=1+r\sin\theta$ (tâm tại đỉnh $(1,1)$): điều kiện
+$y>1\Rightarrow\sin\theta>0$; $y<x\Rightarrow\sin\theta<\cos\theta\Rightarrow\theta<\tfrac{\pi}{4}$. Vậy $Q$ là
+\textbf{quạt} $0<\theta<\tfrac{\pi}{4},\ 0<r<1$; hai cạnh thẳng là $\theta=0$ và $\theta=\tfrac{\pi}{4}$, cung là $r=1$.
+
+\paragraph{(a) Điều kiện tương thích.} Green: $\displaystyle\int_{\partial Q}\partial_\nu u\,ds=\iint_Q\Delta u\,dA=|Q|$.
+Diện tích quạt $|Q|=\tfrac12 r^2\Delta\theta=\tfrac12\cdot1\cdot\tfrac{\pi}{4}=\tfrac{\pi}{8}$. Hai cạnh thẳng cho $0$;
+trên cung $r=1$ có $x=1+\cos\theta$, $ds=d\theta$:
+\[
+  \int_0^{\pi/4}(1+\cos\theta+C)\,d\theta=(1+C)\tfrac{\pi}{4}+\tfrac{\sqrt2}{2}.
+\]
+Cân bằng với $\tfrac{\pi}{8}$: $(1+C)\tfrac{\pi}{4}=\tfrac{\pi}{8}-\tfrac{\sqrt2}{2}\Rightarrow
+\boxed{C=-\tfrac12-\tfrac{2\sqrt2}{\pi}}$.
+
+\paragraph{(b) Sai khác hằng (năng lượng).} Hai nghiệm $u_1,u_2$; hiệu $w=u_1-u_2$ thỏa $\Delta w=0$,
+$\partial_\nu w=0$. Green: $\iint_Q|\nabla w|^2=\int_{\partial Q}w\,\partial_\nu w=0\Rightarrow\nabla w=0\Rightarrow w$ hằng.
+Vậy nghiệm tồn tại thì có vô số, sai khác một hằng số cộng.
+
+\paragraph{(c) Bước 1 --- nghiệm tổng quát.} $\Delta u=1$ có nghiệm riêng $\tfrac{r^2}{4}$ ($\Delta\tfrac{r^2}{4}=1$,
+lại $u_\theta=0$ nên thỏa Neumann hai cạnh). Phần điều hòa với $u_\theta(r,0)=0$ chọn $\cos(\mu\theta)$;
+$u_\theta(r,\tfrac{\pi}{4})=0\Rightarrow\mu=4n$. Bỏ $r^{-4n}$ (chặn tại $0$):
+\[
+  u(r,\theta)=\frac{r^2}{4}+A_0+\sum_{n\ge1}A_n\,r^{4n}\cos(4n\theta).
+\]
+
+\paragraph{(c) Bước 2 --- khớp cung $r=1$.} $\partial_r u|_{r=1}=\tfrac12+\sum_{n\ge1}4nA_n\cos(4n\theta)$
+phải bằng $x+C=1+\cos\theta+C$. Chuyển vế ($\tfrac12+C=-\tfrac{2\sqrt2}{\pi}$):
+\[
+  \sum_{n\ge1}4nA_n\cos(4n\theta)=\cos\theta-\tfrac{2\sqrt2}{\pi}.
+\]
+Hệ $\{\cos(4n\theta)\}$ trực giao trên $[0,\tfrac{\pi}{4}]$ ($\int\cos^2=\tfrac{\pi}{8}$); số hạng hằng tự khử
+(đúng điều kiện (a)). Với $n\ge1$:
+\[
+  4nA_n=\tfrac{8}{\pi}\!\int_0^{\pi/4}\!\cos\theta\cos(4n\theta)\,d\theta
+  =\tfrac{8}{\pi}\cdot\frac{(-1)^{n+1}\sqrt2}{2(16n^2-1)}
+  \Rightarrow A_n=\frac{(-1)^{n+1}\sqrt2}{n\pi(16n^2-1)}.
+\]
+\begin{nhobox}
+\[
+  u(r,\theta)=\frac{r^2}{4}+A_0+\frac{\sqrt2}{\pi}\sum_{n\ge1}\frac{(-1)^{n+1}}{n(16n^2-1)}\,r^{4n}\cos(4n\theta),
+\]
+với $A_0$ tùy ý (sai khác hằng) và $C=-\tfrac12-\tfrac{2\sqrt2}{\pi}$; $x=1+r\cos\theta,\ y=1+r\sin\theta$.
+\end{nhobox}

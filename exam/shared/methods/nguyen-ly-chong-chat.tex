@@ -1,0 +1,23 @@
+% method: nguyen-ly-chong-chat
+\begin{dieukienbox}
+Dùng khi: PDE \textbf{tuyến tính} --- tách bài toán thành nhiều phần đơn giản hơn,
+giải từng phần rồi cộng lại.
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Nguyên lý chồng chất}: với $u_{tt}-\Delta u = f$, $u(0)=g$, $u_t(0)=h$, tách theo VAI TRÒ:
+\[
+  u = \underbrace{u^{(g)} + u^{(h)}}_{\text{phần do DỮ LIỆU (nguồn tắt)}} + \underbrace{u^{(f)}}_{\text{phần do NGUỒN (dữ liệu tắt)}}.
+\]
+\begin{itemize}
+  \item $u^{(g)}$: $u_{tt}=\Delta u$ (không nguồn), $u(0)=g$, $u_t(0)=0$.
+  \item $u^{(h)}$: $u_{tt}=\Delta u$ (không nguồn), $u(0)=0$, $u_t(0)=h$.
+  \item $u^{(f)}$: $u_{tt}-\Delta u=f$ (có nguồn), $u(0)=0$, $u_t(0)=0$ --- dùng Duhamel.
+\end{itemize}
+\textbf{Luôn kiểm tra}: cộng các bài con phải ra lại đúng PDE $+$ dữ liệu của bài gốc.
+\end{nhobox}
+
+\begin{meobox}
+Nếu $h = h_1 - h_2$ (hiệu hai hàm), tách tiếp: $u^{(h)} = u^{(h_1)} - u^{(h_2)}$.
+Ví dụ: $h = \chi_{B_1(0,0,2)} - \chi_{B_1(0,0,-2)}$ $\Rightarrow$ hai bài toán con, xử lý từng quả cầu.
+\end{meobox}

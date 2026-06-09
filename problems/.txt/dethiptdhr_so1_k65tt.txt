@@ -1,0 +1,718 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2021-2022 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K65
+
+Ngành học: Toán tin
+
+Thời gian làm bài 120 phút (không kể thời gian phát đề)
+
+Câu 1. (4 điểm) Xét bài toán biên Dirichlet trong hình tròn cho phương trình Laplace
+
+∆u(x, y) = 0 khi 1 < x2 + y2 < 4, y > |x|,
+
+với điều kiện biên Neumann ∂νu(x, y) = 0 khi y = |x| và
+
+∂νu(x, y) =
+
+2xy + 1 C
+
+khi x2 + y2 = 1, khi x2 + y2 = 4,
+
+trong đó ν là pháp tuyến ngoài đơn vị, C là hằng số. (a) Tìm C để bài toán có nghiệm. (b) Với C tìm được ở câu (a) giải bài toán biên Dirichlet đã cho. (c) Thử lại nghiệm tìm được ở câu (b).
+
+Câu 2. (2.5 điểm) Sử dụng công thức Poisson tính nghiệm tường minh bài toán Cauchy
+ut(x, y, z, t) = 4∆u(x, y, z, t), (x, y, z) ∈ R3, t > 0, u(x, y, z, 0) = e−2x2 sin2(y)χ[1,2](z).
+Câu 3. (2.5 điểm) Giải bài toán biên hỗn hợp cho phương trình truyền nhiệt
+
+ut(x, y, t) = uxx(x, y, t) + uyy(x, y, t), 0 < x < 2, −1 < y < 1, t > 0,
+
+với điều kiện biên: ux(0, y, t) = u(2, y, t) = 0 khi −1 ≤ y ≤ 1, uy(x, −1, t) = uy(x, 1, t) = 0 khi 0 ≤ x ≤ 2,
+và điều kiện ban đầu u(x, y, 0) = x, 0 < x < 2, −1 < y < 1.
+
+Câu 4. (3 điểm) Xét bài toán Cauchy cho phương trình truyền sóng utt(x, y, t) = 9∆u(x, y, t), (x, y) ∈ R2, t > 0,
+
+với điều kiện ban đầu
+
+ 1  u(x, y, 0) = 0 và ut(x, y, 0) = −1
+0
+
+khi |x| > 1, y > 0, khi |x| < 1, y < 0, còn lại.
+
+Tính u(100, 50, t) khi t > 0.
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2021-2022 Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365 Dành cho sinh viên khoá: K65
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán tin
+
+Lời giải 1.
+
+[4 điểm]
+
+Chuyển sang hệ tọa độ cực x = r cos θ, y = r sin θ ta có v(r, θ) = u(r cos θ, r sin θ) thỏa 0.5 mãn phương trình
+
+vrr
+
++
+
+vr r
+
++
+
+vθθ r2
+
+=
+
+0, 1
+
+<
+
+r
+
+<
+
+2, π/4
+
+<
+
+θ
+
+<
+
+3π/4,
+
+và điều kiện biên Neumann vθ(r, π/4) = vθ(r, 3π/4) = 0,
+
+−vr(1, θ) = sin(2θ) + 1, vr(2, θ) = C khi π/4 < θ < 3π/4.
+
+(a) Để bài toán đang xét có nghiệm
+
+0.5
+
+3π/4
+(sin(2θ) + 1 + 2C)dθ = 0
+π/4
+hay C = −1/2. (b)Tìm nghiệm tách biến v(r, θ) = R(r)Φ(θ) thỏa mãn phương trình và hai điều kiện 0.5 vθ(r, π/4) = vθ(r, 3π/4) = 0. Khi đó ta có bài toán Sturm-Liouville:
+Φ (θ) + λΦ(θ) = 0, π/4 < θ < 3π/4, và Φ (π/4) = Φ (3π/4) = 0.
+
+Lời giải bài toán này:
+- khi λ = 0 thì Φ0(θ) = 1, lúc đó R0(r) = a0 + b0 ln(r); - khi λ = 4n2, n = 1, 2, . . . , thì Φn(θ) = cos(2n(θ − π/4)), lúc đó R0(r) = anr2n + bnr−2n. 0.5
+Chuỗi nghiệm
+
+∞
+v(r, θ) = a0 + b0 ln(r) + ∑ (anr2n + bnr−2n) cos(2n(θ − π/4)). n=1
+
+Tính
+
+0.5
+
+∞
+
+vr(r, θ) = b0/r + ∑ 2n(anr2n−1 − bnr−2n−1) cos(2n(θ − π/4)).
+
+n=1
+
+rồi thay vào
+
+−vr(1, θ) = sin(2θ) + 1 = cos(2(θ − π/4)) + 1, vr(2, θ) = C khi π/4 < θ < 3π/4
+
+ta có (đồng nhất hệ số): (-) b0 = −1, 2(a1 − b1) = −1, 2n(an − bn) = 0 khi n ≥ 2; (-) b0/2 = C = −1/2, n(22nan − 2−2nbn) = 0 khi n ≥ 1.
+
+Do đó b0 = −1, a1 = 1/30, b1 = 8/15, an = bn = 0 khi n ≥ 2. Vậy nghiệm
+
+0.5
+
+v(r, θ) = a0 − ln(r) +
+
+r2 30
+
++
+
+8 15r2
+
+cos(2θ − π/2)
+
+hay
+
+u(x,
+
+y)
+
+=
+
+a0
+
+−
+
+ln(x2 + 2
+
+y2)
+
++
+
+xy 15
+
++
+
+16xy 15(x2 + y2)2
+
+.
+
+(c) Ta có
+
+0.5
+
+ux(x,
+
+y)
+
+=
+
+− x2
+
+x +
+
+y2
+
++
+
+y 15
+
++
+
+16(y3 − 3x2y) 15(x2 + y2)3
+
+,
+
+uy
+
+(x,
+
+y)
+
+=
+
+− x2
+
+y +
+
+y2
+
++
+
+x 15
+
++
+
+16(x3 − 3xy2) 15(x2 + y2)3
+
+,
+
+uxx(x, y)
+
+=
+
+x2 − y2 (x2 + y2)2
+
++
+
+64xy(x2 5(x2 +
+
+− y2
+
+y2 )4
+
+)
+
+,
+
+uyy
+
+(x,
+
+y)
+
+=
+
+y2 − x2 (x2 + y2)2
+
++
+
+64xy(y2 − x2) 5(x2 + y2)4 .
+
+√√
+
+Trên y = x có pháp tuyến ν = (−1/ 2, 1/ 2) nên
+
+0.5
+
+∂νu
+
+y=x
+
+=
+
+−
+
+√1 2
+
+(ux
+
+(
+
+x,
+
+x)
+
+−
+
+uy(x, x))
+
+=
+
+0.
+
+√
+
+√
+
+Trên y = −x có pháp tuyến ν = (−1/ 2, −1/ 2) nên
+
+∂νu
+
+y=−x
+
+=
+
+−
+
+√1 2
+
+(ux
+
+(x,
+
+−x)
+
++
+
+uy(x, −x))
+
+=
+
+0.
+
+Trên x2 + y2 = 1 có pháp tuyến ν = −(x, y) nên
+
+∂νu x2+y2=1 = −(xux(x, y) + yuy(x, y)) x2+y2=1 = 1 + 2xy.
+
+Trên x2 + y2 = 4 có pháp tuyến ν = (x/2, y/2) nên
+
+∂νu
+
+x2+y2=4
+
+=
+
+1 2
+
+(xux
+
+(x,
+
+y)
+
++
+
+yuy(x, y))
+
+x2+y2=4
+
+=
+
+−1. 2
+
+Trong quạt ∆u = 0.
+
+Lời giải 2.
+
+[2.5 điểm]
+
+Sử dụng công thức Poisson
+
+0.5
+
+u(x, y, z, t)
+
+=
+
+1 (16πt)3/2
+
+∞
+
+e−2X2
+
+e−
+
+(x−X)2 16t
+
+dX
+
+−∞
+
+∞
+
+sin2(Y)e−
+
+(y−Y)2 16t
+
+dY
+
+−∞
+
+∞
+
+χ[1,2] ( Z )e−
+
+(z−Z)2 16t
+
+dZ.
+
+−∞
+
+Biến đổi 32tX2 + (x − X)2 = (32t + 1)(X − x/(32t + 1))2 + 32tx2/(32t + 1) nên
+
+0.5
+
+√
+
+∞
+
+e−2X2
+
+e−
+
+(x−X)2 16t
+
+dX
+
+=
+
+√
+
+16πt
+
+e . −
+
+2x2 32t+1
+
+−∞
+
+32t + 1
+
+Chú ý sin2(x) = (1 − cos(2x))/2 nên
+
+0.5
+
+√
+
+∞
+
+sin2(Y)e−
+
+(y−Y)2 16t
+
+dY
+
+=
+
+16πt 1 − e−16t cos(2y) .
+
+−∞
+
+2
+
+Đổi
+
+biến
+
+w
+
+=
+
+(Z
+
+−
+
+√ z)/(4 t)
+
+và
+
+chú
+
+ý
+
+hàm
+
+lỗi
+
+er f (x)
+
+=
+
+√2
+
+π
+
+x 0
+
+e−s2
+
+ds
+
+ta
+
+có
+
+0.5
+
+∞
+
+χ[1,2] ( Z )e−
+
+(z−Z)2 16t
+
+dZ
+
+=
+
+√ 4t
+
+−∞
+
+2−√z 4t
+
+e−w2 dw
+
+=
+
+√ 2 πt
+
+1−√z
+
+4t
+
+er f ( 2 −√ z ) − er f ( 1 −√ z )
+
+4t
+
+4t
+
+.
+
+Vậy nghiệm của bài toán
+
+0.5
+
+u(x, y, t)
+
+=
+
+√e−
+
+2x2 32t+1
+
+1 − e−16t cos(2y)
+
+×
+
+×
+
+er
+
+f
+
+(
+
+2−√z 4t
+
+)
+
+−
+
+er
+
+f
+
+(
+
+1−√z 4t
+
+)
+
+.
+
+32t + 1
+
+2
+
+2
+
+Lời giải 3.
+Tìm nghiệm tách biến u(x, y, t) = X(x)Y(y)T(t) ta có các bài toán Sturm-Liouville: (-) X (x) − λX(x) = 0, 0 < x < 2 và X (0) = X(2) = 0 có lời giải
+λ = −(n + 1/2)2π2/4, Xn(x) = cos((n + 1/2)πx/2), n = 0, 1, 2, . . .
+
+(-) Y (y) − µY(y) = 0, −1 < x < 1 và Y (−1) = Y (1) = 0 có lời giải µ = 0, Y0(y) = 1,
+µ = −m2π2/4, Ym(y) = cos(mπ(y + 1)/2), m = 1, 2, . . .
+
+Chuỗi nghiệm
+
+∞
+∑ u(x, y, t) = a0ne−π2t(n+1/2)2/4 cos((n + 1/2)πx/2)+ n=0
+
+∞∞
+
+∑ ∑ +
+
+amne−π2t(m2+(n+1/2)2)/4 cos(mπ(y + 1)/2) cos((n + 1/2)πx/2)
+
+m=1 n=0
+
+với các hệ số được tính bởi
+
+a0n =
+
+2 0
+
+x cos((n
+
++ 1/2)πx/2)dx
+
+=
+
+4(−1)n (n + 1/2)π
+
+−
+
+(n
+
+4 + 1/2)2π2 ,
+
+2
+
+1
+
+amn = x cos((n + 1/2)πx/2)dx cos(mπ(y + 1)/2)dy = 0.
+
+0
+
+−1
+
+Do đó nghiệm
+
+u(x,
+
+y,
+
+t)
+
+=
+
+∞
+∑
+n=0
+
+4[(−1)n(n + 1/2)π (n + 1/2)2π2
+
+−
+
+1] e−π2t(n+1/2)2/4
+
+cos((n
+
++
+
+1/2)πx/2).
+
+[2.5 điểm] 0.5 0.5 0.5
+1
+
+Lời giải 4.
+
+[3 điểm]
+
+Nghiệm u = u1 − u2, với uj là nghiệm của phương trình truyền sóng đã cho với điều kiện 1 ban đầu:
+uj(x, y, 0) = 0, ujt(x, y, 0) = ψj(x, y)
+
+trong đó
+
+ψ1(x, y) =
+
+1 0
+
+khi y > 0, khi y < 0.
+
+ψ2(x, y) =
+
+1 0
+
+khi |x| < 1, khi |x| > 1;
+
+Khi đó ta có
+
+0.5
+
+t
+
+khi 0 < t < 50/3,
+
+u1(100, 50, t) = (50 + 3t)/6 khi t ≥ 50/3;
+
+0.5
+
+ 0
+
+khi 0 < t ≤ 33,
+
+
+
+u2(100, 50, t) = (t − 33)/2 khi 33 < t < 101/3,
+
+1/3
+
+khi t ≥ 101/3.
+
+Vậy nghiệm
+
+1
+
+
+
+t   u(100, 50, t) = (3t + 50)/6 149/6   t/2 + 8
+
+khi 0 < t < 50/3, khi 50/3 ≤ t ≤ 33, khi 33 < t < 101/3, khi t > 101/3.
+
+Hà Nội, ngày 30 tháng 05 năm 2022 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

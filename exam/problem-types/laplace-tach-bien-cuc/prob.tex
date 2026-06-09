@@ -1,0 +1,103 @@
+% problem-type: laplace-tach-bien-cuc
+% order: 70
+% Nguon: De thi MAT3365 (PTDHR), HK1 2025-2026, K68 Toan tin, Cau 1. (tu giai)
+
+\section{Laplace trong quạt/đĩa --- tách biến cực}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Xét bài toán biên trong quạt cho phương trình Laplace $\Delta u(x,y)=0$ trong
+\[
+  Q=\{(x,y):\ x>|y|+1,\ (x-1)^2+y^2<1\},
+\]
+với điều kiện biên $\partial_\nu u(x,y)=0$ khi $x=1-y$; $u(x,y)=0$ khi $x=y+1$; và $u(x,y)=1-2y^2$ khi $(x-1)^2+y^2=1$.
+\begin{itemize}
+  \item[(a)] Vẽ miền $Q$.
+  \item[(b)] Hãy giải bài toán biên đã cho.
+\end{itemize}
+
+\emph{\small(Nguồn: Đề thi MAT3365 --- PTĐHR, HK1 2025--2026, K68 Toán tin, Câu 1. Lời giải dưới đây tự soạn.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item $\Delta u=0$ hoặc $\Delta u=$ hằng, miền là \textbf{quạt / đĩa / vành khăn}.
+  \item Biên cho trên cung tròn cộng các cạnh thẳng $\Rightarrow$ chuyển sang tọa độ cực, tách biến.
+\end{itemize}
+\begin{meobox}
+Cạnh $\theta$ kiểu Neumann $\Rightarrow$ chọn $\cos$, kiểu Dirichlet $\Rightarrow$ chọn $\sin$;
+dữ liệu trên cung định hệ số qua Fourier. Đĩa (chứa gốc) $\Rightarrow$ bỏ $r^{-\mu}$.
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+Tách biến trong tọa độ cực:
+\input{shared/methods/tach-bien-cuc.tex}
+\emph{(Laplacian theo tọa độ: Phụ lục B.)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Nhắc lại đề.} Giải $\Delta u=0$ trên quạt $Q$, Neumann trên cạnh $x=1-y$, Dirichlet $u=0$ trên cạnh $x=y+1$, và $u=1-2y^2$ trên cung $(x-1)^2+y^2=1$.
+
+\paragraph{Bước 1 --- đổi sang tọa độ cực tại đỉnh quạt.}
+Đỉnh của quạt là $(1,0)$. Đặt
+\[
+  x=1+r\cos\theta,\qquad y=r\sin\theta.
+\]
+Khi đó $x>|y|+1 \Leftrightarrow \cos\theta>|\sin\theta| \Leftrightarrow \theta\in(-\tfrac{\pi}{4},\tfrac{\pi}{4})$, còn $(x-1)^2+y^2<1$ cho $0<r<1$. Vậy $Q$ là một quạt đĩa.
+
+\paragraph{Bước 2 --- đọc điều kiện biên theo $\theta$ và $r$.}
+\begin{itemize}
+  \item Cạnh $\theta=\tfrac{\pi}{4}$ là đường $x=y+1$: Dirichlet $u=0$.
+  \item Cạnh $\theta=-\tfrac{\pi}{4}$ là đường $x=1-y$: Neumann $\partial_\nu u=0$.
+  \item Cung $r=1$: $u=1-2y^2=1-2\sin^2\theta=\cos2\theta$.
+\end{itemize}
+
+\paragraph{Bước 3 --- dạng góc (giá trị riêng).}
+Tách $u=R(r)\Theta(\theta)$. Đổi biến $\varphi=\theta+\tfrac{\pi}{4}\in(0,\tfrac{\pi}{2})$ để cạnh Neumann về $\varphi=0$, cạnh Dirichlet về $\varphi=\tfrac{\pi}{2}$. Chọn $\Theta=\cos(\mu\varphi)$ thì $\Theta'(0)=0$ (Neumann tại $\varphi=0$). Dirichlet $\Theta(\tfrac{\pi}{2})=0$:
+\[
+  \cos\!\big(\mu\tfrac{\pi}{2}\big)=0 \ \Rightarrow\ \mu=2k+1,\quad k=0,1,2,\dots
+\]
+
+\paragraph{Bước 4 --- dạng bán kính và nghiệm tổng quát.}
+Quạt đĩa chứa gốc $r=0$ nên bỏ $r^{-\mu}$ (chặn tại $0$): $R=r^{2k+1}$. Vậy
+\[
+  u(r,\theta)=\sum_{k\ge0} a_k\,r^{2k+1}\cos\big((2k+1)(\theta+\tfrac{\pi}{4})\big).
+\]
+
+\paragraph{Bước 5 --- khớp dữ liệu trên cung $r=1$.}
+Với $\varphi=\theta+\tfrac{\pi}{4}$ ta có $\cos2\theta=\cos(2\varphi-\tfrac{\pi}{2})=\sin2\varphi$. Tại $r=1$:
+\[
+  \sum_{k\ge0} a_k\cos\big((2k+1)\varphi\big)=\sin2\varphi \quad\text{trên } (0,\tfrac{\pi}{2}).
+\]
+Hệ $\{\cos((2k+1)\varphi)\}$ trực giao trên $[0,\tfrac{\pi}{2}]$ với $\int_0^{\pi/2}\cos^2=\tfrac{\pi}{4}$, nên
+\[
+  a_k=\frac{4}{\pi}\int_0^{\pi/2}\sin(2\varphi)\cos\big((2k+1)\varphi\big)\,d\varphi.
+\]
+
+\paragraph{Bước 6 --- tính tích phân lượng giác.}
+Tích thành tổng:
+\[
+  \sin(2\varphi)\cos\big((2k+1)\varphi\big)=\tfrac12\big[\sin((2k+3)\varphi)-\sin((2k-1)\varphi)\big].
+\]
+Dùng $\int_0^{\pi/2}\sin(m\varphi)\,d\varphi=\dfrac{1-\cos(m\tfrac{\pi}{2})}{m}$; với $m$ lẻ thì $\cos(m\tfrac{\pi}{2})=0$ nên bằng $\tfrac1m$. Do đó
+\[
+  \int_0^{\pi/2}\sin(2\varphi)\cos((2k+1)\varphi)\,d\varphi
+  =\tfrac12\Big(\frac{1}{2k+3}-\frac{1}{2k-1}\Big)=\frac{-2}{4k^2+4k-3}.
+\]
+Suy ra $a_k=\dfrac{4}{\pi}\cdot\dfrac{-2}{4k^2+4k-3}=-\dfrac{8}{\pi(4k^2+4k-3)}$.
+
+\paragraph{Kết luận.}\leavevmode
+
+\begin{nhobox}
+\[
+  u(r,\theta)=-\frac{8}{\pi}\sum_{k\ge0}\frac{r^{2k+1}\cos\big((2k+1)(\theta+\tfrac{\pi}{4})\big)}{4k^2+4k-3},
+\]
+với $x=1+r\cos\theta,\ y=r\sin\theta$.
+\end{nhobox}
+
+\paragraph{Kiểm tra nhanh.} Tại $\theta=\tfrac{\pi}{4}$: $\cos((2k+1)\tfrac{\pi}{2})=0\Rightarrow u=0$ (Dirichlet \checkmark). Tại $\theta=-\tfrac{\pi}{4}$: $\frac{d}{d\theta}\cos((2k+1)(\theta+\tfrac{\pi}{4}))=-(2k+1)\sin0=0$ (Neumann \checkmark).

@@ -1,0 +1,130 @@
+% problem-type: truyen-song-3d-mien-anh-huong-t0
+% order: 42
+% Nguon: De thi MAT3365 (PTDHR Toan tin), cuoi ky, K68, Cau 3. (co dap an chinh thuc)
+
+\section{Truyền sóng 3D có nguồn --- miền ảnh hưởng \& thời điểm rời cân bằng $t_0$}
+
+\subsection*{Đề bài ví dụ}
+
+Xét bài toán Cauchy cho phương trình truyền sóng
+\[
+  u_{tt}(x,y,z,t)=4\,\Delta u(x,y,z,t)+f(x,y,z,t),\quad (x,y,z)\in\mathbb{R}^3,\ t>0,
+\]
+với điều kiện ban đầu $u(x,y,z,0)=0$ và $u_t(x,y,z,0)=0$, trong đó
+\[
+  f(x,y,z,t)=\chi_{[2024,2026]}(x)-\chi_{[0,1]}(t)\,\chi_B(x,y,z),
+\]
+$B=\{(x,y,z):(x-2025)^2+y^2+z^2\le1\}$.
+
+\begin{enumerate}
+\item[(a)] Tìm thời điểm sớm nhất $t_0$ mà $u(0,0,0,t)$ chuyển từ trạng thái cân bằng sang không cân bằng.
+\item[(b)] Tính $u(0,0,0,t)$ theo $t$.
+\end{enumerate}
+
+\emph{\small(Nguồn: Đề thi MAT3365 --- PTĐHR Toán tin, cuối kỳ, K68, Câu 3. Có đáp án chính thức.)}
+
+\subsection*{Nhận ra dạng này khi nào?}
+
+\begin{itemize}
+\item Sóng 3D có nguồn, hỏi giá trị tại \textbf{một điểm} ở \emph{xa} vùng nguồn $+$ hỏi \textbf{thời điểm bắt đầu} có tín hiệu.
+\item Nguồn \textbf{trộn}: một phần phụ thuộc một biến phẳng ($x$), một phần đối xứng cầu quanh một tâm khác gốc.
+\end{itemize}
+
+\begin{luuybox}
+\textbf{``Trạng thái cân bằng''} $=$ trạng thái nghỉ $u\equiv0$. Dữ liệu ban đầu $u=u_t=0$ nên lúc đầu mọi điểm ở cân bằng.
+Vì sóng \textbf{lan với tốc độ hữu hạn} $c$ (ở đây $c^2=4\Rightarrow c=2$), một điểm $P$ vẫn $u(P,t)=0$ cho tới khi tín hiệu từ vùng nguồn kịp tới. Do đó
+\[
+  t_0=\frac{\operatorname{dist}\big(P,\ \operatorname{supp} f\big)}{c}.
+\]
+\end{luuybox}
+
+\subsection*{Công thức \& phương pháp}
+
+\subsubsection*{Chồng chất: tách nguồn}
+\input{shared/methods/nguyen-ly-chong-chat.tex}
+
+\subsubsection*{Nguyên lý Duhamel (phần nguồn)}
+\input{shared/methods/nguyen-ly-duhamel.tex}
+
+\subsubsection*{Hạ thấp chiều \& đổi biến cầu}
+\input{shared/methods/phuong-phap-ha-thap.tex}
+\emph{(Nguồn chỉ phụ thuộc $x$ $\to$ sóng 1D + d'Alembert. Nguồn đối xứng cầu quanh tâm $O'$ $\to$ đặt $v=\rho\,U$ với $\rho=$ khoảng cách tới $O'$; giá trị tại điểm cách $O'$ một đoạn $R$ là $U(R,t)=v(R,t)/R$.)}
+
+\subsubsection*{Miền phụ thuộc / vận tốc hữu hạn}
+\input{shared/methods/phan-tich-mien-phu-thuoc.tex}
+
+\subsection*{Đề bài \& bài giải}
+
+\paragraph{(a) Thời điểm rời cân bằng $t_0$.}\leavevmode
+
+Điểm hỏi $P=(0,0,0)$. Vùng nguồn $\operatorname{supp} f$ gồm: dải $\{2024\le x\le2026\}$ (điểm gần $P$ nhất có $x=2024$, cách $2024$) và quả cầu $B$ tâm $(2025,0,0)$ bán kính $1$ (điểm gần nhất cách $2025-1=2024$). Vậy
+\[
+  \operatorname{dist}(P,\operatorname{supp} f)=2024,\qquad c=2\ \Rightarrow\ t_0=\frac{2024}{2}=1012.
+\]
+Với $t<1012$ thì $u(0,0,0,t)=0$ (vẫn cân bằng); $t_0=1012$ là lúc rời cân bằng.
+
+\paragraph{(b) Bước 0 --- chồng chất.}\leavevmode
+
+Tuyến tính, tách $u=u_1-u_2$ theo hai phần nguồn ($f_1,f_2$), mỗi $u_j$ có dữ liệu đầu $0$:
+\[
+  (1)\ \begin{cases}u_{1,tt}=4\Delta u_1+f_1\\ u_1(\cdot,0)=u_{1,t}(\cdot,0)=0\end{cases}
+  \quad
+  (2)\ \begin{cases}u_{2,tt}=4\Delta u_2+f_2\\ u_2(\cdot,0)=u_{2,t}(\cdot,0)=0\end{cases}
+\]
+với $f_1=\chi_{[2024,2026]}(x)$, $f_2=\chi_{[0,1]}(t)\chi_{[0,1]}(\rho)$, $\rho=\sqrt{(x-2025)^2+y^2+z^2}$.
+Cộng lại: $u_{tt}=4\Delta u+f_1-f_2=4\Delta u+f$, đúng bài gốc.
+
+\paragraph{(b) Bước 1 --- $u_1$ (nguồn phẳng $\to$ 1D).}
+$f_1$ chỉ phụ thuộc $x$ nên $u_1=v_1(x,t)$ với $v_{1,tt}=4v_{1,xx}+\chi_{[2024,2026]}(x)$, dữ liệu $0$. Duhamel 1D ($c=2$):
+\[
+  u_1(0,0,0,t)=\frac{1}{2c}\iint_{\Delta(0,t)}\!\chi_{[2024,2026]}(x)\,dx\,ds
+  =\frac14\iint_{\Delta(0,t)}\!\chi_{[2024,2026]}(x)\,dx\,ds,
+\]
+$\Delta(0,t)=\{0<s<t,\ 2(s-t)<x<2(t-s)\}$. Đặt $\tau=t-s$, độ dài giao $L(\tau)=\big|[2024,2026]\cap[0,2\tau]\big|$:
+\[
+  L(\tau)=\begin{cases}0,&\tau<1012,\\ 2\tau-2024,&1012\le\tau\le1013,\\ 2,&\tau>1013.\end{cases}
+\]
+Tích phân $u_1=\tfrac14\int_0^t L(\tau)\,d\tau$:
+\[
+  u_1(0,0,0,t)=\begin{cases}
+    0,& 0\le t\le1012,\\[2pt]
+    \dfrac{(t-1012)^2}{4},& 1012\le t\le1013,\\[6pt]
+    \dfrac{2t-2025}{4},& t\ge1013.
+  \end{cases}
+\]
+
+\paragraph{(b) Bước 2 --- $u_2$ (nguồn cầu $\to$ $v=\rho U$).}
+$f_2$ đối xứng cầu quanh $O'=(2025,0,0)$; điểm hỏi $P$ cách $O'$ đúng $R=2025$. Đặt $v=\rho\,U$ thì $v$ thỏa sóng 1D có nguồn $\rho f_2$ (thác triển lẻ theo $\rho$). Tại $\rho=R$:
+\[
+  u_2(0,0,0,t)=U(R,t)=\frac{v(R,t)}{R}
+  =\frac{1}{2cR}\iint_{\Delta(2025,t)}\!\chi_{[0,1]}(s)\,\rho\,\chi_{[-1,1]}(\rho)\,d\rho\,ds,
+\]
+với $\dfrac{1}{2cR}=\dfrac{1}{2\cdot2\cdot2025}=\dfrac{1}{8100}$. Tính ra:
+\[
+  u_2(0,0,0,t)=\begin{cases}
+    0,& 0\le t\le1012\ \text{hay}\ t\ge1014,\\[2pt]
+    \dfrac{(t-1012)^2(2027-2t)}{3\cdot8100},& 1012\le t\le1013,\\[6pt]
+    \dfrac{(t-1014)^2(2t-2025)}{3\cdot8100},& 1013\le t\le1014.
+  \end{cases}
+\]
+
+\paragraph{(b) Bước 3 --- gộp $u=u_1-u_2$.}\leavevmode
+
+\begin{nhobox}
+\[
+  u(0,0,0,t)=\begin{cases}
+    0,& 0\le t\le1012,\\[2pt]
+    (t-1012)^2\Big(\dfrac14-\dfrac{2027-2t}{3\cdot8100}\Big),& 1012\le t\le1013,\\[8pt]
+    (2t-2025)\Big(\dfrac14-\dfrac{(t-1014)^2}{3\cdot8100}\Big),& 1013\le t\le1014,\\[8pt]
+    \dfrac{2t-2025}{4},& t\ge1014.
+  \end{cases}
+\]
+Khớp (a): bằng $0$ tới $t=1012$ rồi rời cân bằng. Sau $t=1014$ quả cầu (nguồn tắt từ $s=1$) hết ảnh hưởng, chỉ còn phần dải phẳng $u_1$.
+\end{nhobox}
+
+\subsection*{Dạng bài lân cận}
+\begin{itemize}
+\item \textbf{Nguồn phẳng đơn thuần} (hỏi tại điểm xa) --- xem ``đối xứng phẳng (hạ 1 biến)''.
+\item \textbf{Nguồn/dữ liệu đối xứng cầu} --- xem ``đối xứng cầu ($v=ru$)''.
+\item \textbf{Kirchhoff thuần nhất} (bỏ nguồn) --- xem ``Cauchy 3D thuần nhất''.
+\end{itemize}

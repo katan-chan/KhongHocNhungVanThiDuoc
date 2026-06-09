@@ -1,0 +1,133 @@
+% problem-type: nhiet-doan-huu-han-tach-bien
+% order: 65
+% Nguon: De thi MAT2306 (PTDHR 1), cuoi ky 2023-2024, K66, Cau 4. (co dap an chinh thuc)
+
+\section{Nhiệt trên đoạn hữu hạn --- tách biến chuỗi hàm riêng}
+
+\subsection*{Đề bài ví dụ}
+
+Xét bài toán biên --- ban đầu cho phương trình
+\[
+u_t(x,t) = 2\,u_{xx}(x,t) + f(x,t), \qquad 0 < x < 1,\ t > 0,
+\]
+với điều kiện biên
+\[
+u(0,t) = \mu(t), \qquad u_x(1,t) = \nu(t), \qquad t \ge 0,
+\]
+và điều kiện ban đầu $u(x,0) = g(x)$, $0 \le x \le 1$.
+
+\begin{enumerate}
+\item[(a)] Dùng tích phân năng lượng dạng $I(t) = \int_0^1 u^2(x,t)\,dx$ để chứng minh bài toán đã cho có duy nhất nghiệm.
+\item[(b)] Với $\mu(t) = 100$, $\nu(t) = 0$, tìm hàm $v(x)$ thỏa mãn $v''(x) = 0$ và $v(0) = 100$, $v'(1) = 0$. Khi đó hàm $w(x,t) = u(x,t) - v(x)$ thỏa mãn bài toán nào?
+\item[(c)] Giải bài toán cho hàm $w(x,t)$ ở câu (b) khi $f(x,t) = e^{-t}$, $g(x) = 100$. Từ đó giải bài toán ban đầu với các dữ liệu $f, g, \mu, \nu$ cho ở câu (b) và (c).
+\end{enumerate}
+
+\emph{\small(Nguồn: Đề thi MAT2306 --- PTĐHR 1, cuối kỳ 2023--2024, Câu 4. Có đáp án chính thức.)}
+
+\subsection*{Nhận ra dạng này khi nào?}
+
+\begin{itemize}
+\item Phương trình nhiệt (truyền nhiệt/khuếch tán) trên một \textbf{đoạn/thanh hữu hạn} $[0,L]$: $u_t = a\,u_{xx} + f$.
+\item Có điều kiện biên ở \textbf{hai đầu} $x=0$ và $x=L$: kiểu Dirichlet ($u$ cho trước) hoặc Neumann ($u_x$ cho trước), có thể trộn lẫn.
+\item Biên có thể \textbf{KHÔNG thuần nhất} (vế phải $\ne 0$) hoặc phương trình có \textbf{nguồn} $f \ne 0$.
+\item Thường yêu cầu: (a) chứng minh duy nhất nghiệm bằng năng lượng; (b) đưa biên về thuần nhất; (c) giải bằng tách biến.
+\end{itemize}
+
+\begin{meobox}
+Biên KHÔNG thuần nhất $\Rightarrow$ trừ đi \textbf{nghiệm dừng} $v(x)$ để hàm mới $w=u-v$ có biên thuần nhất. Hàm riêng tùy biên:
+\begin{itemize}
+\item Hai đầu Dirichlet $\Rightarrow$ $X_n = \sin(n\pi x/L)$.
+\item Hai đầu Neumann (cách nhiệt) $\Rightarrow$ $X_n = \cos(n\pi x/L)$.
+\item Hỗn hợp Dirichlet--Neumann $\Rightarrow$ $X_n = \sin\!\big((n+\tfrac12)\pi x/L\big)$.
+\end{itemize}
+\end{meobox}
+
+\subsection*{Công thức \& phương pháp}
+
+\begin{dieukienbox}
+Dùng phương pháp này khi: bài nhiệt $u_t = a\,u_{xx} + f$ trên đoạn hữu hạn $[0,L]$, biên Dirichlet/Neumann (có thể không thuần nhất), cần chứng minh duy nhất và/hoặc giải tường minh.
+\end{dieukienbox}
+
+\begin{nhobox}
+Quy trình 3 bước:
+\begin{enumerate}
+\item \textbf{Năng lượng $\Rightarrow$ duy nhất:} đặt $I(t)=\int_0^1 w^2\,dx \ge 0$ cho hiệu hai nghiệm $w=u_1-u_2$. Tính $I'(t)=2\int_0^1 w\,w_t = 2a\int_0^1 w\,w_{xx}$, tích phân từng phần $+$ biên thuần nhất $\Rightarrow I'(t)\le 0$. Vì $I(0)=0$ nên $I\equiv 0 \Rightarrow w\equiv 0$.
+\item \textbf{Nghiệm dừng $\Rightarrow$ biên thuần nhất:} giải $v''=0$ (hoặc $a v''+f_\infty=0$) khớp biên KHÔNG thuần nhất. Đặt $w=u-v$ thì $w$ có biên THUẦN NHẤT.
+\item \textbf{Tách biến chuỗi hàm riêng:} viết $w=\sum_n T_n(t)X_n(x)$, $X_n$ là hàm riêng Sturm--Liouville của biên thuần nhất. Giải ODE $T_n'+a\lambda_n T_n = (\text{hệ số nguồn})$; hệ số đầu lấy từ khai triển $g-v$.
+\end{enumerate}
+\end{nhobox}
+
+\subsection*{Đề bài \& bài giải}
+
+\paragraph{(a) Duy nhất nghiệm bằng năng lượng.}\leavevmode
+
+Giả sử $u_1, u_2$ là hai nghiệm của bài toán. Khi đó $w = u_1 - u_2$ là nghiệm của
+\[
+w_t(x,t) = 2\,w_{xx}(x,t), \qquad 0 < x < 1,\ t > 0,
+\]
+với điều kiện biên $w(0,t) = w_x(1,t) = 0$, $t \ge 0$, và điều kiện ban đầu $w(x,0) = 0$, $0 \le x \le 1$.
+
+Xét $I(t) = \int_0^1 w^2(x,t)\,dx$. Do $w(x,0) = 0$ nên $I(0) = 0$.
+
+Lại có
+\[
+I'(t) = 2\int_0^1 w\,w_t\,dx = 4\int_0^1 w\,w_{xx}\,dx.
+\]
+Tích phân từng phần:
+\[
+I'(t) = 4\left( w\,w_x\Big|_{x=0}^{x=1} - \int_0^1 w_x^2\,dx \right).
+\]
+Vì $w(0,t) = 0$ và $w_x(1,t) = 0$ nên số hạng biên triệt tiêu, do đó
+\[
+I'(t) = -4\int_0^1 w_x^2\,dx \le 0, \qquad t > 0.
+\]
+Suy ra $0 \le I(t) \le I(0) = 0$ với mọi $t > 0$, tức $I(t) = 0$. Vậy $w \equiv 0$, hay $u_1 = u_2$: bài toán có duy nhất nghiệm.
+
+\paragraph{(b) Nghiệm dừng $v(x)$ và bài toán cho $w$.}\leavevmode
+
+Do $v''(x) = 0$ nên $v(x) = ax + b$. Từ $v(0) = 100$ được $b = 100$; từ $v'(1) = 0$ được $a = 0$. Vậy
+\[
+v(x) = 100.
+\]
+Đặt $w(x,t) = u(x,t) - v(x)$. Khi đó $w$ thỏa mãn bài toán \textbf{biên thuần nhất}:
+\[
+w_t = 2\,w_{xx} + f, \qquad 0 < x < 1,\ t > 0,
+\]
+với điều kiện biên $w(0,t) = w_x(1,t) = 0$ và điều kiện ban đầu $w(x,0) = g(x) - 100$.
+
+\paragraph{(c) Tách biến và nghiệm cuối.}\leavevmode
+
+Biên hỗn hợp (Dirichlet tại $0$, Neumann tại $1$) cho hàm riêng $\sin((n+\tfrac12)\pi x)$. Tìm nghiệm dạng chuỗi
+\[
+w(x,t) = \sum_{n=0}^{\infty} T_n(t)\,\sin\!\big((n+\tfrac12)\pi x\big).
+\]
+Với $g(x) = 100$ thì $w(x,0) = g(x) - 100 = 0$, nên $T_n(0) = 0$. Thay $f = e^{-t}$ vào phương trình, mỗi hệ số $T_n$ thỏa
+\[
+T_n'(t) + 2\big(n+\tfrac12\big)^2\pi^2\,T_n(t)
+= 2e^{-t}\int_0^1 \sin\!\big((n+\tfrac12)\pi x\big)\,dx
+= \frac{4e^{-t}}{(2n+1)\pi}.
+\]
+Giải ODE tuyến tính bậc một với $T_n(0)=0$:
+\[
+T_n(t) = \frac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2 - 2\big]}
+\left( e^{-t} - e^{-\frac{(2n+1)^2\pi^2 t}{2}} \right).
+\]
+Ghép lại $u = v + w$:
+
+\begin{nhobox}
+Nghiệm cuối cùng:
+\[
+u(x,t) = 100 + \sum_{n=0}^{\infty}
+\frac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2 - 2\big]}
+\left( e^{-t} - e^{-\frac{(2n+1)^2\pi^2 t}{2}} \right)
+\sin\!\big((n+\tfrac12)\pi x\big).
+\]
+\end{nhobox}
+
+\begin{luuybox}
+Hai biến thể thực tế cùng họ:
+\begin{itemize}
+\item \textbf{Khử hạng tử phản ứng $-cu$:} nếu phương trình có thêm số hạng $-cu$, đổi biến $v = e^{\beta t}u$ (chọn $\beta$ thích hợp) để khử nó trước khi tách biến. Xem Đề MAT2306 cuối kỳ 2022--2023 Câu 4 và 2021--2022 Câu 4.
+\item \textbf{Hai đầu cách nhiệt (Neumann):} thanh/hình chữ nhật hai đầu cách nhiệt cho chuỗi cosine; khi nguồn trùng một mode riêng thì xảy ra cộng hưởng, sinh số hạng dạng $t\,e^{-\lambda t}$. Xem Đề GK MAT3365 (Toán tin) Câu 3.
+\end{itemize}
+\end{luuybox}

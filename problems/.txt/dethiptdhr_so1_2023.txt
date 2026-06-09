@@ -1,0 +1,545 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2022-2023 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306-(1,2)
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K65
+
+Ngành học: Toán học - Toán SP
+
+Thời gian làm bài 90 phút (không kể thời gian phát đề)
+
+Câu 1. (2.5 điểm) Cho nửa mặt phẳng trên H = {(x, y) ∈ R2+ : y > 0}. (a) Giả sử hàm liên tục u : H → R là hàm điều hòa, bị chặn trong H và u(x, 0) = 0, ∀x ∈ R.
+
+Chứng minh rằng u = 0 trong H. Nếu bỏ tính bị chặn đi thì đpcm còn đúng không? Tại sao?
+
+(b) Sử dụng kết quả câu (a) để chứng minh tính duy nhất nghiệm bị chặn của bài toán biên
+
+Dirichlet đối với phương trình Poisson trong nửa mặt phẳng H.
+
+Câu 2. (2.5 điểm) Xét bài toán Cauchy cho phương trình truyền sóng utt(x, y, z, t) = ∆u(x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với các điều kiện ban đầu
+ 2  u(x, y, z, 0) = ϕ(x, y, z) = 0 và ut(x, y, z, 0) = ψ(x, y, z) = 1 0
+
+khi (x, y, z) ∈ D1, khi (x, y, z) ∈ D2, còn lại,
+
+trong đó D1 = {(x, y, z) ∈ R3 : z < 0} \ B2(0, 0, −3), D2 = B1(0, 0, 2), với Br(x, y, z) là hình cầu tâm (x, y, z) bán kính r. Hãy tính u(0, 0, 100, t), t > 0.
+
+Câu 3. (3.5 điểm) Xét bài toán biên cho phương trình Laplace trong góc phần tư dương
+
+uxx(x, y) + uyy(x, y) = 0, khi x > 0, y > 0,
+
+với điều kiện biên ux(0, y) = 0 khi y > 0, và u(x, 0) =
+
+π/2 0
+
+khi 0 ≤ x ≤ 1, khi x > 1.
+
+(a) Sử dụng phép phản xạ Schwarz qua trục tung x = 0 bài toán đang xét chuyển thành bài
+
+toán nào trên nửa mặt phẳng? Sử dụng công thức Poisson tính nghiệm bị chặn của bài toán sau
+
+phép phản xạ.
+
+(b) Tìm nghiệm bị chặn u(x, y) của bài toán đang xét. Từ đó xác định các đường đồng mức của
+
+nghiệm u(x, y).
+
+Câu 4. (3.5 điểm) Xét bài toán biên - ban đầu cho phương trình
+
+ut(x, t) = 2uxx(x, t) − 3u(x, t), 0 < x < 2, t > 0,
+
+với điều kiện biên ux(0, t) = u(2, t) = 0, t ≥ 0, điều kiện ban đầu u(x, 0) = χ[0,1](x), 0 ≤ x ≤ 2.
+
+(a) Sử dụng tích phân năng lượng dạng I(t) =
+
+2 0
+
+u2
+
+(x,
+
+t)dx
+
+để
+
+chứng
+
+minh
+
+bài
+
+toán
+
+đã
+
+cho
+
+có
+
+duy nhất nghiệm.
+
+(b) Tìm các hằng số thực α, β để hàm v(x, t) = eαx+βtu(x, t) thỏa mãn vt(x, t) = 2vxx(x, t). Khi
+
+đó hàm v(x, t) thỏa mãn bài toán nào?
+
+(c) Giải bài toán cho hàm v(x, t) ở câu (b). Từ đó giải bài toán ban đầu.
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2022-2023 Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306-(1,2) Dành cho sinh viên khoá: K65
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán học - Toán SP
+
+Lời giải 1.
+
+[2.5 điểm]
+
+(a) Do u(x, 0) = 0 nên thác triển lẻ hàm u qua trục hoành y = 0 ta được hàm U điều hòa, 1
+
+bị chặn trên toàn mặt phẳng. Do đó U là hằng hay u là hằng. Từ đó ta có u = 0 trên H.
+
+Nếu không có tính bị chặn thì đpcm không còn đúng. Ta có thể lấy u(x, y) = y.
+
+0.5
+
+(b) Giả sử u1, u2 là hai nghiệm bị chặn của bài toán biên Dirichlet đối với phương trình 0.5 Poisson trong H. Khi đó hiệu u = u1 − u2 là hàm điều hòa thỏa mãn câu (a).
+
+Từ câu (a) ta có u = 0 hay u1 = u2 trong H.
+
+0.5
+
+Lời giải 2.
+
+[2.5 điểm]
+
+Sử dụng công thức Kirchhoff:
+
+0.5
+
+u(0, 0, 100,
+
+t)
+
+=
+
+1 4πt
+
+ψ(x, y, z)dS
+
+=
+
+|∂Bt(0, 0, 100)
+
+∩
+
+D2| + 2|∂Bt(0, 0, 100) 4πt
+
+∩
+
+D1| .
+
+∂ Bt (0,0,100)
+
+Khi 0 < t < 97 hay 99 < t < 100 ta có
+
+0.5
+
+u(0, 0, 100, t) = 0.
+
+Khi 97 < t < 99 ta có
+
+0.5
+
+u(x, t)
+
+=
+
+1 4πt
+
+×
+
+πt(1
+
+−
+
+(t − 98
+
+98)2)
+
+=
+
+1
+
+−
+
+(t − 98)2 392 .
+
+Khi 100 < t < 101 hoặc t > 105 ta có
+
+0.5
+
+u(0,
+
+0, 100, t)
+
+=
+
+4πt(t − 100) 4πt
+
+=
+
+t
+
+−
+
+100.
+
+Khi 101 < t < 105 ta có
+
+0.5
+
+u(0, 0, 100, t) = t − 100 − 1 × 2πt(4 − (t − 103)2) = t − 100 − 4 − (t − 103)2 .
+
+4πt
+
+103
+
+206
+
+Lời giải 3.
+
+[3.5 điểm]
+
+(a) Do ux(0, y) = 0 ta thác triển chẵn hàm u từ góc dương thành hàm U trên nửa mặt 0.5 phẳng. Hàm U thỏa mãn bài toán
+
+Uxx(x, y) + Uyy(x, y) = 0, khi − ∞ < x < ∞, y > 0,
+
+với điều kiện biên U(x, 0) = π/2 khi − 1 ≤ x ≤ 1,
+
+0
+
+khi |x| > 1.
+
+Sử dụng công thức Poisson ta có
+
+0.5
+
+U(x, y) = 1 π
+
+R
+
+(z
+
+U(z, 0) − x)2 +
+
+y2
+
+dz
+
+=1 2
+
+1
+
+y
+
+−1 (z − x)2 + y2 dz.
+
+Đổi biến t = (z − x)/y ta có
+
+0.5
+
+U(x, y) = 1 2
+
+−(1+x)/y dt (1−x)/y 1 + t2
+
+0.5
+
+=
+
+arctan((1
+
+−
+
+x)/y)
+
++ 2
+
+arctan((1
+
++
+
+x)/y) ,
+
+x
+
+∈
+
+R, y
+
+>
+
+0.
+
+Như vậy nghiệm của bài toán ban đầu:
+
+0.5
+
+u(x, y)
+
+=
+
+arctan((1
+
+−
+
+x)/y)
+
++ 2
+
+arctan((1
+
++
+
+x)/y) ,
+
+x
+
+>
+
+0,
+
+y
+
+>
+
+0.
+
+Đường đồng mức C > 0 của nghiệm u gồm các điểm (x, y) thỏa mãn
+
+0.5
+
+x2
+
+2y + y2
+
+−
+
+1
+
+=
+
+tan(2u)
+
+=
+
+tan(2C)
+
+hay cung tròn
+
+0.5
+
+x2 +
+
+y
+
+−
+
+1 tan(2C)
+
+2
+
+=
+
+1 tan2(2C)
+
++
+
+1,
+
+x
+
+>
+
+0,
+
+y
+
+>
+
+0.
+
+Lời giải 4.
+
+[3.5 điểm]
+
+(a) Giả sử u1, u2 là hai nghiệm của bài toán. Khi đó w = u1 − u2 là nghiệm của
+
+0.5
+
+wt(x, t) = 2wxx(x, t) − 3w(x, t), 0 < x < 2, t > 0,
+
+với điều kiện biên wx(0, t) = w(2, t) = 0, t ≥ 0, điều kiện ban đầu w(x, 0) = 0, 0 ≤ x ≤ 2.
+
+Xét I(t) =
+
+2 0
+
+w2(x,
+
+t)dx.
+
+Do
+
+w(x,
+
+0)
+
+=
+
+0
+
+nên
+
+I(0)
+
+=
+
+0.
+
+Lại có
+
+0.5
+
+2
+
+2
+
+2
+
+I (t) = 2 w(x, t)wt(x, t)dx = 4 wdwx − 6 w2dx
+
+0
+
+0
+
+0
+
+=4
+
+x=2
+uux −
+x=0
+
+2
+w2x d x
+0
+
+2
+− 6 w2dx
+0
+
+mà wx(0, t) = w(2, t) = 0 nên I (t) ≤ 0, t > 0. Do đó
+
+0 ≤ I(t) ≤ I(0) = 0, ∀t > 0
+
+hay I(t) = 0, t > 0. Như vậy w = 0 hay u1 = u2.
+
+(b) Hàm v(x, t) = eαx+βtu(x, t) có
+
+0.5
+
+vt = βv + eαx+βtut, vxx = α2v + eαx+βt(2αux + uxx).
+
+Mà ut = 2uxx − 3u nên để vt = 2vxx ta có α = 0, β = 3.
+
+0.5
+
+Bài toán cho hàm v(x, t)
+
+0.5
+
+vt = 2vxx, 0 < x < 2, t > 0,
+
+với điều kiện biên vx(0, t) = v(2, t) = 0, điều kiện ban đầu v(x, 0) = χ[0,1](x).
+
+(c) Chuỗi nghiệm
+
+0.5
+
+∞
+∑ v(x, t) = ane−(2n+1)2π2t/8 cos((n + 1/2)πx/2). n=0
+
+Thay vào điều kiện ban đầu v(x, 0) = χ[0,1](x) ta có
+
+0.5
+
+an =
+
+1 0
+
+cos((n
+
++ 1/2)πx/2)dx
+
+=
+
+(2n
+
+4 +
+
+1)π
+
+sin((2n
+
++
+
+1)π/4).
+
+Vậy nghiệm
+
+u(x,
+
+t)
+
+=
+
+e−3t
+
+∞
+∑
+n=0
+
+4
+
+sin((2n + 1)π/4) (2n + 1)π
+
+e−(2n+1)2π2t/8
+
+cos((2n
+
++
+
+1)πx/4).
+
+Hà Nội, ngày 16 tháng 05 năm 2023 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

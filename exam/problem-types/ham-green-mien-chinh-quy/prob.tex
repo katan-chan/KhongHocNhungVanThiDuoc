@@ -1,0 +1,60 @@
+% problem-type: ham-green-mien-chinh-quy
+% order: 100
+% Nguon: De thi MAT2306 (PTDHR 1), HK2 2024-2025, K67, Cau 1. (co dap an chinh thuc)
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Hàm Green \& miền chính quy}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Xét trụ tứ giác $Q=\{(x,y,z)\in\mathbb{R}^3: z+1>2|y|>2z,\ 0<x<1\}$.
+(a) Vẽ $Q$. (b) Chứng minh $Q$ là miền chính quy, từ đó suy ra tồn tại \textbf{duy nhất} một hàm Green đối với $Q$.
+
+\emph{\small(Nguồn: Đề thi MAT2306 --- PTĐHR 1, HK2 2024--2025, K67, Câu 1.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item Đề hỏi về \textbf{hàm Green}, tính \textbf{chính quy} của miền, hoặc giải được bài Dirichlet.
+  \item Thường kèm việc xét từng điểm biên (góc, cạnh) xem có hàm cản không.
+\end{itemize}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+Hai khái niệm cốt lõi ở Phụ lục A: \emph{hàm Green} và \emph{miền chính quy \& hàm cản}. Quy trình:
+\begin{enumerate}
+  \item Với điểm biên ``trơn'': dùng điều kiện \textbf{hình cầu ngoài} $\Rightarrow$ chính quy.
+  \item Với điểm biên ``xấu'' (góc, cạnh): dựng \textbf{hàm cản} cụ thể (thường qua tọa độ trụ/cực).
+  \item Mọi điểm biên chính quy $\Rightarrow$ bài Dirichlet $\Delta\Phi=0,\ \Phi=E(X-\cdot)$ trên $\partial Q$ giải được; NLCĐ cho duy nhất $\Rightarrow$ hàm Green tồn tại \& duy nhất.
+\end{enumerate}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Bước 1 --- điểm biên trơn.} Mọi điểm trên $\partial Q$ \emph{trừ} cạnh
+$I=\{(x,0,0):x\in(0,1)\}$ đều thỏa điều kiện \textbf{hình cầu ngoài} (đặt được quả cầu tiếp xúc ngoài)
+nên chính quy.
+
+\paragraph{Bước 2 --- cạnh xấu $I$, dựng hàm cản.} Đổi sang tọa độ trụ $x=x,\ y=r\sin\theta,\ z=r\cos\theta$:
+\[
+  Q=\Big\{0<x<1,\ \tfrac{\pi}{4}<\theta<\tfrac{7\pi}{4},\ 0<r<\tfrac{1}{2|\sin\theta|-\cos\theta}\Big\},\quad
+  \Delta u=v_{xx}+v_{rr}+\tfrac1r v_r+\tfrac{1}{r^2}v_{\theta\theta}.
+\]
+Cạnh $I$ ứng với $r=0$. Hàm
+\[
+  v=r^{1/2}\sin\!\Big(\frac{\theta-\pi/5}{2}\Big)
+\]
+là \textbf{hàm cản} tại các điểm của $I$: điều hòa; với $\theta\in(\tfrac{\pi}{4},\tfrac{7\pi}{4})$ thì
+$\tfrac{\theta-\pi/5}{2}\in(0,\pi)$ nên $\sin>0$ (dương trong $Q$); và $v\to0$ khi $r\to0$ (triệt tiêu trên $I$).
+Vậy mọi điểm biên đều chính quy $\Rightarrow Q$ chính quy.
+
+\paragraph{Bước 3 --- kết luận.}\leavevmode
+
+\begin{nhobox}
+Mọi điểm biên chính quy $\Rightarrow$ với mỗi $X\in Q$, bài Dirichlet $\Delta\Phi=0$ trong $Q$,
+$\Phi=E(X-\cdot)$ trên $\partial Q$ có nghiệm; NLCĐ $\Rightarrow$ duy nhất. Vậy hàm Green
+$G(X,\cdot)=E(X-\cdot)-\Phi$ \textbf{tồn tại và duy nhất}.
+\end{nhobox}

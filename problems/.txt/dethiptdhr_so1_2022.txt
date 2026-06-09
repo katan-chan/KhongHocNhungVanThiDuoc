@@ -1,0 +1,548 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2021-2022 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306-(1,2)
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K64
+
+Ngành học: Toán học - Toán SP
+
+Thời gian làm bài 120 phút (không kể thời gian phát đề)
+
+Câu 1. (2.5 điểm) Với R > 1, xét miền ΩR = {(x, y, z) ∈ R3 : 1 < x2 + y2 + z2 < R2} trong không gian. Xác định biên của ΩR. Phát biểu tường minh nguyên lý cực đại cho hàm v ∈ C(ΩR) điều hòa trong ΩR. Từ đó hãy chứng minh bài toán biên Dirichlet ngoài hình cầu sau
+∆u = f ngoài B1,
+u = ϕ trên ∂B1,
+trong đó B1 = {(x, y, z) ∈ R3 : x2 + y2 + z2 < 1}, f ∈ C(R3 \ B1), ϕ ∈ C(∂B1) là các hàm cho trước, có tối đa một nghiệm thỏa mãn limr→∞ u(x, y, z) = 0, với r = x2 + y2 + z2.
+
+Câu 2. (2.5 điểm) Xét bài toán Cauchy cho phương trình truyền sóng
+
+utt(x, y, z, t) = 4∆u(x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với các điều kiện ban đầu
+
+u(x, y, z, 0) = ϕ(x, y, z) = 0 và ut(x, y, z, 0) = ψ(x, y, z) = 2χD1(x, y, z) − χD2(x, y, z)
+trong đó D1 = B1(3, 0, −3) ∪ B1(0, 3, −3), D2 = {(x, y, z) ∈ R3 : z < 0}, với Br(x, y, z) là hình cầu tâm (x, y, z) bán kính r. Hãy tính u(0, 0, 100, t), t > 0.
+
+Câu 3. (3.5 điểm) Xét bài toán biên cho phương trình Poisson trong hình vuông
+
+uxx(x, y) + uyy(x, y) = 1, khi − π < x, y < π,
+
+với điều kiện biên Neumann ux(−π, y) = ux(π, y) = 0 khi −π < y < π, và uy(x, −π) = x, uy(x, π) = C khi −π < x < π, trong đó C là hằng số. (a) Tìm một hàm v(x, y) = αx2 + βxy + γy2 thỏa mãn phương trình vxx(x, y) + vyy(x, y) = 1 và điều kiện vx(−π, y) = vx(π, y) = 0. Đặt w = u − v. Hỏi w thỏa mãn bài toán nào? (b) Tìm C để bài toán đã cho có nghiệm. Với C vừa tìm, giải bài toán đã cho.
+
+Câu 4. (3.5 điểm) Xét bài toán biên - ban đầu cho phương trình
+
+ut(x, t) = 2uxx(x, t) − 4u(x, t), 0 < x < 1, t > 0,
+
+thỏa
+
+mãn
+
+các
+
+điều
+
+u(0,
+
+t)
+
+=
+
+ux (1,
+
+t)
+
+=
+
+0,
+
+t
+
+≥
+
+0,
+
+và
+
+u(x,
+
+0)
+
+=
+
+sin(
+
+πx 2
+
+),
+
+0
+
+≤
+
+x
+
+≤
+
+1.
+
+(a) Sử dụng tích phân năng lượng hãy chứng minh bài toán đã cho có duy nhất nghiệm.
+
+(b) Tìm các hằng số thực α, β để hàm v(x, t) = eαx+βtu(x, t) thỏa mãn vt(x, t) = 2vxx(x, t).
+
+Khi đó hàm v(x, t) thỏa mãn bài toán nào?
+
+(c) Sử dụng cách thác triển thích hợp và công thức nghiệm Poisson hãy giải bài toán cho hàm
+
+v(x, t) ở câu (b). Từ đó giải bài toán ban đầu. Thử lại nghiệm tìm được.
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2021-2022 Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306-(1,2) Dành cho sinh viên khoá: K64
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán học - Toán SP
+
+Lời giải 1.
+
+[2.5 điểm]
+
+Biên của ΩR = {1 < x2 + y2 + z2 < R2} gồm hai mặt cầu
+
+0.5
+
+∂B1 = {x2 + y2 + z2 = 1} và ∂BR = {x2 + y2 + z2 = R2}.
+
+Cho v ∈ C(ΩR) là hàm điều hòa trong ΩR. Khi đó
+
+min{m1, mR} ≤ v(x, y, z) ≤ max{M1, MR}, ∀(x, y, z) ∈ ΩR,
+
+trong đó ma = min∂Ba v, Ma = max∂Ba v, a ∈ {1, R}.
+
+Giả sử u1, u2 là các nghiệm của bài toán biên Dirichlet ngoài hình cầu đang xét thỏa mãn 0.5
+
+limr→∞ uj(x, y, z) = 0, j = 1, 2, với r = x2 + y2 + z2. Khi đó hiệu v = u1 − u2 thỏa mãn
+
+bài toán
+
+∆v 
+
+= 0 ngoài B1,
+
+v
+
+= 0 trên ∂B1,
+
+ limr→∞
+
+v(x,
+
+y,
+
+z)
+
+= 0 với r =
+
+x2 + y2 + z2.
+
+Ta sẽ chứng minh v(x, y, z) = 0, ∀x2 + y2 + z2 > 1, bằng cách chứng minh
+
+0.5
+
+|v(x, y, z)| ≤ , ∀x2 + y2 + z2 > 1, ∀ > 0.
+
+Lấy > 0 và điểm (x0, y0, z0) ∈ R3 \ B1, nghĩa là x02 + y02 + z20 > 1. Do limr→∞ v(x, y, z) = 0 nên tồn tại R2 > x02 + y02 + z20 sao cho
+|v(x, y, z)| ≤ , ∀x2 + y2 + z2 ≥ R2.
+
+Khi đó mR = min∂BR v ≥ − , MR = max∂BR v ≤ .
+
+Lại có v = 0 nên sử dụng nguyên lý cực đại cho hàm điều hòa ta có
+
+0.5
+
+∂B1
+
+− ≤ min{0, mR} ≤ v(x, y, z) ≤ max{0, MR} ≤ , ∀(x, y, z) ∈ ΩR.
+
+Nhắc lại 1 < x02 + y02 + z02 < R2 nên |v(x0, y0, z0| ≤ . Ta có đpcm.
+
+0.5
+
+Lời giải 2.
+
+[2.5 điểm]
+
+Sử dụng công thức Kirchhoff:
+
+0.5
+
+u(0, 0, 100,
+
+t)
+
+=
+
+1 16πt
+
+ψ(x,
+
+y,
+
+z)dS
+
+=
+
+2|∂B2t(0, 0, 100)
+
+∩
+
+D1| − |∂B2t(0, 0, 100) 16πt
+
+∩
+
+D2| .
+
+∂ B2t (0,0,100)
+
+Khi 0 < 2√t < 100 ta có u(0, 0, 100, t) = 0.
+
+0.5
+
+Đặt d = 1032 + 32. Ta có 100 < d − 1 < d + 1. Khi 100 < 2t < d − 1 hoặc 2t > d + 1 ta 0.5
+
+có
+
+u(0, 0,
+
+100, t)
+
+=
+
+− 4πt(2t − 100) 16πt
+
+=
+
+50 − 2
+
+t.
+
+√ Do khoảng cách giữa hai tâm (3, 0, −3) và (0, 3, −3) là 18 > 2 nên hai hình cầu 0.5 B1(3, 0, −3) và B1(0, 3, −3) không giao nhau. Ngoài ra từ điểm quan sát (0, 0, 100) đến mỗi hình cầu B1(3, 0, −3) và B1(0, 3, −3) là như nhau, nghĩa là
+
+|∂B2t(0, 0, 100) ∩ B1(3, 0, −3)| = |∂B2t(0, 0, 100) ∩ B1(0, 3, −3)|.
+
+Khi d − 1 < 2t < d + 1 ta có
+
+0.5
+
+u(0, 0, 100, t)
+
+=
+
+50 − 2
+
+t
+
++
+
+1 16πt
+
+×
+
+8πt(1 −
+
+(2t d
+
+−
+
+d)2) .
+
+Lời giải 3.
+
+[3.5 điểm]
+
+(a) Hàm v(x, y) = y2/2.
+
+0.5
+
+Đặt w = u − v thỏa mãn bài toán
+
+0.5
+
+∆w = 0, −π < x, y < π,
+
+với điều kiện biên wx(−π, y) = wx(π, y) = 0 khi −π < y < π, và wy(x, −π) = x + π,
+
+wy(x, π) = C − π, khi −π < x < π.
+
+(b) Từ PT và điều kiện biên wx(−π, y) = wx(π, y) = 0 ta có chuỗi nghiệm
+
+0.5
+
+∞
+w(x, y) = a0 + b0y + ∑ ak cosh
+k=1
+
+k(π + y) 2
+
++ bk cosh
+
+k(π − y) 2
+
+cos
+
+k(π + x) 2
+
+.
+
+Từ điều kiện biên wy(x, −π) = x + π ta có
+
+0.5
+
+b0
+
+=
+
+1 2π
+
+π
+(x + π)dx = π,
+−π
+
+bk
+
+=
+
+− kπ
+
+2 sinh(kπ)
+
+π
+(x
+−π
+
++
+
+π) cos(k(x
+
++
+
+π)/2)dx
+
+=
+
+8((−1)k − 1) πk3 sinh(kπ)
+
+khi
+
+k
+
+=
+
+0.
+
+Từ điều kiện biên wy(x, π) = C − π ta có
+
+0.5
+
+b0 = C − π, ak = 0 khi k = 0.
+
+Như vậy a0 bất kỳ và hằng số C cần tìm C = b0 + π = 2π.
+
+0.5
+
+Vậy nghiệm cần tìm
+
+0.5
+
+u(x, y)
+
+=
+
+y2 2
+
++ πy +
+
+a0
+
+−
+
+16 π
+
+∞
+∑
+n=0
+
+cosh((2n + 1)(π − y)/2) (2n + 1)3 sinh((2n + 1)π)
+
+cos((2n + 1)(x + π)/2).
+
+Lời giải 4.
+
+[3.5 điểm]
+
+(a) Giả sử u1, u2 là hai nghiệm của bài toán. Khi đó w = u1 − u2 là nghiệm của
+
+0.5
+
+wt(x, t) = 2wxx(x, t) − 4w(x, t), 0 < x < 1, t > 0,
+
+với điều kiện biên w(0, t) = wx(1, t) = 0, t ≥ 0, điều kiện ban đầu w(x, 0) = 0, 0 ≤ x ≤ 1.
+
+Xét I(t) =
+
+1 0
+
+w2(x,
+
+t)dx.
+
+Do
+
+w(x,
+
+0)
+
+=
+
+0
+
+nên
+
+I(0)
+
+=
+
+0.
+
+Lại có
+
+0.5
+
+1
+
+1
+
+1
+
+I (t) = 2 u(x, t)ut(x, t)dx = 4 udux − 8 u2dx
+
+0
+
+0
+
+0
+
+=4
+
+x=1
+uux −
+x=0
+
+1
+u2xdx − 2
+0
+
+1
+u2dx
+0
+
+mà u(0, t) = ux(1, t) = 0 nên I (t) ≤ 0, t > 0. Do đó
+
+0 ≤ I(t) ≤ I(0) = 0, ∀t > 0,
+
+hay I(t) = 0, t > 0. Như vậy w = 0 hay u1 = u2.
+
+(b) Hàm v(x, t) = eαx+βtu(x, t) có
+
+0.5
+
+vt = βv + eαx+βtut, vxx = α2v + eαx+βt(2αux + uxx).
+
+Mà ut = 2uxx − 4u nên để vt = 2vxx ta có α = 0, β = 4.
+
+Bài toán cho hàm v(x, t) = e4tu(x, t) :
+
+0.5
+
+vt = 2vxx, 0 < x < 1, t > 0,
+
+với điều kiện biên v(0, t) = vx(1, t) = 0, điều kiện ban đầu v(x, 0) = sin(πx/2).
+
+(c) Do sin(πx/2) thỏa mãn sin(π(−x)/2) = − sin(πx/2), sin(π(2 − x)/2) = sin(πx/2) 0.5
+
+và sin(π(x + 4)/2) = sin(πx/2) nên thác triển lẻ tại x = 0, chẵn tại x = 1 và tuần hoàn
+
+chu kỳ 4 của v(x, 0) = sin(πx/2) chính là sin(πx/2), x ∈ R. Khi đó sử dụng công thức
+
+Poisson ta có
+
+v(x, t) = √1
+
+∞
+
+e−
+
+(x−y)2 8t
+
+sin(πy/2)dy.
+
+2 2πt −∞
+
+Đổi biến z = y − x ta có dy = dz và các cận tích phân giữ nguyên. Khi đó
+
+0.5
+
+v(x, t) = √1
+
+∞
+
+e−
+
+z2 8t
+
+sin(π(x + z)/2)dz
+
+2 2πt −∞
+
+= sin√(πx/2)
+
+∞
+
+e−
+
+z2 8t
+
+cos(πz/2)dz
+
+=
+
+e−π2t/2
+
+sin(πx/2).
+
+2πt 0
+
+Vậy nghiệm u(x, t) = e−(4+π2/2)t sin(πx/2).
+
+Ta có u(x, 0) = sin(πx/2) và ut = −(4 + π2/2)u, uxx = −π2u/4 nên ut = 2uxx − 4u.
+
+0.5
+
+Hà Nội, ngày 30 tháng 05 năm 2022 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

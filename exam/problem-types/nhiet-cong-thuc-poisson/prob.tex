@@ -1,0 +1,107 @@
+% problem-type: nhiet-cong-thuc-poisson
+% order: 50
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Nhiệt toàn không gian --- công thức Poisson}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Cho $u$ là nghiệm bị chặn của
+\[
+  u_t=u_{xx}+f(x,t),\quad x\in\mathbb{R},\ t>0,\qquad u(x,0)=g(x).
+\]
+(i) Với $f=0$, $g=\chi_{[a,b]}$: chứng minh $u(x,t)\in(0,1)$. \quad
+(ii) Với $f=e^{-t}\cos(cx)$, $g=\chi_{[a,b]}$: tính tường minh $u$.
+
+\emph{\small(Nguồn: Đề thi MAT2306 --- PTĐHR 1, HK2 2024--2025, K67, Câu 4 (đề gốc $g=\chi_{[a-12,b]}$). Có đáp án chính thức.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item PDE \textbf{parabolic} $u_t=k\Delta u\,(+f)$ trên toàn không gian, cho dữ liệu ban đầu.
+  \item Toàn $\mathbb{R}^n$, KHÔNG biên không gian. (Có biên $\Rightarrow$ xem dạng bài ``Nhiệt trên miền có biên''.)
+\end{itemize}
+\begin{meobox}
+Dữ liệu là hàm đặc trưng $\Rightarrow$ đáp số ra $\operatorname{erf}$. Dữ liệu $\sin/\cos\Rightarrow$ dùng tích phân cos-Gauss (Phụ lục B).
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\subsubsection*{Công thức Poisson (nhân nhiệt)}
+\input{shared/methods/cong-thuc-poisson-nhiet.tex}
+
+\subsubsection*{Duhamel (khi có nguồn $f$)}
+\input{shared/methods/duhamel-nhiet.tex}
+\emph{(Khử điều kiện biên bằng thác triển: xem Phụ lục C.)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Nhắc lại đề.} $u_t=u_{xx}+f$ trên $\mathbb{R}$, $u(x,0)=g$. (i) $f=0,\ g=\chi_{[a,b]}$: chứng minh
+$u\in(0,1)$. (ii) $f=e^{-t}\cos(cx),\ g=\chi_{[a,b]}$: tính tường minh.
+
+\subsubsection*{(i) $f=0$, $g=\chi_{[a,b]}$}
+
+\paragraph{Bước 1 --- ráp vào công thức Poisson.} Nhân nhiệt với $k=1$:
+\[
+  u(x,t)=\frac{1}{\sqrt{4\pi t}}\int_{-\infty}^{\infty} e^{-(x-y)^2/(4t)}\,g(y)\,dy.
+\]
+Vì $g=\chi_{[a,b]}$ ($=1$ trên $[a,b]$, $=0$ ngoài) nên tích phân chỉ còn trên $[a,b]$:
+\[
+  u(x,t)=\frac{1}{\sqrt{4\pi t}}\int_a^b e^{-(x-y)^2/(4t)}\,dy.
+\]
+
+\paragraph{Bước 2 --- đổi biến để ra dạng Gauss chuẩn.} Đặt $z=\dfrac{y-x}{\sqrt{4t}}\Rightarrow dy=\sqrt{4t}\,dz$.
+Cận: $y=a\to z=\tfrac{a-x}{\sqrt{4t}}$, $y=b\to z=\tfrac{b-x}{\sqrt{4t}}$. Thừa số $\sqrt{4t}$ triệt với
+$\tfrac{1}{\sqrt{4\pi t}}$ còn $\tfrac{1}{\sqrt\pi}$:
+\[
+  u=\frac{1}{\sqrt\pi}\int_{(a-x)/\sqrt{4t}}^{(b-x)/\sqrt{4t}} e^{-z^2}\,dz.
+\]
+
+\paragraph{Bước 3 --- gọi tên bằng erf.} Theo định nghĩa $\operatorname{erf}(w)=\tfrac{2}{\sqrt\pi}\int_0^w e^{-z^2}dz$,
+nên $\int_\alpha^\beta e^{-z^2}dz=\tfrac{\sqrt\pi}{2}\big(\operatorname{erf}\beta-\operatorname{erf}\alpha\big)$:
+\[
+  u(x,t)=\tfrac12\Big(\operatorname{erf}\tfrac{b-x}{\sqrt{4t}}-\operatorname{erf}\tfrac{a-x}{\sqrt{4t}}\Big).
+\]
+\begin{nhobox}
+Vì $b>a$ và $\operatorname{erf}$ tăng nên hiệu hai erf $>0$; lại $\operatorname{erf}\in(-1,1)$ nên hiệu $<2$.
+Vậy $0<u(x,t)<1$.
+\end{nhobox}
+
+\subsubsection*{(ii) Thêm nguồn $f=e^{-t}\cos(cx)$}
+
+\paragraph{Bước 1 --- chồng chất (tách thành 2 bài con).} Phương trình tuyến tính nên bài gốc
+$u_t=u_{xx}+f,\ u(x,0)=g$ tách thành $u=u_g+u_f$, mỗi phần giải 1 bài đơn giản hơn:
+\[
+  (A)\ \begin{cases}(u_g)_t=(u_g)_{xx}\\ u_g(x,0)=g\end{cases}
+  \qquad
+  (B)\ \begin{cases}(u_f)_t=(u_f)_{xx}+f\\ u_f(x,0)=0\end{cases}
+\]
+Kiểm tra: cộng (A)$+$(B) cho $(u_g+u_f)_t=(u_g+u_f)_{xx}+f$ và dữ liệu đầu $g+0=g$ --- đúng bài gốc.
+$u_g$ chính là phần (i) đã giải; còn $u_f$ (không dữ liệu đầu, có nguồn) giải bằng Duhamel dưới đây.
+
+\paragraph{Bước 2 --- dựng sóng con $w$.} Duhamel: $u_f=\int_0^t w(x,t;s)\,ds$, mỗi $w$ giải nhiệt
+\emph{không nguồn} với giá trị đầu tại $\tau=s$ bằng $f(\cdot,s)=e^{-s}\cos(cx)$.
+
+\paragraph{Bước 3 --- giải $w$ bằng hàm riêng.} $\cos(cx)$ là hàm riêng của $\partial_{xx}$ với trị $-c^2$
+($\partial_{xx}\cos cx=-c^2\cos cx$). Thử $w=A(\tau)\cos(cx)$ vào $w_\tau=w_{xx}$: $A'=-c^2A$, $A(s)=e^{-s}$
+$\Rightarrow A(\tau)=e^{-s}e^{-c^2(\tau-s)}$. Tại $\tau=t$:
+\[
+  w(x,t;s)=e^{-s}\,e^{-c^2(t-s)}\cos(cx).
+\]
+
+\paragraph{Bước 4 --- cộng theo $s$ (tính tích phân).} Gom mũ: $e^{-s}e^{-c^2(t-s)}=e^{-c^2 t}e^{(c^2-1)s}$, nên
+\[
+  u_f=\cos(cx)\,e^{-c^2 t}\int_0^t e^{(c^2-1)s}\,ds
+     =\cos(cx)\,e^{-c^2 t}\cdot\frac{e^{(c^2-1)t}-1}{c^2-1}
+     =\frac{e^{-t}-e^{-c^2 t}}{c^2-1}\cos(cx).
+\]
+\begin{nhobox}
+\[
+  u(x,t)=\tfrac12\Big(\operatorname{erf}\tfrac{b-x}{\sqrt{4t}}-\operatorname{erf}\tfrac{a-x}{\sqrt{4t}}\Big)
+  +\frac{e^{-t}-e^{-c^2 t}}{c^2-1}\cos(cx).
+\]
+\end{nhobox}

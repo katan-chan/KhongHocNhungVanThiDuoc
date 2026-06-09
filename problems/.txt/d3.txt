@@ -1,0 +1,65 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2025-2026 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 3
+
+Dành cho sinh viên lớp: K68
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Một thanh kim loại chiều dài π, có nhiệt độ trên thanh tuân theo phương trình truyền
+nhiệt với hệ số dẫn nhiệt 2. Đặt hệ tọa độ lên thanh sao cho một đầu tại gốc, đầu kia tại x = π.
+Đầu thanh tại gốc có nhiệt độ bằng 1 và đầu thanh tại x = π cách nhiệt. Nhiệt độ ban đầu của thanh là f (x) = 1 + cos2(2x) sin(x/2).
+
+(a) Thiết lập bài toán cho hàm biên độ dao động u(x, t) của sợi dây.
+
+(b) Tìm một nghiệm dừng v thỏa mãn phương trình và điều kiện biên. Khi đó w = u − v thỏa mãn bài toán nào?
+
+(c) Sử dụng phương pháp tách biến, hãy tìm w và tìm lại u.
+
+Câu 2. Xét phương trình truyền sóng
+
+utt = 9uxx (x > 0, t > 0),
+
+với điều kiện biên u(0, t) = 0 và với điều kiện ban đầu
+
+u(x, 0) = x(x − 1) 0
+
+nếu 0 ≤ x ≤ 1, ,
+còn lại,
+
+ut(x, 0) = xχ[0,1](x).
+
+(a) Thác triển điều kiện ban đầu. Xác định sóng tiến, sóng lùi.
+
+(b) Vẽ nghiệm u của bài toán đã cho tại thời điểm tại t = 1/3, 2/3, 1.
+
+(c) Xác định các điểm mà hàm số u(x, t) không liên tục.
+
+Câu 3. Cho u là một hàm điều hòa trên miền bị chặn D ⊂ R2. Cho điểm a = (x0, y0) ∈ D và r > 0 sao cho B(a, r) ⊂ D. Đặt M = sup(x,y)∈B(a,r) |u(x, y)|.
+
+(a) Chứng minh rằng ux(x, y) là một hàm điều hòa trên D.
+
+(b)
+
+Chứng minh rằng |ux(a)|
+
+≤
+
+2 r
+
+M.
+
+Thang điểm. Câu 1: 1.5đ+1.0đ+2.5đ. Câu 2: 3.5đ+2.0đ+1.5đ. Câu 3: 1.0đ+2.0đ.
+
+

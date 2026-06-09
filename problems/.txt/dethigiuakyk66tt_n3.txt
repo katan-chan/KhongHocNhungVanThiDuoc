@@ -1,0 +1,72 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2022-2023 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 3
+
+Dành cho sinh viên lớp: K66
+
+Ngành học: Toán Tin
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét bài toán Cauchy cho phương trình cấp 1 sau: (x2 + 1)ux(x, y) + x[y2uy(x, y) − u(x, y)] = 0, x, y ∈ R+,
+
+1. Tìm nghiệm tổng quát của phương trình trên.
+
+2. Tìm a và b để phương trình đang xét có nghiệm thỏa mãn u(x, y) = ae−1/y + b khi
+
+e−
+
+2 y
+
+−
+
+x2
+
+=
+
+1.
+
+Khi
+
+đó
+
+hãy
+
+viết
+
+ra
+
+2
+
+nghiệm
+
+và
+
+kiểm
+
+tra
+
+lại
+
+chúng.
+
+Câu 2. Xét bài toán biên–ban đầu cho phương trình truyền sóng:
+
+utt(x, t) = uxx(x, t), khi 0 < x < 1, t > 0,  u(0, t) = u(1, t) = 0, khi t 0,
+u(x, 0) = x + 1, khi 0 ≤ x ≤ 1,   ut(x, 0) = −1, khi 0 ≤ x ≤ 1.
+
+(a) Thác triển lẻ, tuần hoàn chu kỳ 2 các điều kiện ban đầu. Xác định sóng tiến, sóng lùi của bài toán trên.
+(b) Vẽ đồ thị của hàm dao động u(x, t) tại các thời điểm t = 1, 2, 3. (c) Sử dụng phương pháp tách biến giải bài toán đã cho. Câu 3. Xác định dạng và chuyển về dạng chính tắc phương trình sau: (1 + tan2 y)uxx(x, y) − 4x tan y uxy(x, y) + 4x2uyy(x, y) + ux(x, y) − 2 tan y uy(x, y) = 0, khi x > 0, 0 < y < π/2.
+
+Thang điểm. Câu 1: 3đ+2đ. Câu 2: 3đ+2,5đ+1,5đ. Câu 3: 3đ.
+
+

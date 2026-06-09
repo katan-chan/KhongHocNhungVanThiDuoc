@@ -1,0 +1,100 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên lớp: K66
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét phương trình sau:
+
+x2uxx − 2xyuxy + y2uyy + xux + yuy = 0, x, y > 0.
+
+(a) Xác định dạng của phương trình, chuyển về dạng chính tắc.
+
+(b) Tìm nghiệm tổng quát của phương trình.
+
+(c) Tìm hằng số a, b khác 0 sao cho phương trình đã cho có nghiệm thỏa mãn
+
+u(x, 1/x) = a ln(x) + bx với mọi x > 0.
+
+Khi đó hãy viết ra hai nghiệm.
+
+Câu 2. Xét bài toán Cauchy cho phương trình truyền sóng:
+
+utt = 9uxx, với x ∈ R+, t > 0,
+
+điều kiện biên Neumann ux(0, t) = 0 và điều kiện ban đầu
+
+ 4x, 
+
+nếu
+
+0
+
+<
+
+x
+
+≤
+
+1 4
+
+,
+
+u(x, 0) =
+
+4(
+
+1 2
+
+−
+
+x),
+
+nếu
+
+1 4
+
+<
+
+x
+
+≤
+
+1 2
+
+,
+
+và
+
+0,
+
+còn lại .
+
+ut(x, 0) = −1.
+
+(a) Thác triển điều kiện ban đầu trên R. Xác định sóng tiến–sóng lùi.
+
+(b) Vẽ đồ thị nghiệm u(x, t) tại các thời điểm t = 1/6, 1/3, 1. Tìm tất cả các điểm kỳ dị của nghiệm.
+Câu 3. Xét bài toán biên cho phương trình Laplace trong quạt: uxx(x, y) + uyy(x, y) = 0, x > 0, y > 0, x2 + y2 < 1,
+với điều kiện biên u(x, 0) = 0, với 0 ≤ x ≤ 1, u(0, y) = 0, với 0 ≤ y ≤ 1, và
+u(x, y)|x2+y2=1 = x, với 0 ≤ x ≤ 1, 0 ≤ y ≤ 1.
+(a) Sử dụng nguyên lý cực đại, chứng minh rằng 0 < u(x, y) < x khi x > 0, y > 0, x2 + y2 < 1.
+
+(b) Dùng phương pháp tách biến hãy giải u(x, y).
+
+Thang điểm. Câu 1: 3đ+1,5đ+1,5đ. Câu 2: 2,5đ+2,5đ. Câu 3: 2đ+2đ.
+
+

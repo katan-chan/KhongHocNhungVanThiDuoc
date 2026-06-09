@@ -1,0 +1,18 @@
+% method: cong-thuc-poisson-nhiet
+\begin{dieukienbox}
+Dùng khi: phương trình \textbf{nhiệt} $u_t=k\Delta u$ trên toàn $\mathbb{R}^n$, dữ liệu $u(\cdot,0)=g$.
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Công thức Poisson} (tích chập với nhân nhiệt $\Phi$):
+\[
+  u(x,t)=\int_{\mathbb{R}^n}\Phi(x-y,t)\,g(y)\,dy,\qquad
+  \Phi(x,t)=\frac{1}{(4\pi k t)^{n/2}}\,e^{-|x|^2/(4kt)}.
+\]
+1D: $\displaystyle u(x,t)=\frac{1}{\sqrt{4\pi k t}}\int_{-\infty}^{\infty} e^{-(x-y)^2/(4kt)}\,g(y)\,dy.$
+\end{nhobox}
+
+\begin{meobox}
+$g$ là hàm đặc trưng $\chi_{[a,b]}$ $\Rightarrow$ đổi biến $w=\frac{y-x}{\sqrt{4kt}}$, tích phân ra
+hàm $\operatorname{erf}$ (xem Phụ lục B). Nhiều chiều: nhân nhiệt tách tích theo từng biến.
+\end{meobox}

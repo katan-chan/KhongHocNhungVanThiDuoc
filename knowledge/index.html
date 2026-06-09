@@ -1,0 +1,83 @@
+﻿<!doctype html><html lang="vi"><head><meta charset="utf-8">
+<title>Knowledge graph — PTĐHR</title><style>
+:root{--bg:#0f172a;--card:#1e293b;--ink:#e2e8f0;--mut:#94a3b8;--ac:#38bdf8}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,Segoe UI,sans-serif;background:#f8fafc;color:#0f172a}
+header{background:var(--bg);color:#fff;padding:28px 32px}
+header h1{margin:0;font-size:22px}header p{margin:6px 0 0;color:#cbd5e1}
+main{max-width:1000px;margin:24px auto;padding:0 20px;display:grid;gap:18px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card h2{margin:0 0 12px;font-size:17px;display:flex;align-items:center;gap:10px}
+.count{background:var(--ac);color:#04293f;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #eef2f7}
+th{color:#64748b;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+code{background:#f1f5f9;padding:1px 6px;border-radius:6px;font-size:13px}
+.empty{color:#94a3b8;font-style:italic}
+.tree{font:13px/1.7 ui-monospace,Consolas,monospace;background:#0f172a;color:#cbd5e1;padding:14px 16px;border-radius:10px;white-space:pre;overflow:auto}
+a{color:#0369a1}
+.foot{color:#64748b;font-size:12px;text-align:center;margin:10px 0 30px}
+</style></head><body>
+<header><h1>Knowledge graph — PTĐHR</h1>
+<p>Tầng tri thức (md). Quy ước: <b>file khái niệm tồn tại = đã biết</b>. Cập nhật: chạy lại <code>tools\build-dashboards.ps1</code>.</p></header>
+<main>
+<section class="card"><h2>Cấu trúc thư mục</h2><div class="tree">knowledge/
+  concepts/       khái niệm — file tồn tại = ĐÃ BIẾT
+  problem-types/  dạng bài — liên kết [[concept]] / [[method]] / [[neighbor]]
+  methods/        phương pháp + điều kiện áp dụng</div></section>
+<section class="card">
+  <h2>Khái niệm <span class="count">19</span></h2>
+  <table><thead><tr><th>id</th><th>Tên</th></tr></thead><tbody>
+<tr><td><code>bai-toan-cauchy</code></td><td>Bai toan Cauchy (IVP) cho PDE bac hai theo thoi gian</td></tr>
+<tr><td><code>bai-toan-dirichlet</code></td><td>Bai toan Dirichlet (BVP)</td></tr>
+<tr><td><code>bai-toan-neumann</code></td><td>Bai toan Neumann (BVP)</td></tr>
+<tr><td><code>dieu-kien-tuong-thich-neumann</code></td><td>Dieu kien tuong thich (Neumann)</td></tr>
+<tr><td><code>du-lieu-ban-dau</code></td><td>Du lieu ban dau (vi tri va van toc)</td></tr>
+<tr><td><code>ham-dac-trung-tap-hop</code></td><td>Ham dac trung / chi bao (indicator)</td></tr>
+<tr><td><code>ham-green</code></td><td>Ham Green (bai toan Dirichlet)</td></tr>
+<tr><td><code>hinh-cau-gia-compact</code></td><td>Hinh cau / gia compact cua du lieu</td></tr>
+<tr><td><code>mien-anh-huong-phu-thuoc</code></td><td>Mien anh huong va mien phu thuoc</td></tr>
+<tr><td><code>mien-chinh-quy</code></td><td>Mien chinh quy &amp; ham can (barrier)</td></tr>
+<tr><td><code>nghiem-yeu-phan-bo</code></td><td>Nghiem yeu / nghiem phan bo</td></tr>
+<tr><td><code>nguyen-ly-cuc-dai</code></td><td>Nguyen ly cuc dai (elliptic)</td></tr>
+<tr><td><code>nguyen-ly-huygens</code></td><td>Nguyen ly Huygens manh (so chieu le, 3D)</td></tr>
+<tr><td><code>phan-loai-pde-bac-hai</code></td><td>Phan loai PDE bac hai elliptic/parabolic/hyperbolic</td></tr>
+<tr><td><code>phuong-trinh-khong-thuan-nhat</code></td><td>Phuong trinh khong thuan nhat (so hang nguon)</td></tr>
+<tr><td><code>phuong-trinh-truyen-song</code></td><td>Phuong trinh truyen song (3D)</td></tr>
+<tr><td><code>toan-tu-dalembert</code></td><td>Toan tu d'Alembert $\Box=\partial_t^2-c^2\Delta$</td></tr>
+<tr><td><code>toan-tu-laplace</code></td><td>Toan tu Laplace</td></tr>
+<tr><td><code>van-toc-truyen-huu-han</code></td><td>Van toc truyen huu han / non song anh sang</td></tr>
+
+  </tbody></table>
+</section>
+<section class="card">
+  <h2>Dạng bài <span class="count">10</span></h2>
+  <table><thead><tr><th>id</th><th>Tên</th></tr></thead><tbody>
+<tr><td><code>ham-green-mien-chinh-quy</code></td><td>Ham Green &amp; mien chinh quy</td></tr>
+<tr><td><code>laplace-tach-bien-cuc</code></td><td>Laplace trong quat/dia - tach bien cuc</td></tr>
+<tr><td><code>laplace-vanh-khan</code></td><td>Laplace trong vanh khan</td></tr>
+<tr><td><code>nhiet-cong-thuc-poisson</code></td><td>Nhiet toan khong gian - cong thuc Poisson</td></tr>
+<tr><td><code>nhiet-mien-co-bien</code></td><td>Nhiet tren mien co bien - thac trien + Poisson</td></tr>
+<tr><td><code>poisson-neumann-tuong-thich</code></td><td>Poisson-Neumann - dieu kien tuong thich &amp; nang luong</td></tr>
+<tr><td><code>truyen-song-1d-dalembert</code></td><td>Truyen song 1D - d'Alembert</td></tr>
+<tr><td><code>truyen-song-3d-cauchy-co-nguon</code></td><td>Truyen song 3D co nguon - doi xung phang (ha 1 bien)</td></tr>
+<tr><td><code>truyen-song-3d-cauchy-thuan-nhat</code></td><td>Truyen song 3D thuan nhat - Kirchhoff</td></tr>
+<tr><td><code>truyen-song-3d-doi-xung-cau</code></td><td>Truyen song 3D co nguon - doi xung cau (v=ru)</td></tr>
+
+  </tbody></table>
+</section>
+<section class="card">
+  <h2>Phương pháp <span class="count">8</span></h2>
+  <table><thead><tr><th>id</th><th>Tên</th></tr></thead><tbody>
+<tr><td><code>bien-doi-fourier-khong-gian</code></td><td>Bien doi Fourier theo bien khong gian</td></tr>
+<tr><td><code>cong-thuc-kirchhoff</code></td><td>Cong thuc Kirchhoff (nghiem song 3D, trung binh mat cau)</td></tr>
+<tr><td><code>doi-bien-doi-xung-cau</code></td><td>Doi bien doi xung cau $v=r\,u$</td></tr>
+<tr><td><code>nguyen-ly-chong-cat</code></td><td>Nguyen ly chong cat (tuyen tinh)</td></tr>
+<tr><td><code>nguyen-ly-duhamel</code></td><td>Nguyen ly Duhamel (xu ly so hang nguon)</td></tr>
+<tr><td><code>phan-tich-mien-phu-thuoc</code></td><td>Phan tich mien phu thuoc / mien anh huong / toc do truyen huu han</td></tr>
+<tr><td><code>phan-tich-nguyen-ly-huygens</code></td><td>Phan tich qua nguyen ly Huygens manh ($\mathbb{R}^3$)</td></tr>
+<tr><td><code>phuong-phap-ha-thap</code></td><td>Phuong phap ha thap / giam chieu (method of descent)</td></tr>
+
+  </tbody></table>
+</section>
+<p class="foot">Sinh tự động từ knowledge/ — không sửa tay file này.</p>
+</main></body></html>

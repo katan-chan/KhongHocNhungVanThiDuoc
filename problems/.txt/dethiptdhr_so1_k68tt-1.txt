@@ -1,0 +1,461 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ I NĂM HỌC 2025-2026 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K68
+
+Ngành học: Toán tin
+
+Thời gian làm bài 90 phút (không kể thời gian phát đề)
+
+Câu 1. (3 điểm) Xét bài toán biên trong quạt cho phương trình Laplace ∆u(x, y) = 0, trong Q = {(x, y) : x > |y| + 1, (x − 1)2 + y2 < 1},
+
+với điều kiện biên ∂νu(x, y) = 0 khi x = 1 − y; u(x, y) = 0 khi x = y + 1, và u(x, y) = 1 − 2y2 khi (x − 1)2 + y2 = 1,
+
+trong đó ν là pháp tuyến ngoài, đơn vị trên biên. (a) Vẽ miền Q. (b) Hãy giải bài toán biên đã cho.
+
+Câu 2. (4 điểm) Xét bài toán biên - ban đầu đối với phương trình truyền nhiệt trong hình chữ nhật
+
+ut(x, y, t) = uxx(x, y, t) + uyy(x, y, t) + F(x, y, t), (x, y) ∈ R = (−1, 1) × (0, π), t > 0,
+
+với điều kiện biên
+
+ux(−1, y, t) = ux(1, y, t) = 0, u(x, 0, t) = u(x, π, t) = 0,
+
+và điều kiện ban đầu u(x, y, 0) = g(x, y). (a) Dùng tích phân năng lượng dạng I(t) = R u2(x, y, t)dxdy để chứng minh tính duy nhất nghiệm của bài toán đã cho. (b) Với F = 0, g(x, y) = sin2(πx) sin(y), bằng cách thác triển lên toàn mặt phẳng rồi dùng
+công thức Poisson để giải bài toán đã cho.
+
+Câu 3. (5 điểm) Xét bài toán Cauchy cho phương trình truyền sóng utt(x, y, z, t) = 4∆u(x, y, z, t) + f (x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với điều kiện ban đầu
+
+u(x, y, z, 0) = 0 và ut(x, y, z, 0) = 0,
+
+trong đó f (x, y, z, t) = χ[2024,2026](x) − χ[0,1](t)χB(x, y, z)
+với B = {(x, y, z) ∈ R3 : (x − 2025)2 + y2 + z2 ≤ 1}. (a) Tìm thời điểm sớm nhất t0 mà u(0, 0, 0, t) chuyển từ trạng thái cân bằng sang không cân bằng. (b) Tính u(0, 0, 0, t) theo t.
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ I, NĂM HỌC 2025-2026 Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365 Dành cho sinh viên khoá: K68
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán tin
+
+Lời giải 1.
+
+(a) Vẽ Q. (b) Trong hệ tọa độ cực x = 1 + r cos(θ − π/4), y = r sin(θ − π/4) bài toán có dạng
+
+∆u
+
+=
+
+vrr
+
++
+
+1 r
+
+vr
+
++
+
+1 r2
+
+vθ
+
+θ
+
+,
+
+0
+
+<
+
+r
+
+<
+
+1, 0
+
+<
+
+θ
+
+<
+
+π/2,
+
+với điều kiện biên
+
+vθ(r, 0) = 0, v(r, π/2) = 0 v(1, θ) = sin(2θ).
+
+Từ vθ(r, 0) = 0, v(r, π/2) = 0 ta có chuỗi nghiệm
+∞
+v(r, θ) = ∑ anr2n+1 cos((2n + 1)θ). n=0
+
+Từ v(1, θ) = sin(2θ) ta có
+
+an = 4 π
+
+π/2 0
+
+sin(2θ)
+
+×
+
+cos((2n
+
++
+
+1)θ)dθ
+
+=
+
+−8 π
+
+×
+
+4n2
+
+1 + 4n
+
+−
+
+3.
+
+Vậy nghiệm
+
+u(x, y) = u(1 + r cos(θ − π/4), r sin(θ − π/4)) =
+
+=
+
+−8 π
+
+∞
+∑
+n=0
+
+4n2
+
+1 + 4n
+
+−
+
+r2n+1 3
+
+cos((2n
+
++
+
+1)θ).
+
+[3 điểm] 0.5 0.5
+0.5
+0.5
+1
+
+Lời giải 2.
+
+[4 điểm]
+
+(a) Giả sử u1, u2 là hai nghiệm của bài toán. Khi đó u = u1 − u2 là nghiệm của bài toán 1 với F = 0, g = 0. Khi đó, ta có I(0) = 0.
+
+Từ phương trình và điều kiện biên ta có:
+
+0.5
+
+I′(t) = 2[ uuxxdxdy + uuyydydx] = −2 (u2x + u2y)dxdy ≤ 0
+
+R
+
+R
+
+R
+
+nên I(t) ≤ I(0), t > 0.
+
+Khi đó I(t) = 0, t > 0, hay u = 0. Vậy bài toán có tối đa một nghiệm.
+
+0.5
+
+(b) Từ điều kiện biên, ta thác triển lên toàn mặt phẳng nghiệm u thành hàm u¯ thỏa mãn 0.5
+
+• lẻ, tuần hoàn chu kỳ 2π theo y;
+
+• chẵn tại x = 1, nghĩa là u¯(2 − x, y, t) = u¯(x, y, t), tuần hoàn chu kỳ 4 theo x.
+
+Khi đó điều kiện ban đầu thác triển lên toàn mặt phẳng g¯(x, y) = sin2(πx) sin(y).
+
+Sử dụng công thức Poisson
+
+0.5
+
+u(x, y, t)
+
+=
+
+1 4πt
+
+∞
+
+sin2(π
+
+X)e−
+
+(x−X)2 4t
+
+dX
+
+−∞
+
+∞
+
+sin(Y)e−
+
+(y−Y)2 4t
+
+dY.
+
+−∞
+
+Áp dụng
+
+∞ 0
+
+e−α2 x2
+
+cos(βx)dx
+
+=
+
+√ π
+2α
+
+e−
+
+β2 4α2
+
+,
+
+nghiệm
+
+của
+
+bài
+
+toán
+
+1
+
+u(x, y, t)
+
+=
+
+1 2
+
+(1
+
+−
+
+e−4π2t
+
+cos(2πx))e−t
+
+sin(y).
+
+Lời giải 3.
+
+[5 điểm]
+
+(a) Từ vị trí quan sát (0, 0, 0) đến vùng "ngoại lực" khác 0 cách nhau 2024, mà tốc độ lan 0.5
+
+truyền 2 nên thời điểm đầu chuyển từ cân bằng sang động t0 = 2024/2 = 1012.
+
+(b) Tách u = u1 − u2, với uj, j = 1, 2, là nghiệm của bài toán
+
+0.5
+
+ujtt(x, y, z, t) = 4∆uj(x, y, z, t) + fj(x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với điều kiện ban đầu uj(x, y, z, 0) = 0 và ujt(x, y, z, 0) = 0, trong đó
+
+f1(x, y, z, t) = χ[2024,2026](x), f2(x, y, z, t) = χ[0,1](t)χ[0,1](r)
+
+với r = (x − 2025)2 + y2 + z2.
+
+Do f1 chỉ phụ thuộc x nên
+
+1.5
+
+u1(0, 0, 0, t)
+
+=
+
+1 4
+
+∆(0,t) χ[2024,2026](x)dxds
+
+với ∆(0, t) = {0 < s < t, 2(s − t) < x < 2(t − s)}. Khi đó
+
+0
+
+
+
+  
+
+(t
+
+−
+
+1012)2
+
+u1(0,
+
+0,
+
+0,
+
+t)
+
+=
+
+  
+
+2t
+
+−
+
+24025
+
+
+
+4
+
+khi 0 ≤ t ≤ 1012, khi 1012 ≤ t ≤ 1013, khi t ≥ 1013.
+
+Do f2 chỉ phụ thuộc t và r = (x − 2025)2 + y2 + z2 nên
+
+2
+
+u2(0, 0, 0, t)
+
+=
+
+v(2025, t)
+
+=
+
+1 8100
+
+∆(2025,t) χ[0,1](s)rχ[−1,1](r)drds.
+
+Tính toán được
+
+
+
+0
+
+
+
+  
+
+(t
+
+−
+
+1012)2(2027
+
+−
+
+2t)
+
+u2(0, 0, 0, t) =
+
+3 ∗ 8100
+
+  
+
+(t
+
+−
+
+1014)2(2t
+
+−
+
+2025)
+
+
+
+
+
+3 ∗ 8100
+
+khi 0 ≤ t ≤ 1012 hay t ≥ 1014, khi 1012 ≤ t ≤ 1013, khi 1013 ≤ t ≤ 1014.
+
+Vậy nghiệm
+
+0.5
+
+
+
+0
+
+
+
+
+
+
+
+(t − 1012)2
+
+
+
+
+
+u(0, 0, 0, t) =
+
+(2t − 2025)
+
+
+
+
+
+  
+
+2t
+
+−
+
+2025
+
+
+
+4
+
+1 − 2027 − 2t 4 3 ∗ 8100 1 − (t − 1014)2 4 3 ∗ 8100
+
+khi 0 ≤ t ≤ 1012, khi 1012 ≤ t ≤ 1013,
+. khi 1013 ≤ t ≤ 1014,
+khi t ≥ 1014.
+
+Hà nội, ngày 12 tháng 12 năm 2025 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

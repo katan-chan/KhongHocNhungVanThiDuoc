@@ -1,0 +1,18 @@
+% method: phuong-phap-ha-thap
+\begin{dieukienbox}
+Dùng khi: dữ liệu hoặc nguồn \textbf{không phụ thuộc một hoặc vài biến không gian}.
+Ví dụ: nguồn $f(x,t)=\chi_{[-1,1]}(x_1)$ không phụ thuộc $y,z$
+$\Rightarrow$ bài toán 3D thực ra chỉ ``sống'' trong 1D theo $x_1$.
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Ý tưởng hạ thấp}: nếu mọi thứ chỉ phụ thuộc $x_1$ (không có $y,z$),
+thì $\Delta u = u_{x_1 x_1}$ và bài toán trở thành phương trình sóng \textbf{1D}.
+
+Áp dụng công thức d'Alembert cho bài 1D, hoặc suy nghiệm 2D/1D từ công thức 3D (Kirchhoff) bằng cách tích phân thêm theo biến phụ.
+\end{nhobox}
+
+\begin{meobox}
+Dấu hiệu nhận ra: $f$ hoặc $h$ viết theo $\chi_{[-1,1]}(x_1)$ --- chỉ có $x_1$, không có $y,z$.
+Khi đó có thể bỏ hai biến $y,z$ và giải bài 1D nhanh hơn nhiều.
+\end{meobox}

@@ -1,0 +1,122 @@
+% problem-type: truyen-song-1d-dalembert
+% order: 10
+% Nguon: De thi giua ky MAT2306 (PTDHR), HK2 2025-2026, K68, De so 1, Cau 2. (tu giai)
+
+\section{Truyền sóng 1D --- d'Alembert}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Xét phương trình truyền sóng $u_{tt}=u_{xx}$ ($x\in\mathbb{R}_+$, $t>0$), với điều kiện biên
+$u_x(0,t)=0$, và điều kiện ban đầu
+\[
+  u(x,0)=\begin{cases}
+    x^2 & 0\le x\le 1,\\
+    2-x & 1\le x\le 2,\\
+    0 & \text{còn lại},
+  \end{cases}
+  \qquad
+  u_t(x,0)=\chi_{(0,1)}(x).
+\]
+\textbf{(a)} Thác triển các hàm điều kiện ban đầu thành hàm trên toàn trục. Xác định sóng tiến, sóng lùi.
+
+\textbf{(b)} Vẽ nghiệm $u$ tại các thời điểm $t=\tfrac12,\,1,\,\tfrac32$. Hàm $u(x,\tfrac12)$ không liên tục (gãy) tại đâu?
+
+\emph{\small(Nguồn: Đề thi giữa kỳ MAT2306 --- PTĐHR, HK2 2025--2026, K68, Đề số 1, Câu 2. Lời giải dưới đây tự soạn.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item PDE \textbf{1 chiều không gian}: $u_{tt}=c^2 u_{xx}$, dữ liệu ban đầu $(g,h)$.
+  \item Hoặc bài nhiều chiều nhưng dữ liệu chỉ phụ thuộc một biến $\Rightarrow$ hạ về 1D.
+  \item Có \textbf{biên} tại $x=0$ (nửa trục $\mathbb{R}_+$) $\Rightarrow$ phải thác triển dữ liệu ra toàn trục trước.
+\end{itemize}
+\begin{meobox}
+Nghiệm 1D luôn tách thành \emph{sóng tiến} (chạy phải) $+$ \emph{sóng lùi} (chạy trái).
+Biên \textbf{Neumann} $u_x(0,t)=0\Rightarrow$ thác triển \textbf{chẵn}; biên \textbf{Dirichlet} $u(0,t)=0\Rightarrow$ thác triển \textbf{lẻ}.
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\input{shared/methods/cong-thuc-dalembert-1d.tex}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Nhắc lại đề.} $u_{tt}=u_{xx}$ trên $\mathbb{R}_+$, biên $u_x(0,t)=0$, với
+$g(x)=u(x,0)$ (parabol rồi dốc xuống) và $h(x)=u_t(x,0)=\chi_{(0,1)}(x)$.
+
+\paragraph{Bước 1 --- Thác triển chẵn (câu a).}
+Biên Neumann $u_x(0,t)=0$ buộc ta thác triển dữ liệu \textbf{chẵn} qua $x=0$ ra toàn trục $\mathbb{R}$:
+\[
+  g_e(x)=g(|x|)=\begin{cases}
+    x^2 & 0\le |x|\le 1,\\
+    2-|x| & 1\le |x|\le 2,\\
+    0 & |x|\ge 2,
+  \end{cases}
+  \qquad
+  h_e(x)=\chi_{(-1,1)}(x).
+\]
+(Thác triển chẵn vì hàm chẵn có đạo hàm bằng $0$ tại gốc, khớp $u_x(0,t)=0$.)
+
+\paragraph{Bước 2 --- Áp dụng d'Alembert.}
+Trên toàn trục $\mathbb{R}$ với dữ liệu chẵn $(g_e,h_e)$:
+
+\begin{nhobox}
+\[
+  u(x,t)=\underbrace{\tfrac12\, g_e(x-t)}_{\text{sóng tiến}}
+        +\underbrace{\tfrac12\, g_e(x+t)}_{\text{sóng lùi}}
+        +\tfrac12\!\int_{x-t}^{x+t}\! h_e(s)\,ds .
+\]
+\end{nhobox}
+
+\noindent Trong đó:
+\begin{itemize}
+  \item \textbf{Sóng tiến} (chạy sang phải): $\tfrac12 g_e(x-t)$.
+  \item \textbf{Sóng lùi} (chạy sang trái): $\tfrac12 g_e(x+t)$.
+  \item Số hạng tích phân tách tiếp thành một dốc chạy phải và một dốc chạy trái (phần vận tốc).
+\end{itemize}
+
+\begin{luuybox}
+\textbf{Ý nghĩa phản xạ:} với $x>0$, khi đặc trưng trái $x-t<0$ thì $g_e(x-t)=g_e(t-x)$ (do chẵn).
+Tức là sóng \textbf{phản xạ} ở tường $x=0$ và \textbf{giữ nguyên dấu} (phản xạ chẵn của biên Neumann).
+\end{luuybox}
+
+\paragraph{Bước 3 --- Phần vận tốc.}
+Vì $h_e=\chi_{(-1,1)}$ chỉ nhận giá trị $1$ trên $(-1,1)$, ta có
+\[
+  \tfrac12\!\int_{x-t}^{x+t}\! h_e(s)\,ds
+  =\tfrac12\,\big|\,[x-t,\,x+t]\cap(-1,1)\,\big| ,
+\]
+tức bằng nửa độ dài phần giao của đoạn phụ thuộc $[x-t,x+t]$ với khoảng $(-1,1)$.
+Số hạng này luôn \textbf{liên tục} theo $x$ (vì là tích phân của hàm bị chặn).
+
+\paragraph{Bước 4 --- Điểm gãy của $u(\cdot,\tfrac12)$ (câu b).}
+Trước hết, $g$ \textbf{liên tục} (nối khớp: tại $x=1$ là $1=1$, tại $x=2$ là $0=0$) nhưng có
+\textbf{góc gãy} (đạo hàm nhảy) tại $x=0$ (thác triển chẵn), $x=1$ (độ dốc $2\to-1$), $x=2$ (độ dốc $-1\to0$).
+Vận tốc $h=\chi_{(0,1)}$ có \textbf{bước nhảy} tại $x=0$ và $x=1$.
+
+\begin{luuybox}
+Trong d'Alembert: góc gãy của \emph{vị trí} truyền dọc theo đặc trưng $x\pm t=\text{const}$ thành góc gãy của $u$;
+bước nhảy của \emph{vận tốc} cũng tạo góc gãy độ dốc. Bản thân $u$ vẫn \textbf{liên tục}
+(vì số hạng vận tốc là tích phân của $h$).
+\end{luuybox}
+
+\noindent Các điểm gãy của dữ liệu (chẵn): vị trí tại $x=0,1,2$; vận tốc tại $x=0,1$.
+Tại $t=\tfrac12$ chúng dịch đi $\pm\tfrac12$, cho các điểm (chỉ giữ $x>0$):
+\[
+  0\pm\tfrac12,\quad 1\pm\tfrac12,\quad 2\pm\tfrac12
+  \;\Longrightarrow\;
+  x=\tfrac12,\ \tfrac32,\ \tfrac52 .
+\]
+
+\begin{nhobox}
+$u(x,\tfrac12)$ \textbf{liên tục} nhưng \textbf{đạo hàm gãy} (không khả vi) tại
+\[
+  x=\tfrac12,\quad x=\tfrac32,\quad x=\tfrac52 .
+\]
+Đây là ảnh của các điểm gãy của dữ liệu vị trí ($x=0,1,2$) và bước nhảy của vận tốc ($x=0,1$),
+dịch đi $\pm t=\pm\tfrac12$. Chữ ``không liên tục'' trong đề chỉ \textbf{đạo hàm} bị gãy, chứ $u$ không có bước nhảy.
+\end{nhobox}

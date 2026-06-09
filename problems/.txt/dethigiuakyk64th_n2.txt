@@ -1,0 +1,87 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2021-2022 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 2
+
+Dành cho sinh viên lớp: Lớp MAT2306 2
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xác phương trình sau:
+
+x2uxx(x,
+
+y)
+
+−
+
+3xyuxy(x,
+
+y)
+
++
+
+25y2 4
+
+uyy(x,
+
+y)
+
++
+
+xux(x,
+
+y)
+
++
+
+uy(x,
+
+y)
+
+−
+
+4u(x,
+
+y)
+
+=
+
+0,
+
+trong B = {(x − 2)2 + (y + 2)2 < 1}.
+
+(a) Xác định dạng và chuyển phương trình đang xét về dạng chính tắc.
+
+(b) Giả sử u là hàm khả vi liên tục đến cấp 2 trong B thỏa mãn phương trình đang xét. Chứng minh rằng u không đạt cực đại dương địa phương trong B.
+
+(c) Giả sử u là nghiệm của phương trình đang xét và liên tục đến tận biên, có giá trị trên biên u(x, y) = x2 khi (x − 2)2 + (y + 2)2 = 1. Chứng minh rằng u(x, y) = x2 trong B.
+
+Câu 2. Một đoạn dây chiều dài π dao động xung quanh vị trí cân bằng với tốc độ lan truyền 2. Nếu đặt hệ trục tọa độ sao cho một đầu đoạn dây ở gốc còn đầu kia có tọa độ x = π thì hai đầu cố định. Sợi dây bắt đầu từ trạng thái nghỉ và trạng thái ban đầu f (x) = xχ[π/4,3π/4](x).
+(a) Thiết lập bài toán biên hỗn hợp cho hàm dao động u(x, t) của đoạn dây.
+
+(b) Xác định sóng tiến - sóng lùi. Vẽ đồ thị của hàm dao động u(x, t) tại các thời điểm t = π/8, π/4, π/2.
+
+Câu 3. Xét bài toán biên Neumann cho phương trình Laplace ngoài quạt:
+
+uxx(x, y) + uyy(x, y) = 0 trong Q = {x2 + y2 > 1, x > 0, y < 0}
+
+với điều kiện biên ux(0, y) = uy(x, 0) = 0 khi x > 1, y < −1, và
+
+∂νu(x, y) = x4 − y2 + a khi x2 + y2 = 1, x > 0, y < 0,
+
+trong đó ν là pháp tuyến ngoài đơn vị trên phần cung tròn của biên của Q. Tìm a để bài toán đã cho có nghiệm. Khi đó hãy giải bài toán đã cho.
+
+Thang điểm. Câu 1: 3.5đ+1.5đ+1.5đ. Câu 2: 1.5đ+2.5đ. Câu 3: 4.5đ.
+
+

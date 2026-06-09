@@ -1,0 +1,14 @@
+% method: duhamel-nhiet
+\begin{dieukienbox}
+Dùng khi: nhiệt \textbf{có nguồn} $u_t-k\Delta u=f$, dữ liệu ban đầu $=0$ (tách phần dữ liệu bằng chồng chất).
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Duhamel cho nhiệt:} $\displaystyle u(x,t)=\int_0^t w(x,t;s)\,ds$, trong đó $w(\cdot,\cdot;s)$ giải
+phương trình \emph{không nguồn} $w_t=k\Delta w$ ($t>s$) với \textbf{giá trị đầu} $w(\cdot,s;s)=f(\cdot,s)$.
+\end{nhobox}
+
+\begin{luuybox}
+Khác sóng: với nhiệt (bậc 1 theo $t$), lát nguồn thành \emph{giá trị ban đầu} $w(\cdot,s;s)=f(\cdot,s)$;
+với sóng (bậc 2) nó thành \emph{vận tốc đầu}. Tìm $w$ bằng công thức Poisson nhiệt với $g=f(\cdot,s)$, thay $t\to t-s$.
+\end{luuybox}

@@ -1,0 +1,70 @@
+% problem-type: nhiet-mien-co-bien
+% order: 60
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Nhiệt trên miền có biên --- thác triển + Poisson}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Giải $u_t=4\Delta u$ trên dải $0<x<\pi,\ y>0$, $\;u(x,y,0)=\sin^3(x)\chi_{[0,1]}(y)$,
+với biên $u(0,y,t)=u(\pi,y,t)=u(x,0,t)=0$.
+
+\emph{\small(Nguồn: Đề thi MAT3365 --- PTĐHR, HK2 2023--2024, K67 Toán tin, Câu 2. Lời giải dưới đây tự soạn.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item Nhiệt trên miền \textbf{có biên} (đoạn, dải, nửa mặt phẳng, hộp), biên Dirichlet/Neumann.
+  \item Ý tưởng: \textbf{thác triển} dữ liệu ra toàn $\mathbb{R}^n$ để tự thỏa biên, rồi dùng Poisson.
+\end{itemize}
+\begin{meobox}
+Dirichlet $u=0\Rightarrow$ thác triển lẻ; Neumann $u_x=0\Rightarrow$ chẵn; đoạn $\Rightarrow$ tuần hoàn.
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\subsubsection*{Thác triển khử biên}
+\input{shared/techniques/thac-trien.tex}
+\subsubsection*{Rồi dùng công thức Poisson}
+\input{shared/methods/cong-thuc-poisson-nhiet.tex}
+\emph{(Tính duy nhất nghiệm: dùng tích phân năng lượng --- Phụ lục C.)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Bước 1 --- thác triển khử biên.} Dữ liệu tách được $g=\sin^3(x)\cdot\chi_{[0,1]}(y)$, nên giải
+tách theo $x$ và $y$. Theo $x$: $u=0$ tại $x=0,\pi\Rightarrow$ thác triển \textbf{lẻ}, tuần hoàn $2\pi$.
+Theo $y$: $u=0$ tại $y=0\Rightarrow$ thác triển \textbf{lẻ} ra $y<0$: $\chi_{[0,1]}\to\chi_{[0,1]}-\chi_{[-1,0]}$.
+
+\paragraph{Bước 2 --- phần $x$ (chuỗi sin, mỗi mốt tắt riêng).} Hạ bậc: $\sin^3 x=\tfrac34\sin x-\tfrac14\sin 3x$.
+Mỗi $\sin(mx)$ là hàm riêng, qua nhiệt $u_t=4u_{xx}$ tắt theo $e^{-4m^2 t}$ ($m=1\to e^{-4t}$, $m=3\to e^{-36t}$):
+\[
+  X(x,t)=\tfrac34 e^{-4t}\sin x-\tfrac14 e^{-36t}\sin 3x=\frac{3e^{-4t}\sin x-e^{-36t}\sin 3x}{4}.
+\]
+(Kiểm tra $t\to0$: $X\to\tfrac{3\sin x-\sin3x}{4}=\sin^3 x$. Khớp.)
+
+\paragraph{Bước 3 --- phần $y$ (Gauss $\to$ erf).} Poisson với $k=4$ (nhân $\tfrac{1}{\sqrt{16\pi t}}e^{-(y-Y)^2/16t}$),
+dữ liệu lẻ $\chi_{[0,1]}-\chi_{[-1,0]}$ tách thành hai tích phân:
+\[
+  Y(y,t)=\Big[\int_0^1-\int_{-1}^0\Big]\tfrac{1}{\sqrt{16\pi t}}e^{-(y-Y)^2/16t}\,dY.
+\]
+Đổi biến $z=\tfrac{Y-y}{4\sqrt t}$: mỗi $\int_p^q=\tfrac12\big(\operatorname{erf}\tfrac{q-y}{4\sqrt t}-\operatorname{erf}\tfrac{p-y}{4\sqrt t}\big)$.
+Dùng $\operatorname{erf}$ lẻ, gộp lại:
+\[
+  Y(y,t)=\operatorname{erf}\tfrac{y}{4\sqrt t}-\tfrac12\Big(\operatorname{erf}\tfrac{y+1}{4\sqrt t}+\operatorname{erf}\tfrac{y-1}{4\sqrt t}\Big).
+\]
+(Kiểm tra $t\to0$, $y=\tfrac12\in(0,1)$: $1-\tfrac12(1-1)=1$. Khớp $\chi_{[0,1]}$.)
+
+\paragraph{Bước 4 --- nhân hai phần.}\leavevmode
+
+\begin{nhobox}
+\[
+  \begin{aligned}
+  u(x,y,t)=\ &\frac{3e^{-4t}\sin x-e^{-36t}\sin 3x}{4}\\[2pt]
+  &\times\ \Big[\operatorname{erf}\tfrac{y}{4\sqrt t}-\tfrac12\big(\operatorname{erf}\tfrac{y+1}{4\sqrt t}+\operatorname{erf}\tfrac{y-1}{4\sqrt t}\big)\Big].
+  \end{aligned}
+\]
+\end{nhobox}

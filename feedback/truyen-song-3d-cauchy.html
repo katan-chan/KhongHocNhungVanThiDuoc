@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Phan tich — truyen-song-3d-cauchy</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[
+    {left:'$$',right:'$$',display:true},
+    {left:'$',right:'$',display:false}
+  ]})"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #1e293b;
+    background: #f8fafc;
+    padding-bottom: 64px;
+  }
+
+  /* ---- HEADER ---- */
+  .page-header {
+    background: #1e3a5f;
+    color: #e2e8f0;
+    padding: 28px 32px 22px;
+  }
+  .page-header .slug {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 6px;
+  }
+  .page-header h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .page-header .mo-ta {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    max-width: 780px;
+  }
+
+  /* ---- NAV (muc luc) ---- */
+  nav.toc {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav.toc a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 3px 12px;
+  }
+  nav.toc a:hover { background: #dbeafe; color: #1d4ed8; }
+
+  /* ---- LAYOUT ---- */
+  .wrap { max-width: 860px; margin: 32px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
+
+  /* ---- CARD ---- */
+  .card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .card-head {
+    padding: 13px 20px 11px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-head h2 { font-size: 0.97rem; font-weight: 700; color: #0f172a; }
+  .card-body { padding: 16px 20px; }
+
+  /* icon so thu tu */
+  .num {
+    width: 26px; height: 26px;
+    background: #1e3a5f; color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* ---- BADGE ---- */
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 8px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .moi     { background: #fde68a; color: #78350f; }
+  .da-biet { background: #bbf7d0; color: #14532d; }
+
+  /* ---- CALLOUT ---- */
+  .callout {
+    border-radius: 7px;
+    padding: 11px 15px;
+    margin-top: 10px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .callout > strong.label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 800;
+  }
+  .dk   { background: #eff6ff; border-left: 3px solid #3b82f6; }
+  .dk   > strong.label { color: #1d4ed8; }
+  .nho  { background: #fefce8; border-left: 3px solid #eab308; }
+  .nho  > strong.label { color: #a16207; }
+  .meo  { background: #f0fdf4; border-left: 3px solid #22c55e; }
+  .meo  > strong.label { color: #15803d; }
+
+  /* ---- PHAN LOAI GRID ---- */
+  .pl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media(max-width:540px){ .pl-grid { grid-template-columns: 1fr; } }
+  .pl-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    padding: 10px 14px;
+  }
+  .pl-item .lbl { font-size: 0.7rem; color: #94a3b8; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+  .pl-item .val { font-size: 0.9rem; color: #1e293b; }
+
+  /* ---- CONCEPT LIST ---- */
+  .c-list { display: flex; flex-direction: column; gap: 8px; }
+  .c-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    background: #fafafa;
+  }
+  .c-item.hl { border-left: 3px solid #f59e0b; background: #fffbeb; }
+  .c-name { font-weight: 700; font-size: 0.88rem; color: #0f172a; }
+  .c-def  { font-size: 0.84rem; color: #475569; margin-top: 3px; }
+
+  /* ---- METHOD LIST ---- */
+  .m-list { display: flex; flex-direction: column; gap: 12px; }
+  .m-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .m-head {
+    background: #f8fafc;
+    padding: 10px 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .m-head .m-name { font-weight: 700; font-size: 0.9rem; color: #0f172a; }
+  .m-body { padding: 12px 18px; font-size: 0.88rem; color: #334155; }
+  .m-body .katex-display { overflow-x: auto; }
+
+  /* ---- NEIGHBOR LIST ---- */
+  .n-list { display: flex; flex-direction: column; gap: 8px; }
+  .n-item {
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    background: #fafafa;
+    font-size: 0.87rem;
+  }
+  .n-item.strong-nb { border-left: 3px solid #6366f1; background: #fafaff; }
+  .n-name { font-weight: 700; color: #0f172a; }
+  .n-name.bold { font-weight: 800; }
+  .n-method { color: #64748b; margin-top: 2px; }
+  .n-reason { color: #64748b; font-style: italic; margin-top: 3px; }
+
+  /* ---- THEORY LIST ---- */
+  .t-list { display: flex; flex-direction: column; gap: 14px; }
+  .t-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .t-head {
+    background: #f5f3ff;
+    padding: 10px 16px;
+    border-bottom: 1px solid #ede9fe;
+  }
+  .t-head .t-title { font-weight: 700; font-size: 0.9rem; color: #4c1d95; }
+  .t-body {
+    padding: 14px 18px;
+    font-size: 0.87rem;
+    line-height: 1.85;
+    color: #334155;
+  }
+  .t-body .katex-display { overflow-x: auto; padding: 4px 0; }
+  .t-body ul { margin: 8px 0 0 20px; }
+  .t-body ul li { margin-bottom: 3px; }
+
+  /* ---- NOTE ---- */
+  .note { font-size: 0.79rem; color: #94a3b8; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="slug">truyen-song-3d-cauchy</div>
+  <h1>Bai toan Cauchy — Phuong trinh truyen song 3D co nguon</h1>
+  <p class="mo-ta">
+    Giai $u_{tt} - \Delta u = f$ tren $\mathbb{R}^3$, du lieu ban dau $u(\cdot,0)=0$,
+    $u_t(\cdot,0)=h$, nguon $f = \chi_{[0,1]}(t)\,\chi_{[-1,1]}(x)$.
+    Tat ca khai niem trong bai la <span class="badge moi">moi</span>.
+  </p>
+</div>
+
+<!-- MUC LUC -->
+<nav class="toc">
+  <a href="#phan-loai">1. Phan loai</a>
+  <a href="#khai-niem">2. Khai niem</a>
+  <a href="#phuong-phap">3. Phuong phap</a>
+  <a href="#lan-can">4. Dang bai lan can</a>
+  <a href="#ly-thuyet">5. Ly thuyet</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- 1. PHAN LOAI -->
+  <div class="card" id="phan-loai">
+    <div class="card-head">
+      <div class="num">1</div>
+      <h2>Phan loai bai toan</h2>
+    </div>
+    <div class="card-body">
+      <div class="pl-grid">
+        <div class="pl-item">
+          <div class="lbl">Bac</div>
+          <div class="val">Bac hai &mdash; co $u_{tt}$ va $\Delta u$</div>
+        </div>
+        <div class="pl-item">
+          <div class="lbl">Loai</div>
+          <div class="val"><strong>Hyperbolic</strong> &mdash; symbol $-\tau^2+|\xi|^2$ doi dau</div>
+        </div>
+        <div class="pl-item">
+          <div class="lbl">Tuyen tinh?</div>
+          <div class="val">Co, khong thuan nhat (co nguon $f$ doc lap voi $u$)</div>
+        </div>
+        <div class="pl-item">
+          <div class="lbl">Bai toan</div>
+          <div class="val">IVP (Cauchy) tren $\mathbb{R}^3$, khong co bien khong gian</div>
+        </div>
+        <div class="pl-item">
+          <div class="lbl">So chieu</div>
+          <div class="val">$n=3$ (le) &rarr; nguyen ly Huygens manh hoat dong</div>
+        </div>
+        <div class="pl-item">
+          <div class="lbl">Toc do song</div>
+          <div class="val">$c = 1$</div>
+        </div>
+      </div>
+      <div class="callout nho" style="margin-top:12px">
+        <strong class="label">Nho</strong>
+        So chieu $n=3$ la so le. Day la dieu kien can thiet de <strong>nguyen ly Huygens manh</strong> dung:
+        tin hieu lan chinh xac tren mat cau, khong de lai "duoi". Neu $n=2$ thi co duoi song &mdash; khac hoan toan.
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. KHAI NIEM -->
+  <div class="card" id="khai-niem">
+    <div class="card-head">
+      <div class="num">2</div>
+      <h2>Khai niem can biet</h2>
+    </div>
+    <div class="card-body">
+      <p class="note">Tat ca la <span class="badge moi">moi</span>. Nhung o co vien vang la can hoc ngay.</p>
+      <div class="c-list">
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Phuong trinh truyen song 3D</div>
+            <div class="c-def">
+              Phuong trinh $u_{tt} - c^2\Delta u = f$ mo ta cach mot tin hieu (song am, song dien tu...) lan ra xung quanh voi toc do $c$. O day $c=1$, $\Delta u = u_{xx}+u_{yy}+u_{zz}$.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Bai toan Cauchy (IVP) cho PDE bac hai</div>
+            <div class="c-def">
+              Tim $u(x,t)$ cho $t>0$ khi biet trang thai ban dau: vi tri $u(\cdot,0)=g$ va van toc $u_t(\cdot,0)=h$. Mien la toan $\mathbb{R}^3$ nen khong can them dieu kien bien theo $x$.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Toan tu Laplace $\Delta$ va toan tu d'Alembert $\Box$</div>
+            <div class="c-def">
+              $\Delta u = \partial_{xx}u + \partial_{yy}u + \partial_{zz}u$ la phan "khong gian" cua phuong trinh.
+              $\Box = \partial_{tt} - c^2\Delta$ la toan tu song. Symbol $-\tau^2+c^2|\xi|^2$ doi dau &rarr; loai hyperbolic.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Phan loai PDE: elliptic / parabolic / hyperbolic</div>
+            <div class="c-def">
+              Nhin vao dang toan phuong cac dao ham bac cao nhat: Laplace ($\Delta$) la elliptic, phuong trinh nhiet ($\partial_t - \Delta$) la parabolic, phuong trinh song ($\partial_{tt} - \Delta$) la hyperbolic.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Ham dac trung (indicator) $\chi_A$</div>
+            <div class="c-def">
+              $\chi_A(x) = 1$ neu $x \in A$, bang $0$ neu ngoai $A$. Dung de viet nguon va du lieu mot cach gon: $f = \chi_{[0,1]}(t)\cdot\chi_{[-1,1]}(x)$ co nghia la $f=1$ khi $0\le t\le 1$ va $-1\le x\le 1$, bang $0$ o chon khac.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Van toc truyen huu han / non song anh sang</div>
+            <div class="c-def">
+              Nhieu loan lan voi toc do khong qua $c=1$. Gia su nguon o goc toa do, thi diem cach xa hon $t$ (theo don vi khong gian phu hop) chua the "cam" tin hieu truoc thoi diem $t$. Day la ly do bai hay hoi: "tai diem $x=(100,y,0)$, khi nao $u=0$?"
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Mien anh huong va mien phu thuoc</div>
+            <div class="c-def">
+              Nghiem tai $(x_0,t_0)$ chi bi tac dong boi du lieu <em>trong qua cau</em> $|y-x_0|\le t_0$ (neu $c=1$) va boi nguon trong non lui $|y-x_0|\le t_0-s$. Neu gia cua $g$, $h$, $f$ hoan toan nam ngoai vung do thi $u(x_0,t_0)=0$.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Nguyen ly Huygens manh (chi dung $n=3$ so chieu le)</div>
+            <div class="c-def">
+              Trong $\mathbb{R}^3$, nghiem tai $(x,t)$ chi phu thuoc du lieu tren <em>mat cau</em> $|y-x|=t$, khong phai ca qua cau be trong. Tin hieu la "xung": den roi di, khong de lai duoi. Trong $\mathbb{R}^2$ thi nguoc lai &mdash; co "duoi" song, tin hieu tat hon rat cham.
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item hl">
+          <span class="badge moi">moi</span>
+          <div>
+            <div class="c-name">Nghiem yeu / nghiem phan bo</div>
+            <div class="c-def">
+              Du lieu la ham dac trung &mdash; gian doan tai bien cua cac tap. Nghiem $u$ khong the la ham tron $C^2$. Thay vao do, $u$ duoc hieu la nghiem theo <em>nghia yeu</em>: thoa man PDE sau khi nhan voi ham kiem thu tron roi tich phan.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PHUONG PHAP -->
+  <div class="card" id="phuong-phap">
+    <div class="card-head">
+      <div class="num">3</div>
+      <h2>Phuong phap giai va dieu kien ap dung</h2>
+    </div>
+    <div class="card-body">
+      <p class="note">Thu tu thong thuong: Kirchhoff &rarr; Duhamel &rarr; Chong cat &rarr; Phan tich mien.</p>
+      <div class="m-list">
+
+        <div class="m-item">
+          <div class="m-head">
+            <span class="badge moi">moi</span>
+            <span class="m-name">Cong thuc Kirchhoff &mdash; giai phan thuan nhat ($f=0$)</span>
+          </div>
+          <div class="m-body">
+            <p>Voi $u_{tt} = \Delta u$, $u(\cdot,0)=g$, $u_t(\cdot,0)=h$ trong $\mathbb{R}^3$:</p>
+            $$u(x,t) = \partial_t\!\left(t\,\fint_{\partial B_t(x)} g\,dS\right) + t\,\fint_{\partial B_t(x)} h\,dS.$$
+            <div class="callout dk">
+              <strong class="label">Dieu kien ap dung</strong>
+              Phuong trinh song hyperbolic, so chieu $n=3$, <em>thuan nhat</em> (khong co $f$), he so hang.
+              Du lieu $g\in C^3$, $h\in C^2$ cho nghiem cu dien. Neu du lieu gian doan (nhu $h=\chi_{B_1}$) thi chi co nghiem yeu nhung van dung duoc cong thuc.
+            </div>
+            <div class="callout nho">
+              <strong class="label">Nho</strong>
+              $\fint_{\partial B_r(x)}$ la trung binh tren mat cau ban kinh $r$. Nghiem tai $(x,t)$ chi "nhin" du lieu tren <em>mat cau</em> ban kinh $t$ &mdash; bieu hien truc tiep cua Huygens manh.
+            </div>
+          </div>
+        </div>
+
+        <div class="m-item">
+          <div class="m-head">
+            <span class="badge moi">moi</span>
+            <span class="m-name">Nguyen ly Duhamel &mdash; xu ly nguon $f$</span>
+          </div>
+          <div class="m-body">
+            <p>Voi $u_{tt}-\Delta u=f$, $u(\cdot,0)=u_t(\cdot,0)=0$:</p>
+            $$u(x,t) = \int_0^t w(x,t;\,s)\,ds,$$
+            <p>trong do $w(\cdot,\cdot;\,s)$ la nghiem bai toan thuan nhat: $w_{tt}=\Delta w$, $w(x,s;s)=0$, $w_t(x,s;s)=f(x,s)$.</p>
+            <div class="callout dk">
+              <strong class="label">Dieu kien ap dung</strong>
+              PDE tuyen tinh tien hoa. Nguon $f$ kha tich dia phuong. Sau do cong voi nghiem thuan nhat de co nghiem day du.
+            </div>
+            <div class="callout meo">
+              <strong class="label">Meo</strong>
+              Duhamel bien mot bai co nguon thanh vo so bai khong nguon nho hon. Moi gia tri $f(\cdot,s)$ dong vai "van toc ban dau" cua bai toan con tai thoi diem $s$.
+            </div>
+          </div>
+        </div>
+
+        <div class="m-item">
+          <div class="m-head">
+            <span class="badge moi">moi</span>
+            <span class="m-name">Nguyen ly chong cat (superposition) &mdash; tach bai toan</span>
+          </div>
+          <div class="m-body">
+            <p>PDE tuyen tinh &rarr; viet $u = u^{(h)} + u^{(f)}$ roi giai rieng. Vi $h = \chi_{B_1(0,0,2)} - \chi_{B_1(0,0,-2)}$ la hieu hai ham, tuyen tinh cho phep tach tiep thanh hai bai toan con roi lay hieu ket qua.</p>
+            <div class="callout dk">
+              <strong class="label">Dieu kien ap dung</strong>
+              Chi dung khi PDE va dieu kien ban dau deu tuyen tinh theo $u$. PDE phi tuyen thi khong ap dung duoc.
+            </div>
+          </div>
+        </div>
+
+        <div class="m-item">
+          <div class="m-head">
+            <span class="badge moi">moi</span>
+            <span class="m-name">Phan tich mien phu thuoc &mdash; ket luan $u=0$ tai diem xa</span>
+          </div>
+          <div class="m-body">
+            <p>Tinh khoang cach tu diem quan sat $(x_0,t_0)$ den gia cua $h$ va $f$. Neu gia hoan toan nam ngoai non lui (khong cat mien phu thuoc) thi $u(x_0,t_0) = 0$. Trong 3D ket hop Huygens manh: chi can gia cua $h$ khong cat mat cau $|y-x_0|=t_0$.</p>
+            <div class="callout dk">
+              <strong class="label">Dieu kien ap dung</strong>
+              PDE hyperbolic, toc do huu han ($c=1$). Biet gia compact cua $g$, $h$, $f$.
+            </div>
+            <div class="callout meo">
+              <strong class="label">Meo</strong>
+              Neu $x_0 = (100,y,0)$ thi $|x_0 - (0,0,\pm 2)| \approx 100$. Diem xa nhu vay chi nhan tin hieu sau thoi gian $t\approx 100$. Truoc do $u=0$.
+            </div>
+          </div>
+        </div>
+
+        <div class="m-item">
+          <div class="m-head">
+            <span class="badge moi">moi</span>
+            <span class="m-name">Phuong phap ha thap (method of descent)</span>
+          </div>
+          <div class="m-body">
+            <p>Nguon $\chi_{[-1,1]}(x)$ chi phu thuoc bien $x$, doc lap voi $y,z$. Co the quy bai toan ve so chieu thap hon, hoac tinh tich phan theo $y,z$ trong cong thuc Kirchhoff.</p>
+            <div class="callout dk">
+              <strong class="label">Dieu kien ap dung</strong>
+              Du lieu hoac nguon doc lap voi mot so bien khong gian.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. DANG BAI LAN CAN -->
+  <div class="card" id="lan-can">
+    <div class="card-head">
+      <div class="num">4</div>
+      <h2>Dang bai lan can</h2>
+    </div>
+    <div class="card-body">
+      <p class="note">
+        Vien tim = lan can manh (cung loai bai, xuat hien ca 3 lang kinh: khai niem + phuong phap + loai PDE). Nen hoc nhung bai vien tim truoc.
+      </p>
+      <div class="n-list">
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Cauchy song 3D thuan nhat &mdash; cong thuc Kirchhoff</div>
+          <div class="n-method">Phuong phap: Cong thuc Kirchhoff (trung binh mat cau)</div>
+          <div class="n-reason">Day chinh la bai nay khi bo nguon $f=0$. Phai nam chac cong thuc nay truoc khi dung Duhamel.</div>
+        </div>
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Cauchy song 3D khong thuan nhat &mdash; Duhamel</div>
+          <div class="n-method">Phuong phap: Nguyen ly Duhamel + Kirchhoff</div>
+          <div class="n-reason">Chinh xac la bai nay. Can hieu Duhamel de xu ly nguon $\chi_{[0,1]}(t)\chi_{[-1,1]}(x)$ va cong vao nghiem thuan nhat.</div>
+        </div>
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Cauchy song 1D &mdash; cong thuc d'Alembert</div>
+          <div class="n-method">Phuong phap: Cong thuc d'Alembert</div>
+          <div class="n-reason">Truong hop don gian nhat. Nguon $\chi_{[-1,1]}(x)$ doc lap voi $y,z$ goi tinh 1D. Hoc de hieu du lieu ban dau, van toc huu han, mien phu thuoc.</div>
+        </div>
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Cauchy song 2D &mdash; cong thuc Poisson, phuong phap ha thap</div>
+          <div class="n-method">Phuong phap: Cong thuc Poisson / method of descent</div>
+          <div class="n-reason">So chieu chan $n=2$ &rarr; khong co Huygens manh, co duoi song. Hoc de hieu tai sao $n=3$ dac biet.</div>
+        </div>
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Song tu du lieu gia compact / doi xung cau</div>
+          <div class="n-method">Phuong phap: Doi bien $v=ru$, phan tich mat cau Kirchhoff</div>
+          <div class="n-reason">Du lieu $\chi_{B_1(0,0,\pm 2)}$ la ham dac trung hinh cau. Ky thuat $v=ru$ quy bai 3D doi xung cau ve bai 1D, rat hay xuat hien trong bai tap.</div>
+        </div>
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Danh gia nghiem tai diem xa nguon</div>
+          <div class="n-method">Phuong phap: Hinh hoc non dac trung / van toc huu han</div>
+          <div class="n-reason">Bai thi hay hoi: "khi nao $u(100,y,0,t)=0$, khi nao khac 0?" &mdash; can tinh khoang cach tu $(100,y,0)$ den gia cua $h$ va $f$.</div>
+        </div>
+
+        <div class="n-item strong-nb">
+          <div class="n-name bold">Song voi nguon co gia compact theo thoi gian va khong gian</div>
+          <div class="n-method">Phuong phap: Duhamel + phan tich gia theo non</div>
+          <div class="n-reason">Nguon tach bien $f=\chi_{[-1,1]}(x)\chi_{[0,1]}(t)$ la nguon co gia huu han. Ky nang chinh: phan tich xem non lan truyen co cat gia cua nguon khong.</div>
+        </div>
+
+        <div class="n-item">
+          <div class="n-name">Song voi du lieu gian doan &mdash; nghiem yeu</div>
+          <div class="n-method">Phuong phap: Nghiem phan bo / cong thuc tich phan</div>
+          <div class="n-reason">Lien quan khai niem: du lieu gian doan buoc dung nghia yeu. Khong phai focus chinh cua bai.</div>
+        </div>
+
+        <div class="n-item">
+          <div class="n-name">Cauchy phuong trinh nhiet 3D</div>
+          <div class="n-method">Phuong phap: Nhan chap voi nhan nhiet (heat kernel)</div>
+          <div class="n-reason">Cung la PDE tien hoa tren $\mathbb{R}^3$ nhung loai parabolic (bac 1 theo $t$). Hoc de phan biet voi song.</div>
+        </div>
+
+        <div class="n-item">
+          <div class="n-name">Phuong trinh Laplace / Poisson trong $\mathbb{R}^3$</div>
+          <div class="n-method">Phuong phap: Ham Green / nghiem co ban Newton</div>
+          <div class="n-reason">Co cung $\Delta$ nhung la loai elliptic, khong co bien $t$. Hoc de hieu su khac biet elliptic vs hyperbolic.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. LY THUYET -->
+  <div class="card" id="ly-thuyet">
+    <div class="card-head">
+      <div class="num">5</div>
+      <h2>Ly thuyet chi tiet cho cac khai niem moi</h2>
+    </div>
+    <div class="card-body">
+      <p class="note">Cac dinh nghia day du, co cong thuc, de tra cuu.</p>
+      <div class="t-list">
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Phan loai PDE bac hai</div></div>
+          <div class="t-body">
+            <p>Xet PDE bac hai tuyen tinh $\sum_{i,j} a_{ij}\partial_{x_i}\partial_{x_j}u + \text{(bac thap)} = f$. Phan loai dua vao dang toan phuong phan chinh $\sum a_{ij}\xi_i\xi_j$:</p>
+            <ul>
+              <li><strong>Elliptic</strong>: xac dinh dau, vi du Laplace $\Delta$, symbol $|\xi|^2 > 0$.</li>
+              <li><strong>Parabolic</strong>: suy bien mot huong, vi du phuong trinh nhiet $\partial_t - \Delta$.</li>
+              <li><strong>Hyperbolic</strong>: doi dau, chi so quan tinh $(1,n)$, vi du song $\partial_{tt}-\Delta$, symbol $-\tau^2+|\xi|^2$.</li>
+            </ul>
+            <p style="margin-top:8px">Phuong trinh song nay: coi $(t,x)\in\mathbb{R}^{1+3}$, symbol chinh $-\tau^2+|\xi|^2$ mang metric Lorentz $\mathrm{diag}(-1,1,1,1)$ &rarr; hyperbolic.</p>
+          </div>
+        </div>
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Bai toan Cauchy cho phuong trinh song</div></div>
+          <div class="t-body">
+            $$\begin{cases} u_{tt} - c^2\Delta u = f(x,t), & x\in\mathbb{R}^3,\ t>0,\\ u(x,0) = g(x),\\ u_t(x,0) = h(x). \end{cases}$$
+            <p>O de bai: $c=1$, $g\equiv 0$, $h = \chi_{B_1(0,0,2)} - \chi_{B_1(0,0,-2)}$, $f = \chi_{[0,1]}(t)\chi_{[-1,1]}(x)$.</p>
+            <p style="margin-top:6px">Mat $t=0$ la mat <em>khong dac trung</em> doi voi toan tu song &rarr; bai toan dat chinh (well-posed theo Hadamard): ton tai nghiem duy nhat, phu thuoc lien tuc vao du lieu.</p>
+          </div>
+        </div>
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Cong thuc Kirchhoff (3D, thuan nhat)</div></div>
+          <div class="t-body">
+            <p>Nghiem cua $u_{tt} = \Delta u$, $u(\cdot,0)=g$, $u_t(\cdot,0)=h$ trong $\mathbb{R}^3$ ($c=1$):</p>
+            $$u(x,t) = \partial_t\!\left(t\,\fint_{\partial B_t(x)} g\,dS\right) + t\,\fint_{\partial B_t(x)} h\,dS,$$
+            <p>trong do $\fint_{\partial B_r(x)} = \dfrac{1}{4\pi r^2}\int_{\partial B_r(x)}$ la trung binh mat cau ban kinh $r$ tam $x$.</p>
+            <div class="callout nho">
+              <strong class="label">Nho</strong>
+              Nghiem tai $(x,t)$ chi phu thuoc du lieu <em>tren mat cau</em> $|y-x|=t$. Day la nguyen ly Huygens manh du' trong cong thuc.
+            </div>
+          </div>
+        </div>
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Nguyen ly Duhamel</div></div>
+          <div class="t-body">
+            <p>Voi $u_{tt}-\Delta u = f$, $u(\cdot,0)=u_t(\cdot,0)=0$:</p>
+            $$u(x,t) = \int_0^t w(x,t;\,s)\,ds,$$
+            <p>trong do $w(\cdot,\cdot;\,s)$ giai bai toan thuan nhat $w_{tt}=\Delta w$ voi $w(x,s;s)=0$, $w_t(x,s;s)=f(x,s)$.</p>
+            <p style="margin-top:6px">Noi don gian: moi "luc nguon phat" tai thoi diem $s$ tao ra mot song rieng, lan truyen tu $s$ tro di. Nghiem tong la tich phan tat ca cac song con do.</p>
+          </div>
+        </div>
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Nguyen ly Huygens manh ($\mathbb{R}^3$)</div></div>
+          <div class="t-body">
+            <p>Trong $\mathbb{R}^n$ voi $n$ le, $n\ge 3$ (dac biet $n=3$):</p>
+            <p style="margin-top:6px">Nghiem tai $(x,t)$ chi phu thuoc du lieu ban dau <strong>tren mat cau</strong> $\{y: |y-x|=ct\}$, khong phai trong toan qua cau $|y-x|\le ct$.</p>
+            <p style="margin-top:6px">Hau qua thuc te: mot nguon phat ngan gon (gia compact) tao ra tin hieu co "mat truoc" va "mat sau" ro rang, din hieu den roi di, <strong>khong de lai duoi</strong>.</p>
+            <p style="margin-top:6px"><em>Trong $\mathbb{R}^2$ ($n$ chan): nguyen ly Huygens sai. Tin hieu den roi chua het ngay &mdash; co "duoi song".</em></p>
+            <div class="callout dk">
+              <strong class="label">Dieu kien</strong>
+              $n\ge 3$ le. He so hang. Phan thuan nhat. (Phan nguon qua Duhamel co the co hieu ung duoi.)
+            </div>
+          </div>
+        </div>
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Van toc truyen huu han va mien phu thuoc</div></div>
+          <div class="t-body">
+            <p>Tinh chat co ban cua PDE hyperbolic (c=1):</p>
+            <ul>
+              <li>Neu gia cua du lieu trong $K$ thi $u(x,t)=0$ voi moi $x$ co $\mathrm{dist}(x,K) > t$.</li>
+              <li><strong>Mien phu thuoc</strong> cua $(x_0,t_0)$: du lieu trong $\overline{B_{t_0}(x_0)}$ (3D: tren mat cau $\partial B_{t_0}$) va nguon trong non lui $\{|y-x_0|\le t_0-s,\, 0\le s\le t_0\}$.</li>
+              <li><strong>Mien anh huong</strong> cua du lieu tai $x_0$: non tien $\{(x,t): |x-x_0|\le t\}$.</li>
+            </ul>
+            $$u(x_0,t_0) = 0 \quad \text{khi gia cua } g,h,f \text{ khong cat mien phu thuoc cua } (x_0,t_0).$$
+          </div>
+        </div>
+
+        <div class="t-item">
+          <div class="t-head"><div class="t-title">Ham dac trung va nghiem yeu</div></div>
+          <div class="t-body">
+            $$\chi_A(x) = \begin{cases}1 & x\in A \\ 0 & x\notin A\end{cases}$$
+            <p>Du lieu $h = \chi_{B_1(0,0,2)} - \chi_{B_1(0,0,-2)}$ gian doan tai bien hinh cau. Nguon $f$ gian doan tai bien hinh hop. Nghiem $u$ khong co dien $C^2$.</p>
+            <p style="margin-top:6px"><strong>Nghiem yeu</strong>: $u$ thoa man PDE theo nghia tich phan &mdash; voi moi $\varphi\in C_c^\infty$ (ham kiem thu):
+            $$\iint \bigl(u\,\varphi_{tt} - u\,\Delta\varphi\bigr)\,dx\,dt = \iint f\,\varphi\,dx\,dt + \text{(du lieu ban dau)}.$$</p>
+            <div class="callout nho">
+              <strong class="label">Nho</strong>
+              Trong thuc te, van dung cong thuc Kirchhoff va Duhamel binh thuong. Chi can biet ket qua la nghiem yeu, khong doi $u$ phai tron.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- .wrap -->
+</body>
+</html>

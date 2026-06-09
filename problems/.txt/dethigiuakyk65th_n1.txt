@@ -1,0 +1,49 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2022-2023 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên lớp: K65
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét phương trình sau:
+
+exuxx(x, y) + 2uxy(x, y) + e−xuyy(x, y) + (ex + 1)ux(x, y) + e−xuy(x, y) = 0 trong R2.
+
+(a) Xác định dạng của phương trình, chuyển về dạng chính tắc.
+
+(b) Tìm nghiệm tổng quát của phương trình.
+
+(c) Tìm a sao cho phương trình đã cho có nghiệm thỏa mãn u(x, y) = ae−y + 1 trên đường cong yex + 1 = 0. Khi đó hãy viết ra hai nghiệm và kiểm tra lại chúng.
+Câu 2. Xét bài toán Cauchy cho phương trình truyền sóng:
+
+utt(x, t) = 4uxx(x, t), x > 0, t > 0, điều kiện biên Neumann ux(0, t) = 0 và điều kiện ban đầu
+u(x, 0) = 0, ut(x, 0) = 2xχ[1,2](x) khi x ≥ 0.
+
+(a) Xác định sóng tiến–sóng lùi.
+
+(b) Vẽ đồ thị nghiệm u(x, t) tại các thời điểm t = 1, 2, 3. Câu 3. Xét bài toán biên cho phương trình Laplace trong quạt:
+uxx(x, y) + uyy(x, y) = 0, x > 0, y > 0, x2 + y2 < 1,
+
+với điều kiện biên
+ uy(x, 0) = 0, 0 ≤ x ≤ 1, 
+u(0, y) = 0, 0 ≤ y ≤ 1, u(x, y) = −xy2, x2 + y2 = 1, 0 ≤ x ≤ 1, 0 ≤ y ≤ 1.
+
+(a) Sử dụng nguyên lý phản xạ Schwarz qua trục hoành ta được bài toán biên như nào trên nửa hình tròn {x2 + y2 < 1, x > 0}. Sử dụng nguyên lý cực đại cho bài toán biên này để chứng minh −xy ≤ u(x, y) ≤ 0 khi x > 0, y > 0, x2 + y2 < 1.
+
+(b) Dùng phương pháp tách biến hãy giải u(x, y).
+
+Thang điểm. Câu 1: 3đ+1,5đ+1,5đ. Câu 2: 2đ+1,5đ. Câu 3: 2,5đ+3đ.
+
+

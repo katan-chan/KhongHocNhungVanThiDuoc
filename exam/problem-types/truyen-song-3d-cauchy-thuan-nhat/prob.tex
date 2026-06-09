@@ -1,0 +1,71 @@
+% problem-type: truyen-song-3d-cauchy-thuan-nhat
+% order: 20
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Truyền sóng 3D thuần nhất --- Kirchhoff}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Giải bài toán Cauchy cho phương trình truyền sóng 3D \textbf{thuần nhất} (không nguồn)
+\[
+  u_{tt}=\Delta u,\quad (x,y,z)\in\mathbb{R}^3,\ t>0,\qquad
+  u(\cdot,0)=0,\quad u_t(\cdot,0)=\chi_{B_1(0)}.
+\]
+($B_1(0)$ là hình cầu đơn vị tâm gốc.) \textbf{Tính $u(x_0,t)$ tại điểm $x_0$ cách gốc $|x_0|=2$.}
+\emph{Vì dữ liệu đối xứng cầu quanh gốc nên $u$ chỉ phụ thuộc khoảng cách $|x_0|$ --- không cần biết tọa độ cụ thể của $x_0$, chỉ cần $|x_0|=2$.}
+
+\emph{\small(Ví dụ tự soạn minh hoạ riêng công thức Kirchhoff thuần nhất; kỹ thuật này là phần ``dữ liệu ban đầu'' của các đề sóng 3D có nguồn: MAT3365 HK2 2023--24 Câu 3, MAT3365 HK1 2025--26 Câu 3.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item PDE sóng \textbf{không nguồn} ($f=0$) trên $\mathbb{R}^3$, dữ liệu ban đầu $(g,h)$.
+  \item Số chiều $n=3$ (lẻ) $\Rightarrow$ dùng Kirchhoff; nghiệm có nguyên lý Huygens mạnh (không đuôi).
+\end{itemize}
+\begin{meobox}
+Chỉ cần ráp $g,h$ vào công thức Kirchhoff. Mẹo: nghiệm chỉ ``sống'' khi mặt cầu $\partial B_t(x)$ còn chạm giá dữ liệu.
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\subsubsection*{Công thức Kirchhoff}
+\input{shared/methods/cong-thuc-kirchhoff.tex}
+\emph{(Cách tính $\int_{\partial B_t}h\,dS$: xem Phụ lục C --- Kỹ thuật tính toán.)}
+
+\subsubsection*{Nguyên lý Huygens mạnh}
+\input{shared/methods/phan-tich-nguyen-ly-huygens.tex}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Nhắc lại đề.} $u_{tt}=\Delta u$, $g=0$, $h=\chi_{B_1(0)}$. Tính $u(x_0,t)$ với $|x_0|=2$.
+
+\paragraph{Bước 1 --- Kirchhoff.} Vì $g=0$, nghiệm bằng tích phân mặt của $h$ trên mặt cầu $\partial B_t(x_0)$:
+\[
+  u(x_0,t)=\frac{1}{4\pi t}\int_{\partial B_t(x_0)} \chi_{B_1(0)}\,dS
+        =\frac{1}{4\pi t}\cdot\big(\text{diện tích phần }\partial B_t(x_0)\text{ nằm trong }B_1(0)\big).
+\]
+
+\paragraph{Bước 2 --- tính tích phân mặt bằng chỏm cầu} (kỹ thuật ở Phụ lục C). Mặt cầu bán kính
+$R=t$ tâm $x_0$ cắt quả cầu dữ liệu $B_1(0)$ (bán kính $\rho=1$, \emph{tâm} $c=0$ là gốc). Khoảng cách
+hai tâm $d=|x_0-c|=|x_0-0|=|x_0|=2$ (đúng bằng khoảng cách điểm hỏi tới gốc mà đề cho):
+\[
+  \cos\theta=\frac{R^2+d^2-\rho^2}{2Rd}=\frac{t^2+4-1}{4t}=\frac{t^2+3}{4t}.
+\]
+Có giao khi $\cos\theta<1\Leftrightarrow t^2-4t+3<0\Leftrightarrow 1<t<3$. Diện tích chỏm cầu
+(công thức $S=2\pi R^2(1-\cos\theta)$, Phụ lục C), rút gọn $1-\tfrac{t^2+3}{4t}=\tfrac{4t-t^2-3}{4t}=\tfrac{(t-1)(3-t)}{4t}$:
+\[
+  S=2\pi t^2\Big(1-\frac{t^2+3}{4t}\Big)=2\pi t^2\cdot\frac{(t-1)(3-t)}{4t}=\frac{\pi t}{2}(t-1)(3-t).
+\]
+
+\paragraph{Bước 3 --- ráp lại.} Chia diện tích chỏm cầu cho $4\pi t$:
+\begin{nhobox}
+\[
+  u(x_0,t)=\frac{1}{4\pi t}\cdot S=\begin{cases} \dfrac{(t-1)(3-t)}{8}, & 1\le t\le 3,\\[6pt] 0, & \text{còn lại}.\end{cases}
+\]
+Tín hiệu đến $x_0$ tại $t=1$ (sóng vừa chạm quả cầu), đỉnh $\tfrac18$ tại $t=2$, rồi \textbf{tắt hẳn} sau
+$t=3$ --- đúng nguyên lý Huygens mạnh (sóng 3D không có đuôi).
+\end{nhobox}

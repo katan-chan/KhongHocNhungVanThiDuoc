@@ -1,0 +1,152 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2022-2023 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 2
+
+Dành cho sinh viên lớp: K65
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xác phương trình sau:
+
+xuxx(x,
+
+y)
+
++
+
+√ 2 xyuxy(x,
+
+y)
+
++
+
+2yuyy(x,
+
+y)
+
++
+
+ux(x,
+
+y)
+
++
+
+√ xuy(x,
+
+y)
+
+−
+
+1 x
+
+u(x,
+
+y)
+
+=
+
+0
+
+trong B = {(x − 2)2 + (y − 2)2 < 1}.
+
+(a) Xác định dạng và chuyển phương trình đang xét về dạng chính tắc.
+
+(b) Giả sử u là hàm khả vi liên tục đến cấp 2 trong B thỏa mãn phương trình đang xét. Chứng minh rằng u không đạt cực đại dương địa phương trong B.
+
+(c) Giả sử u là nghiệm của phương trình đang xét và liên tục đến tận biên, có giá trị trên biên u(x, y) = x khi (x − 2)2 + (y − 2)2 = 1. Chứng minh rằng u(x, y) = x trong B.
+
+Câu 2. Một đoạn dây chiều dài π dao động xung quanh vị trí cân bằng với tốc độ lan truyền 2. Nếu đặt hệ trục tọa độ sao cho một đầu đoạn dây ở gốc còn đầu kia có tọa độ x = π thì hai đầu cố định. Sợi dây bắt đầu từ vị trí cân bằng và vận tốc ban đầu g(x) = 2.
+
+(a) Thiết lập bài toán biên hỗn hợp cho hàm dao động u(x, t) của đoạn dây.
+
+(b) Xác định sóng tiến - sóng lùi. Vẽ đồ thị của hàm dao động u(x, t) tại các thời điểm t = π/2, π, 3π/2. Hàm u(x, π/2) không liên tục tại điểm nào?
+
+Câu 3. Giải bài toán biên cho phương trình Laplace trong hình vuông
+
+uxx(x, y)
+
++
+
+uyy(x, y)
+
+=
+
+0,
+
+0
+
+<
+
+x, y
+
+<
+
+π 2
+
+,
+
+với điều kiện biên
+
+ u(0, y)
+
+=
+
+2 cos3 3
+
+y,
+
+u(π/2, y)
+
+=
+
+0,
+
+0
+
+≤
+
+y
+
+≤
+
+π 2
+
+,
+
+uy(x, 0)
+
+=
+
+u(x, π/2)
+
+=
+
+0,
+
+0
+
+≤
+
+x
+
+≤
+
+π 2
+
+.
+
+Thang điểm. Câu 1: 3đ+1đ+1,5đ. Câu 2: 2đ+4,5đ. Câu 3: 3đ.
+
+

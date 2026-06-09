@@ -1,0 +1,47 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2021-2022 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên lớp: Lớp MAT2306 2
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét phương trình sau: uxx(x, y) + 2uxy(x, y) + uyy(x, y) + 2(ux(x, y) + uy(x, y)) + u(x, y) = x, (x, y) ∈ R2.
+
+(a) Xác định dạng và chuyển về dạng chính tắc phương trình đã cho. Vẽ các đường đặc trưng.
+
+(b) Tìm nghiệm tổng quát của phương trình đã cho.
+
+(c) Tìm nghiệm của phương trình đã cho thỏa mãn u(x, 0) = cos(x), uy(x, 0) = sin(x). Kiểm tra nghiệm tìm được.
+
+Câu 2. Xét bài toán Cauchy cho phương trình truyền sóng:
+
+utt(x, t) = 9uxx(x, t), −∞ < x < ∞, t > 0, với điều kiện ban đầu u(x, 0) = χ[−2,−1](x), ut(x, 0) = xχ[2,3](x), −∞ < x < ∞.
+(a) Xác định sóng tiến - sóng lùi.
+
+(b) Vẽ đồ thị nghiệm u(x, t) tại các thời điểm t = 1/3, 2/3, 1.
+
+(c) Xác định tập điểm kỳ dị của nghiệm.
+
+Câu 3. Xét bài toán biên cho phương trình Laplace trong quạt: uxx(x, y) + uyy(x, y) = 0, x > 0, x2 + y2 < 1.
+
+với điều kiện biên Dirichlet
+u(0, y) = 0 khi − 1 ≤ y ≤ 1, và u(x, y) = xy khi x2 + y2 = 1, x ≥ 0.
+(a) Giả sử v(x, y) là hàm điều hòa trong hình tròn đơn vị {x2 + y2 < 1} liên tục đến tận biên và v(x, y) = xy trên biên x2 + y2 = 1. Chứng minh rằng v(x, y) lẻ theo biến y, nghĩa là v(−x, y) = −v(x, y). Từ đó hãy chứng minh v(x, y) = u(x, y) khi x2 + y2 < 1, x > 0. Tính u(x, 0), x > 0.
+
+(b) Dùng phương pháp tách biến hãy giải u(x, y).
+
+Thang điểm. Câu 1: 2.5đ+1.5đ+3đ. Câu 2: 1.5đ+1.5đ+1đ. Câu 3: 2đ+2đ.
+
+

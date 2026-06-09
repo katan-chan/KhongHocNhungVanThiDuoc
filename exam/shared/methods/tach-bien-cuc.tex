@@ -1,0 +1,23 @@
+% method: tach-bien-cuc
+\begin{dieukienbox}
+Dùng khi: $\Delta u=0$ (Laplace) hoặc $\Delta u=$ hằng (Poisson) trên \textbf{quạt / vành khăn / đĩa},
+biên gồm cung tròn ($r=$ const) và cạnh thẳng ($\theta=$ const).
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Laplacian cực:} $\Delta u=u_{rr}+\frac1r u_r+\frac{1}{r^2}u_{\theta\theta}$. Tách $u=R(r)\Theta(\theta)$:
+\begin{itemize}
+  \item Góc: $\Theta''+\mu^2\Theta=0\Rightarrow \Theta=\cos(\mu\theta)$ hoặc $\sin(\mu\theta)$ ($\mu$ từ biên ở 2 cạnh $\theta$).
+  \item Bán kính (Euler): $r^2R''+rR'-\mu^2 R=0\Rightarrow R=r^{\mu},\,r^{-\mu}$ (hoặc $a+b\ln r$ khi $\mu=0$).
+\end{itemize}
+Nghiệm tổng quát:
+$\displaystyle u=a_0+b_0\ln r+\sum_{n\ge1}\big(a_n r^{\mu_n}+b_n r^{-\mu_n}\big)\Theta_n(\theta).$
+\end{nhobox}
+
+\begin{meobox}
+\begin{itemize}
+  \item Cạnh Neumann $u_\theta=0$ tại $\theta=0$ $\Rightarrow$ chọn $\cos(\mu\theta)$; Dirichlet $u=0$ $\Rightarrow$ chọn $\sin(\mu\theta)$. Cạnh còn lại định $\mu_n$.
+  \item \textbf{Đĩa} (chứa gốc): bỏ $r^{-\mu},\ln r$ (chặn tại $0$). \textbf{Vành khăn}: giữ cả hai.
+  \item Poisson $\Delta u=1$: cộng nghiệm riêng $r^2/4$. Hệ số $a_n,b_n$ lấy từ khai triển Fourier dữ liệu trên cung.
+\end{itemize}
+\end{meobox}

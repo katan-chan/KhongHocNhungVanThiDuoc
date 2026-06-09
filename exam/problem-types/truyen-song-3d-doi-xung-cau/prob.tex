@@ -1,0 +1,72 @@
+% problem-type: truyen-song-3d-doi-xung-cau
+% order: 40
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Truyền sóng 3D có nguồn --- đối xứng cầu ($v=ru$)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Giải $u_{tt}=\Delta u$ trên $\mathbb{R}^3$, $u(\cdot,0)=0$, $u_t(\cdot,0)=\psi$ với
+$\psi$ \textbf{đối xứng cầu}: $\psi=\chi_{B_1(0)}$ (bằng $1$ khi $r=|x|<1$). \textbf{Tính $u(0,t)$ tại tâm.}
+
+\emph{\small(Ví dụ tự soạn minh hoạ riêng kỹ thuật đổi biến cầu $v=ru$; kỹ thuật này dùng cho phần ``đối xứng cầu'' của các đề sóng 3D có nguồn: MAT3365 HK2 2023--24 Câu 3, MAT3365 HK1 2025--26 Câu 3.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item Sóng 3D, dữ liệu/nguồn \textbf{chỉ phụ thuộc $r=|x|$} (đối xứng cầu).
+  \item Khi đó dùng đổi biến $v=ru$ để hạ về sóng 1D (gọn hơn Kirchhoff).
+\end{itemize}
+\begin{meobox}
+Dấu hiệu: $\psi,f$ viết theo $|x|$ (hoặc $\chi_{B_\rho}$). Tâm $r=0$: $u(0,t)=v_r(0,t)$.
+\end{meobox}
+\begin{luuybox}
+Đề thực thường \textbf{TRỘN}: phần đối xứng cầu (mục này) $+$ phần đối xứng phẳng (phụ thuộc 1 biến).
+Chồng chất tách rồi xử lý từng phần; phần phẳng xem mục ``đối xứng phẳng (hạ 1 biến)''.
+\end{luuybox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\subsubsection*{Đổi biến cầu $v=ru$}
+\input{shared/techniques/doi-bien-cau-song.tex}
+\emph{(Có nguồn $f(r,t)$: $v=ru$ cho $v_{tt}=c^2v_{rr}+rf$, giải bằng d'Alembert 1D có nguồn.)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Nhắc lại đề.} $u_{tt}=\Delta u$ trên $\mathbb{R}^3$, $u(\cdot,0)=0$, $u_t(\cdot,0)=\psi=\chi_{B_1(0)}$
+(đối xứng cầu). Tính $u(0,t)$ tại tâm.
+
+\paragraph{Bước 1 --- đổi biến.} $c=1$, đặt $v=ru$. Vì $u(\cdot,0)=0$, $u_t(\cdot,0)=\psi(r)$:
+\[
+  v_{tt}=v_{rr}\ (r>0),\quad v(r,0)=0,\quad v_t(r,0)=r\,\psi(r)=r\,\chi_{[0,1]}(r),\quad v(0,t)=0.
+\]
+
+\paragraph{Bước 2 --- d'Alembert (thác triển lẻ qua $r=0$).} Với $h(r)=r\chi_{[0,1]}(r)$, thác triển lẻ
+$h_{\mathrm{lẻ}}(s)=s\,\chi_{[-1,1]}(s)$:
+\[
+  v(r,t)=\tfrac12\int_{r-t}^{r+t} h_{\mathrm{lẻ}}(s)\,ds,\qquad
+  u(r,t)=\frac{v(r,t)}{r}.
+\]
+
+\paragraph{Bước 3 --- tại tâm $r=0$ (khử dạng $0/0$).} $u=v/r$ tại $r=0$ là $0/0$ vì
+$v(0,t)=\tfrac12\int_{-t}^{t}h_{\mathrm{lẻ}}=0$ ($h_{\mathrm{lẻ}}$ lẻ). L'Hôpital theo $r$:
+$u(0,t)=\lim_{r\to0}\tfrac{v(r,t)}{r}=v_r(0,t)$.
+
+\paragraph{Bước 3a --- đạo hàm theo cận.} $v_r(r,t)=\tfrac12\big[h_{\mathrm{lẻ}}(r+t)-h_{\mathrm{lẻ}}(r-t)\big]$.
+Tại $r=0$, dùng $h_{\mathrm{lẻ}}(-t)=-h_{\mathrm{lẻ}}(t)$:
+\[
+  u(0,t)=\tfrac12\big[h_{\mathrm{lẻ}}(t)-h_{\mathrm{lẻ}}(-t)\big]=h_{\mathrm{lẻ}}(t).
+\]
+
+\paragraph{Bước 3b --- thay $h_{\mathrm{lẻ}}(t)=t\,\chi_{[-1,1]}(t)$.}\leavevmode
+
+\begin{nhobox}
+\[
+  u(0,t)=\begin{cases} t, & 0<t<1,\\ 0, & t>1.\end{cases}
+\]
+Tín hiệu qua tâm trong $(0,1)$ rồi tắt --- khớp Huygens mạnh (so sánh: dạng bài Kirchhoff cho cùng kết quả).
+\end{nhobox}

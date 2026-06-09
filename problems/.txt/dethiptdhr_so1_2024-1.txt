@@ -1,0 +1,537 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K66
+
+Ngành học: Toán học
+
+Thời gian làm bài 90 phút (không kể thời gian phát đề)
+
+Câu 1. (3 điểm) Xét tứ giác Q = {(x, y) ∈ R2 : x + 1 > 2|y| > 2x}. (a) Tìm hàm liên tục v : {x, y) ∈ R2 : |y| ≥ x} → [0, ∞) điều hòa trong {x, y) ∈ R2 : |y| > x}
+
+và thỏa mãn v(x, y) = 0 chỉ khi (x, y) = (0, 0).
+
+(b) Vẽ tứ giác Q. Chứng minh rằng tứ giác Q là miền phẳng chính quy. Từ đó hãy chứng minh
+
+tồn tại duy nhất một hàm Green đối với Q.
+
+Câu 2. (3.5 điểm) Xét bài toán Cauchy cho phương trình truyền sóng
+
+utt(x, y, z, t) = ∆u(x, y, z, t) + f (x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với các điều kiện ban đầu u(x, y, z, 0) = ut(x, y, z, 0) = 0 trong đó
+
+ 1  f (x, y, z, t) = −1
+0
+
+khi (x, y, z) ∈ B1(0, 0, 2), khi (x, y, z) ∈ B1(0, 0, −2), còn lại,
+
+trong đó Br(x, y, z) là hình cầu tâm (x, y, z) bán kính r. Hãy tính u(0, 0, 100, t), t > 0. Câu 3. (2 điểm) Xét bài toán biên cho phương trình Laplace trong góc phần tư dương
+
+uxx(x, y) + uyy(x, y) = 0, khi x > 0, y > 0,
+
+với điều kiện biên u(0, y) = 0 khi y > 0, và u(x, 0) = 1 khi 1 ≤ x ≤ 2, 0 còn lại.
+(a) Sử dụng phép phản xạ Schwarz qua trục tung x = 0 bài toán đang xét chuyển thành bài toán nào trên nửa mặt phẳng? Sử dụng công thức Poisson tính nghiệm bị chặn của bài toán sau phép phản xạ. (b) Tìm nghiệm bị chặn u(x, y) của bài toán đang xét.
+
+Câu 4. (3.5 điểm) Xét bài toán biên - ban đầu cho phương trình
+
+ut(x, t) = 2uxx(x, t) + f (x, t), 0 < x < 1, t > 0,
+
+với điều kiện biên u(0, t) = µ(t), ux(1, t) = ν(t), t ≥ 0, điều kiện ban đầu u(x, 0) = g(x),
+
+0 ≤ x ≤ 1.
+
+(a) Sử dụng tích phân năng lượng dạng I(t) =
+
+1 0
+
+u2
+
+(x,
+
+t)dx
+
+để
+
+chứng
+
+minh
+
+bài
+
+toán
+
+đã
+
+cho
+
+có
+
+duy nhất nghiệm.
+
+(b) Với µ(t) = 100, ν(t) = 0 hãy tìm hàm v(x) thỏa mãn v (x) = 0 và v(0) = 100, v (1) = 0.
+
+Khi đó hàm w(x, t) = u(x, t) − v(x) thỏa mãn bài toán nào? (c) Giải bài toán cho hàm w(x, t) ở câu (b) khi f (x, t) = e−t, g(x) = 100. Từ đó giải bài toán ban
+
+đầu với các dữ liệu f , g, µ, ν được cho ở câu (b) và (c).
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2023-2024 Môn thi: Phương trình đạo hàm riêng 1
+
+Mã môn học: MAT2306 Dành cho sinh viên khoá: K66
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán học
+
+Lời giải 1.
+
+(a)Trong hệ tọa độ cực v = r1/2 sin((θ − π/5)/2) vì
+
+vrr
+
++
+
+1 r
+
+vr
+
++
+
+1 r2
+
+vθ
+
+θ
+
+=
+
+0
+
+và
+
+v(r, θ)
+
+>
+
+0
+
+khi
+
+r
+
+>
+
+0,
+
+π/4
+
+≤
+
+θ
+
+≤
+
+7π/4.
+
+[3 điểm] 1
+
+(b) Vẽ Q.
+
+0.5
+
+Tại các điểm trên biên ∂Q khác gốc đều thỏa mãn điều kiện hình cầu ngoài nên chúng 0.5
+
+chính quy.
+
+Tại điểm gốc hàm v ở câu (a) là hàm cản đối với Q. Do đó Q là miền chính quy.
+
+0.5
+
+Khi đó với mỗi x ∈ Q, do hàm E(x − ·) liên tục trên biên ∂Q nên bài toán biên
+
+0.5
+
+∆Φ = 0 trong Q, Φ = E(x − ·) trên ∂Q
+
+đều có nghiệm. Theo NLCĐ nghiệm này là duy nhất. Từ đó dẫn đến hàm Green đối với Q là tồn tại và duy nhất.
+
+Lời giải 2.
+
+Tách nghiệm u = u1 − u2 với uj, j = 1, 2, là nghiệm của
+
+ujtt 
+uj(x, y, z, 0) ujt(x, y, z, 0)
+
+= ∆uj + fj, = 0, = 0,
+
+trong đó fj = χB1(0,0,zj), z1 = 2, z2 = −2. Do fj chỉ phụ thuộc rj = (x2 + y2 + (z − zj)2)1/2 nên uj = vj(rj, t). Khi đó
+
+rjvj(rj, t)
+
+=
+
+1 2
+
+∆(rj,t) sχ[−1,1](s)dsdτ.
+
+với ∆(rj, t) = {0 < τ < t, rj + τ − t < s < rj + t − τ}. Khi đó, với rj > 1 ta có
+
+
+
+0
+
+
+
+rjvj(rj,
+
+t)
+
+=
+
+ (rj−t+2)(rj−t−1)2
+12
+
+  
+
+1
+
+3
+
+khi 0 < t < rj − 1, khi rj − 1 < t < rj + 1, khi t > rj + 1.
+
+[3.5 điểm] 0.5
+0.5 0.5
+
+Khi đó ta có
+
+1
+
+u(0, 0, 100, t) =
+
+0
+
+1 3
+
+(
+
+1 98
+
+−
+
+1 102
+
+)
+
+khi 0 < t < 97, khi t > 103.
+
+1
+
+ (100−t)(97−t)2
+
+  
+
+12×98
+
+khi 97 < t < 99,
+
+u(0, 0, 100, t) =
+
+1 3×98
+
+khi 99 < t < 101,
+
+ 
+
+(104−t)(101−t)2
+
+
+
+12×102
+
+khi 101 < t < 103.
+
+Lời giải 3.
+
+[2 điểm]
+
+(a) Do u(0, y) = 0 ta thác triển lẻ hàm u từ góc dương thành hàm U trên nửa mặt phẳng. 0.5 Hàm U thỏa mãn bài toán
+
+Uxx(x, y) + Uyy(x, y) = 0, khi − ∞ < x < ∞, y > 0,
+
+với điều kiện biên U(x, 0) = χ[1,2](x) − χ[−2,−1](x).
+
+Sử dụng công thức Poisson ta có
+
+0.5
+
+U(x, y) = 1 π
+
+R
+
+(z
+
+yU(z, − x)2
+
+0) + y2
+
+dz
+
+=1 π
+
+2 1
+
+(z
+
+−
+
+y x)2
+
++
+
+y2
+
+dz
+
+−
+
+−1 −2
+
+(z
+
+−
+
+y x)2
+
++
+
+y2
+
+dz
+
+.
+
+Đổi biến t = (z − x)/y ta có
+
+0.5
+
+b a
+
+(z
+
+−
+
+y x)2
+
++
+
+y2
+
+dz
+
+=
+
+(b−x)/y dt (a−x)/y 1 + t2
+
+= arctan((b − x)/y) − arctan((a − x)/y), x ∈ R, y > 0.
+
+Như vậy nghiệm của bài toán ban đầu:
+
+0.5
+
+u(x, y) = arctan((2 − x)/y) − arctan((1 − x)/y) π
++ arctan((1 + x)/y) − arctan((2 + x)/y) , x > 0, y > 0. π
+
+Lời giải 4.
+
+[3.5 điểm]
+
+(a) Giả sử u1, u2 là hai nghiệm của bài toán. Khi đó w = u1 − u2 là nghiệm của
+
+0.5
+
+wt(x, t) = 2wxx(x, t), 0 < x < 1, t > 0,
+
+với điều kiện biên w(0, t) = wx(1, t) = 0, t ≥ 0, điều kiện ban đầu w(x, 0) = 0, 0 ≤ x ≤ 1.
+
+Xét I(t) =
+
+1 0
+
+w2(x,
+
+t)dx.
+
+Do
+
+w(x,
+
+0)
+
+=
+
+0
+
+nên
+
+I(0)
+
+=
+
+0.
+
+Lại có
+
+0.5
+
+1
+
+1
+
+I (t) = 2 w(x, t)wt(x, t)dx = 4 wdwx
+
+0
+
+0
+
+=4
+
+x=1
+uux −
+x=0
+
+1
+w2x d x
+0
+
+mà w(0, t) = wx(1, t) = 0 nên I (t) ≤ 0, t > 0. Do đó
+
+0 ≤ I(t) ≤ I(0) = 0, ∀t > 0
+
+hay I(t) = 0, t > 0. Như vậy w = 0 hay u1 = u2.
+
+(b) Do v (x) = 0 nên v(x) = ax + b. Lại có v(0) = 100, v (1) = 0 ta chọn v(x) = 100.
+
+0.5
+
+Bài toán cho hàm w(x, t) = u(x, t) − v(x):
+
+0.5
+
+wt = 2wxx + f , 0 < x < 1, t > 0,
+
+với điều kiện biên w(0, t) = wx(1, t) = 0, điều kiện ban đầu w(x, 0) = g(x) − 100.
+
+(c) Chuỗi nghiệm
+
+0.5
+
+∞
+
+w(x, t) = ∑ Tn(t) sin((n + 1/2)πx).
+
+n=0
+
+Thay vào điều kiện ban đầu w(x, 0) = 0 ta có Tn(0) = 0. Thay vào phương trình
+
+0.5
+
+Tn(t) + 2(n + 1/2)2π2Tn(t) = 2e−t
+
+1 0
+
+sin((n
+
++ 1/2)πx)dx
+
+=
+
+4e−t (2n + 1)π
+
+.
+
+Vậy
+
+0.5
+
+Tn(t)
+
+=
+
+8 (2n + 1)π[(2n + 1)2π2
+
+− 2] (e−t
+
+− e ) −
+
+(2n+1)2 π2 2
+
+t
+
+và
+
+∑ u(x,
+
+t)
+
+=
+
+100
+
++
+
+∞ n=0
+
+(2n
+
++
+
+8 1)π[(2n
+
++
+
+1)2π2
+
+−
+
+2]
+
+(e−t
+
+−
+
+e−
+
+(2n+1)2 2
+
+π2
+
+t
+
+)
+
+sin((n
+
++
+
+1/2)πx).
+
+Hà Nội, ngày 16 tháng 05 năm 2024 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

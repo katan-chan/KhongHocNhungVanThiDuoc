@@ -1,0 +1,27 @@
+% method: cong-thuc-kirchhoff
+\begin{dieukienbox}
+Dùng khi: phương trình sóng \textbf{thuần nhất} ($u_{tt}=\Delta u$, không nguồn) trên $\mathbb{R}^3$.
+Chỉ đúng cho $n=3$ chiều không gian.
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Dữ liệu ban đầu:} $g(x)=u(x,0)$ (vị trí lúc đầu), $\;h(x)=u_t(x,0)$ (vận tốc lúc đầu).
+
+\textbf{Công thức Kirchhoff} ($c=1$, $n=3$):
+\[
+  u(x,t)=\partial_t\!\left(\frac{1}{4\pi t}\int_{\partial B_t(x)} g\,dS\right)
+  +\frac{1}{4\pi t}\int_{\partial B_t(x)} h\,dS .
+\]
+Trong đó $\displaystyle\int_{\partial B_t(x)}(\cdots)\,dS$ là \textbf{tích phân mặt} trên mặt cầu tâm $x$
+bán kính $t$ (diện tích mặt cầu $=4\pi t^2$, nên $\frac{1}{4\pi t^2}\int\cdots dS$ chính là giá trị trung bình).
+
+Trường hợp đề này $g=0$ (đứng yên lúc đầu) $\Rightarrow$ chỉ còn:
+\[
+  u(x,t)=\frac{1}{4\pi t}\int_{\partial B_t(x)} h\,dS .
+\]
+\end{nhobox}
+
+\begin{meobox}
+Nghiệm tại $(x,t)$ \emph{chỉ} phụ thuộc dữ liệu nằm \emph{đúng trên mặt cầu} $|y-x|=t$ (không phải bên trong).
+Vậy nếu mặt cầu này không chạm vùng mà $g,h$ khác $0$ thì $u(x,t)=0$.
+\end{meobox}

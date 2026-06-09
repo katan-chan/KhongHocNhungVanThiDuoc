@@ -1,0 +1,49 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên lớp: K67
+
+Ngành học: Toán Tin
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Cho phương trình yux(x, y) + (2 + u(x, y)) uy(x, y) = 0 trong R2
+với điều kiện Cauchy u(x, 0) = x2.
+
+(a) Kiểm tra điều kiện hoành bài toán đang xét.
+
+(b) Giải bài toán đã cho.
+
+Câu 2. Xét phương trình truyền sóng nửa toàn trục:
+
+utt(x, t) = 4uxx(x, t), 0 < x < ∞, t > 0,
+
+với điều kiện biên u(0, t) = 0, t ≥ 0, và điều kiện ban đầu
+
+u(x, 0) = 1 − x2, với 0 < x < 1,
+
+0,
+
+còn lại,
+
+và ut(x, 0) = 0.
+
+(a) Thác triển lẻ điều kiện ban đầu trên toàn trục. Xác định sóng tiến–sóng lùi.
+(b) Vẽ đồ thị nghiệm u(x, t) tại các thời điểm t = 1/4, 1/2, 1.
+Câu 3. Một thanh kim loại chiều dài π, có nhiệt độ trên thanh tuân theo phương trình truyền nhiệt với hệ số dẫn nhiệt 2. Hai đầu thanh cách nhiệt. Đặt hệ tọa độ lên thanh sao cho một đầu tại gốc, đầu kia tại x = π. Khi đó nhiệt độ ban đầu của thanh là sin(x).
+(a) Thiết lập bài toán cho hàm nhiệt độ u(x, t) trên thanh.
+(b) Giải bài toán ở câu (a).
+
+Thang điểm. Câu 1: 1,5đ+3đ. Câu 2: 2,5đ+3đ. Câu 3: 2đ+3đ.
+
+

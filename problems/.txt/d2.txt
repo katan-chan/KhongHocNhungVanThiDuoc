@@ -1,0 +1,85 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI GIỮA HỌC KÌ II NĂM HỌC 2025-2026 ——oOo——-
+
+Môn thi: Phương trình vi phân đạo hàm riêng
+
+Mã môn học: MAT2306
+
+Số tín chỉ: 3
+
+Đề số: 2
+
+Dành cho sinh viên lớp: K68
+
+Ngành học: Toán học
+
+Thời gian làm bài 50 phút (không kể thời gian phát đề)
+
+Câu 1. Xét phương trình sau:
+
+uxx (1 + y)2
+
++
+
+2(1 + x) 1+y
+
+uxy
+
++
+
+(1
+
++
+
+2x
+
++
+
+2x2)uyy
+
++
+
+1
+
+1 +
+
+y
+
+uy
+
++
+
+xux
+
+=
+
+0
+
+trong B = {(x − 1)2 + (y − 1)2 < 1/4}.
+
+(a) Xác định dạng và chuyển phương trình đang xét về dạng chính tắc.
+
+(b) Giả sử u là hàm khả vi liên tục đến cấp 2 trong B thỏa mãn phương trình đang xét và u liên tục trên B¯. Chứng minh rằng u đạt giá trị lớn nhất trên biên của B.
+
+(c) Giả sử u là nghiệm của phương trình đang xét và liên tục đến tận biên, có giá trị trên biên u(x, y) = 1 khi (x − 1)2 + (y − 1)2 = 1/4. Chứng minh rằng u(x, y) = 1 trong B.
+
+Câu 2. Một đoạn dây có chiều dài π dao động xung quanh vị trí cân bằng với tốc độ lan truyền 1. Nếu đặt hệ trục toạ độ sao cho một đoạn dây ở gốc còn đầu kia có toạ độ x = π thì hai đầu tự do. Sợi dây bắt đầu từ trạng thái nghỉ và vị trí ban đầu của sợi dây là f (x) = x(2π − x).
+
+(a) Thiết lập bài toán biên hỗn hợp cho hàm dao động u(x, t) của đoạn dây.
+
+(b) Thác triển các điều kiện ban đầu trên R. Xác định sóng tiến-sóng lùi.
+
+(c) Vẽ đồ thị của hàm dao động u(x, t) tại các thời điểm t = π/2, π, 3π/2. (d) Dùng phương pháp tách biến, tìm u.
+
+Câu 3. Cho α > 1 và u là một hàm điều hòa trên Rd thỏa mãn
+
+Chứng minh rằng u ≡ 0.
+
+|u(x)|αdx < ∞.
+Rd
+
+Thang điểm. Câu 1: 3.0đ+1.0đ+1,5đ. Câu 2: 1.5đ+2.5đ+1.5đ +2.0đ. Câu 3: 2.0đ.
+
+

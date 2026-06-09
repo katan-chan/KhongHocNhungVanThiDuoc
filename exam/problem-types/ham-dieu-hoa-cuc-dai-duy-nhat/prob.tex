@@ -1,0 +1,144 @@
+% problem-type: ham-dieu-hoa-cuc-dai-duy-nhat
+% order: 95
+% Nguon: De thi MAT2306 (PTDHR 1) cuoi ky 2022-2023 Cau 1 + 2021-2022 Cau 1. (co dap an chinh thuc)
+
+\section{Hàm điều hòa --- cực đại, Liouville \& duy nhất nghiệm}
+
+\subsection*{Đề bài ví dụ}
+
+\paragraph{Ví dụ A (nửa mặt phẳng).}\leavevmode
+
+Cho nửa mặt phẳng trên $H=\{(x,y)\in\mathbb{R}^2 : y>0\}$.
+
+(a) Giả sử hàm liên tục $u:\overline{H}\to\mathbb{R}$ là hàm điều hòa, bị chặn trong $H$ và $u(x,0)=0,\ \forall x\in\mathbb{R}$. Chứng minh rằng $u=0$ trong $\overline{H}$. Nếu bỏ tính bị chặn đi thì đpcm còn đúng không? Tại sao?
+
+(b) Sử dụng kết quả câu (a) để chứng minh tính duy nhất nghiệm bị chặn của bài toán biên Dirichlet đối với phương trình Poisson trong nửa mặt phẳng $H$.
+
+\paragraph{Ví dụ B (miền ngoài hình cầu).}\leavevmode
+
+Với $R>1$, xét miền $\Omega_R=\{(x,y,z)\in\mathbb{R}^3 : 1<x^2+y^2+z^2<R^2\}$ trong không gian. Xác định biên của $\Omega_R$. Phát biểu tường minh nguyên lý cực đại cho hàm $v\in C(\overline{\Omega_R})$ điều hòa trong $\Omega_R$. Từ đó hãy chứng minh bài toán biên Dirichlet ngoài hình cầu sau
+\[
+\begin{cases}
+\Delta u = f & \text{ngoài } \overline{B_1},\\
+u = \varphi & \text{trên } \partial B_1,
+\end{cases}
+\]
+trong đó $B_1=\{(x,y,z)\in\mathbb{R}^3 : x^2+y^2+z^2<1\}$, $f\in C(\mathbb{R}^3\setminus\overline{B_1})$, $\varphi\in C(\partial B_1)$ là các hàm cho trước, có tối đa một nghiệm thỏa mãn $\lim_{r\to\infty}u(x,y,z)=0$, với $r=\sqrt{x^2+y^2+z^2}$.
+
+\emph{\small(Nguồn: Đề thi MAT2306 --- PTĐHR 1, cuối kỳ 2022--2023 Câu 1 và 2021--2022 Câu 1. Có đáp án chính thức.)}
+
+\subsection*{Nhận ra dạng này khi nào?}
+
+\begin{itemize}
+  \item Đề hỏi chứng minh bài toán \textbf{DUY NHẤT} nghiệm (hoặc tối đa một nghiệm), nhất là nghiệm \emph{bị chặn} hay nghiệm \emph{tiến về $0$ ở vô cùng}.
+  \item Đề cho hàm điều hòa \textbf{bị chặn} với dữ kiện biên bằng $0$ và yêu cầu chứng minh hàm $\equiv 0$.
+  \item Đề yêu cầu \textbf{phát biểu nguyên lý cực đại} rồi dùng nó trên một miền \emph{không bị chặn} (nửa mặt phẳng, miền ngoài hình cầu).
+\end{itemize}
+
+\begin{meobox}
+Miền \textbf{không bị chặn} thì không áp dụng nguyên lý cực đại trực tiếp được. Hai mẹo:
+\begin{itemize}
+  \item Có biên phẳng + dữ kiện biên $0$ $\Rightarrow$ \textbf{thác triển lẻ/chẵn} qua biên rồi dùng định lý Liouville.
+  \item Miền ngoài + nghiệm $\to 0$ ở $\infty$ $\Rightarrow$ chặn bằng $\varepsilon$ trên một \textbf{vành} $\Omega_R$, dùng nguyên lý cực đại, rồi cho $R\to\infty$, $\varepsilon\to0$.
+\end{itemize}
+\end{meobox}
+
+\subsection*{Công thức \& phương pháp}
+
+\begin{nhobox}
+\textbf{Nguyên lý cực đại.} Hàm điều hòa trong miền bị chặn, liên tục đến biên thì đạt giá trị lớn nhất và nhỏ nhất \emph{trên biên}. Trên vành $\Omega_R$ (biên gồm hai mặt cầu):
+\[
+\min\{m_1,m_R\}\le v\le \max\{M_1,M_R\},
+\]
+với $m_a=\min_{\partial B_a}v$, $M_a=\max_{\partial B_a}v$.
+
+\smallskip
+\textbf{Định lý Liouville.} Hàm điều hòa và \emph{bị chặn} trên toàn $\mathbb{R}^n$ thì là hàm hằng.
+
+\smallskip
+\textbf{Thác triển qua biên phẳng $y=0$.}
+\begin{itemize}
+  \item Thác triển \emph{lẻ} (khi $u=0$ trên biên): $U(x,y)=u(x,y)$ nếu $y\ge0$, $=-u(x,-y)$ nếu $y<0$.
+  \item Thác triển \emph{chẵn} (khi $u_x=0$ hoặc $u_y=0$ trên biên).
+\end{itemize}
+Cả hai giữ tính điều hòa qua $y=0$.
+
+\smallskip
+\textbf{Duy nhất nghiệm.} Lấy hiệu hai nghiệm $v=u_1-u_2$: $v$ điều hòa, dữ kiện biên $=0$. Chứng minh $v\equiv0$.
+\end{nhobox}
+
+\subsection*{Đề bài \& bài giải}
+
+\paragraph{Ví dụ A (nửa mặt phẳng).}\leavevmode
+
+\textbf{(a)} Do $u(x,0)=0$, thác triển \emph{lẻ} hàm $u$ qua trục hoành $y=0$: đặt
+\[
+U(x,y)=
+\begin{cases}
+u(x,y) & y\ge 0,\\
+-u(x,-y) & y<0.
+\end{cases}
+\]
+Ta được hàm $U$ điều hòa, bị chặn trên toàn mặt phẳng $\mathbb{R}^2$.
+
+Theo định lý Liouville, $U$ là hằng, hay $u$ là hằng. Vì $u(x,0)=0$ nên hằng đó bằng $0$.
+
+\begin{nhobox}
+Vậy $u=0$ trên $\overline{H}$.
+\end{nhobox}
+
+Nếu không có tính bị chặn thì đpcm \emph{không còn đúng}. Phản ví dụ: lấy $u(x,y)=y$ --- hàm này điều hòa, $u(x,0)=0$ nhưng $u\not\equiv0$.
+
+\textbf{(b)} Giả sử $u_1,u_2$ là hai nghiệm bị chặn của bài toán biên Dirichlet đối với phương trình Poisson trong $H$. Khi đó hiệu $u=u_1-u_2$ là hàm điều hòa (vì hai vế Poisson $\Delta u_1=\Delta u_2=f$ triệt tiêu), bị chặn, và $u=0$ trên $y=0$ --- tức là $u$ thỏa mãn câu (a).
+
+Từ câu (a) ta có $u=0$, hay $u_1=u_2$ trong $\overline{H}$.
+
+\begin{nhobox}
+Bài toán Dirichlet cho Poisson trong $H$ có tối đa một nghiệm bị chặn.
+\end{nhobox}
+
+\paragraph{Ví dụ B (miền ngoài hình cầu).}\leavevmode
+
+\textbf{Biên của $\Omega_R$.} Miền $\Omega_R=\{1<x^2+y^2+z^2<R^2\}$ có biên gồm hai mặt cầu
+\[
+\partial B_1=\{x^2+y^2+z^2=1\}
+\quad\text{và}\quad
+\partial B_R=\{x^2+y^2+z^2=R^2\}.
+\]
+
+\textbf{Nguyên lý cực đại.} Cho $v\in C(\overline{\Omega_R})$ điều hòa trong $\Omega_R$. Khi đó
+\[
+\min\{m_1,m_R\}\le v(x,y,z)\le \max\{M_1,M_R\},\quad \forall(x,y,z)\in\overline{\Omega_R},
+\]
+trong đó $m_a=\min_{\partial B_a}v$, $M_a=\max_{\partial B_a}v$, $a\in\{1,R\}$.
+
+\textbf{Chứng minh duy nhất.} Giả sử $u_1,u_2$ là các nghiệm của bài toán Dirichlet ngoài hình cầu, đều thỏa $\lim_{r\to\infty}u_j=0$, $j=1,2$. Khi đó hiệu $v=u_1-u_2$ thỏa mãn
+\[
+\begin{cases}
+\Delta v = 0 & \text{ngoài } \overline{B_1},\\
+v = 0 & \text{trên } \partial B_1,\\
+\lim_{r\to\infty}v(x,y,z)=0. &
+\end{cases}
+\]
+
+Ta sẽ chứng minh $v(x,y,z)=0$ với mọi $x^2+y^2+z^2>1$, bằng cách chứng minh
+\[
+|v(x,y,z)|\le \varepsilon,\quad \forall x^2+y^2+z^2>1,\ \forall \varepsilon>0.
+\]
+
+Lấy $\varepsilon>0$ và điểm $(x_0,y_0,z_0)\in\mathbb{R}^3\setminus\overline{B_1}$, nghĩa là $x_0^2+y_0^2+z_0^2>1$. Do $\lim_{r\to\infty}v=0$ nên tồn tại $R^2>x_0^2+y_0^2+z_0^2$ sao cho
+\[
+|v(x,y,z)|\le \varepsilon,\quad \forall x^2+y^2+z^2\ge R^2.
+\]
+Khi đó trên mặt cầu ngoài: $m_R=\min_{\partial B_R}v\ge -\varepsilon$, $M_R=\max_{\partial B_R}v\le \varepsilon$.
+
+Lại có $v\big|_{\partial B_1}=0$, nên áp dụng nguyên lý cực đại cho hàm điều hòa trên vành $\Omega_R$:
+\[
+-\varepsilon\le \min\{0,m_R\}\le v(x,y,z)\le \max\{0,M_R\}\le \varepsilon,\quad \forall(x,y,z)\in\overline{\Omega_R}.
+\]
+
+Nhắc lại $1<x_0^2+y_0^2+z_0^2<R^2$, nên điểm $(x_0,y_0,z_0)$ nằm trong $\Omega_R$, do đó $|v(x_0,y_0,z_0)|\le \varepsilon$. Cho $\varepsilon\to0$ ta được $v(x_0,y_0,z_0)=0$.
+
+\begin{nhobox}
+Vì $(x_0,y_0,z_0)$ tùy ý ngoài $B_1$ nên $v\equiv0$, hay $u_1=u_2$. Bài toán Dirichlet ngoài hình cầu có tối đa một nghiệm thỏa $u\to0$ khi $r\to\infty$.
+\end{nhobox}

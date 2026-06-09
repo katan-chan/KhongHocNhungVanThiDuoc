@@ -1,0 +1,102 @@
+% problem-type: laplace-vanh-khan
+% order: 80
+% Nguon: De thi MAT2306 (PTDHR 1), HK2 2024-2025, K67, Cau 3. (co dap an chinh thuc)
+% Bo cuc: De vi du -> Cong thuc -> De + Bai giai
+
+\section{Laplace trong (góc phần tư) vành khăn --- phản xạ Schwarz}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài ví dụ}
+% ---------------------------------------------------------------
+Xét bài toán biên cho phương trình Laplace trong góc phần tư vành khăn
+\[
+  u_{xx}+u_{yy}=0,\quad x>0,\ y>0,\ 1<x^2+y^2<4,
+\]
+với điều kiện biên $u_x(0,y)=u_y(x,0)=0$ khi $1<x,y<2$, và
+\[
+  u(x,y)=2x\ \text{khi } x^2+y^2=1,\qquad u(x,y)=y\ \text{khi } x^2+y^2=4.
+\]
+(a) Dùng phản xạ Schwarz qua trục $x=0$ rồi qua trục $y=0$, bài toán chuyển thành bài toán nào
+trong vành khăn? Từ đó chứng minh $0<u<2$. \ (b) Giải bài toán.
+
+\emph{\small(Nguồn: Đề thi MAT2306 --- PTĐHR 1, HK2 2024--2025, K67, Câu 3.)}
+
+% ---------------------------------------------------------------
+\subsection*{Nhận ra dạng này khi nào?}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item Miền là \textbf{vành khăn} (không chứa gốc) $\Rightarrow$ nghiệm tách biến giữ CẢ $r^{n}$ lẫn $r^{-n}$, và $\ln r$.
+  \item Cho \textbf{góc phần tư} vành khăn với Neumann ($u_x$ hoặc $u_y=0$) trên các cạnh thẳng
+  $\Rightarrow$ \textbf{phản xạ Schwarz} (chẵn) để gập thành vành khăn đủ rồi tách biến.
+\end{itemize}
+\begin{meobox}
+Cạnh thẳng Neumann $\Rightarrow$ thác triển \emph{chẵn}; mỗi lần phản xạ qua một trục nhân đôi góc.
+Hai cạnh $\theta=0,\tfrac{\pi}{2}$ với $v_\theta=0$ $\Rightarrow$ chuỗi chỉ chứa $\cos(2n\theta)$.
+\end{meobox}
+
+% ---------------------------------------------------------------
+\subsection*{Công thức \& phương pháp}
+% ---------------------------------------------------------------
+\subsubsection*{Phản xạ Schwarz (gập miền)}
+\input{shared/techniques/phan-xa-schwarz.tex}
+
+\subsubsection*{Tách biến trong tọa độ cực}
+\input{shared/methods/tach-bien-cuc.tex}
+\emph{(Laplacian theo tọa độ: Phụ lục B.)}
+
+% ---------------------------------------------------------------
+\subsection*{Đề bài \& bài giải}
+% ---------------------------------------------------------------
+\paragraph{Nhắc lại đề.} $\Delta u=0$ trong góc phần tư vành khăn $\{x,y>0,\ 1<x^2+y^2<4\}$;
+$u_x(0,y)=u_y(x,0)=0$; $u=2x$ trên $r=1$, $u=y$ trên $r=2$.
+
+\paragraph{(a) Phản xạ Schwarz $\to$ vành khăn + chặn $0<u<2$.}
+Vì $u_x(0,y)=0$ ta thác triển \textbf{chẵn} theo $x$, rồi vì $u_y(x,0)=0$ thác triển chẵn theo $y$,
+được hàm $U$ trên \textbf{toàn vành khăn} $1<x^2+y^2<4$ thỏa
+\[
+  U_{xx}+U_{yy}=0,\quad U=2|x|\ \text{trên } r=1,\quad U=|y|\ \text{trên } r=2.
+\]
+Trên biên: $0\le 2|x|\le2$ ($r=1$) và $0\le|y|\le2$ ($r=2$); hằng số là hàm điều hòa, nên theo
+nguyên lý so sánh $0\le U\le2$. Dùng nguyên lý cực đại \emph{mạnh} ($U$ điều hòa, khác hằng trên biên)
+$\Rightarrow 0<U<2$ trong miền.
+
+\paragraph{(b) Bước 1 --- đổi sang cực, đọc biên.} Đặt $x=r\cos\theta,\ y=r\sin\theta$, $v(r,\theta)=U$.
+Thác triển chẵn $\Rightarrow$
+\[
+  v_\theta(r,0)=v_\theta(r,\tfrac{\pi}{2})=0,\qquad v(1,\theta)=2\cos\theta,\quad v(2,\theta)=2\sin\theta.
+\]
+
+\paragraph{(b) Bước 2 --- nghiệm tổng quát (Neumann hai cạnh $\Rightarrow\cos(2n\theta)$).}
+\[
+  v(r,\theta)=a_0\ln r+b_0+\sum_{n\ge1}\big(a_n r^{2n}+b_n r^{-2n}\big)\cos(2n\theta).
+\]
+
+\paragraph{(b) Bước 3 --- khớp hai cung bằng Fourier.} Chiếu $2\cos\theta,\ 2\sin\theta$ lên hệ
+$\{1,\cos(2n\theta)\}$ trên $[0,\tfrac{\pi}{2}]$:
+\begin{align*}
+  b_0&=\tfrac{2}{\pi}\!\int_0^{\pi/2}\!2\cos\theta\,d\theta=\tfrac{4}{\pi},\qquad
+   a_0\ln2+b_0=\tfrac{2}{\pi}\!\int_0^{\pi/2}\!2\sin\theta\,d\theta=\tfrac{4}{\pi}\ \Rightarrow\ a_0=0;\\
+  a_n+b_n&=\tfrac{4}{\pi}\!\int_0^{\pi/2}\!2\cos\theta\cos(2n\theta)\,d\theta=\frac{8(-1)^n}{\pi(1-4n^2)};\\
+  4^n a_n+4^{-n}b_n&=\tfrac{4}{\pi}\!\int_0^{\pi/2}\!2\sin\theta\cos(2n\theta)\,d\theta=\frac{8}{\pi(1-4n^2)}.
+\end{align*}
+Giải hệ $2\times2$ cho mỗi $n$:
+\[
+  a_n=\frac{8\big(1-(-4)^{-n}\big)}{\pi(1-4n^2)(4^n-4^{-n})},\qquad
+  b_n=\frac{8\big((-4)^{n}-1\big)}{\pi(1-4n^2)(4^n-4^{-n})}.
+\]
+\begin{nhobox}
+\[
+  \begin{aligned}
+  v(r,\theta)=\frac{4}{\pi}+\sum_{n\ge1}\ &\frac{8}{\pi(1-4n^2)(4^n-4^{-n})}\\
+  &\times\Big[r^{2n}\big(1-(-4)^{-n}\big)+r^{-2n}\big((-4)^n-1\big)\Big]\cos(2n\theta).
+  \end{aligned}
+\]
+\end{nhobox}
+
+% ---------------------------------------------------------------
+\subsection*{Dạng bài lân cận}
+% ---------------------------------------------------------------
+\begin{itemize}
+  \item Laplace trong \textbf{quạt/đĩa} (không phản xạ) --- xem mục riêng.
+  \item \textbf{Poisson--Neumann} trong quạt ($\Delta u=$ hằng, kiểm tra tương thích) --- xem mục riêng.
+\end{itemize}

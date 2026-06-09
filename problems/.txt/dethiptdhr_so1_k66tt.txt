@@ -1,0 +1,535 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2022-2023 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K66
+
+Ngành học: Toán tin
+
+Thời gian làm bài 90 phút (không kể thời gian phát đề)
+
+Câu 1. (4,5 điểm) Xét bài toán biên Neumann trong hình vuông cho phương trình Poisson
+
+∆u(x, y) = 1 trong D = {(x, y) ∈ R2 : |x| < 1, 0 < y < 2},
+
+với điều kiện biên Neumann ∂νu(x, y) = 0 khi |x| = 1 và
+
+∂νu(x, y) =
+
+2x + 1 C
+
+khi y = 0, khi y = 2,
+
+trong đó ν là pháp tuyến ngoài đơn vị, C là hằng số.
+(a) Tìm C để bài toán có nghiệm. (b) Bằng cách sử dụng tích phân năng lượng I = D[u2x(x, y) + u2y(x, y)]dxdy hãy chỉ ra rằng khi bài toán có nghiệm nó có vô số nghiệm, các nghiệm sai khác nhau hằng số.
+(c) Với C tìm được ở câu (a) giải bài toán biên đã cho. (Gợi ý: xét v(x, y) = u(x − 1, y).)
+
+Câu 2. (2.5 điểm) Sử dụng công thức Poisson tính nghiệm tường minh bài toán Cauchy
+
+ut(x, y, t) = 4∆u(x, y, t), (x, y) ∈ R2, t > 0, u(x, y, 0) = e−x2+x(χ[−1,0](y) − χ[0,1](y)).
+
+Câu 3. (5 điểm) Xét bài toán Cauchy cho phương trình truyền sóng
+
+utt(x, y, z, t) = 4∆u(x, y, z, t) + f (x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với điều kiện ban đầu
+
+u(x, y, z, 0) = 0 và ut(x, y, z, 0) = 0,
+
+trong đó f (x, y, z, t) = 1 khi x2 + y2 + z2 ≤ 1 − 2t, 0 còn lại.
+(a) Với mỗi τ > 0 xét bài toán:
+
+wtt(x, y, z, t, τ) = 4∆w(x, y, z, t, τ), (x, y, z) ∈ R3, t > 0,
+
+với điều kiện ban đầu
+
+w(x, y, z, 0, τ) = 0 và wt(x, y, z, 0, τ) = f (x, y, z, τ).
+Tính w(100, 0, 0, t, τ) khi t > 0. (b) Dùng nguyên lý Duhamel tính u(100, 0, 0, t).
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2022-2023 Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365 Dành cho sinh viên khoá: K66
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán tin
+
+Lời giải 1.
+
+[4,5 điểm]
+
+(a) Để bài toán có nghiệm ta cần
+
+0.5
+
+1
+[∂νu(x, 0) + ∂νu(x, 2)]dx =
+−1
+
+∆u(x, y)dxdy = 4
+|x|≤1 0≤y≤2
+
+nên C = 1.
+
+(b) Nếu u là nghiệm của bài toán đang xét dễ thấy u + Const cũng là nghiệm. Ngược lại 0.5
+
+giả sử u1, u2 là hai nghiệm. Khi đó hiệu u = u1 − u2 là nghiệm của phương trình Laplace trong hình vuông với điều kiện biên Neumann ∂νu = 0 trên bốn cạnh.
+
+Ta có, dùng tích phân từng phần,
+
+0.5
+
+2 0
+
+1
+u2x(x, y)dx
+−1
+
+2
+dy =
+0
+
+x=1
+
+1
+
+uux
+
+− uuxxdx
+
+x=−1 −1
+
+dy
+
+mà ∂νu(x, y) = ±ux(±1, y) = 0 trên hai cạnh x = ±1 nên, sử dụng Fubini,
+
+|x|≤1 u2xdxdy = −
+0≤y≤2
+
+|x|≤1 uuxxdxdy.
+0≤y≤2
+
+Tương tự, với chú ý ∂νu(x, y) = ±uy(x, y) = 0 trên hai cạnh y = 0 và y = 2 nên
+
+0.5
+
+|x|≤1 u2ydxdy = −
+0≤y≤2
+
+|x|≤1 uuyydxdy.
+0≤y≤2
+
+Do đó, với chú ý uxx + uyy = 0, ta có
+
+I=0
+
+Khi đó ux = uy = 0 hay u = u1 − u2 là hằng trong (−1, 1) × (0, 2).
+
+0.5
+
+(c) Hàm v(x, y) = u(x − 1, y) thỏa mãn bài toán
+
+0.5
+
+∆v = 1 trong (0, 2) × (0, 2)
+
+với điều kiện biên ∂νv(x, y) = 0 khi x = 0 hay x = 2 và
+
+∂νv(x, y) =
+
+2x − 1 C
+
+khi y = 0, khi y = 2,
+
+Ta có chuỗi nghiệm
+
+0.5
+
+∞
+
+v(x, y) = Y0(y) + ∑ Yn(y) cos(nπx/2)
+
+n=1
+
+hay
+∞
+u(x, y) = Y0(y) + ∑ Yn(y) cos(nπ(x + 1)/2). n=1
+
+Thay vào phương trình và phân tích phổ ta có
+
+0.5
+
+Y0 (y) = 1, Yn (y) − (nπ/2)2Yn(y) = 0, n ≥ 1, khi 0 < y < 2.
+
+Khi đó
+
+Y0(y) = y2/2 + a0 + b0y, Yn(y) = an cosh(nπy/2) + bn cosh(nπ(2 − y)/2), n ≥ 1.
+
+Thay vào điều kiện biên trên hai cạnh x = 0, x = 2 và phân tích phổ ta có
+
+0.5
+
+Y0(0) = −1, Y0(2) = 1, Yn(0) = 8(1 − (−1)n)/(nπ)2, Yn(2) = 0, n ≥ 1.
+
+Do đó a0 tùy ý và
+
+b0
+
+=
+
+−1, an
+
+=
+
+0, bn
+
+=
+
+16((−1)n − 1) (nπ)3 sinh(nπ)
+
+,
+
+n
+
+≥
+
+1.
+
+Vậy nghiệm của bài toán
+
+u(x,
+
+y)
+
+=
+
+a0
+
+−
+
+y
+
++
+
+y2 2
+
++
+
+∞
+∑
+n=1
+
+16((−1)n − 1) (nπ)3 sinh(nπ)
+
+cosh(nπ(2
+
+−
+
+y)/2)
+
+cos(nπ(x
+
++
+
+1)/2).
+
+Lời giải 2.
+
+Sử dụng công thức Poisson
+
+u(x,
+
+y,
+
+t)
+
+=
+
+1 16πt
+
+∞
+
+e−X2+X
+
+e−
+
+(x−X)2 16t
+
+dX
+
+−∞
+
+∞
+
+(χ[−1,0] (Y )
+
+−
+
+χ[0,1] (Y ))e−
+
+(y−Y)2 16t
+
+dY.
+
+−∞
+
+[2.5 điểm] 0.5
+
+Biến đổi 16tX2 − 16tX + (x − X)2 = (16t + 1)(X − (8t + x)/(16t + 1))2 + (16tx2 − 16tx + 0.5 64t2)/(16t + 1) nên
+
+√
+
+∞
+
+e−X2+X
+
+e−
+
+(x−X)2 16t
+
+dX
+
+=
+
+√
+
+16πt
+
+e . −
+
+x2 −x−4t 16t+1
+
+−∞
+
+16t + 1
+
+Đổi
+
+biến
+
+w
+
+=
+
+(Y
+
+−
+
+√ y)/(4 t)
+
+và
+
+chú
+
+ý
+
+hàm
+
+lỗi
+
+er f
+
+(x)
+
+=
+
+√2
+
+π
+
+x 0
+
+e−s2
+
+ds
+
+ta
+
+có
+
+0.5
+
+∞ −∞
+
+χ[a,b]
+
+(Y
+
+)e−
+
+(y−Y)2 16t
+
+dZ
+
+=
+
+√ 4t
+
+b−√z 4t a−√y
+
+e−w2 dw
+
+=
+
+√ 2 πt
+
+4t
+
+er f ( b −√ z ) − er f ( a −√ z )
+
+4t
+
+4t
+
+.
+
+Vậy nghiệm của bài toán
+
+1
+
+u(x, y, t)
+
+=
+
+√e−
+
+x2 −x−4t 16t+1
+
+×
+
+er
+
+f
+
+(
+
+y+√1 4t
+
+)
+
++
+
+er
+
+f
+
+(
+
+y−√1 4t
+
+)
+
+−
+
+2er
+
+f
+
+(
+
+√y 4t
+
+)
+
+.
+
+16t + 1
+
+2
+
+Lời giải 3.
+
+(a) Sử dụng công thức Kirchhoff:
+
+w(100, 0,
+
+0, t,
+
+τ)
+
+=
+
+1 16πt
+
+f (X, Y, Z, τ)dS.
+∂ B2t (100,0,0)
+
+Với τ > 1/2 ta có f (X, Y, Z, τ) = 0. Do đó w(100, 0, 0, t, τ) = 0. Với 0 < τ < 1/2 ta có
+
+w(100, 0, 0, t, τ)
+
+=
+
+|∂B2t(100, 0, 0) ∩ 16πt
+
+B1−2τ(0)| .
+
+ 0
+= (1 − 2τ)2 − (2t − 100)2
+ 800
+
+khi 0 < t < 99/2 + τ hay t > 101/2 − τ, khi 99/2 + τ < t < 101/2 − τ.
+
+(b) Sử dụng nguyên lý Duhamel ta có
+
+t
+u(100, 0, 0, t) = w(100, 0, 0, t − τ, τ)dτ.
+0
+
+Khi 0 < t < 99/2 hay t > 101/2 ta có u(100, 0, 0, t) = 0. Khi 99/2 < t < 101/2 ta có
+
+2t−99
+u(100, 0, 0, t) = 4 w(100, 0, 0, t − τ, τ)dτ
+0
+
+=
+
+2t−99 4
+0
+
+(1
+
+−
+
+2τ)2
+
+−
+
+(2t − 800
+
+2τ
+
+−
+
+100)2
+
+dτ
+
+=
+
+(2t − 99)2(101 − 2t) . 6400
+
+[5 điểm] 0.5
+0.5 0.5
+1
+0.5
+1 1
+
+Hà Nội, ngày 16 tháng 05 năm 2023 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+

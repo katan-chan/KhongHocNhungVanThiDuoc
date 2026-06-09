@@ -1,0 +1,133 @@
+% problem-type: nhiet-hinh-chu-nhat
+% order: 67
+% Nguon: De thi MAT3365 (PTDHR Toan tin), cuoi ky, K68, Cau 2. (co dap an chinh thuc)
+
+\section{Nhiệt trong hình chữ nhật --- năng lượng 2D \& thác triển/Poisson}
+
+\subsection*{Đề bài ví dụ}
+
+Xét bài toán biên --- ban đầu cho phương trình truyền nhiệt trong hình chữ nhật
+$R=(-1,1)\times(0,\pi)$:
+\[
+  u_t = u_{xx} + u_{yy} + F(x,y,t), \qquad (x,y)\in R,\ t>0,
+\]
+với điều kiện biên
+\[
+  u_x(-1,y,t)=u_x(1,y,t)=0, \qquad u(x,0,t)=u(x,\pi,t)=0,
+\]
+và điều kiện ban đầu $u(x,y,0)=g(x,y)$.
+
+\begin{enumerate}
+\item[(a)] Dùng tích phân năng lượng $I(t)=\iint_R u^2\,dx\,dy$ chứng minh bài toán có duy nhất nghiệm.
+\item[(b)] Với $F=0$, $g(x,y)=\sin^2(\pi x)\sin(y)$, bằng cách thác triển lên toàn mặt phẳng rồi dùng công thức Poisson, hãy giải bài toán.
+\end{enumerate}
+
+\emph{\small(Nguồn: Đề thi MAT3365 --- PTĐHR Toán tin, cuối kỳ, K68, Câu 2. Có đáp án chính thức.)}
+
+\subsection*{Nhận ra dạng này khi nào?}
+
+\begin{itemize}
+\item Phương trình nhiệt trên miền \textbf{chữ nhật 2D} $R=(a,b)\times(c,d)$: $u_t=\Delta u+F$.
+\item Biên cho trên \textbf{bốn cạnh}, mỗi cặp cạnh đối diện theo một biến: kiểu Dirichlet ($u=0$) hay Neumann ($u_x=0$/$u_y=0$).
+\item Thường hỏi: (a) duy nhất nghiệm bằng năng lượng \emph{2D}; (b) giải tường minh.
+\end{itemize}
+
+\begin{meobox}
+Mỗi biến tách riêng. Loại biên theo từng biến quyết định kiểu thác triển:
+\begin{itemize}
+\item Cặp cạnh \textbf{Dirichlet} ($u=0$) $\Rightarrow$ thác triển \textbf{lẻ}, tuần hoàn.
+\item Cặp cạnh \textbf{Neumann} ($u_x=0$) $\Rightarrow$ thác triển \textbf{chẵn}, tuần hoàn.
+\end{itemize}
+Sau khi thác triển $\Rightarrow$ bài Cauchy trên toàn mặt phẳng, nhân kernel tách thành tích hai tích phân 1D.
+\end{meobox}
+
+\subsection*{Công thức \& phương pháp}
+
+\begin{dieukienbox}
+Dùng khi: nhiệt $u_t=\Delta u+F$ trên hình chữ nhật, biên Dirichlet/Neumann theo từng cặp cạnh; cần chứng minh duy nhất và/hoặc giải tường minh.
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{(1) Năng lượng 2D $\Rightarrow$ duy nhất.} Hiệu hai nghiệm $w$ có $F=0$, $w(\cdot,0)=0$. Đặt $I(t)=\iint_R w^2\ge0$:
+\[
+  I'(t)=2\!\iint_R w\,\Delta w
+  =2\oint_{\partial R} w\,\partial_n w\,ds-2\!\iint_R|\nabla w|^2 .
+\]
+Biên: Dirichlet $\Rightarrow w=0$; Neumann $\Rightarrow \partial_n w=0$ $\Rightarrow$ số hạng biên triệt tiêu. Vậy $I'\le0$, $I(0)=0\Rightarrow I\equiv0\Rightarrow w\equiv0$.
+
+\textbf{(2) Thác triển $\Rightarrow$ Cauchy toàn mặt phẳng.} Thác triển $u$ (và $g$) theo đúng đối xứng của biên. Nghiệm Cauchy nhiệt 2D tách biến:
+\[
+  u(x,y,t)=\Big[\tfrac{1}{\sqrt{4\pi t}}\!\int_{\mathbb R}\!\bar g_x(X)e^{-\frac{(x-X)^2}{4t}}dX\Big]
+  \Big[\tfrac{1}{\sqrt{4\pi t}}\!\int_{\mathbb R}\!\bar g_y(Y)e^{-\frac{(y-Y)^2}{4t}}dY\Big].
+\]
+
+\textbf{(3) Làm trơn nhiệt của $\cos/\sin$:} dùng tích phân cos-Gauss (Phụ lục B),
+\[
+  \tfrac{1}{\sqrt{4\pi t}}\!\int_{\mathbb R}\!\cos(\beta X)e^{-\frac{(x-X)^2}{4t}}dX=e^{-\beta^2 t}\cos(\beta x),
+\]
+tương tự cho $\sin$. Kernel làm tắt mỗi mode tần số $\beta$ theo $e^{-\beta^2 t}$.
+\end{nhobox}
+
+\subsection*{Đề bài \& bài giải}
+
+\paragraph{(a) Duy nhất nghiệm bằng năng lượng 2D.}\leavevmode
+
+Giả sử $u_1,u_2$ là hai nghiệm. Hiệu $w=u_1-u_2$ thỏa $w_t=\Delta w$ trên $R$, cùng biên đã cho và $w(x,y,0)=0$. Đặt $I(t)=\iint_R w^2\,dx\,dy$, có $I(0)=0$. Khi đó
+\[
+  I'(t)=2\iint_R w\,w_t\,dx\,dy=2\iint_R w\,(w_{xx}+w_{yy})\,dx\,dy.
+\]
+Tích phân từng phần (công thức Green) trên hình chữ nhật:
+\[
+  I'(t)=2\oint_{\partial R} w\,\partial_n w\,ds-2\iint_R\big(w_x^2+w_y^2\big)\,dx\,dy.
+\]
+Trên hai cạnh $x=\pm1$: $w_x=0$ (Neumann) $\Rightarrow w\,\partial_n w=0$. Trên hai cạnh $y=0,\pi$: $w=0$ (Dirichlet) $\Rightarrow w\,\partial_n w=0$. Vậy số hạng biên triệt tiêu:
+\[
+  I'(t)=-2\iint_R\big(w_x^2+w_y^2\big)\,dx\,dy\le0.
+\]
+Do $0\le I(t)\le I(0)=0$ nên $I\equiv0$, suy ra $w\equiv0$, tức $u_1=u_2$: bài toán có duy nhất nghiệm.
+
+\paragraph{(b) Bước 1 --- thác triển dữ liệu lên toàn mặt phẳng.}\leavevmode
+
+Khớp đối xứng của hai loại biên, thác triển nghiệm $u$ thành $\bar u$ thỏa:
+\begin{itemize}
+\item theo $y$ (Dirichlet $u=0$ tại $y=0,\pi$): \textbf{lẻ}, tuần hoàn chu kỳ $2\pi$;
+\item theo $x$ (Neumann $u_x=0$ tại $x=\pm1$): \textbf{chẵn} tại $x=1$, tức $\bar u(2-x,y,t)=\bar u(x,y,t)$, tuần hoàn chu kỳ $4$.
+\end{itemize}
+Dữ liệu ban đầu thác triển thành $\bar g(x,y)=\sin^2(\pi x)\sin(y)$ (đã sẵn đúng đối xứng trên).
+
+\paragraph{(b) Bước 2 --- công thức Poisson (kernel tách biến).}\leavevmode
+
+\[
+  u(x,y,t)=\frac{1}{4\pi t}\int_{\mathbb R}\sin^2(\pi X)\,e^{-\frac{(x-X)^2}{4t}}dX
+  \int_{\mathbb R}\sin(Y)\,e^{-\frac{(y-Y)^2}{4t}}dY.
+\]
+
+\paragraph{(b) Bước 3 --- tích phân theo $x$.}
+Viết $\sin^2(\pi X)=\tfrac12\big(1-\cos(2\pi X)\big)$. Hằng số giữ nguyên qua kernel, còn $\cos(2\pi X)$ bị làm tắt theo $e^{-(2\pi)^2 t}$ (mục (3)):
+\[
+  \frac{1}{\sqrt{4\pi t}}\int_{\mathbb R}\sin^2(\pi X)\,e^{-\frac{(x-X)^2}{4t}}dX
+  =\tfrac12\Big(1-e^{-4\pi^2 t}\cos(2\pi x)\Big).
+\]
+
+\paragraph{(b) Bước 4 --- tích phân theo $y$.}
+Với $\beta=1$:
+\[
+  \frac{1}{\sqrt{4\pi t}}\int_{\mathbb R}\sin(Y)\,e^{-\frac{(y-Y)^2}{4t}}dY=e^{-t}\sin(y).
+\]
+
+\paragraph{(b) Bước 5 --- nhân hai phần.}\leavevmode
+
+\begin{nhobox}
+Nghiệm cuối cùng:
+\[
+  u(x,y,t)=\tfrac12\Big(1-e^{-4\pi^2 t}\cos(2\pi x)\Big)\,e^{-t}\sin(y).
+\]
+Kiểm nhanh: $t=0$ cho $\tfrac12(1-\cos2\pi x)\sin y=\sin^2(\pi x)\sin y=g$. Biên: $u_x\propto\sin(2\pi x)=0$ tại $x=\pm1$; $\sin y=0$ tại $y=0,\pi$. Đúng.
+\end{nhobox}
+
+\subsection*{Dạng bài lân cận}
+\begin{itemize}
+\item \textbf{Nhiệt thanh 1D} (tách biến chuỗi hàm riêng, nghiệm dừng) --- xem mục riêng.
+\item \textbf{Nhiệt nửa-dải} ($0<x<\pi$, $y>0$): chuỗi sin theo $x$ $\times$ erf/heat-kernel theo $y$ --- xem mục ``nhiệt miền có biên''.
+\item Cặp cạnh Neumann cả hai biến $\Rightarrow$ thác triển chẵn cả hai $\Rightarrow$ chuỗi/cosine; chú ý mode hằng.
+\end{itemize}

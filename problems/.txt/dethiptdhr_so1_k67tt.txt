@@ -1,0 +1,601 @@
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+————-
+
+ĐỀ THI KẾT THÚC HỌC KÌ II NĂM HỌC 2023-2024 ——oOo——-
+
+Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Dành cho sinh viên khoá: K67
+
+Ngành học: Toán tin
+
+Thời gian làm bài 90 phút (không kể thời gian phát đề)
+
+Câu 1. (4 điểm) Xét bài toán biên Neumann trong quạt cho phương trình Poisson
+
+∆u(x, y) = 1 trong Q = {(x, y) ∈ R2 : 1 < y < x, (x − 1)2 + (y − 1)2 < 1},
+
+với điều kiện biên Neumann ∂νu(x, y) = 0 khi (x − y)(1 − y) = 0 và
+∂νu(x, y) = x + C khi (x − 1)2 + (y − 1)2 = 1, 1 < y < x,
+trong đó ν là pháp tuyến ngoài đơn vị, C là hằng số. (a) Tìm C để bài toán có nghiệm. (b) Bằng cách sử dụng tích phân năng lượng I = Q[u2x(x, y) + u2y(x, y)]dxdy hãy chỉ ra rằng khi bài toán có nghiệm nó có vô số nghiệm, các nghiệm sai khác nhau hằng số. (c) Với C tìm được ở câu (a) giải bài toán biên đã cho. (Gợi ý: xét hệ tọa độ cực x = 1 + r cos θ, y = 1 + r sin θ.)
+Câu 2. (3 điểm) Sử dụng công thức Poisson tính nghiệm tường minh bài toán biên - ban đầu
+
+ut(x, y, t) = 4∆u(x, y, t), 0 < x < π, y > 0, t > 0, u(x, y, 0) = sin3(x)χ[0,1](y), 0 ≤ x ≤ π, y ≥ 0, u(0, y, t) = u(π, y, t) = u(x, 0, t) = 0, 0 ≤ x ≤ π, y ≥ 0, t ≥ 0.
+
+Câu 3. (5 điểm) Xét bài toán Cauchy cho phương trình truyền sóng utt(x, y, z, t) = 9∆u(x, y, z, t) + f (x, y, z, t), (x, y, z) ∈ R3, t > 0,
+
+với điều kiện ban đầu u(x, y, z, 0) = 0 và ut(x, y, z, 0) = ψ(x, y, z), trong đó
+
+ψ(x, y, z) =
+
+0 1
+
+khi z > −2, và f (x, y, z, t) = khi z < −2,
+
+1 0
+
+khi x2 + y2 + z2 ≤ 1 − 3t, còn lại.
+
+Hãy tính u(0, 0, 100, t), t > 0.
+
+Chú ý: Sinh viên được sử dụng tài liệu.
+
+ĐẠI HỌC QUỐC GIA HÀ NỘI ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+———————– ĐÁP ÁN VÀ THANG ĐIỂM ĐỀ THI KẾT THÚC HỌC KÌ II, NĂM HỌC 2023-2024 Môn thi: Phương trình đạo hàm riêng
+
+Mã môn học: MAT3365 Dành cho sinh viên khoá: K67
+Lời giải 1. (a) Để bài toán có nghiệm ta cần
+
+Số tín chỉ: 3
+
+Đề số: 1
+
+Ngành học: Toán tin
+
+[4 điểm] 0.5
+
+∂νu(x, y)dS = ∆u(x, y)dxdy = π/8
+
+Co
+
+Q
+
+√ với Co = {(x − 1)2 + (y − 1)2 = 1, 1 < y < x} nên C = −(1/2 + 2 2/π).
+
+(b) Nếu u là nghiệm của bài toán đang xét dễ thấy u + Const cũng là nghiệm. Ngược lại 0.5
+
+giả sử u1, u2 là hai nghiệm. Khi đó hiệu u = u1 − u2 là nghiệm của phương trình Laplace
+
+trong hình quạt Q với điều kiện biên Neumann ∂νu = 0 trên biên ∂Q.
+
+Ta có, dùng công thức Green
+
+0.5
+
+u∂νudS = [∂x(uux) + ∂y(uuy)]dxdy.
+
+∂Q
+
+Q
+
+Do uxx + uyy = 0 trong Q và ∂νu = 0 trên biên ∂Q ta có
+
+[u2x + u2y]dxdy = 0
+Q
+
+Khi đó ux = uy = 0 hay u = u1 − u2 là hằng trong Q.
+
+0.5
+
+(c) Trong hệ tọa độ cực x = 1 + r cos θ, y = 1 + r sin θ ta có v(r, θ) = u(r cos θ, r sin θ) "bị 0.5
+
+chặn" thỏa mãn
+
+vrr
+
++
+
+1 r
+
+vr
+
++
+
+1 r2
+
+vθθ
+
+=
+
+1
+
+trong
+
+(0, 1)
+
+×
+
+(0,
+
+π/4)
+
+với điều kiện biên vθ(r, 0) = vθ(r, π/4) = 0 và
+
+vr(1, θ) = 1 + cos θ + C.
+
+Ta có chuỗi nghiệm
+
+0.5
+
+∞
+
+v(r, θ) = R0(r) + ∑ Rn(r) cos(4nθ).
+
+n=1
+
+Thay vào phương trình và phân tích phổ ta có
+
+0.5
+
+R0 (r) +
+
+1 r
+
+R0
+
+(r)
+
+=
+
+1, Rn (y) +
+
+1 r
+
+Rn
+
+(r)
+
+−
+
+(4n)2
+
+Rn
+
+(r)
+
+=
+
+0, n
+
+≥
+
+1,
+
+khi
+
+0
+
+<
+
+r
+
+<
+
+1.
+
+Khi đó, chú ý v bị chặn nên Rn bị chặn, ta có
+
+R0(r) = r2/4 + a0, Rn(r) = anr4n, n ≥ 1.
+
+Thay vào điều kiện biên trên Co và phân tích phổ ta có
+
+0.5
+
+√ R0(1) = 1 + C + 2 2/π, Rn(1) = 4(1/3 + (−1)n/5) sin(3nπ/4)/(nπ), n ≥ 1.
+
+Do đó a0 tùy ý và
+
+an
+
+=
+
+((−1)n
+
+/5
+
++ 1/3) sin(3nπ/4) (n2π)
+
+,
+
+n
+
+≥
+
+1.
+
+Vậy nghiệm của bài toán
+
+u(x,
+
+y)
+
+=
+
+v(r,
+
+θ)
+
+=
+
+a0
+
++
+
+r2 4
+
++
+
+∞
+∑
+n=1
+
+((−1)n/5
+
++ 1/3) sin(3nπ (n2π)
+
+/4)
+
+r4n
+
+cos(4nθ).
+
+Lời giải 2.
+
+[3 điểm]
+
+Thác triển điều kiện ban đầu: lẻ+tuần hoàn chu kỳ 2π theo x, lẻ theo y lên toàn mặt 0.5
+phẳng: f˜(x, y) = sin3(x)[χ[0,1](y) − χ[−1,0](y)].
+
+Sử dụng công thức Poisson
+
+0.5
+
+u(x,
+
+y,
+
+t)
+
+=
+
+1 16πt
+
+∞
+
+sin3
+
+(X)e−
+
+(x−X)2 16t
+
+dX
+
+−∞
+
+∞ −∞
+
+(χ[0,1] (Y )
+
+−
+
+χ[−1,0] (Y ))e−
+
+(y−Y)2 16t
+
+dY.
+
+Có sin3(X) = 3 sin(X)/4 − sin(3X)/4 nên
+
+0.5
+
+√1
+
+∞
+
+sin3
+
+(X)e−
+
+(x−X)2 16t
+
+dX
+
+=
+
+3e−4t sin(x) − e−36t sin(3x) .
+
+4 πt −∞
+
+4
+
+Đổi
+
+biến
+
+w
+
+=
+
+(Y
+
+−
+
+√ y)/(4 t)
+
+và
+
+chú
+
+ý
+
+hàm
+
+lỗi
+
+er f
+
+(x)
+
+=
+
+√2
+
+π
+
+x 0
+
+e−s2
+
+ds
+
+ta
+
+có
+
+0.5
+
+∞
+
+χ[a,b]
+
+(Y)e−
+
+(y−Y)2 16t
+
+dY
+
+=
+
+√ 4t
+
+−∞
+
+b−√y 4t a−√y
+
+e−w2 dw
+
+=
+
+√ 2 πt
+
+4t
+
+er f ( b −√y ) − er f ( a −√y )
+
+4t
+
+4t
+
+.
+
+Vậy nghiệm của bài toán
+
+1
+
+u(x,
+
+y,
+
+t)
+
+=
+
+−
+
+3e−4t
+
+sin(x)
+
+− 4
+
+e−36t
+
+sin(3x)
+
+×
+
+er
+
+f
+
+(
+
+y+√1 4t
+
+)
+
++
+
+er
+
+f
+
+(
+
+y−√1 4t
+
+)
+
+−
+
+2er
+
+f
+
+(
+
+√y 4t
+
+)
+
+2
+
+.
+
+Lời giải 3.
+
+Tách nghiệm u = u1 + u2 với uj, j = 1, 2, là nghiệm của
+
+ u1tt 
+
+= 9∆u1,
+
+ u2tt 
+
+= 9∆u2 + f ,
+
+u1(x, y, z, 0) = 0,
+
+và u2(x, y, z, 0) = 0,
+
+u1t(x, y, z, 0) = ψ(x, y, z),
+
+u2t(x, y, z, 0) = 0.
+
+[5 điểm] 0.5
+
+Do ψ(x, y, z) = χ(−∞,−2)(z) chỉ phụ thuộc z nên u1 chỉ phụ thuộc z. Dùng D’Alembert ta
+
+1
+
+có
+
+u1(0, 0, 100, t)
+
+=
+
+1 6
+
+100+3t
+χ(−∞,−2)(z)dz
+100−3t
+
+0.5
+
+
+
+0
+
+khi 0 < t < 34,
+
+= t − 34 2
+
+khi t > 34.
+
+Do f (x, y, z, t) = χ∆(r, t) với ∆ = {0 < r < 1 − 3t}, r = x2 + y2 + z2 nên u2 chỉ phụ
+
+1
+
+thuộc r, t và v = ru2 thỏa mãn
+
+vtt = 9vrr + rχ∆ với v(0, t) = 0, v(r, 0) = vt(r, 0) = 0.
+
+Theo D’Alembert
+
+1
+
+v(0,
+
+0, 100, t)
+
+=
+
+1 6
+
+F(s, τ)dsdτ
+∆(t)
+
+với ∆(t) = {0 < τ < t, 100 − 3τ < s < 100 + 3τ}, F(s, τ) là thác triển lẻ theo s của
+
+sχ∆(s, τ).
+
+Do đó
+
+0.5
+
+0
+
+khi 0 < t < 33 hay t > 101/3,
+
+u2(0, 0, 100, t) =
+
+(t−33)2 (101−3t) 1600
+
+khi 33 < t < 101/3,
+
+.
+
+Vậy
+
+0.5
+
+0
+
+u(0,
+
+0,
+
+100,
+
+t)
+
+=
+
+ (t−33)2(101−3t)
+1600
+
+ 
+
+t−34
+
+2
+
+khi 0 < t < 33 hay 101/3 < t < 34,
+
+khi 33 < t < 101/3,
+
+.
+
+khi t > 34.
+
+Hà Nội, ngày 16 tháng 05 năm 2024 NGƯỜI LÀM ĐÁP ÁN (ký và ghi rõ họ tên)
+
+TS. Đặng Anh Tuấn
+
+
