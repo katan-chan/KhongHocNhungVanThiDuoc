@@ -1,27 +1,31 @@
 % method: phan-tich-mien-phu-thuoc
 \begin{dieukienbox}
 Dùng khi: cần xác định nghiệm \emph{có bằng $0$ hay không} tại một điểm xa nguồn/dữ liệu.
-Áp dụng cho mọi PDE hyperbolic vận tốc hữu hạn ($c=1$ ở đây).
+Áp dụng cho mọi PDE hyperbolic vận tốc hữu hạn $c$.
 \end{dieukienbox}
 
 \begin{nhobox}
-\textbf{Quy trình 3 bước:}
+\textbf{Quy trình 3 bước} (vận tốc lan truyền $c$):
 \begin{enumerate}
   \item Xác định giá (\emph{support}) của $g$, $h$, $f$.
   \item Tính khoảng cách từ điểm quan sát $x_0$ đến giá:
         $d_{\min} = \operatorname{dist}(x_0, \operatorname{supp})$.
-  \item Kết luận: $u(x_0,t)=0$ khi $t < d_{\min}$ (sóng chưa tới);
-        tín hiệu xuất hiện từ $t = d_{\min}$.
+  \item Kết luận: $u(x_0,t)=0$ khi $t < \dfrac{d_{\min}}{c}$ (sóng chưa tới);
+        tín hiệu xuất hiện từ $t = \dfrac{d_{\min}}{c}$ (vì sóng đi quãng $d_{\min}$ với vận tốc $c$).
 \end{enumerate}
-Trong 3D (nguyên lý Huygens mạnh): tín hiệu cũng tắt sau $t = d_{\max}$
+Trong 3D (nguyên lý Huygens mạnh): tín hiệu cũng tắt sau $t = \dfrac{d_{\max}}{c}$
 ($d_{\max}$: khoảng cách lớn nhất đến giá).
 \end{nhobox}
 
+\begin{luuybox}
+Thời điểm $=\dfrac{\text{khoảng cách}}{c}$, \emph{không} phải bằng khoảng cách. Khi $c=1$ thì hai cái trùng nhau.
+\end{luuybox}
+
 \begin{meobox}
-Ví dụ: $x_0=(100,0,0)$, $\operatorname{supp}(h)\subset B_1(0,0,\pm 2)$.
+Ví dụ ($c=1$): $x_0=(100,0,0)$, $\operatorname{supp}(h)\subset B_1(0,0,\pm 2)$.
 Khoảng cách gần nhất $\approx 97$, xa nhất $\approx 103$.
-$\Rightarrow$ $u^{(h)}(x_0,t)=0$ ngoài khoảng $t\in[97,103]$ (tính chính xác theo hình học).
+$\Rightarrow$ $u^{(h)}(x_0,t)=0$ ngoài khoảng $t\in[97,103]$. Nếu $c=2$ thì khoảng đó là $[97/2,\,103/2]$.
 
 Cho nguồn $f=\chi_{[0,1]}(s)\chi_{[-1,1]}(x_1)$: $\operatorname{dist}(x_0,\operatorname{supp}(f(\cdot,s)))\ge 99$,
-cần $t-s\ge 99$ $\Rightarrow$ tín hiệu từ $f$ bắt đầu từ $t\approx 99$.
+cần $c(t-s)\ge 99$ $\Rightarrow$ tín hiệu từ $f$ bắt đầu từ $t\approx 99/c$.
 \end{meobox}

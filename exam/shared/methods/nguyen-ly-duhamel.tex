@@ -22,13 +22,15 @@ $w_{tt}=c^2\Delta w$, nhưng đặt dữ liệu tại $t=s$ với \textbf{vận 
 
 \begin{nhobox}
 \textbf{Tìm $w$ thế nào:} dùng đúng công thức nghiệm \emph{không nguồn} đã biết (Kirchhoff/d'Alembert),
-với dữ liệu $g=0$, $h=f(\cdot,s)$, và thay thời gian $t\to t-s$ (vì $w$ chỉ phụ thuộc thời gian trôi $t-s$):
+với dữ liệu $g=0$, $h=f(\cdot,s)$, và thay thời gian $t\to t-s$ (vì $w$ chỉ phụ thuộc thời gian trôi $t-s$).
+Với vận tốc lan truyền $c$ (phương trình $u_{tt}=c^2\Delta u+f$):
 \[
-  \text{1D (d'Alembert): }\ w=\tfrac12\!\int_{x-(t-s)}^{x+(t-s)}\! f(\xi,s)\,d\xi,
+  \text{1D (d'Alembert): }\ w=\frac{1}{2c}\!\int_{x-c(t-s)}^{x+c(t-s)}\! f(\xi,s)\,d\xi,
 \]
 \[
-  \text{3D (Kirchhoff): }\ w=\frac{1}{4\pi(t-s)}\int_{\partial B_{t-s}(x)}\! f(y,s)\,dS(y).
+  \text{3D (Kirchhoff): }\ w=\frac{1}{4\pi c^2(t-s)}\int_{\partial B_{c(t-s)}(x)}\! f(y,s)\,dS(y).
 \]
+(Hệ số vận tốc là $\tfrac{1}{2c}$, \emph{không} phải $\tfrac12$; khi $c=1$ thì hai cái trùng nhau.)
 \end{nhobox}
 
 \begin{luuybox}

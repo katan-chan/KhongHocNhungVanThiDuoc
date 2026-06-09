@@ -118,12 +118,12 @@ Muốn dùng d'Alembert trên \emph{cả} đường thẳng, ta thác triển d�
 Vậy nguồn $\rho\,f_2$ (lẻ vì $\rho$ lẻ, $f_2$ chẵn theo $\rho$) đã sẵn lẻ; dùng được d'Alembert toàn trục.
 \end{luuybox}
 
-Tại $\rho=R$:
+Tại $\rho=R$ (d'Alembert 1D cho $v$, hệ số $\tfrac{1}{2c}$, miền phụ thuộc bán kính $c(t-s)$):
 \[
   u_2(0,0,0,t)=U(R,t)=\frac{v(R,t)}{R}
-  =\frac{1}{2cR}\iint_{\Delta(2025,t)}\!\chi_{[0,1]}(s)\,\rho\,\chi_{[-1,1]}(\rho)\,d\rho\,ds,
+  =\frac{1}{2cR}\iint_{\Delta(R,t)}\!\chi_{[0,1]}(s)\,\rho\,\chi_{[-1,1]}(\rho)\,d\rho\,ds,
 \]
-với $\dfrac{1}{2cR}=\dfrac{1}{2\cdot2\cdot2025}=\dfrac{1}{8100}$. Tính ra:
+với $\Delta(R,t)=\{0<s<t,\ R-c(t-s)<\rho<R+c(t-s)\}$, $R=2025$, $c=2$, nên $\dfrac{1}{2cR}=\dfrac{1}{2\cdot2\cdot2025}=\dfrac{1}{8100}$. Tính ra:
 \[
   u_2(0,0,0,t)=\begin{cases}
     0,& 0\le t\le1012\ \text{hay}\ t\ge1014,\\[2pt]

@@ -1,27 +1,31 @@
 % method: cong-thuc-dalembert-1d
 \begin{dieukienbox}
-Dùng khi: sóng \textbf{1D} $u_{tt}=u_{xx}$ trên $\mathbb{R}$ (hoặc sau khi đã hạ bài toán về 1D).
+Dùng khi: sóng \textbf{1D} $u_{tt}=c^2 u_{xx}$ trên $\mathbb{R}$ (hoặc sau khi đã hạ bài toán về 1D). Vận tốc lan truyền là $c$.
 \end{dieukienbox}
 
 \begin{nhobox}
 \textbf{Nghiệm tổng quát = sóng tiến + sóng lùi:}
 \[
-  u(x,t)=F(x-t)+G(x+t),
+  u(x,t)=F(x-ct)+G(x+ct),
 \]
-$F(x-t)$ là \emph{sóng tiến} (giữ nguyên hình, chạy sang phải vận tốc $1$), $G(x+t)$ là \emph{sóng lùi} (chạy sang trái).
+$F(x-ct)$ là \emph{sóng tiến} (giữ nguyên hình, chạy sang phải vận tốc $c$), $G(x+ct)$ là \emph{sóng lùi}.
 
 \textbf{Công thức sóng tiến / sóng lùi} (từ dữ liệu $u(x,0)=g$, $u_t(x,0)=h$):
 \[
-  F(\xi)=\tfrac12 g(\xi)-\tfrac12\!\int_0^{\xi}\! h(s)\,ds,\qquad
-  G(\xi)=\tfrac12 g(\xi)+\tfrac12\!\int_0^{\xi}\! h(s)\,ds.
+  F(\xi)=\tfrac12 g(\xi)-\frac{1}{2c}\!\int_0^{\xi}\! h(s)\,ds,\qquad
+  G(\xi)=\tfrac12 g(\xi)+\frac{1}{2c}\!\int_0^{\xi}\! h(s)\,ds.
 \]
 
 \textbf{Công thức d'Alembert} (thay $F,G$ vào, hằng số khử nhau):
 \[
-  u(x,t)=\tfrac12\big(g(x-t)+g(x+t)\big)+\tfrac12\int_{x-t}^{x+t} h(\xi)\,d\xi .
+  u(x,t)=\tfrac12\big(g(x-ct)+g(x+ct)\big)+\frac{1}{2c}\int_{x-ct}^{x+ct} h(\xi)\,d\xi .
 \]
 \end{nhobox}
 
+\begin{luuybox}
+\textbf{Hệ số:} số hạng \emph{vị trí} $g$ giữ hệ số $\tfrac12$; số hạng \emph{vận tốc} $h$ có hệ số $\dfrac{1}{2c}$ (\emph{không} phải $\tfrac12$). Khi $c=1$ thì $\dfrac{1}{2c}=\tfrac12$.
+\end{luuybox}
+
 \begin{meobox}
-Điểm $x$ tại thời điểm $t$ chỉ chịu ảnh hưởng dữ liệu trong đoạn $[x-t,\,x+t]$ (miền phụ thuộc 1D).
+Điểm $x$ tại thời điểm $t$ chỉ chịu ảnh hưởng dữ liệu trong đoạn $[x-ct,\,x+ct]$ (miền phụ thuộc 1D).
 \end{meobox}
