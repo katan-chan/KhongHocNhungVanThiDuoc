@@ -75,16 +75,27 @@ với $f_1=\chi_{[2024,2026]}(x)$, $f_2=\chi_{[0,1]}(t)\chi_{[0,1]}(\rho)$, $\rh
 Cộng lại: $u_{tt}=4\Delta u+f_1-f_2=4\Delta u+f$, đúng bài gốc.
 
 \paragraph{(b) Bước 1 --- $u_1$ (nguồn phẳng $\to$ 1D).}
-$f_1$ chỉ phụ thuộc $x$ nên $u_1=v_1(x,t)$ với $v_{1,tt}=4v_{1,xx}+\chi_{[2024,2026]}(x)$, dữ liệu $0$. Duhamel 1D ($c=2$):
+$f_1=\chi_{[2024,2026]}(x)$ chỉ phụ thuộc $x$ và dữ liệu đầu $=0$, nên $u_1$ cũng không phụ thuộc $y,z$: đặt $u_1=v_1(x,t)$ thì
 \[
-  u_1(0,0,0,t)=\frac{1}{2c}\iint_{\Delta(0,t)}\!\chi_{[2024,2026]}(x)\,dx\,ds
-  =\frac14\iint_{\Delta(0,t)}\!\chi_{[2024,2026]}(x)\,dx\,ds,
+  v_{1,tt}=4\,v_{1,xx}+\chi_{[2024,2026]}(x),\qquad v_1(x,0)=v_{1,t}(x,0)=0 .
 \]
-$\Delta(0,t)=\{0<s<t,\ 2(s-t)<x<2(t-s)\}$. Đặt $\tau=t-s$, độ dài giao $L(\tau)=\big|[2024,2026]\cap[0,2\tau]\big|$:
+
+\textbf{$s$ ở đâu ra?} $s$ là \emph{thời điểm nguồn phát}. Duhamel: nghiệm $=$ tổng (tích phân) đóng góp của lát nguồn $f_1$ phát tại mỗi $s\in(0,t)$:
 \[
-  L(\tau)=\begin{cases}0,&\tau<1012,\\ 2\tau-2024,&1012\le\tau\le1013,\\ 2,&\tau>1013.\end{cases}
+  v_1(x,t)=\int_0^t w(x,t;s)\,ds,\qquad
+  w(x,t;s)=\frac{1}{2c}\int_{x-c(t-s)}^{x+c(t-s)}\!\chi_{[2024,2026]}(\xi)\,d\xi,\quad c=2.
 \]
-Tích phân $u_1=\tfrac14\int_0^t L(\tau)\,d\tau$:
+($w$ là sóng con \emph{không nguồn}, phát tại $t=s$ với vận tốc đầu $f_1$; nó lan trong khoảng thời gian \emph{còn lại} $t-s$, nên miền phụ thuộc là $[\,x-c(t-s),\,x+c(t-s)\,]$.) Gộp hai tầng tích phân:
+\[
+  v_1(x,t)=\frac14\iint_{\Delta(x,t)}\!\chi_{[2024,2026]}(\xi)\,d\xi\,ds,\quad
+  \Delta(x,t)=\{\,0<s<t,\ x-2(t-s)<\xi<x+2(t-s)\,\}.
+\]
+
+\emph{Tại $x=0$:} cận trong là $\xi\in(-2(t-s),\,2(t-s))$. Đổi biến $\tau=t-s$ (thời gian \emph{trôi} từ lúc phát tới $t$; $s:0\!\to\!t$ ứng $\tau:t\!\to\!0$). Độ dài giao của dải $[2024,2026]$ với $[0,2\tau]$ (dải nằm ở $x>0$):
+\[
+  L(\tau)=\big|[2024,2026]\cap[0,2\tau]\big|=\begin{cases}0,&\tau<1012,\\ 2\tau-2024,&1012\le\tau\le1013,\\ 2,&\tau>1013.\end{cases}
+\]
+Khi đó $u_1(0,0,0,t)=\dfrac14\displaystyle\int_0^t L(\tau)\,d\tau$:
 \[
   u_1(0,0,0,t)=\begin{cases}
     0,& 0\le t\le1012,\\[2pt]
@@ -94,7 +105,20 @@ Tích phân $u_1=\tfrac14\int_0^t L(\tau)\,d\tau$:
 \]
 
 \paragraph{(b) Bước 2 --- $u_2$ (nguồn cầu $\to$ $v=\rho U$).}
-$f_2$ đối xứng cầu quanh $O'=(2025,0,0)$; điểm hỏi $P$ cách $O'$ đúng $R=2025$. Đặt $v=\rho\,U$ thì $v$ thỏa sóng 1D có nguồn $\rho f_2$ (thác triển lẻ theo $\rho$). Tại $\rho=R$:
+$f_2$ đối xứng cầu quanh $O'=(2025,0,0)$; điểm hỏi $P$ cách $O'$ đúng $R=2025$. Đặt $v=\rho\,U$ thì $v$ thỏa sóng 1D có nguồn $\rho f_2$ trên \emph{nửa đường} $\rho>0$.
+
+\begin{luuybox}
+\textbf{Vì sao thác triển lẻ?} $\rho$ là khoảng cách $\ge0$, nên $v$ chỉ sống trên $\rho>0$. Tại tâm $\rho=0$:
+$v(0,t)=\rho\,U\big|_{\rho=0}=0$ (vì $U$ hữu hạn ở tâm). Đó là điều kiện biên \textbf{Dirichlet} $v(0,t)=0$.
+Muốn dùng d'Alembert trên \emph{cả} đường thẳng, ta thác triển dữ liệu/nguồn sang $\rho<0$ sao cho biên đó tự thỏa:
+\begin{itemize}
+\item Biên \textbf{Dirichlet} (giá trị $=0$) $\Rightarrow$ thác triển \textbf{LẺ} --- hàm lẻ tự bằng $0$ tại $\rho=0$. \emph{(Đây là trường hợp $v=\rho U$.)}
+\item Biên \textbf{Neumann} (đạo hàm $=0$) $\Rightarrow$ thác triển \textbf{CHẴN} --- hàm chẵn có đạo hàm $=0$ tại biên.
+\end{itemize}
+Vậy nguồn $\rho\,f_2$ (lẻ vì $\rho$ lẻ, $f_2$ chẵn theo $\rho$) đã sẵn lẻ; dùng được d'Alembert toàn trục.
+\end{luuybox}
+
+Tại $\rho=R$:
 \[
   u_2(0,0,0,t)=U(R,t)=\frac{v(R,t)}{R}
   =\frac{1}{2cR}\iint_{\Delta(2025,t)}\!\chi_{[0,1]}(s)\,\rho\,\chi_{[-1,1]}(\rho)\,d\rho\,ds,
