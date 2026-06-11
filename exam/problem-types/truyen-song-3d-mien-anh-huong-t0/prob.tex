@@ -104,26 +104,55 @@ Khi đó $u_1(0,0,0,t)=\dfrac14\displaystyle\int_0^t L(\tau)\,d\tau$:
   \end{cases}
 \]
 
-\paragraph{(b) Bước 2 --- $u_2$ (nguồn cầu $\to$ $v=\rho U$).}
-$f_2$ đối xứng cầu quanh $O'=(2025,0,0)$; điểm hỏi $P$ cách $O'$ đúng $R=2025$. Đặt $v=\rho\,U$ thì $v$ thỏa sóng 1D có nguồn $\rho f_2$ trên \emph{nửa đường} $\rho>0$.
+\paragraph{(b) Bước 2 --- $u_2$ (nguồn đối xứng cầu).}\leavevmode
 
+\emph{Bước 2.1 --- Đặt biến bán kính.} Nguồn $f_2=\chi_{[0,1]}(t)\,\chi_B(x,y,z)$ \textbf{đối xứng cầu} quanh $O'=(2025,0,0)$ (vì $\chi_B$ chỉ phụ thuộc $\rho:=|(x,y,z)-O'|$). Vì dữ liệu đầu $=0$ cũng đối xứng cầu quanh $O'$, nghiệm $u_2$ cũng chỉ phụ thuộc $(\rho,t)$: viết $u_2(x,y,z,t)=U(\rho,t)$. Điểm hỏi $P=(0,0,0)$ cách $O'$ một khoảng $R=2025$, nên cuối cùng ta cần $U(R,t)$.
+
+Trong toạ độ cầu, Laplacian của hàm chỉ phụ thuộc $\rho$ là $\Delta U=U_{\rho\rho}+\tfrac{2}{\rho}U_\rho$, nên $U$ thoả
+\[
+  U_{tt}=c^2\Big(U_{\rho\rho}+\tfrac{2}{\rho}U_\rho\Big)+\chi_{[0,1]}(t)\,\chi_{[0,1]}(\rho),\quad \rho>0,\ c=2,
+\]
+với $U(\rho,0)=U_t(\rho,0)=0$.
+
+\emph{Bước 2.2 --- Đổi biến $v=\rho U$ để khử số hạng $\tfrac{2}{\rho}U_\rho$.} (Xem ``Đổi biến cầu $v=ru$''.) Đặt $v(\rho,t)=\rho\,U(\rho,t)$. Tính trực tiếp $v_{\rho\rho}=\rho\big(U_{\rho\rho}+\tfrac{2}{\rho}U_\rho\big)$, nên nhân phương trình trên với $\rho$ được
+\[
+  v_{tt}=c^2 v_{\rho\rho}+\rho\,\chi_{[0,1]}(t)\,\chi_{[0,1]}(\rho),\qquad \rho>0,
+\]
+với $v(\rho,0)=v_t(\rho,0)=0$. Đây là \textbf{sóng 1D có nguồn} trên nửa đường $\rho>0$.
+
+\emph{Bước 2.3 --- Điều kiện biên tại tâm.} Vì $U$ phải hữu hạn ở tâm và $v=\rho U$, lấy $\rho\to0$ được
+\[
+  v(0,t)=0\qquad (\text{biên \textbf{Dirichlet} tự nhiên ở tâm}).
+\]
+
+\emph{Bước 2.4 --- Thác triển lẻ qua $\rho=0$ để dùng d'Alembert toàn trục.}
 \begin{luuybox}
-\textbf{Vì sao thác triển lẻ?} $\rho$ là khoảng cách $\ge0$, nên $v$ chỉ sống trên $\rho>0$. Tại tâm $\rho=0$:
-$v(0,t)=\rho\,U\big|_{\rho=0}=0$ (vì $U$ hữu hạn ở tâm). Đó là điều kiện biên \textbf{Dirichlet} $v(0,t)=0$.
-Muốn dùng d'Alembert trên \emph{cả} đường thẳng, ta thác triển dữ liệu/nguồn sang $\rho<0$ sao cho biên đó tự thỏa:
+Bài toán đang trên \emph{nửa đường} $\rho>0$ với biên Dirichlet $v(0,t)=0$. Mẹo chuẩn: \textbf{thác triển lẻ} dữ liệu/nguồn sang $\rho<0$, rồi giải sóng 1D trên \emph{toàn trục} bằng d'Alembert. Vì hệ tuyến tính và dữ kiện đầu lẻ (ở đây $=0$, vừa chẵn vừa lẻ) cộng nguồn lẻ, nghiệm thu được cũng \emph{lẻ} theo $\rho$, do đó tự thoả $v(0,t)=0$. Quy tắc tổng quát:
 \begin{itemize}
-\item Biên \textbf{Dirichlet} (giá trị $=0$) $\Rightarrow$ thác triển \textbf{LẺ} --- hàm lẻ tự bằng $0$ tại $\rho=0$. \emph{(Đây là trường hợp $v=\rho U$.)}
-\item Biên \textbf{Neumann} (đạo hàm $=0$) $\Rightarrow$ thác triển \textbf{CHẴN} --- hàm chẵn có đạo hàm $=0$ tại biên.
+\item Biên Dirichlet ($v=0$) $\Rightarrow$ thác triển \textbf{lẻ} (hàm lẻ tự triệt tiêu tại $0$).
+\item Biên Neumann ($v_\rho=0$) $\Rightarrow$ thác triển \textbf{chẵn} (hàm chẵn có đạo hàm $=0$ tại $0$).
 \end{itemize}
-Vậy nguồn $\rho\,f_2$ (lẻ vì $\rho$ lẻ, $f_2$ chẵn theo $\rho$) đã sẵn lẻ; dùng được d'Alembert toàn trục.
+
+Áp vào bài: nguồn trên $\rho>0$ là $g(\rho,s)=\rho\,\chi_{[0,1]}(s)\,\chi_{[0,1]}(\rho)$. Để $g$ trở thành hàm \emph{lẻ} theo $\rho$ trên cả $\mathbb{R}$, thác triển: $\rho$ vốn đã lẻ; còn $\chi_{[0,1]}(\rho)$ thác triển \emph{chẵn} thành $\chi_{[-1,1]}(\rho)$ (lẻ $\times$ chẵn = lẻ). Vậy nguồn mở rộng toàn trục là
+\[
+  \tilde g(\rho,s)=\rho\,\chi_{[0,1]}(s)\,\chi_{[-1,1]}(\rho).
+\]
 \end{luuybox}
 
-Tại $\rho=R$ (d'Alembert 1D cho $v$, hệ số $\tfrac{1}{2c}$, miền phụ thuộc bán kính $c(t-s)$):
+\emph{Bước 2.5 --- Áp công thức Duhamel 1D cho $v$ trên toàn trục.} Với dữ kiện đầu $=0$ và nguồn $\tilde g$:
+\[
+  v(\rho,t)=\frac{1}{2c}\int_0^t\!\!\int_{\rho-c(t-s)}^{\rho+c(t-s)}\!\xi\,\chi_{[-1,1]}(\xi)\,\chi_{[0,1]}(s)\,d\xi\,ds.
+\]
+($\xi$ là biến tích phân chạy trên trục $\rho$; cận trong là miền phụ thuộc của $(\rho,t)$ qua một sóng con phát tại thời điểm $s$.)
+
+\emph{Bước 2.6 --- Quay về $u_2$ tại $P$.} Vì $U=v/\rho$ và $P$ cách $O'$ một khoảng $R=2025$:
 \[
   u_2(0,0,0,t)=U(R,t)=\frac{v(R,t)}{R}
-  =\frac{1}{2cR}\iint_{\Delta(R,t)}\!\chi_{[0,1]}(s)\,\rho\,\chi_{[-1,1]}(\rho)\,d\rho\,ds,
+  =\frac{1}{2cR}\iint_{\Delta(R,t)}\!\xi\,\chi_{[-1,1]}(\xi)\,\chi_{[0,1]}(s)\,d\xi\,ds,
 \]
-với $\Delta(R,t)=\{0<s<t,\ R-c(t-s)<\rho<R+c(t-s)\}$, $R=2025$, $c=2$, nên $\dfrac{1}{2cR}=\dfrac{1}{2\cdot2\cdot2025}=\dfrac{1}{8100}$. Tính ra:
+với $\Delta(R,t)=\{\,0<s<t,\ R-c(t-s)<\xi<R+c(t-s)\,\}$ và $\dfrac{1}{2cR}=\dfrac{1}{2\cdot2\cdot2025}=\dfrac{1}{8100}$.
+
+\emph{Bước 2.7 --- Khoảng $t$ có tín hiệu \& tính tích phân.} Tín hiệu chỉ tới $P$ khi nón phụ thuộc giao được vùng nguồn $\{|\xi|\le1,\ s\in[0,1]\}$: cần $c(t-s)\ge R-1=2024$, kết hợp $s\in[0,1]$ cho $t-s\in[1012,1014]$, tức $t\in[1012,1014]$ (ngoài khoảng này $u_2=0$). Tính giao hình học (chia theo $t$) ra:
 \[
   u_2(0,0,0,t)=\begin{cases}
     0,& 0\le t\le1012\ \text{hay}\ t\ge1014,\\[2pt]
