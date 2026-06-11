@@ -38,6 +38,7 @@ Write-Output "[build] _concepts.tex: $($a.Total) khái niệm / $($a.Groups) c�
 
 # 1a'. _integrals.tex — Phụ lục B (Công thức & tích phân thường gặp): 3 nhóm, mỗi mục bọc ctbox
 $formulaGroups = [ordered]@{
+  'luong-giac'    = 'Công thức lượng giác'
   'gauss'         = 'Tích phân Gauss \& hàm sai số'
   'mat-cau'       = 'Hình học mặt cầu'
   'toa-do'        = 'Laplacian theo tọa độ'

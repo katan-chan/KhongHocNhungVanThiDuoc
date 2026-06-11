@@ -1,0 +1,51 @@
+% integral: luong-giac-co-ban
+\textbf{Công thức lượng giác thường gặp trong PDE.}
+
+\emph{Cộng cung} (\,$\sin(a\pm b),\cos(a\pm b)$\,):
+\[
+  \sin(a\pm b)=\sin a\cos b\pm\cos a\sin b,\qquad
+  \cos(a\pm b)=\cos a\cos b\mp\sin a\sin b.
+\]
+
+\emph{Tích thành tổng} (dùng khi tích phân tích hai $\sin/\cos$):
+\[
+  \sin a\sin b=\tfrac12\big[\cos(a-b)-\cos(a+b)\big],\quad
+  \cos a\cos b=\tfrac12\big[\cos(a-b)+\cos(a+b)\big],
+\]
+\[
+  \sin a\cos b=\tfrac12\big[\sin(a+b)+\sin(a-b)\big].
+\]
+
+\emph{Tổng thành tích} (đối ngẫu của trên):
+\[
+  \sin a+\sin b=2\sin\tfrac{a+b}{2}\cos\tfrac{a-b}{2},\quad
+  \sin a-\sin b=2\cos\tfrac{a+b}{2}\sin\tfrac{a-b}{2},
+\]
+\[
+  \cos a+\cos b=2\cos\tfrac{a+b}{2}\cos\tfrac{a-b}{2},\quad
+  \cos a-\cos b=-2\sin\tfrac{a+b}{2}\sin\tfrac{a-b}{2}.
+\]
+
+\emph{Nhân đôi} \& \emph{hạ bậc} (dùng khi tích phân $\sin^2,\cos^2$):
+\[
+  \sin 2x=2\sin x\cos x,\quad \cos 2x=1-2\sin^2 x=2\cos^2 x-1,
+\]
+\[
+  \sin^2 x=\tfrac{1-\cos 2x}{2},\qquad \cos^2 x=\tfrac{1+\cos 2x}{2}.
+\]
+
+\emph{Nhân ba} \& \emph{hạ bậc lập phương} (dùng khi tích phân $\sin^3,\cos^3$):
+\[
+  \sin 3x=3\sin x-4\sin^3 x,\quad \cos 3x=4\cos^3 x-3\cos x,
+\]
+\[
+  \sin^3 x=\tfrac{3\sin x-\sin 3x}{4},\qquad \cos^3 x=\tfrac{3\cos x+\cos 3x}{4}.
+\]
+
+\emph{Trực giao trên đoạn} ($m,n\in\mathbb{N}^*$, hệ Fourier sin/cos):
+\[
+  \int_0^\pi \sin(mx)\sin(nx)\,dx=\int_0^\pi \cos(mx)\cos(nx)\,dx=\begin{cases}0,&m\ne n\\ \pi/2,&m=n\end{cases},\qquad
+  \int_0^\pi \sin(mx)\cos(nx)\,dx=0\ \text{nếu}\ m+n\ \text{chẵn}.
+\]
+
+\emph{Euler} (đôi khi tiện hơn): $e^{ix}=\cos x+i\sin x \Rightarrow \cos x=\tfrac{e^{ix}+e^{-ix}}{2},\ \sin x=\tfrac{e^{ix}-e^{-ix}}{2i}$.
