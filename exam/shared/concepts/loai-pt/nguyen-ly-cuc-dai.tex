@@ -1,0 +1,19 @@
+% concept: nguyen-ly-cuc-dai
+\textbf{Nguyên lý cực đại.} Cho miền $\Omega\subset\mathbb{R}^n$ bị chặn, liên thông, biên $\partial\Omega$.
+
+\emph{Dạng yếu (elliptic, hàm điều hoà):} Nếu $u\in C^2(\Omega)\cap C(\overline{\Omega})$ và $\Delta u\ge 0$ (subharmonic) trên $\Omega$ thì
+\[
+  \max_{\overline{\Omega}} u = \max_{\partial\Omega} u.
+\]
+Đối ngẫu: $\Delta u\le 0$ (superharmonic) $\Rightarrow$ $\min_{\overline{\Omega}}u=\min_{\partial\Omega}u$. Hàm \emph{điều hoà} ($\Delta u=0$) đạt cả max lẫn min trên biên.
+
+\emph{Dạng mạnh:} Nếu $\Delta u\ge 0$ trên $\Omega$ liên thông và $u$ đạt max tại MỘT điểm trong $\Omega$, thì $u\equiv$ hằng. (Nói cách khác: max trong = max biên CHỈ KHI $u$ là hằng.)
+
+\emph{Parabolic} (nhiệt $u_t=k\Delta u$): max của $u$ trên trụ $\overline{\Omega}\times[0,T]$ đạt trên \emph{biên parabolic} $\partial_p=(\partial\Omega\times[0,T])\cup(\overline{\Omega}\times\{0\})$ (đáy $+$ thành, không phải nắp).
+
+\textbf{Hệ quả thường dùng:}
+\begin{itemize}
+  \item \emph{Nguyên lý so sánh:} $\Delta u\ge\Delta v$ trên $\Omega$ và $u\le v$ trên $\partial\Omega$ $\Rightarrow$ $u\le v$ trên $\overline{\Omega}$.
+  \item \emph{Duy nhất Dirichlet:} hiệu $w=u_1-u_2$ điều hoà, biên $=0$ $\Rightarrow$ $\max w=\min w=0$ $\Rightarrow$ $w\equiv 0$.
+  \item \emph{Liouville:} hàm điều hoà bị chặn trên $\mathbb{R}^n$ là hằng (suy ra từ định lý giá trị trung bình $+$ cực đại).
+\end{itemize}
