@@ -73,7 +73,15 @@ Write-Output "[build] _problems.tex: $($probs.Count) dạng bài (sắp theo % o
 
 # 2. Compile with xelatex directly, twice (latexmk needs perl; xelatex does not).
 #    Pass 1 builds .toc, pass 2 resolves the table of contents.
-$xelatex = 'C:\Users\lbmin\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe'
+$xelatex = (Get-Command xelatex -ErrorAction SilentlyContinue).Source
+if (-not $xelatex) {
+  $candidates = @(
+    "$env:LOCALAPPDATA\Programs\MiKTeX\miktex\bin\x64\xelatex.exe",
+    'C:\Users\lbmin\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe'
+  )
+  $xelatex = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+}
+if (-not $xelatex) { Write-Output "[build] xelatex not found on PATH"; exit 1 }
 Push-Location $exam
 try {
   & $xelatex -interaction=nonstopmode -halt-on-error main.tex | Out-Null
