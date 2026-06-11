@@ -86,11 +86,37 @@ $u_g$ chính là phần (i) đã giải; còn $u_f$ (không dữ liệu đầu, 
 \paragraph{Bước 2 --- dựng sóng con $w$.} Duhamel: $u_f=\int_0^t w(x,t;s)\,ds$, mỗi $w$ giải nhiệt
 \emph{không nguồn} với giá trị đầu tại $\tau=s$ bằng $f(\cdot,s)=e^{-s}\cos(cx)$.
 
-\paragraph{Bước 3 --- giải $w$ bằng hàm riêng.} $\cos(cx)$ là hàm riêng của $\partial_{xx}$ với trị $-c^2$
-($\partial_{xx}\cos cx=-c^2\cos cx$). Thử $w=A(\tau)\cos(cx)$ vào $w_\tau=w_{xx}$: $A'=-c^2A$, $A(s)=e^{-s}$
-$\Rightarrow A(\tau)=e^{-s}e^{-c^2(\tau-s)}$. Tại $\tau=t$:
+\paragraph{Bước 3 --- giải $w$ bằng hàm riêng.}\leavevmode
+
+Sóng con $w(x,\tau;s)$ thoả bài toán nhiệt 1D \emph{không nguồn} theo biến thời gian $\tau$ (với $s$ là tham số cố định, $\tau$ chạy từ $s$ tới $t$):
 \[
-  w(x,t;s)=e^{-s}\,e^{-c^2(t-s)}\cos(cx).
+  w_\tau=w_{xx}\ (x\in\mathbb{R},\ \tau>s),\qquad w(x,s;s)=e^{-s}\cos(cx).
+\]
+
+\emph{Bước 3a --- $\cos(cx)$ là ``hàm riêng'' của toán tử $\partial_{xx}$.} Hàm $\varphi(x)$ gọi là \textbf{hàm riêng} của một toán tử tuyến tính $L$ nếu $L\varphi=\lambda\varphi$ với hằng số $\lambda$ (gọi là \emph{trị riêng}) --- nghĩa là tác động của $L$ chỉ là nhân với một con số, không trộn hàm. Ở đây, đạo hàm hai lần $\cos(cx)$:
+\[
+  \partial_{xx}\cos(cx)=-c^2\cos(cx),
+\]
+nên $\cos(cx)$ là hàm riêng của $\partial_{xx}$ với trị riêng $\lambda=-c^2$.
+
+\emph{Bước 3b --- thử nghiệm dạng tách biến $w=A(\tau)\cos(cx)$.} Vì giá trị đầu của $w$ tại $\tau=s$ đã có dạng (hàm chỉ-theo-$\tau$) $\times\cos(cx)$, ta dự đoán $w$ giữ nguyên dạng đó với mọi $\tau$:
+\[
+  w(x,\tau;s)=A(\tau)\,\cos(cx),\qquad A\ \text{là hàm cần tìm}.
+\]
+Thay vào $w_\tau=w_{xx}$ và dùng $\partial_{xx}\cos(cx)=-c^2\cos(cx)$:
+\[
+  A'(\tau)\,\cos(cx)=A(\tau)\,\big(-c^2\cos(cx)\big)\ \Longrightarrow\ A'(\tau)=-c^2\,A(\tau).
+\]
+Phần $\cos(cx)$ \emph{triệt} hai bên (nó là hàm riêng), chỉ còn ODE thường cho $A$.
+
+\emph{Bước 3c --- giải ODE cho $A$ với điều kiện đầu tại $\tau=s$.} Nghiệm tổng quát của $A'=-c^2 A$ là $A(\tau)=C\,e^{-c^2(\tau-s)}$ (chọn mốc tại $\tau=s$ cho gọn). Điều kiện đầu: tại $\tau=s$ ta cần $w(x,s;s)=e^{-s}\cos(cx)$, tức $A(s)=e^{-s}$. Vậy $C=e^{-s}$ và
+\[
+  A(\tau)=e^{-s}\,e^{-c^2(\tau-s)}.
+\]
+
+\emph{Bước 3d --- ráp lại tại $\tau=t$:}
+\[
+  w(x,t;s)=A(t)\cos(cx)=e^{-s}\,e^{-c^2(t-s)}\,\cos(cx).
 \]
 
 \paragraph{Bước 4 --- cộng theo $s$ (tính tích phân).} Gom mũ: $e^{-s}e^{-c^2(t-s)}=e^{-c^2 t}e^{(c^2-1)s}$, nên
