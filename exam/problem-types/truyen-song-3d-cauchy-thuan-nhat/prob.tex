@@ -41,31 +41,79 @@ Chỉ cần ráp $g,h$ vào công thức Kirchhoff. Mẹo: nghiệm chỉ ``số
 % ---------------------------------------------------------------
 \subsection*{Đề bài \& bài giải}
 % ---------------------------------------------------------------
-\paragraph{Nhắc lại đề.} $u_{tt}=\Delta u$, $g=0$, $h=\chi_{B_1(0)}$. Tính $u(x_0,t)$ với $|x_0|=2$.
+\paragraph{Nhắc lại đề.} $u_{tt}=\Delta u$ trên $\mathbb{R}^3$ với $g(x):=u(x,0)=0$ và $h(x):=u_t(x,0)=\chi_{B_1(0)}(x)$. Vận tốc $c=1$ (vì hệ số trước $\Delta u$ bằng $1$). Tính $u(x_0,t)$ với $|x_0|=2$.
 
-\paragraph{Bước 1 --- Kirchhoff.} Vì $g=0$, nghiệm bằng tích phân mặt của $h$ trên mặt cầu $\partial B_t(x_0)$:
+\paragraph{Bước 1 --- gọi tên công thức Kirchhoff.}\leavevmode
+
+\textbf{Công thức Kirchhoff} ($n=3$, vận tốc $c$) cho nghiệm Cauchy thuần nhất là
 \[
-  u(x_0,t)=\frac{1}{4\pi t}\int_{\partial B_t(x_0)} \chi_{B_1(0)}\,dS
-        =\frac{1}{4\pi t}\cdot\big(\text{diện tích phần }\partial B_t(x_0)\text{ nằm trong }B_1(0)\big).
+  u(x,t)=\partial_t\!\Big(t\cdot \mathcal{M}_g(x,ct)\Big)+t\cdot \mathcal{M}_h(x,ct),
+\]
+trong đó \textbf{trung bình mặt cầu} (\emph{spherical mean}) của một hàm $\varphi$ trên mặt cầu tâm $x$ bán kính $r$ là
+\[
+  \mathcal{M}_\varphi(x,r):=\frac{1}{|\partial B_r(x)|}\int_{\partial B_r(x)}\!\varphi(y)\,dS(y)
+  =\frac{1}{4\pi r^2}\int_{\partial B_r(x)}\!\varphi\,dS.
+\]
+(Hệ số $4\pi r^2$ chính là diện tích mặt cầu bán kính $r$ trong $\mathbb{R}^3$, nên $\mathcal{M}_\varphi$ thật sự là ``giá trị trung bình''.) Tương đương, có thể viết Kirchhoff dưới dạng tích phân mặt:
+\[
+  u(x,t)=\partial_t\!\left(\frac{1}{4\pi c^2 t}\!\int_{\partial B_{ct}(x)}\! g\,dS\right)+\frac{1}{4\pi c^2 t}\!\int_{\partial B_{ct}(x)}\! h\,dS.
 \]
 
-\paragraph{Bước 2 --- tính tích phân mặt bằng chỏm cầu} (kỹ thuật ở Phụ lục C). Mặt cầu bán kính
-$R=t$ tâm $x_0$ cắt quả cầu dữ liệu $B_1(0)$ (bán kính $\rho=1$, \emph{tâm} $c=0$ là gốc). Khoảng cách
-hai tâm $d=|x_0-c|=|x_0-0|=|x_0|=2$ (đúng bằng khoảng cách điểm hỏi tới gốc mà đề cho):
+Với bài này $g\equiv 0$ và $c=1$, nên số hạng đầu biến mất và
 \[
-  \cos\theta=\frac{R^2+d^2-\rho^2}{2Rd}=\frac{t^2+4-1}{4t}=\frac{t^2+3}{4t}.
-\]
-Có giao khi $\cos\theta<1\Leftrightarrow t^2-4t+3<0\Leftrightarrow 1<t<3$. Diện tích chỏm cầu
-(công thức $S=2\pi R^2(1-\cos\theta)$, Phụ lục C), rút gọn $1-\tfrac{t^2+3}{4t}=\tfrac{4t-t^2-3}{4t}=\tfrac{(t-1)(3-t)}{4t}$:
-\[
-  S=2\pi t^2\Big(1-\frac{t^2+3}{4t}\Big)=2\pi t^2\cdot\frac{(t-1)(3-t)}{4t}=\frac{\pi t}{2}(t-1)(3-t).
+  u(x_0,t)=\frac{1}{4\pi t}\int_{\partial B_t(x_0)}\!\chi_{B_1(0)}(y)\,dS(y).
 \]
 
-\paragraph{Bước 3 --- ráp lại.} Chia diện tích chỏm cầu cho $4\pi t$:
+\paragraph{Bước 2 --- diễn giải hình học của tích phân mặt.}\leavevmode
+
+Hàm $\chi_{B_1(0)}(y)$ bằng $1$ khi $y\in B_1(0)$ và bằng $0$ ngoài $B_1(0)$, nên tích phân mặt đếm đúng \textbf{diện tích phần mặt cầu} $\partial B_t(x_0)$ \emph{nằm bên trong} quả cầu dữ liệu $B_1(0)$:
+\[
+  \int_{\partial B_t(x_0)}\!\chi_{B_1(0)}\,dS=\operatorname{Area}\!\Big(\partial B_t(x_0)\cap B_1(0)\Big).
+\]
+
+\textbf{Miền phụ thuộc 3D.} Lưu ý đặc thù của sóng $3$D: $u(x_0,t)$ chỉ phụ thuộc dữ liệu nằm \emph{đúng trên mặt cầu} $\partial B_t(x_0)$ --- không phải toàn quả cầu $B_t(x_0)$. Đây gọi là \textbf{nguyên lý Huygens mạnh}: tín hiệu sống đúng trên ``vỏ ánh sáng'' bán kính $ct$, không có đuôi sau mặt sóng (khác với chiều chẵn, chẳng hạn $2$D, ở đó có đuôi).
+
+\paragraph{Bước 3 --- tính diện tích giao bằng chỏm cầu.}\leavevmode
+
+Mặt cầu $\Sigma:=\partial B_t(x_0)$ có tâm $x_0$ bán kính $R=t$; quả cầu dữ liệu $B_1(0)$ có tâm $O=0$ bán kính $\rho=1$. Khoảng cách hai tâm
+\[
+  d=|x_0-O|=|x_0|=2.
+\]
+
+\emph{Khi nào hai mặt cầu cắt nhau?} Giao $\Sigma\cap B_1(0)$ khác rỗng khi và chỉ khi mặt cầu $\Sigma$ chạm được quả cầu đơn vị, tức là khoảng cách giữa hai tâm thoả $|R-\rho|<d<R+\rho$, tức $|t-1|<2<t+1$, cho ngay
+\[
+  1<t<3.
+\]
+Ngoài khoảng đó: $t\le 1$ thì mặt cầu chưa chạm quả cầu (giao rỗng); $t\ge 3$ thì mặt cầu đã ``đi qua khỏi'' quả cầu (vẫn rỗng theo cùng lý do hình học). Trong cả hai trường hợp này, tích phân mặt bằng $0$.
+
+\emph{Tham số góc.} Khi $1<t<3$, giao $\Sigma\cap B_1(0)$ là một \textbf{chỏm cầu} (phần của $\Sigma$ bị cắt bởi quả cầu $B_1(0)$). Gọi $\theta$ là nửa góc đỉnh của chỏm (góc nhìn từ tâm $x_0$ tới mép giao). Áp dụng định lý cosin cho tam giác tạo bởi hai tâm $x_0,O$ và một điểm bất kỳ trên đường giao tròn ($|x_0-y|=R$, $|O-y|=\rho$, $|x_0-O|=d$):
+\[
+  \rho^2=R^2+d^2-2Rd\cos\theta\ \Longrightarrow\ \cos\theta=\frac{R^2+d^2-\rho^2}{2Rd}=\frac{t^2+4-1}{2\cdot t\cdot 2}=\frac{t^2+3}{4t}.
+\]
+
+\emph{Diện tích chỏm cầu.} Trên mặt cầu bán kính $R$, chỏm có nửa góc đỉnh $\theta$ có diện tích
+\[
+  S_{\text{chỏm}}=\int_0^{\theta}\!\!\int_0^{2\pi} R^2\sin\varphi\,d\psi\,d\varphi=2\pi R^2\int_0^\theta\!\sin\varphi\,d\varphi=2\pi R^2(1-\cos\theta).
+\]
+(Đây là tính trực tiếp bằng toạ độ cầu trên $\Sigma$: phần tử diện tích $dS=R^2\sin\varphi\,d\psi\,d\varphi$.) Thay $R=t$, $\cos\theta=\tfrac{t^2+3}{4t}$:
+\[
+  1-\cos\theta=1-\frac{t^2+3}{4t}=\frac{4t-t^2-3}{4t}=\frac{-(t^2-4t+3)}{4t}=\frac{-(t-1)(t-3)}{4t}=\frac{(t-1)(3-t)}{4t}.
+\]
+Suy ra
+\[
+  S_{\text{chỏm}}=2\pi t^2\cdot\frac{(t-1)(3-t)}{4t}=\frac{\pi t(t-1)(3-t)}{2}.
+\]
+
+\paragraph{Bước 4 --- ráp vào Kirchhoff.}\leavevmode
+
+Chia $S_{\text{chỏm}}$ cho $4\pi t$:
+\[
+  u(x_0,t)=\frac{1}{4\pi t}\cdot\frac{\pi t(t-1)(3-t)}{2}=\frac{(t-1)(3-t)}{8},\qquad 1<t<3.
+\]
+Với $t\notin(1,3)$, tích phân mặt bằng $0$ nên $u(x_0,t)=0$. Tại biên $t=1$ và $t=3$ biểu thức cũng bằng $0$, khớp liên tục với hai phía. Vậy
 \begin{nhobox}
 \[
-  u(x_0,t)=\frac{1}{4\pi t}\cdot S=\begin{cases} \dfrac{(t-1)(3-t)}{8}, & 1\le t\le 3,\\[6pt] 0, & \text{còn lại}.\end{cases}
+  u(x_0,t)=\begin{cases}\dfrac{(t-1)(3-t)}{8}, & 1\le t\le 3,\\[6pt] 0, & \text{ngoài đoạn đó}.\end{cases}
 \]
-Tín hiệu đến $x_0$ tại $t=1$ (sóng vừa chạm quả cầu), đỉnh $\tfrac18$ tại $t=2$, rồi \textbf{tắt hẳn} sau
-$t=3$ --- đúng nguyên lý Huygens mạnh (sóng 3D không có đuôi).
+\textbf{Đọc nghiệm:} tín hiệu \emph{vừa chạm} $x_0$ tại $t=1$ (mặt cầu bán kính $1$ vừa tiếp xúc quả cầu dữ liệu); đạt đỉnh $u=\tfrac{1}{8}$ tại $t=2$ (mặt cầu cắt qua tâm quả cầu, chỏm cực đại); rồi \textbf{tắt hẳn} sau $t=3$ (mặt cầu đã đi quá quả cầu). Sự \emph{tắt hẳn} ấy chính là biểu hiện của nguyên lý Huygens mạnh trong $3$D --- sóng không để lại đuôi sau mặt sóng.
 \end{nhobox}

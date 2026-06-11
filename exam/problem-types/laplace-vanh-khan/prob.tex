@@ -50,40 +50,130 @@ Hai cạnh $\theta=0,\tfrac{\pi}{2}$ với $v_\theta=0$ $\Rightarrow$ chuỗi ch
 \paragraph{Nhắc lại đề.} $\Delta u=0$ trong góc phần tư vành khăn $\{x,y>0,\ 1<x^2+y^2<4\}$;
 $u_x(0,y)=u_y(x,0)=0$; $u=2x$ trên $r=1$, $u=y$ trên $r=2$.
 
-\paragraph{(a) Phản xạ Schwarz $\to$ vành khăn + chặn $0<u<2$.}
-Vì $u_x(0,y)=0$ ta thác triển \textbf{chẵn} theo $x$, rồi vì $u_y(x,0)=0$ thác triển chẵn theo $y$,
-được hàm $U$ trên \textbf{toàn vành khăn} $1<x^2+y^2<4$ thỏa
-\[
-  U_{xx}+U_{yy}=0,\quad U=2|x|\ \text{trên } r=1,\quad U=|y|\ \text{trên } r=2.
-\]
-Trên biên: $0\le 2|x|\le2$ ($r=1$) và $0\le|y|\le2$ ($r=2$); hằng số là hàm điều hòa, nên theo
-nguyên lý so sánh $0\le U\le2$. Dùng nguyên lý cực đại \emph{mạnh} ($U$ điều hòa, khác hằng trên biên)
-$\Rightarrow 0<U<2$ trong miền.
+\paragraph{(a) Phản xạ Schwarz $\to$ vành khăn + chặn $0<u<2$.}\leavevmode
 
-\paragraph{(b) Bước 1 --- đổi sang cực, đọc biên.} Đặt $x=r\cos\theta,\ y=r\sin\theta$, $v(r,\theta)=U$.
-Thác triển chẵn $\Rightarrow$
+\emph{Bước (a)1 --- Nhắc lại đối tượng.} Miền gốc $\Omega_0=\{x>0,\ y>0,\ 1<x^2+y^2<4\}$ là \textbf{góc phần tư của vành khăn} (annulus): vành khăn $\{1<r<2\}$ bị cắt bằng hai tia $\{x=0,\,y>0\}$ và $\{y=0,\,x>0\}$. Biên của $\Omega_0$ gồm bốn phần: hai \emph{cung tròn} ($r=1$ và $r=2$) cho Dirichlet, và hai \emph{cạnh thẳng} ($x=0$ và $y=0$) cho Neumann $u_x=0$, $u_y=0$. Mục tiêu của phép phản xạ là xoá hai cạnh thẳng để chỉ còn lại miền tròn ``đẹp'' (vành khăn đủ), trên đó tách biến cực được.
+
+\emph{Bước (a)2 --- Phản xạ lần 1 qua trục $x=0$.} Điều kiện $u_x(0,y)=0$ (Neumann thuần nhất trên cạnh $x=0$) cho phép \textbf{thác triển chẵn} theo $x$: định nghĩa
 \[
-  v_\theta(r,0)=v_\theta(r,\tfrac{\pi}{2})=0,\qquad v(1,\theta)=2\cos\theta,\quad v(2,\theta)=2\sin\theta.
+  u^{(1)}(x,y)=\begin{cases}u(x,y), & x\ge0,\\ u(-x,y), & x<0,\end{cases}\qquad(0<y<2,\ 1<x^2+y^2<4).
+\]
+Hàm $u^{(1)}$ chẵn theo $x$, nên $u^{(1)}_x=0$ tại $x=0$ tự động khớp với điều kiện Neumann ban đầu; nó là hàm điều hoà trên \textbf{nửa vành khăn trên} $\{y>0,\ 1<x^2+y^2<4\}$.
+
+\emph{Bước (a)3 --- Phản xạ lần 2 qua trục $y=0$.} Trên $u^{(1)}$, điều kiện $u_y=0$ vẫn được kế thừa trên cạnh $y=0$ (vì phép chẵn theo $x$ không động tới đạo hàm theo $y$). Thác triển chẵn lần nữa theo $y$:
+\[
+  U(x,y)=u^{(1)}(x,|y|)=u(|x|,|y|).
+\]
+Đây là hàm điều hoà trên \textbf{toàn vành khăn} $\mathcal A=\{1<x^2+y^2<4\}$.
+
+\emph{Bước (a)4 --- Điều kiện biên cho $U$.} Trên $r=1$, $U(x,y)=u(|x|,|y|)=2|x|$ vì đề cho $u=2x$ với $x\ge0$. Tương tự trên $r=2$, $U=|y|$. Vậy
+\[
+  \Delta U=0\ \text{trên}\ \mathcal A,\qquad U|_{r=1}=2|x|,\qquad U|_{r=2}=|y|.
 \]
 
-\paragraph{(b) Bước 2 --- nghiệm tổng quát (Neumann hai cạnh $\Rightarrow\cos(2n\theta)$).}
+\emph{Bước (a)5 --- Chặn $0<U<2$.} Trên hai cung biên: $0\le 2|x|\le 2$ tại $r=1$ (vì $|x|\le r=1$) và $0\le|y|\le 2$ tại $r=2$. Hằng số $0$ và $2$ đều là hàm điều hoà, nên theo \emph{nguyên lý so sánh} ($U-0\ge0$ trên biên $\Rightarrow U\ge0$ trong miền; tương tự $2-U\ge0$) ta có $0\le U\le 2$ trên $\overline{\mathcal A}$. Do $U$ không là hằng số trên biên (giá trị biên thay đổi theo $\theta$), \emph{nguyên lý cực đại mạnh} cấm $U$ đạt cực trị bên trong miền mở, nên
 \[
-  v(r,\theta)=a_0\ln r+b_0+\sum_{n\ge1}\big(a_n r^{2n}+b_n r^{-2n}\big)\cos(2n\theta).
+  0<U(x,y)<2\quad\forall (x,y)\in\mathcal A.
+\]
+Vì $u=U$ trên $\Omega_0$, suy ra $0<u<2$ trên $\Omega_0$.
+
+\paragraph{(b) Giải bài toán đã gập trên vành khăn đủ.}\leavevmode
+
+\emph{Bước 1 --- Chuyển sang toạ độ cực.} Đặt $x=r\cos\theta$, $y=r\sin\theta$ và $v(r,\theta):=U(r\cos\theta,r\sin\theta)$. Trên vành khăn $\mathcal A$ ta có $r\in(1,2)$ và $\theta\in[0,2\pi)$. \emph{Laplacian trong toạ độ cực} (xem Phụ lục B) là
+\[
+  \Delta U=v_{rr}+\frac{1}{r}\,v_r+\frac{1}{r^2}\,v_{\theta\theta}=0.
+\]
+Vì $U$ chẵn theo cả $x$ và $y$, hàm $v$ \textbf{đối xứng} qua hai trục, kéo theo
+\[
+  v_\theta(r,0)=0,\qquad v_\theta(r,\tfrac{\pi}{2})=0
+\]
+(đạo hàm theo $\theta$ của một hàm đối xứng qua một trục thẳng triệt tiêu trên trục đó); đồng thời $v(r,\theta)$ tuần hoàn chu kỳ $2\pi$ và đối xứng qua hai trục $\theta=0,\tfrac{\pi}{2}$, nên chỉ cần tìm $v$ trên $\theta\in[0,\tfrac{\pi}{2}]$. Đọc biên Dirichlet:
+\[
+  v(1,\theta)=2|\cos\theta|=2\cos\theta,\qquad v(2,\theta)=2|\sin\theta|=2\sin\theta\quad(\theta\in[0,\tfrac{\pi}{2}]).
 \]
 
-\paragraph{(b) Bước 3 --- khớp hai cung bằng Fourier.} Chiếu $2\cos\theta,\ 2\sin\theta$ lên hệ
-$\{1,\cos(2n\theta)\}$ trên $[0,\tfrac{\pi}{2}]$:
-\begin{align*}
-  b_0&=\tfrac{2}{\pi}\!\int_0^{\pi/2}\!2\cos\theta\,d\theta=\tfrac{4}{\pi},\qquad
-   a_0\ln2+b_0=\tfrac{2}{\pi}\!\int_0^{\pi/2}\!2\sin\theta\,d\theta=\tfrac{4}{\pi}\ \Rightarrow\ a_0=0;\\
-  a_n+b_n&=\tfrac{4}{\pi}\!\int_0^{\pi/2}\!2\cos\theta\cos(2n\theta)\,d\theta=\frac{8(-1)^n}{\pi(1-4n^2)};\\
-  4^n a_n+4^{-n}b_n&=\tfrac{4}{\pi}\!\int_0^{\pi/2}\!2\sin\theta\cos(2n\theta)\,d\theta=\frac{8}{\pi(1-4n^2)}.
-\end{align*}
-Giải hệ $2\times2$ cho mỗi $n$:
+\emph{Bước 2 --- Tách biến $v=R(r)\Theta(\theta)$ và tìm hệ hàm góc.} Thay $v=R\Theta$ vào Laplace và chia cho $R\Theta/r^2$:
 \[
-  a_n=\frac{8\big(1-(-4)^{-n}\big)}{\pi(1-4n^2)(4^n-4^{-n})},\qquad
-  b_n=\frac{8\big((-4)^{n}-1\big)}{\pi(1-4n^2)(4^n-4^{-n})}.
+  \frac{r^2 R''+rR'}{R}=-\frac{\Theta''}{\Theta}=:\mu\quad(\text{hằng tách biến}).
 \]
+\emph{Bài toán theo $\theta$:} $\Theta''+\mu\Theta=0$ với hai điều kiện Neumann $\Theta'(0)=\Theta'(\tfrac{\pi}{2})=0$. Đây là bài Sturm--Liouville chuẩn: trị riêng $\mu_n=(2n)^2$ (cần đảm bảo $\Theta'(\tfrac{\pi}{2})=0$, tức $\sin\!\sqrt{\mu}\cdot\tfrac{\pi}{2}=0\Rightarrow\sqrt\mu\cdot\tfrac{\pi}{2}=n\pi\Rightarrow\sqrt\mu=2n$) với hàm riêng
+\[
+  \Theta_0(\theta)=1,\qquad \Theta_n(\theta)=\cos(2n\theta),\ n=1,2,\dots
+\]
+\emph{Lưu ý:} không có hạng tử $\sin(2n\theta)$ vì $\Theta'(0)=0$ loại chúng. Hệ $\{1,\cos(2n\theta)\}_{n\ge1}$ trực giao trên $[0,\tfrac{\pi}{2}]$.
+
+\emph{Bước 3 --- Bài toán theo $r$ (PT Euler) cho mỗi $\mu_n$.}
+Phương trình theo $r$ là $r^2R''+rR'-\mu R=0$ (Euler). Đổi biến $r=e^t$ chuyển nó thành PT vi phân tuyến tính hệ số hằng. Hai trường hợp:
+\begin{itemize}
+  \item $n=0$ ($\mu_0=0$): nghiệm tổng quát $R_0(r)=a_0\ln r+b_0$. \textbf{Hàm $\ln r$ xuất hiện chính vì miền là vành khăn (không chứa gốc $r=0$)}; trên đĩa ta phải bỏ $\ln r$ do nó nổ ở $r=0$, nhưng ở vành khăn $\ln r$ hữu hạn nên được phép giữ.
+  \item $n\ge1$: phương trình đặc trưng (sau đổi biến) có nghiệm $\pm 2n$, cho $R_n(r)=a_n r^{2n}+b_n r^{-2n}$. \textbf{Số mũ âm $r^{-2n}$ cũng được giữ vì $r\ne0$ trong vành khăn.}
+\end{itemize}
+Ghép lại, nghiệm tổng quát thoả Laplace và Neumann hai cạnh thẳng là
+\[
+  \boxed{\,v(r,\theta)=a_0\ln r+b_0+\sum_{n\ge1}\big(a_n r^{2n}+b_n r^{-2n}\big)\cos(2n\theta).\,}
+\]
+
+\emph{Bước 4 --- Khai triển Fourier dữ kiện biên trên $[0,\tfrac{\pi}{2}]$.} Hệ $\{1,\cos(2n\theta)\}$ trên $[0,\tfrac{\pi}{2}]$ có chuẩn $\|1\|^2=\tfrac{\pi}{2}$ và $\|\cos(2n\theta)\|^2=\tfrac{\pi}{4}$ (kiểm tra: $\int_0^{\pi/2}\cos^2(2n\theta)\,d\theta=\tfrac{\pi}{4}$). Vì vậy hệ số Fourier của một hàm $\varphi$ là
+\[
+  c_0=\frac{2}{\pi}\!\int_0^{\pi/2}\!\varphi(\theta)\,d\theta,\qquad c_n=\frac{4}{\pi}\!\int_0^{\pi/2}\!\varphi(\theta)\cos(2n\theta)\,d\theta\ (n\ge1).
+\]
+
+\emph{Bước 4a --- Đánh giá tích phân cần dùng.} Hai tích phân ``hạt nhân'' (tính trực tiếp bằng công thức tích thành tổng):
+\[
+  \int_0^{\pi/2}\!\cos\theta\,d\theta=1,\qquad \int_0^{\pi/2}\!\sin\theta\,d\theta=1.
+\]
+Với $n\ge1$, dùng $\cos\theta\cos(2n\theta)=\tfrac12[\cos((2n+1)\theta)+\cos((2n-1)\theta)]$:
+\[
+  \int_0^{\pi/2}\!\cos\theta\cos(2n\theta)\,d\theta=\tfrac12\Big[\tfrac{\sin((2n+1)\pi/2)}{2n+1}+\tfrac{\sin((2n-1)\pi/2)}{2n-1}\Big]
+  =\tfrac12\Big[\tfrac{(-1)^n}{2n+1}-\tfrac{(-1)^n}{2n-1}\Big]=\frac{(-1)^n}{1-4n^2}.
+\]
+Tương tự với $\sin\theta\cos(2n\theta)=\tfrac12[\sin((2n+1)\theta)-\sin((2n-1)\theta)]$ cho
+\[
+  \int_0^{\pi/2}\!\sin\theta\cos(2n\theta)\,d\theta=\frac{1}{1-4n^2}.
+\]
+
+\emph{Bước 4b --- Khớp tại $r=1$.} Tại $r=1$ ta có $\ln 1=0$ và $1^{2n}=1^{-2n}=1$, nên
+\[
+  v(1,\theta)=b_0+\sum_{n\ge1}(a_n+b_n)\cos(2n\theta)\overset{!}{=}2\cos\theta.
+\]
+So sánh hệ số:
+\[
+  b_0=\frac{2}{\pi}\!\int_0^{\pi/2}\!2\cos\theta\,d\theta=\frac{4}{\pi},\qquad
+  a_n+b_n=\frac{4}{\pi}\!\int_0^{\pi/2}\!2\cos\theta\cos(2n\theta)\,d\theta=\frac{8(-1)^n}{\pi(1-4n^2)}.
+\]
+
+\emph{Bước 4c --- Khớp tại $r=2$.} Tại $r=2$: $\ln 2=\ln 2$, $2^{2n}=4^n$, $2^{-2n}=4^{-n}$, nên
+\[
+  v(2,\theta)=a_0\ln2+b_0+\sum_{n\ge1}(4^n a_n+4^{-n}b_n)\cos(2n\theta)\overset{!}{=}2\sin\theta.
+\]
+So sánh hệ số:
+\[
+  a_0\ln2+b_0=\frac{2}{\pi}\!\int_0^{\pi/2}\!2\sin\theta\,d\theta=\frac{4}{\pi},\qquad
+  4^n a_n+4^{-n}b_n=\frac{4}{\pi}\!\int_0^{\pi/2}\!2\sin\theta\cos(2n\theta)\,d\theta=\frac{8}{\pi(1-4n^2)}.
+\]
+
+\emph{Bước 4d --- Giải các hệ.} Hệ số hằng (mode $n=0$):
+\[
+  b_0=\frac{4}{\pi},\qquad a_0\ln2+\frac{4}{\pi}=\frac{4}{\pi}\ \Longrightarrow\ a_0=0.
+\]
+\emph{Hệ số $\ln r$ triệt tiêu --- một đặc trưng đẹp của bài này: giá trị trung bình của $v$ trên hai cung biên trùng nhau ($=4/\pi$).}
+
+Với mỗi $n\ge1$, ta có hệ $2\times2$ ẩn $(a_n,b_n)$:
+\[
+  \begin{cases}a_n+b_n=\alpha_n:=\dfrac{8(-1)^n}{\pi(1-4n^2)},\\[4pt] 4^n a_n+4^{-n}b_n=\beta_n:=\dfrac{8}{\pi(1-4n^2)}.\end{cases}
+\]
+Định thức $\det=4^{-n}-4^n=-(4^n-4^{-n})$. Quy tắc Cramer (chú ý dấu):
+\[
+  a_n=\frac{\beta_n-4^{-n}\alpha_n}{4^n-4^{-n}}
+     =\frac{8}{\pi(1-4n^2)}\cdot\frac{1-(-4)^{-n}}{4^n-4^{-n}},
+\]
+\[
+  b_n=\frac{4^n\alpha_n-\beta_n}{4^n-4^{-n}}
+     =\frac{8}{\pi(1-4n^2)}\cdot\frac{(-4)^n-1}{4^n-4^{-n}}.
+\]
+(Khi gộp $(-1)^n\cdot 4^{\pm n}=(-4)^{\pm n}$.)
+
+\emph{Bước 5 --- Ráp nghiệm cuối.}
 \begin{nhobox}
 \[
   \begin{aligned}
@@ -91,6 +181,7 @@ Giải hệ $2\times2$ cho mỗi $n$:
   &\times\Big[r^{2n}\big(1-(-4)^{-n}\big)+r^{-2n}\big((-4)^n-1\big)\Big]\cos(2n\theta).
   \end{aligned}
 \]
+Nghiệm cho bài gốc trên góc phần tư $\Omega_0$ thu được bằng cách hạn chế $v$ về $\theta\in[0,\tfrac{\pi}{2}]$, $r\in[1,2]$ rồi quay lại biến $(x,y)$: $u(x,y)=v(\sqrt{x^2+y^2},\arctan(y/x))$.
 \end{nhobox}
 
 % ---------------------------------------------------------------

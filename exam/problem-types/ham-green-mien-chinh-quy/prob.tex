@@ -34,27 +34,99 @@ Hai khái niệm cốt lõi ở Phụ lục A: \emph{hàm Green} và \emph{miề
 % ---------------------------------------------------------------
 \subsection*{Đề bài \& bài giải}
 % ---------------------------------------------------------------
-\paragraph{Bước 1 --- điểm biên trơn.} Mọi điểm trên $\partial Q$ \emph{trừ} cạnh
-$I=\{(x,0,0):x\in(0,1)\}$ đều thỏa điều kiện \textbf{hình cầu ngoài} (đặt được quả cầu tiếp xúc ngoài)
-nên chính quy.
+\paragraph{Bước 0 --- nhắc lại các định nghĩa.}\leavevmode
 
-\paragraph{Bước 2 --- cạnh xấu $I$, dựng hàm cản.} Đổi sang tọa độ trụ $x=x,\ y=r\sin\theta,\ z=r\cos\theta$:
-\[
-  Q=\Big\{0<x<1,\ \tfrac{\pi}{4}<\theta<\tfrac{7\pi}{4},\ 0<r<\tfrac{1}{2|\sin\theta|-\cos\theta}\Big\},\quad
-  \Delta u=v_{xx}+v_{rr}+\tfrac1r v_r+\tfrac{1}{r^2}v_{\theta\theta}.
-\]
-Cạnh $I$ ứng với $r=0$. Hàm
-\[
-  v=r^{1/2}\sin\!\Big(\frac{\theta-\pi/5}{2}\Big)
-\]
-là \textbf{hàm cản} tại các điểm của $I$: điều hòa; với $\theta\in(\tfrac{\pi}{4},\tfrac{7\pi}{4})$ thì
-$\tfrac{\theta-\pi/5}{2}\in(0,\pi)$ nên $\sin>0$ (dương trong $Q$); và $v\to0$ khi $r\to0$ (triệt tiêu trên $I$).
-Vậy mọi điểm biên đều chính quy $\Rightarrow Q$ chính quy.
+\emph{Bước 0a --- nghiệm cơ bản.} Ký hiệu $E(X)$ là \textbf{nghiệm cơ bản} của toán tử $-\Delta$ trong $\mathbb{R}^3$, tức là $E(X)=\dfrac{1}{4\pi|X|}$ (hàm điều hòa ngoài gốc, với kỳ dị tại $0$).
 
-\paragraph{Bước 3 --- kết luận.}\leavevmode
+\emph{Bước 0b --- hàm Green.} \textbf{Hàm Green} $G(X,Y)$ của miền $Q$ (cho bài toán Dirichlet của $-\Delta$) định nghĩa bởi
+\[
+  G(X,Y)=E(X-Y)-\Phi_X(Y),
+\]
+trong đó với mỗi $X\in Q$ cố định, hàm hiệu chỉnh $\Phi_X$ là nghiệm của bài toán Dirichlet
+\[
+  \Delta\Phi_X=0\ \text{trong}\ Q,\qquad \Phi_X(Y)=E(X-Y)\ \text{trên}\ \partial Q.
+\]
+Như vậy, \emph{$G$ tồn tại $\iff$ với mỗi $X\in Q$, bài Dirichlet trên xác định nghiệm $\Phi_X$ duy nhất}.
+
+\emph{Bước 0c --- miền chính quy \& hàm cản.} Điểm biên $x_0\in\partial Q$ gọi là \textbf{chính quy} nếu tồn tại \textbf{hàm cản} (barrier) tại $x_0$: một hàm $v$ xác định, liên tục trên $\overline{Q}\cap U$ với $U$ là lân cận của $x_0$, sao cho $v$ điều hòa trong $Q\cap U$, $v>0$ trên $\overline{Q}\cap U\setminus\{x_0\}$ và $v(x_0)=0$. Miền gọi là \textbf{chính quy} nếu \emph{mọi} điểm biên đều chính quy. Tiêu chuẩn đủ kinh điển: nếu tại $x_0$ tồn tại \textbf{quả cầu ngoài} $B\subset\mathbb{R}^3\setminus Q$ tiếp xúc với $\partial Q$ tại $x_0$, thì $x_0$ chính quy (hàm cản chuẩn $v(Y)=\tfrac{1}{|Y-c|}-\tfrac{1}{r}$ với $B=B(c,r)$).
+
+\paragraph{Bước 1 --- xét các điểm biên ``trơn''.}\leavevmode
+
+Biên $\partial Q$ gồm: hai mặt phẳng $x=0$ và $x=1$ (đầu trụ); hai nửa mặt phẳng $z=|y|$ với $y\ne0$ và mặt phẳng $z+1=2|y|$ (vách trụ). Các mặt này cắt nhau dọc theo các cạnh; trong đó cạnh đặc biệt
+\[
+  I=\{(x,0,0):x\in(0,1)\}
+\]
+là nơi hai nửa mặt phẳng $z=y$ ($y>0$) và $z=-y$ ($y<0$) gặp nhau ở góc nhị diện trong $\;3\pi/2\;$ (góc \emph{lõm} nhìn từ $Q$, tức $Q$ ``ôm'' quanh cạnh $I$ một góc $3\pi/2$).
+
+Tại mỗi điểm $x_0\in\partial Q\setminus I$ ta đặt được một quả cầu nhỏ tiếp xúc ngoài: trên các mặt phẳng đó là hiển nhiên; trên các cạnh còn lại (cạnh giữa $\{x=0\}$ với vách, cạnh giữa $\{x=1\}$ với vách, hai cạnh ``mái'' $z=|y|$ với vách $z+1=2|y|$) góc nhị diện trong đều $<\pi$, vẫn đặt được cầu ngoài. Theo Bước 0c, mọi điểm thuộc $\partial Q\setminus I$ đều \textbf{chính quy}.
+
+\paragraph{Bước 2 --- dựng hàm cản cho cạnh ``xấu'' $I$.}\leavevmode
+
+Tại $I$ góc trong là $3\pi/2>\pi$, không có cầu ngoài; ta dựng hàm cản trực tiếp.
+
+\emph{Bước 2a --- đổi sang toạ độ trụ quanh $I$.} Đặt
+\[
+  x=x,\qquad y=r\sin\theta,\qquad z=r\cos\theta,\qquad r\ge0,\ \theta\in[0,2\pi),
+\]
+nên $r=\sqrt{y^2+z^2}$ là khoảng cách tới trục $\{y=z=0\}$ chứa $I$, còn $\theta$ là góc cực trong mặt phẳng $(y,z)$ tính từ trục $z$. Cạnh $I$ ứng với $r=0$.
+
+\emph{Bước 2b --- xác định khoảng $\theta$.} Trong $Q$ ta có bất đẳng thức $z+1>2|y|>2z$. Bất đẳng thức $2|y|>2z\iff|y|>z$ tương đương $r|\sin\theta|>r\cos\theta$. Với $r>0$ chia hai vế cho $r$ rồi xét dấu:
+\begin{itemize}
+  \item Nếu $\cos\theta\le0$ (tức $\theta\in[\pi/2,3\pi/2]$) thì bất đẳng thức $|\sin\theta|>\cos\theta$ luôn đúng (trừ khi $\sin\theta=0$ và $\cos\theta=0$ đồng thời, không xảy ra).
+  \item Nếu $\cos\theta>0$ thì cần $|\sin\theta|>\cos\theta\iff|\tan\theta|>1\iff\theta\in(\pi/4,\pi/2)\cup(3\pi/2,7\pi/4)$.
+\end{itemize}
+Gộp lại: $\theta\in(\pi/4,7\pi/4)$. (Khoảng có độ dài $3\pi/2$, đúng bằng góc trong tại $I$.)
+
+\emph{Bước 2c --- xác định cận của $r$.} Bất đẳng thức $z+1>2|y|$ trở thành $r\cos\theta+1>2r|\sin\theta|$, tức $r(2|\sin\theta|-\cos\theta)<1$. Với $\theta\in(\pi/4,7\pi/4)$ ta luôn có $2|\sin\theta|-\cos\theta>0$ (vì $|\sin\theta|>\cos\theta$ ở phần trên, nên $2|\sin\theta|-\cos\theta>|\sin\theta|>0$, trừ một số điểm mép). Do đó
+\[
+  Q=\Big\{(x,r,\theta):\ 0<x<1,\ \tfrac{\pi}{4}<\theta<\tfrac{7\pi}{4},\ 0<r<\tfrac{1}{2|\sin\theta|-\cos\theta}\Big\}.
+\]
+
+\emph{Bước 2d --- Laplacian trong toạ độ này.} Vì $(r,\theta)$ là toạ độ cực trong mặt $(y,z)$ còn $x$ là toạ độ Decartes độc lập, công thức quen thuộc cho ta
+\[
+  \Delta u=u_{xx}+u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}.
+\]
+
+\emph{Bước 2e --- chọn hàm cản dạng $r^{\alpha}\sin(\beta(\theta-\theta_0))$.} Thử
+\[
+  v(x,r,\theta)=r^{1/2}\sin\!\Big(\frac{\theta-\pi/5}{2}\Big).
+\]
+(Tham số $\pi/5$ chỉ cần thoả $\pi/5<\pi/4$ để khi $\theta>\pi/4$ thì $(\theta-\pi/5)/2>0$; bất kỳ giá trị nào trong $(0,\pi/4)$ đều dùng được.)
+
+\emph{Bước 2f --- kiểm tra $v$ điều hòa.} $v$ không phụ thuộc $x$ nên $v_{xx}=0$. Đặt $\phi=(\theta-\pi/5)/2$. Tính trực tiếp:
+\begin{align*}
+  v_r &= \tfrac{1}{2}r^{-1/2}\sin\phi,\quad
+  v_{rr}=-\tfrac{1}{4}r^{-3/2}\sin\phi,\quad
+  \tfrac{1}{r}v_r=\tfrac{1}{2}r^{-3/2}\sin\phi,\\[2pt]
+  v_\theta &= \tfrac{1}{2}r^{1/2}\cos\phi,\quad
+  v_{\theta\theta}=-\tfrac{1}{4}r^{1/2}\sin\phi,\quad
+  \tfrac{1}{r^2}v_{\theta\theta}=-\tfrac{1}{4}r^{-3/2}\sin\phi.
+\end{align*}
+Cộng lại:
+\[
+  \Delta v=0+\Big(-\tfrac14+\tfrac12-\tfrac14\Big)r^{-3/2}\sin\phi=0.
+\]
+
+\emph{Bước 2g --- kiểm tra dấu của $v$ trong $Q$.} Với $\theta\in(\tfrac{\pi}{4},\tfrac{7\pi}{4})$ ta có
+\[
+  \phi=\frac{\theta-\pi/5}{2}\in\Big(\frac{\pi/4-\pi/5}{2},\ \frac{7\pi/4-\pi/5}{2}\Big)=\Big(\frac{\pi}{40},\ \frac{31\pi}{40}\Big)\subset(0,\pi),
+\]
+nên $\sin\phi>0$. Kết hợp $r^{1/2}>0$ khi $r>0$, ta được $v>0$ trên $Q$.
+
+\emph{Bước 2h --- $v$ triệt tiêu trên $I$.} Khi $(x,y,z)\to(x_0,0,0)\in I$ thì $r\to0$, do đó $v=r^{1/2}\sin\phi\to0$. Vậy $v$ là hàm cản tại mọi điểm của $I$.
+
+\emph{Bước 2i --- kết luận chính quy.} Bước 1 + Bước 2 cho: mọi điểm $x_0\in\partial Q$ đều chính quy, nên $Q$ là \textbf{miền chính quy}.
+
+\paragraph{Bước 3 --- tồn tại \& duy nhất hàm Green.}\leavevmode
 
 \begin{nhobox}
-Mọi điểm biên chính quy $\Rightarrow$ với mỗi $X\in Q$, bài Dirichlet $\Delta\Phi=0$ trong $Q$,
-$\Phi=E(X-\cdot)$ trên $\partial Q$ có nghiệm; NLCĐ $\Rightarrow$ duy nhất. Vậy hàm Green
-$G(X,\cdot)=E(X-\cdot)-\Phi$ \textbf{tồn tại và duy nhất}.
+Vì $Q$ chính quy, với mỗi $X\in Q$ bài toán Dirichlet
+\[
+  \Delta\Phi_X=0\ \text{trong}\ Q,\qquad \Phi_X(Y)=E(X-Y)\ \text{trên}\ \partial Q
+\]
+có \emph{nghiệm} (phương pháp Perron + chính quy mọi điểm biên). \textbf{Nguyên lý cực đại} cho phương trình Laplace bảo đảm hai nghiệm Dirichlet trùng dữ liệu biên thì bằng nhau, tức $\Phi_X$ \emph{duy nhất}. Do đó hàm Green
+\[
+  G(X,Y)=E(X-Y)-\Phi_X(Y)
+\]
+\textbf{tồn tại và duy nhất} trên $Q$. $\blacksquare$
 \end{nhobox}

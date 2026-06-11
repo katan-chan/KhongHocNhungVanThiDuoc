@@ -43,61 +43,179 @@ Tách biến trong tọa độ cực:
 % ---------------------------------------------------------------
 \paragraph{Nhắc lại đề.} Giải $\Delta u=0$ trên quạt $Q$, Neumann trên cạnh $x=1-y$, Dirichlet $u=0$ trên cạnh $x=y+1$, và $u=1-2y^2$ trên cung $(x-1)^2+y^2=1$.
 
-\paragraph{Bước 1 --- đổi sang tọa độ cực tại đỉnh quạt.}
-Đỉnh của quạt là $(1,0)$. Đặt
-\[
-  x=1+r\cos\theta,\qquad y=r\sin\theta.
-\]
-Khi đó $x>|y|+1 \Leftrightarrow \cos\theta>|\sin\theta| \Leftrightarrow \theta\in(-\tfrac{\pi}{4},\tfrac{\pi}{4})$, còn $(x-1)^2+y^2<1$ cho $0<r<1$. Vậy $Q$ là một quạt đĩa.
+\paragraph{Bước 1 --- vẽ \& nhận diện miền $Q$.}
+Hai bất đẳng thức xác định $Q$ là $x>|y|+1$ (vùng nằm bên phải hai nửa đường $x=y+1$ và $x=1-y$, cả hai cùng đi qua điểm $(1,0)$) và $(x-1)^2+y^2<1$ (đĩa mở tâm $(1,0)$ bán kính $1$). Giao của chúng là một \emph{quạt đĩa} (sector) đỉnh $(1,0)$, mở góc $90^\circ$ về phía $x$ dương, chặn bởi cung tròn $(x-1)^2+y^2=1$. Hai cạnh thẳng cắt nhau tại đỉnh $(1,0)$, đối xứng qua trục $Ox$.
 
-\paragraph{Bước 2 --- đọc điều kiện biên theo $\theta$ và $r$.}
+\paragraph{Bước 2 --- đổi sang tọa độ cực tại đỉnh quạt.}
+Vì đỉnh quạt là $(1,0)$ chứ không phải gốc tọa độ, ta \emph{tịnh tiến tâm cực} về $(1,0)$. Đặt
+\[
+  x=1+r\cos\theta,\qquad y=r\sin\theta,\qquad r\ge0,\ \theta\in(-\pi,\pi],
+\]
+trong đó $r$ là khoảng cách tới $(1,0)$ và $\theta$ là góc cực đo từ tia $Ox$ kéo dài qua $(1,0)$. Dịch sang biến mới:
 \begin{itemize}
-  \item Cạnh $\theta=\tfrac{\pi}{4}$ là đường $x=y+1$: Dirichlet $u=0$.
-  \item Cạnh $\theta=-\tfrac{\pi}{4}$ là đường $x=1-y$: Neumann $\partial_\nu u=0$.
-  \item Cung $r=1$: $u=1-2y^2=1-2\sin^2\theta=\cos2\theta$.
+  \item $(x-1)^2+y^2=r^2$, vậy điều kiện $(x-1)^2+y^2<1$ thành $0<r<1$.
+  \item $x-1=r\cos\theta$ và $|y|=r|\sin\theta|$; điều kiện $x>|y|+1$ thành $r\cos\theta>r|\sin\theta|$, tức $\cos\theta>|\sin\theta|$. Vì cả $\cos$ và $|\sin|$ chỉ phụ thuộc $\theta$ và $\cos\theta>0$ buộc $|\theta|<\tfrac{\pi}{2}$; trong khoảng đó, $\cos\theta>|\sin\theta|\Leftrightarrow|\tan\theta|<1\Leftrightarrow\theta\in(-\tfrac{\pi}{4},\tfrac{\pi}{4})$.
+\end{itemize}
+Vậy trong toạ độ cực: $Q=\{(r,\theta):\ 0<r<1,\ -\tfrac{\pi}{4}<\theta<\tfrac{\pi}{4}\}$.
+
+\paragraph{Bước 3 --- viết lại điều kiện biên theo $(r,\theta)$.}
+\begin{itemize}
+  \item Cạnh $\theta=\tfrac{\pi}{4}$: từ $x-1=r\cos\tfrac{\pi}{4}$, $y=r\sin\tfrac{\pi}{4}$ suy ra $x-1=y$, tức $x=y+1$. Biên này cho \textbf{Dirichlet} $u=0$.
+  \item Cạnh $\theta=-\tfrac{\pi}{4}$: tương tự, $x-1=r\cos\tfrac{\pi}{4}$, $y=-r\sin\tfrac{\pi}{4}$, vậy $x-1=-y$, tức $x=1-y$. Biên này cho \textbf{Neumann} $\partial_\nu u=0$ (đạo hàm theo \emph{pháp tuyến ngoài}; trên cạnh $\theta=\text{const}$ của một quạt, hướng pháp tuyến trùng hướng tăng/giảm góc $\theta$ nên $\partial_\nu u\propto\partial_\theta u$, tức $u_\theta=0$ tại $\theta=-\tfrac{\pi}{4}$).
+  \item Cung $r=1$: $y=\sin\theta$, nên
+  \[
+    1-2y^2=1-2\sin^2\theta=\cos 2\theta \quad(\text{công thức nhân đôi}).
+  \]
+  Vậy điều kiện trên cung là $u(1,\theta)=\cos 2\theta$.
 \end{itemize}
 
-\paragraph{Bước 3 --- dạng góc (giá trị riêng).}
-Tách $u=R(r)\Theta(\theta)$. Đổi biến $\varphi=\theta+\tfrac{\pi}{4}\in(0,\tfrac{\pi}{2})$ để cạnh Neumann về $\varphi=0$, cạnh Dirichlet về $\varphi=\tfrac{\pi}{2}$. Chọn $\Theta=\cos(\mu\varphi)$ thì $\Theta'(0)=0$ (Neumann tại $\varphi=0$). Dirichlet $\Theta(\tfrac{\pi}{2})=0$:
+\paragraph{Bước 4 --- tách biến $u=R(r)\Theta(\theta)$.}
+\emph{Bước 4a --- Laplacian trong toạ độ cực.} Với mọi hàm $u(r,\theta)$ trơn,
 \[
-  \cos\!\big(\mu\tfrac{\pi}{2}\big)=0 \ \Rightarrow\ \mu=2k+1,\quad k=0,1,2,\dots
+  \Delta u = u_{rr}+\tfrac{1}{r}u_r+\tfrac{1}{r^2}u_{\theta\theta}.
+\]
+(Xem Phụ lục B; đây là dạng quen thuộc của Laplacian trong toạ độ cực 2D.)
+
+\emph{Bước 4b --- giả thiết tách biến.} Tìm nghiệm dạng tích $u(r,\theta)=R(r)\Theta(\theta)$. Tính:
+\[
+  u_{rr}=R''\Theta,\quad u_r=R'\Theta,\quad u_{\theta\theta}=R\Theta''.
+\]
+Thay vào $\Delta u=0$:
+\[
+  R''\Theta+\tfrac{1}{r}R'\Theta+\tfrac{1}{r^2}R\Theta''=0.
+\]
+Nhân hai vế với $\dfrac{r^2}{R\Theta}$ (giả thiết $R,\Theta\ne0$) được
+\[
+  \frac{r^2 R''+r R'}{R}+\frac{\Theta''}{\Theta}=0
+  \ \Longleftrightarrow\ \frac{r^2 R''+r R'}{R}=-\frac{\Theta''}{\Theta}.
+\]
+Vế trái chỉ phụ thuộc $r$, vế phải chỉ phụ thuộc $\theta$, hai vế bằng nhau nên cùng bằng một \textbf{hằng số tách biến} $\mu^2$ (chọn ký hiệu bình phương sẽ thuận khi tìm trị riêng dương):
+\[
+  \Theta''+\mu^2\Theta=0,\qquad r^2 R''+r R'-\mu^2 R=0.
 \]
 
-\paragraph{Bước 4 --- dạng bán kính và nghiệm tổng quát.}
-Quạt đĩa chứa gốc $r=0$ nên bỏ $r^{-\mu}$ (chặn tại $0$): $R=r^{2k+1}$. Vậy
+\paragraph{Bước 5 --- bài toán góc (Sturm--Liouville) tìm trị riêng $\mu$.}
+\emph{Bước 5a --- đổi biến đưa hai cạnh về $0$ và $\tfrac{\pi}{2}$.} Đặt
 \[
-  u(r,\theta)=\sum_{k\ge0} a_k\,r^{2k+1}\cos\big((2k+1)(\theta+\tfrac{\pi}{4})\big).
+  \varphi=\theta+\tfrac{\pi}{4}\in(0,\tfrac{\pi}{2}),
+\]
+thì cạnh Neumann $\theta=-\tfrac{\pi}{4}$ thành $\varphi=0$ và cạnh Dirichlet $\theta=\tfrac{\pi}{4}$ thành $\varphi=\tfrac{\pi}{2}$. Vì $\tfrac{d}{d\theta}=\tfrac{d}{d\varphi}$, phương trình trở thành $\Theta_{\varphi\varphi}+\mu^2\Theta=0$.
+
+\emph{Bước 5b --- nghiệm tổng quát \& áp biên.} Nghiệm tổng quát ($\mu>0$):
+\[
+  \Theta(\varphi)=A\cos(\mu\varphi)+B\sin(\mu\varphi).
+\]
+Biên Neumann $\Theta'(0)=0$: tính $\Theta'(\varphi)=-A\mu\sin(\mu\varphi)+B\mu\cos(\mu\varphi)$, tại $\varphi=0$ được $\Theta'(0)=B\mu=0\Rightarrow B=0$. Còn $A\ne 0$ (nếu không $\Theta\equiv0$, nghiệm tầm thường). Chuẩn hoá $A=1$:
+\[
+  \Theta(\varphi)=\cos(\mu\varphi).
+\]
+Biên Dirichlet $\Theta(\tfrac{\pi}{2})=0$:
+\[
+  \cos\!\big(\mu\tfrac{\pi}{2}\big)=0\ \Longleftrightarrow\ \mu\tfrac{\pi}{2}=\tfrac{\pi}{2}+k\pi,\ k\in\mathbb{Z}
+  \ \Longleftrightarrow\ \mu=2k+1.
+\]
+Lấy các giá trị dương (vì $\cos$ chẵn nên $\mu<0$ cho cùng hàm riêng): $\mu_k=2k+1$, $k=0,1,2,\dots$, hàm riêng tương ứng
+\[
+  \Theta_k(\varphi)=\cos\!\big((2k+1)\varphi\big).
+\]
+\emph{(``Hàm riêng'' --- eigenfunction --- của bài toán biên Sturm--Liouville $-\Theta''=\mu^2\Theta$ kèm điều kiện Neumann ở $0$, Dirichlet ở $\tfrac{\pi}{2}$, ứng trị riêng $\mu_k^2=(2k+1)^2$.)}
+
+\paragraph{Bước 6 --- bài toán bán kính (phương trình Euler).}
+Với $\mu=2k+1$, phương trình bán kính
+\[
+  r^2 R''+r R'-(2k+1)^2 R=0
+\]
+là \textbf{phương trình Euler} (đồng nhất bậc theo $r$). Thử $R=r^\alpha$: $R'=\alpha r^{\alpha-1}$, $R''=\alpha(\alpha-1)r^{\alpha-2}$, thay vào:
+\[
+  r^2\cdot\alpha(\alpha-1)r^{\alpha-2}+r\cdot\alpha r^{\alpha-1}-(2k+1)^2 r^\alpha
+  =\big(\alpha(\alpha-1)+\alpha-(2k+1)^2\big)r^\alpha
+  =\big(\alpha^2-(2k+1)^2\big)r^\alpha=0.
+\]
+Vậy $\alpha=\pm(2k+1)$, cho nghiệm tổng quát $R(r)=C_1 r^{2k+1}+C_2 r^{-(2k+1)}$.
+
+\emph{Loại nhánh kỳ dị tại $r=0$.} Quạt đĩa chứa gốc cực $r=0$ (đỉnh $(1,0)$ thuộc bao đóng $\overline{Q}$); nghiệm hài hoà phải bị chặn nên buộc $C_2=0$. Vậy
+\[
+  R_k(r)=r^{2k+1}.
 \]
 
-\paragraph{Bước 5 --- khớp dữ liệu trên cung $r=1$.}
-Với $\varphi=\theta+\tfrac{\pi}{4}$ ta có $\cos2\theta=\cos(2\varphi-\tfrac{\pi}{2})=\sin2\varphi$. Tại $r=1$:
+\paragraph{Bước 7 --- nghiệm tổng quát dạng chuỗi.}
+Gộp các nghiệm tách biến và lấy chồng chất tuyến tính:
 \[
-  \sum_{k\ge0} a_k\cos\big((2k+1)\varphi\big)=\sin2\varphi \quad\text{trên } (0,\tfrac{\pi}{2}).
+  u(r,\theta)=\sum_{k=0}^{\infty} a_k\,r^{2k+1}\cos\!\big((2k+1)(\theta+\tfrac{\pi}{4})\big),
 \]
-Hệ $\{\cos((2k+1)\varphi)\}$ trực giao trên $[0,\tfrac{\pi}{2}]$ với $\int_0^{\pi/2}\cos^2=\tfrac{\pi}{4}$, nên
+hằng số $a_k$ chờ xác định từ điều kiện trên cung $r=1$.
+
+\paragraph{Bước 8 --- khớp dữ liệu trên cung $r=1$.}
+\emph{Bước 8a --- viết dữ liệu theo $\varphi$.} Từ $\varphi=\theta+\tfrac{\pi}{4}$ tức $\theta=\varphi-\tfrac{\pi}{4}$, suy ra $2\theta=2\varphi-\tfrac{\pi}{2}$ và
 \[
-  a_k=\frac{4}{\pi}\int_0^{\pi/2}\sin(2\varphi)\cos\big((2k+1)\varphi\big)\,d\varphi.
+  \cos 2\theta=\cos\!\big(2\varphi-\tfrac{\pi}{2}\big)=\cos 2\varphi\cos\tfrac{\pi}{2}+\sin 2\varphi\sin\tfrac{\pi}{2}=\sin 2\varphi.
+\]
+Tại $r=1$, đặt $u(1,\theta)=\cos 2\theta=\sin 2\varphi$:
+\[
+  \sum_{k=0}^{\infty} a_k\cos\!\big((2k+1)\varphi\big)=\sin 2\varphi,\qquad \varphi\in(0,\tfrac{\pi}{2}).
 \]
 
-\paragraph{Bước 6 --- tính tích phân lượng giác.}
-Tích thành tổng:
+\emph{Bước 8b --- hệ số Fourier qua tính trực giao.} Hệ $\{\cos((2k+1)\varphi)\}_{k\ge0}$ là hệ hàm riêng của bài toán Sturm--Liouville ở Bước 5, nên \textbf{trực giao} trên $[0,\tfrac{\pi}{2}]$ với trọng lượng $1$. Cụ thể, với $k\ne\ell$:
 \[
-  \sin(2\varphi)\cos\big((2k+1)\varphi\big)=\tfrac12\big[\sin((2k+3)\varphi)-\sin((2k-1)\varphi)\big].
+  \int_0^{\pi/2}\cos\!\big((2k+1)\varphi\big)\cos\!\big((2\ell+1)\varphi\big)\,d\varphi=0,
 \]
-Dùng $\int_0^{\pi/2}\sin(m\varphi)\,d\varphi=\dfrac{1-\cos(m\tfrac{\pi}{2})}{m}$; với $m$ lẻ thì $\cos(m\tfrac{\pi}{2})=0$ nên bằng $\tfrac1m$. Do đó
+còn với $k=\ell$, dùng $\cos^2 x=\tfrac{1+\cos 2x}{2}$:
 \[
-  \int_0^{\pi/2}\sin(2\varphi)\cos((2k+1)\varphi)\,d\varphi
-  =\tfrac12\Big(\frac{1}{2k+3}-\frac{1}{2k-1}\Big)=\frac{-2}{4k^2+4k-3}.
+  \int_0^{\pi/2}\cos^2\!\big((2k+1)\varphi\big)\,d\varphi
+  =\int_0^{\pi/2}\frac{1+\cos\!\big((4k+2)\varphi\big)}{2}\,d\varphi
+  =\tfrac{\pi}{4}+\Big[\tfrac{\sin((4k+2)\varphi)}{2(4k+2)}\Big]_0^{\pi/2}
+  =\tfrac{\pi}{4},
 \]
-Suy ra $a_k=\dfrac{4}{\pi}\cdot\dfrac{-2}{4k^2+4k-3}=-\dfrac{8}{\pi(4k^2+4k-3)}$.
+(số hạng sin triệt vì $\sin((2k+1)\pi)=0$). Nhân hai vế đẳng thức $\sum a_k\cos((2k+1)\varphi)=\sin 2\varphi$ với $\cos((2k+1)\varphi)$ rồi lấy tích phân trên $[0,\tfrac{\pi}{2}]$, mọi số hạng $\ell\ne k$ tự triệt, còn lại $a_k\cdot\tfrac{\pi}{4}$:
+\[
+  a_k=\frac{4}{\pi}\int_0^{\pi/2}\sin(2\varphi)\cos\!\big((2k+1)\varphi\big)\,d\varphi.
+\]
+(Đây chính là \textbf{hệ số Fourier} trong khai triển theo hệ hàm riêng đã chuẩn hoá bằng nhân tử $\tfrac{4}{\pi}=1\big/\tfrac{\pi}{4}$.)
+
+\paragraph{Bước 9 --- tính tường minh tích phân $a_k$.}
+\emph{Bước 9a --- tích thành tổng.} Dùng đẳng thức $\sin A\cos B=\tfrac12\big[\sin(A+B)+\sin(A-B)\big]$ với $A=2\varphi$, $B=(2k+1)\varphi$:
+\[
+  \sin(2\varphi)\cos\!\big((2k+1)\varphi\big)
+  =\tfrac12\big[\sin\!\big((2k+3)\varphi\big)+\sin\!\big(-(2k-1)\varphi\big)\big]
+  =\tfrac12\big[\sin\!\big((2k+3)\varphi\big)-\sin\!\big((2k-1)\varphi\big)\big].
+\]
+
+\emph{Bước 9b --- nguyên hàm cơ sở.} Với $m\ne 0$:
+\[
+  \int_0^{\pi/2}\sin(m\varphi)\,d\varphi=\Big[-\tfrac{\cos(m\varphi)}{m}\Big]_0^{\pi/2}=\frac{1-\cos(m\tfrac{\pi}{2})}{m}.
+\]
+Ở đây $m=2k+3$ và $m=2k-1$ đều là số nguyên \emph{lẻ}, mà với mọi số lẻ $m$ thì $\cos(m\tfrac{\pi}{2})=0$. Vậy
+\[
+  \int_0^{\pi/2}\sin\!\big((2k+3)\varphi\big)\,d\varphi=\frac{1}{2k+3},\qquad
+  \int_0^{\pi/2}\sin\!\big((2k-1)\varphi\big)\,d\varphi=\frac{1}{2k-1}.
+\]
+(Với $k=0$ thì $2k-1=-1$ và $\int_0^{\pi/2}\sin(-\varphi)\,d\varphi=-1$, ăn khớp với $\tfrac{1}{2k-1}=-1$.)
+
+\emph{Bước 9c --- ghép lại.}
+\[
+  \int_0^{\pi/2}\sin(2\varphi)\cos\!\big((2k+1)\varphi\big)\,d\varphi
+  =\tfrac12\Big(\frac{1}{2k+3}-\frac{1}{2k-1}\Big)
+  =\tfrac12\cdot\frac{(2k-1)-(2k+3)}{(2k+3)(2k-1)}
+  =\tfrac12\cdot\frac{-4}{4k^2+4k-3}
+  =\frac{-2}{4k^2+4k-3}.
+\]
+(Khai triển: $(2k+3)(2k-1)=4k^2-2k+6k-3=4k^2+4k-3$.) Vậy
+\[
+  a_k=\frac{4}{\pi}\cdot\frac{-2}{4k^2+4k-3}=-\frac{8}{\pi(4k^2+4k-3)}.
+\]
 
 \paragraph{Kết luận.}\leavevmode
 
 \begin{nhobox}
 \[
-  u(r,\theta)=-\frac{8}{\pi}\sum_{k\ge0}\frac{r^{2k+1}\cos\big((2k+1)(\theta+\tfrac{\pi}{4})\big)}{4k^2+4k-3},
+  u(r,\theta)=-\frac{8}{\pi}\sum_{k=0}^{\infty}\frac{r^{2k+1}\cos\!\big((2k+1)(\theta+\tfrac{\pi}{4})\big)}{4k^2+4k-3},
 \]
 với $x=1+r\cos\theta,\ y=r\sin\theta$.
 \end{nhobox}
 
-\paragraph{Kiểm tra nhanh.} Tại $\theta=\tfrac{\pi}{4}$: $\cos((2k+1)\tfrac{\pi}{2})=0\Rightarrow u=0$ (Dirichlet \checkmark). Tại $\theta=-\tfrac{\pi}{4}$: $\frac{d}{d\theta}\cos((2k+1)(\theta+\tfrac{\pi}{4}))=-(2k+1)\sin0=0$ (Neumann \checkmark).
+\paragraph{Kiểm tra nhanh.}
+\begin{itemize}
+  \item \emph{Cạnh Dirichlet $\theta=\tfrac{\pi}{4}$:} $\varphi=\tfrac{\pi}{2}$, $\cos\!\big((2k+1)\tfrac{\pi}{2}\big)=0$ với mọi $k$ (cos của bội lẻ của $\tfrac{\pi}{2}$). Nên $u=0$. \checkmark
+  \item \emph{Cạnh Neumann $\theta=-\tfrac{\pi}{4}$:} $\varphi=0$, $\partial_\theta\cos((2k+1)\varphi)=-(2k+1)\sin((2k+1)\varphi)$, tại $\varphi=0$ bằng $0$. Nên $u_\theta=0$. \checkmark
+  \item \emph{Cung $r=1$:} chuỗi $\sum a_k\cos((2k+1)\varphi)=\sin 2\varphi=\cos 2\theta=1-2\sin^2\theta=1-2y^2$ theo đúng cách chọn $a_k$. \checkmark
+\end{itemize}

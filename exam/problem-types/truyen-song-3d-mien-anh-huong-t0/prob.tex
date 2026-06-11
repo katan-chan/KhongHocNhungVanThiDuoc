@@ -57,47 +57,92 @@ Vì sóng \textbf{lan với tốc độ hữu hạn} $c$ (ở đây $c^2=4\Right
 
 \paragraph{(a) Thời điểm rời cân bằng $t_0$.}\leavevmode
 
-Điểm hỏi $P=(0,0,0)$. Vùng nguồn $\operatorname{supp} f$ gồm: dải $\{2024\le x\le2026\}$ (điểm gần $P$ nhất có $x=2024$, cách $2024$) và quả cầu $B$ tâm $(2025,0,0)$ bán kính $1$ (điểm gần nhất cách $2025-1=2024$). Vậy
+\emph{Bước a.1 --- Nhắc lại khái niệm.}
+\begin{itemize}
+\item \textbf{Trạng thái cân bằng} của bài này $=$ trạng thái nghỉ $u\equiv0$. Vì dữ liệu ban đầu $u(\cdot,0)=0$ và $u_t(\cdot,0)=0$ nên tại $t=0$ mọi điểm đều cân bằng.
+\item \textbf{Vận tốc truyền sóng hữu hạn:} phương trình $u_{tt}=c^2\Delta u+f$ truyền tín hiệu với vận tốc $c$. Ở đây $c^2=4\Rightarrow c=2$. Trước khi tín hiệu kịp tới, điểm hỏi vẫn ở trạng thái cân bằng.
+\item \textbf{Miền ảnh hưởng (forward cone)} của một điểm nguồn $Q$ phát tại $s\ge0$ là $\{(P,t):|P-Q|\le c(t-s)\}$. Hợp các nón này theo $(Q,s)\in\operatorname{supp} f$ là tập các điểm $(P,t)$ \emph{có thể} bị nguồn tác động.
+\item Hệ quả: $u(P,t)=0$ khi nào nón ngược $\{(Q,s):|Q-P|\le c(t-s),\ 0\le s\le t\}$ chưa giao $\operatorname{supp} f$, tức $c\,t<\operatorname{dist}(P,\operatorname{supp} f)$.
+\end{itemize}
+
+\emph{Bước a.2 --- Tính $\operatorname{dist}(P,\operatorname{supp} f)$.} Điểm hỏi $P=(0,0,0)$. Giá $\operatorname{supp} f$ gồm hai phần:
+\begin{itemize}
+\item Dải phẳng $S_1=\{(x,y,z):2024\le x\le2026\}$: điểm gần $P$ nhất nằm trên mặt $x=2024$, khoảng cách $=2024$.
+\item Quả cầu $B$ tâm $O'=(2025,0,0)$ bán kính $1$: điểm gần $P$ nhất nằm trên đoạn $\overline{PO'}$, cách $P$ một khoảng $|PO'|-1=2025-1=2024$.
+\end{itemize}
+Vậy $\operatorname{dist}(P,\operatorname{supp} f)=\min(2024,2024)=2024$.
+
+\emph{Bước a.3 --- Suy ra $t_0$.}
 \[
-  \operatorname{dist}(P,\operatorname{supp} f)=2024,\qquad c=2\ \Rightarrow\ t_0=\frac{2024}{2}=1012.
+  t_0=\frac{\operatorname{dist}(P,\operatorname{supp} f)}{c}=\frac{2024}{2}=1012.
 \]
-Với $t<1012$ thì $u(0,0,0,t)=0$ (vẫn cân bằng); $t_0=1012$ là lúc rời cân bằng.
+Với $0\le t<1012$ thì $u(0,0,0,t)=0$ (cân bằng); tại $t_0=1012$ điểm $P$ rời cân bằng.
 
 \paragraph{(b) Bước 0 --- chồng chất.}\leavevmode
 
-Tuyến tính, tách $u=u_1-u_2$ theo hai phần nguồn ($f_1,f_2$), mỗi $u_j$ có dữ liệu đầu $0$:
+\emph{Bước 0.1 --- Tách nguồn.} Viết $f=f_1-f_2$ với
+\[
+  f_1(x,y,z,t)=\chi_{[2024,2026]}(x),\qquad
+  f_2(x,y,z,t)=\chi_{[0,1]}(t)\,\chi_B(x,y,z)=\chi_{[0,1]}(t)\,\chi_{[0,1]}(\rho),
+\]
+trong đó $\rho:=\sqrt{(x-2025)^2+y^2+z^2}$ là khoảng cách tới $O'=(2025,0,0)$. Phần $f_1$ chỉ phụ thuộc $x$ (\emph{đối xứng phẳng}); phần $f_2$ \emph{đối xứng cầu} quanh $O'$.
+
+\emph{Bước 0.2 --- Vì sao $u=u_1-u_2$?} Xét hai bài toán phụ
 \[
   (1)\ \begin{cases}u_{1,tt}=4\Delta u_1+f_1\\ u_1(\cdot,0)=u_{1,t}(\cdot,0)=0\end{cases}
-  \quad
+  \qquad
   (2)\ \begin{cases}u_{2,tt}=4\Delta u_2+f_2\\ u_2(\cdot,0)=u_{2,t}(\cdot,0)=0\end{cases}
 \]
-với $f_1=\chi_{[2024,2026]}(x)$, $f_2=\chi_{[0,1]}(t)\chi_{[0,1]}(\rho)$, $\rho=\sqrt{(x-2025)^2+y^2+z^2}$.
-Cộng lại: $u_{tt}=4\Delta u+f_1-f_2=4\Delta u+f$, đúng bài gốc.
-
-\paragraph{(b) Bước 1 --- $u_1$ (nguồn phẳng $\to$ 1D).}
-$f_1=\chi_{[2024,2026]}(x)$ chỉ phụ thuộc $x$ và dữ liệu đầu $=0$, nên $u_1$ cũng không phụ thuộc $y,z$: đặt $u_1=v_1(x,t)$ thì
+Vì toán tử $\partial_t^2-4\Delta$ \textbf{tuyến tính}, đặt $\tilde u:=u_1-u_2$ thì
 \[
-  v_{1,tt}=4\,v_{1,xx}+\chi_{[2024,2026]}(x),\qquad v_1(x,0)=v_{1,t}(x,0)=0 .
+  \tilde u_{tt}-4\Delta\tilde u=(u_{1,tt}-4\Delta u_1)-(u_{2,tt}-4\Delta u_2)=f_1-f_2=f,
 \]
+và $\tilde u(\cdot,0)=0$, $\tilde u_t(\cdot,0)=0$. Bài Cauchy đang xét có nghiệm \textbf{duy nhất} (sóng tuyến tính trên $\mathbb{R}^3$), nên $u=\tilde u=u_1-u_2$. Việc tách như vậy có lợi vì mỗi $u_j$ hưởng \emph{một loại đối xứng} dễ khai thác.
 
-\textbf{$s$ ở đâu ra?} $s$ là \emph{thời điểm nguồn phát}. Duhamel: nghiệm $=$ tổng (tích phân) đóng góp của lát nguồn $f_1$ phát tại mỗi $s\in(0,t)$:
+\paragraph{(b) Bước 1 --- $u_1$ (nguồn phẳng $\to$ 1D).}\leavevmode
+
+\emph{Bước 1.1 --- Hạ thấp chiều.} Nguồn $f_1=\chi_{[2024,2026]}(x)$ chỉ phụ thuộc $x$ và dữ liệu đầu $=0$. Do tính \textbf{duy nhất} nghiệm + bất biến phương trình theo phép tịnh tiến $(y,z)$, nghiệm $u_1$ cũng không phụ thuộc $y,z$. Đặt $u_1(x,y,z,t)=v_1(x,t)$ thì $\Delta u_1=v_{1,xx}$, nên
 \[
-  v_1(x,t)=\int_0^t w(x,t;s)\,ds,\qquad
-  w(x,t;s)=\frac{1}{2c}\int_{x-c(t-s)}^{x+c(t-s)}\!\chi_{[2024,2026]}(\xi)\,d\xi,\quad c=2.
-\]
-($w$ là sóng con \emph{không nguồn}, phát tại $t=s$ với vận tốc đầu $f_1$; nó lan trong khoảng thời gian \emph{còn lại} $t-s$, nên miền phụ thuộc là $[\,x-c(t-s),\,x+c(t-s)\,]$.) Gộp hai tầng tích phân:
-\[
-  v_1(x,t)=\frac14\iint_{\Delta(x,t)}\!\chi_{[2024,2026]}(\xi)\,d\xi\,ds,\quad
-  \Delta(x,t)=\{\,0<s<t,\ x-2(t-s)<\xi<x+2(t-s)\,\}.
+  v_{1,tt}=4\,v_{1,xx}+\chi_{[2024,2026]}(x),\qquad v_1(x,0)=v_{1,t}(x,0)=0,\quad x\in\mathbb{R}.
 \]
 
-\emph{Tại $x=0$:} cận trong là $\xi\in(-2(t-s),\,2(t-s))$. Đổi biến $\tau=t-s$ (thời gian \emph{trôi} từ lúc phát tới $t$; $s:0\!\to\!t$ ứng $\tau:t\!\to\!0$). Độ dài giao của dải $[2024,2026]$ với $[0,2\tau]$ (dải nằm ở $x>0$):
+\emph{Bước 1.2 --- Duhamel 1D. ``$s$'' là gì?} \textbf{Nguyên lý Duhamel} biến bài có nguồn thành tích phân theo \emph{thời điểm phát} $s\in(0,t)$ của \emph{sóng con thuần nhất} $w(x,t;s)$ — nghiệm bài $w_{tt}=4w_{xx}$ với dữ liệu tại $t=s$ là $w(\cdot,s)=0$, $w_t(\cdot,s)=f_1$. Công thức d'Alembert 1D với $c=2$ cho
 \[
-  L(\tau)=\big|[2024,2026]\cap[0,2\tau]\big|=\begin{cases}0,&\tau<1012,\\ 2\tau-2024,&1012\le\tau\le1013,\\ 2,&\tau>1013.\end{cases}
+  w(x,t;s)=\frac{1}{2c}\int_{x-c(t-s)}^{x+c(t-s)}\!\chi_{[2024,2026]}(\xi)\,d\xi,
 \]
-Khi đó $u_1(0,0,0,t)=\dfrac14\displaystyle\int_0^t L(\tau)\,d\tau$:
+(miền phụ thuộc là khoảng độ dài $2c(t-s)$ vì sóng con đã lan trong thời gian còn lại $t-s$). Cộng lại:
 \[
-  u_1(0,0,0,t)=\begin{cases}
+  v_1(x,t)=\int_0^t w(x,t;s)\,ds
+  =\frac{1}{2c}\iint_{\Delta(x,t)}\!\chi_{[2024,2026]}(\xi)\,d\xi\,ds,
+\]
+với $\Delta(x,t)=\{(s,\xi):0<s<t,\ x-c(t-s)<\xi<x+c(t-s)\}$.
+
+\emph{Bước 1.3 --- Đặt $x=0$ và đổi biến $\tau=t-s$.} Tại $P=(0,0,0)$ cận trong là $\xi\in(-2(t-s),2(t-s))$. Đặt $\tau:=t-s$ (thời gian \textbf{đã trôi} kể từ khi sóng con phát đến lúc $t$). Khi $s:0\to t$ thì $\tau:t\to0$ và $ds=-d\tau$, nên
+\[
+  v_1(0,t)=\frac{1}{2c}\int_0^t\!\!\int_{-c\tau}^{c\tau}\!\chi_{[2024,2026]}(\xi)\,d\xi\,d\tau
+  =\frac{1}{4}\int_0^t L(\tau)\,d\tau,
+\]
+với $L(\tau):=\big|[2024,2026]\cap[-2\tau,2\tau]\big|$ là \textbf{độ dài giao}.
+
+\emph{Bước 1.4 --- Tính $L(\tau)$ (chia khúc).} Vì $[2024,2026]\subset(0,\infty)$, giao thực chất với $[0,2\tau]$:
+\begin{itemize}
+\item Nếu $2\tau<2024$ (tức $\tau<1012$): hai khoảng tách rời, $L(\tau)=0$.
+\item Nếu $2024\le2\tau\le2026$ (tức $1012\le\tau\le1013$): giao $=[2024,2\tau]$, $L(\tau)=2\tau-2024$.
+\item Nếu $2\tau>2026$ (tức $\tau>1013$): giao $=[2024,2026]$, $L(\tau)=2$.
+\end{itemize}
+\[
+  L(\tau)=\begin{cases}0,&\tau<1012,\\ 2\tau-2024,&1012\le\tau\le1013,\\ 2,&\tau>1013.\end{cases}
+\]
+
+\emph{Bước 1.5 --- Tích phân theo $\tau$ (chia khúc đa thức).}
+\begin{itemize}
+\item $0\le t\le1012$: $L\equiv0$ trên $[0,t]\Rightarrow v_1(0,t)=0$.
+\item $1012\le t\le1013$: $v_1(0,t)=\dfrac{1}{4}\displaystyle\int_{1012}^{t}(2\tau-2024)\,d\tau=\dfrac{1}{4}\big[(\tau-1012)^2\big]_{1012}^{t}=\dfrac{(t-1012)^2}{4}$.
+\item $t\ge1013$: $v_1(0,t)=\dfrac{1}{4}\Big[\displaystyle\int_{1012}^{1013}(2\tau-2024)\,d\tau+\int_{1013}^{t}\!2\,d\tau\Big]=\dfrac{1+2(t-1013)}{4}=\dfrac{2t-2025}{4}$.
+\end{itemize}
+Kết luận:
+\[
+  u_1(0,0,0,t)=v_1(0,t)=\begin{cases}
     0,& 0\le t\le1012,\\[2pt]
     \dfrac{(t-1012)^2}{4},& 1012\le t\le1013,\\[6pt]
     \dfrac{2t-2025}{4},& t\ge1013.
@@ -163,6 +208,27 @@ với $\Delta(R,t)=\{\,0<s<t,\ R-c(t-s)<\xi<R+c(t-s)\,\}$ và $\dfrac{1}{2cR}=\d
 
 \paragraph{(b) Bước 3 --- gộp $u=u_1-u_2$.}\leavevmode
 
+\emph{Bước 3.1 --- Đồng bộ khoảng chia.} Cả $u_1$ và $u_2$ \emph{rời cân bằng} tại $t=1012$. Mốc còn lại:
+\begin{itemize}
+\item $u_1$ đổi khúc tại $t=1013$ (khi đó dải nguồn đã ``thấy'' đủ).
+\item $u_2$ đổi khúc tại $t=1013$ và \emph{tắt} hẳn ($u_2=0$) khi $t\ge1014$ vì nguồn cầu chỉ phát trong $s\in[0,1]$.
+\end{itemize}
+Vậy chia $u=u_1-u_2$ theo bốn khúc: $[0,1012],\ [1012,1013],\ [1013,1014],\ [1014,\infty)$.
+
+\emph{Bước 3.2 --- Trừ trên từng khúc.}
+\begin{itemize}
+\item $0\le t\le1012$: $u_1=u_2=0\Rightarrow u=0$.
+\item $1012\le t\le1013$: $u_1=\dfrac{(t-1012)^2}{4}$, $u_2=\dfrac{(t-1012)^2(2027-2t)}{3\cdot8100}$. Đặt nhân tử chung $(t-1012)^2$:
+\[
+  u=(t-1012)^2\Big(\dfrac{1}{4}-\dfrac{2027-2t}{3\cdot8100}\Big).
+\]
+\item $1013\le t\le1014$: $u_1=\dfrac{2t-2025}{4}$, $u_2=\dfrac{(t-1014)^2(2t-2025)}{3\cdot8100}$. Đặt nhân tử chung $(2t-2025)$:
+\[
+  u=(2t-2025)\Big(\dfrac{1}{4}-\dfrac{(t-1014)^2}{3\cdot8100}\Big).
+\]
+\item $t\ge1014$: $u_2=0$, còn $u_1=\dfrac{2t-2025}{4}\Rightarrow u=\dfrac{2t-2025}{4}$.
+\end{itemize}
+
 \begin{nhobox}
 \[
   u(0,0,0,t)=\begin{cases}
@@ -172,7 +238,7 @@ với $\Delta(R,t)=\{\,0<s<t,\ R-c(t-s)<\xi<R+c(t-s)\,\}$ và $\dfrac{1}{2cR}=\d
     \dfrac{2t-2025}{4},& t\ge1014.
   \end{cases}
 \]
-Khớp (a): bằng $0$ tới $t=1012$ rồi rời cân bằng. Sau $t=1014$ quả cầu (nguồn tắt từ $s=1$) hết ảnh hưởng, chỉ còn phần dải phẳng $u_1$.
+\textbf{Kiểm tra khớp:} (a) bằng $0$ tới $t=1012$ rồi rời cân bằng. Tại $t=1013$, hai biểu thức cho cùng giá trị $\dfrac{1}{4}-\dfrac{1}{3\cdot8100}$ (liên tục). Sau $t=1014$ quả cầu (nguồn tắt từ $s=1$) hết ảnh hưởng tới $P$, chỉ còn phần dải phẳng $u_1$.
 \end{nhobox}
 
 \subsection*{Dạng bài lân cận}

@@ -69,76 +69,153 @@ Cả hai giữ tính điều hòa qua $y=0$.
 
 \subsection*{Đề bài \& bài giải}
 
-\paragraph{Ví dụ A (nửa mặt phẳng).}\leavevmode
+% =====================================================================
+\subsubsection*{Ví dụ A (nửa mặt phẳng) --- câu (a)}
+% =====================================================================
 
-\textbf{(a)} Do $u(x,0)=0$, thác triển \emph{lẻ} hàm $u$ qua trục hoành $y=0$: đặt
+\paragraph{Nhắc lại đề (a).} $u:\overline{H}\to\mathbb{R}$ liên tục, điều hòa trong $H=\{y>0\}$ (nghĩa là $\Delta u=u_{xx}+u_{yy}=0$ trong $H$), bị chặn ($\exists M>0:\ |u(x,y)|\le M$ với mọi $(x,y)\in\overline H$), và $u(x,0)=0$. Cần chứng minh $u\equiv 0$ trên $\overline H$.
+
+\paragraph{Bước 1 --- ý tưởng: thác triển lẻ qua trục $y=0$.}
+\emph{Hàm điều hòa} là hàm $C^2$ thỏa $\Delta u=0$. Ta có $u$ chỉ định nghĩa trên nửa mặt phẳng đóng $\overline{H}$; muốn dùng \emph{định lý Liouville} (hàm điều hòa và bị chặn trên \emph{toàn} $\mathbb{R}^n$ phải là hằng) ta cần mở rộng $u$ ra cả mặt phẳng $\mathbb{R}^2$ mà vẫn giữ tính điều hòa.
+
+Vì $u=0$ trên trục $y=0$, kĩ thuật chuẩn là \emph{thác triển lẻ} qua trục đó: lật giá trị của $u$ ở nửa trên xuống nửa dưới rồi đổi dấu. (Xem Phụ lục C ở file \texttt{shared} về thác triển chẵn/lẻ.)
+
+\paragraph{Bước 2 --- định nghĩa hàm thác triển $U$.}
+Đặt
 \[
 U(x,y)=
 \begin{cases}
-u(x,y) & y\ge 0,\\
--u(x,-y) & y<0.
+u(x,y) & \text{nếu } y\ge 0,\\
+-u(x,-y) & \text{nếu } y<0.
 \end{cases}
 \]
-Ta được hàm $U$ điều hòa, bị chặn trên toàn mặt phẳng $\mathbb{R}^2$.
 
-Theo định lý Liouville, $U$ là hằng, hay $u$ là hằng. Vì $u(x,0)=0$ nên hằng đó bằng $0$.
+\emph{Bước 2a --- liên tục qua $y=0$.} Tại $y=0$ giá trị từ nhánh trên là $u(x,0)=0$ và từ nhánh dưới là $-u(x,0)=0$, khớp nhau, nên $U$ liên tục trên $\mathbb{R}^2$.
+
+\emph{Bước 2b --- bị chặn.} Với $y\ge 0$: $|U(x,y)|=|u(x,y)|\le M$. Với $y<0$: $|U(x,y)|=|{-u(x,-y)}|=|u(x,-y)|\le M$. Vậy $|U|\le M$ trên toàn $\mathbb{R}^2$.
+
+\emph{Bước 2c --- điều hòa trong nửa trên và nửa dưới.} Với $y>0$: $U=u$ điều hòa theo giả thiết. Với $y<0$: $U(x,y)=-u(x,-y)$. Tính
+\[
+U_{xx}(x,y)=-u_{xx}(x,-y),\qquad U_y(x,y)=-\big[-u_y(x,-y)\big]=u_y(x,-y),
+\]
+\[
+U_{yy}(x,y)=\frac{\partial}{\partial y}u_y(x,-y)=-u_{yy}(x,-y).
+\]
+Do đó
+\[
+\Delta U(x,y)=U_{xx}+U_{yy}=-u_{xx}(x,-y)-u_{yy}(x,-y)=-\Delta u(x,-y)=0.
+\]
+Vậy $U$ điều hòa trên hai nửa mở $\{y>0\}$ và $\{y<0\}$.
+
+\emph{Bước 2d --- điều hòa qua biên $y=0$.} Tính điều hòa của $U$ trên cả $\mathbb{R}^2$ (bao gồm trục $y=0$) suy ra từ \emph{nguyên lý phản xạ Schwarz cho hàm điều hòa}: một hàm liên tục trên đĩa, điều hòa trên đĩa trừ một đoạn thẳng đường kính, và bằng $0$ trên đoạn thẳng đó, thì điều hòa trên cả đĩa. Áp dụng cho mọi đĩa cắt trục $y=0$ ta thu được $U$ điều hòa trên toàn $\mathbb{R}^2$.
+
+\paragraph{Bước 3 --- áp dụng định lý Liouville.}
+$U$ điều hòa trên $\mathbb{R}^2$ và bị chặn, nên theo định lý Liouville $U\equiv$ hằng. Vì $U(x,0)=u(x,0)=0$, hằng số đó là $0$. Do đó $U\equiv 0$ trên $\mathbb{R}^2$, kéo theo $u\equiv 0$ trên $\overline H$.
 
 \begin{nhobox}
-Vậy $u=0$ trên $\overline{H}$.
+$u\equiv 0$ trên $\overline{H}$.
 \end{nhobox}
 
-Nếu không có tính bị chặn thì đpcm \emph{không còn đúng}. Phản ví dụ: lấy $u(x,y)=y$ --- hàm này điều hòa, $u(x,0)=0$ nhưng $u\not\equiv0$.
+\paragraph{Bước 4 --- nếu bỏ tính bị chặn?}
+Khẳng định \emph{không còn đúng}. Phản ví dụ đơn giản: $u(x,y)=y$. Khi đó $\Delta u=0$ (điều hòa), $u(x,0)=0$, nhưng $u\not\equiv0$ trên $H$. Ở đây $u$ không bị chặn (vì $u\to\infty$ khi $y\to\infty$), tức là không thỏa giả thiết bị chặn --- và đây chính là lí do định lý Liouville không áp dụng được.
 
-\textbf{(b)} Giả sử $u_1,u_2$ là hai nghiệm bị chặn của bài toán biên Dirichlet đối với phương trình Poisson trong $H$. Khi đó hiệu $u=u_1-u_2$ là hàm điều hòa (vì hai vế Poisson $\Delta u_1=\Delta u_2=f$ triệt tiêu), bị chặn, và $u=0$ trên $y=0$ --- tức là $u$ thỏa mãn câu (a).
+% =====================================================================
+\subsubsection*{Ví dụ A (nửa mặt phẳng) --- câu (b)}
+% =====================================================================
 
-Từ câu (a) ta có $u=0$, hay $u_1=u_2$ trong $\overline{H}$.
+\paragraph{Nhắc lại đề (b).} Bài toán Dirichlet cho phương trình \emph{Poisson} (PDE elliptic dạng $\Delta u=f$ với $f$ cho trước) trong $H$:
+\[
+\begin{cases}
+\Delta u = f(x,y) & \text{trong } H,\\
+u(x,0)=\varphi(x) & \text{trên } \partial H=\{y=0\},
+\end{cases}
+\]
+với $f,\varphi$ cho trước. Cần chứng minh: \emph{có tối đa một nghiệm bị chặn}.
+
+\paragraph{Bước 1 --- xét hiệu hai nghiệm.}
+Giả sử $u_1,u_2$ đều là nghiệm bị chặn (mỗi $|u_j|\le M_j$). Đặt $w=u_1-u_2$.
+
+\paragraph{Bước 2 --- $w$ thỏa giả thiết câu (a).}
+\emph{Bước 2a --- điều hòa.} Vì $\Delta u_j=f$ với cùng $f$, ta có
+\[
+\Delta w=\Delta u_1-\Delta u_2=f-f=0 \quad\text{trong } H.
+\]
+\emph{Bước 2b --- biên bằng 0.} $w(x,0)=u_1(x,0)-u_2(x,0)=\varphi(x)-\varphi(x)=0$.
+\emph{Bước 2c --- bị chặn.} $|w|\le |u_1|+|u_2|\le M_1+M_2$.
+
+\paragraph{Bước 3 --- kết luận.}
+Hàm $w$ thỏa đúng giả thiết câu (a), nên $w\equiv 0$, tức $u_1\equiv u_2$ trên $\overline H$.
 
 \begin{nhobox}
 Bài toán Dirichlet cho Poisson trong $H$ có tối đa một nghiệm bị chặn.
 \end{nhobox}
 
-\paragraph{Ví dụ B (miền ngoài hình cầu).}\leavevmode
+% =====================================================================
+\subsubsection*{Ví dụ B (miền ngoài hình cầu)}
+% =====================================================================
 
-\textbf{Biên của $\Omega_R$.} Miền $\Omega_R=\{1<x^2+y^2+z^2<R^2\}$ có biên gồm hai mặt cầu
+\paragraph{Bước 1 --- xác định biên của $\Omega_R$.}
+Miền $\Omega_R=\{(x,y,z):1<x^2+y^2+z^2<R^2\}$ là một \emph{vành cầu} (lớp vỏ giữa hai mặt cầu đồng tâm). Biên topo gồm hai mặt cầu:
 \[
-\partial B_1=\{x^2+y^2+z^2=1\}
-\quad\text{và}\quad
+\partial\Omega_R=\partial B_1\cup\partial B_R,\quad
+\partial B_1=\{x^2+y^2+z^2=1\},\ \
 \partial B_R=\{x^2+y^2+z^2=R^2\}.
 \]
+(Ở đây $B_a=\{x^2+y^2+z^2<a^2\}$ là hình cầu mở bán kính $a$.)
 
-\textbf{Nguyên lý cực đại.} Cho $v\in C(\overline{\Omega_R})$ điều hòa trong $\Omega_R$. Khi đó
+\paragraph{Bước 2 --- phát biểu nguyên lý cực đại trên $\Omega_R$.}
+\emph{Nguyên lý cực đại} (mạnh, dạng dùng được trong bài này): nếu $v\in C(\overline{\Omega_R})$ và $\Delta v=0$ trong $\Omega_R$ (miền bị chặn) thì
 \[
-\min\{m_1,m_R\}\le v(x,y,z)\le \max\{M_1,M_R\},\quad \forall(x,y,z)\in\overline{\Omega_R},
+\min_{\partial\Omega_R} v\le v(x,y,z)\le \max_{\partial\Omega_R} v,\quad \forall(x,y,z)\in\overline{\Omega_R}.
 \]
-trong đó $m_a=\min_{\partial B_a}v$, $M_a=\max_{\partial B_a}v$, $a\in\{1,R\}$.
-
-\textbf{Chứng minh duy nhất.} Giả sử $u_1,u_2$ là các nghiệm của bài toán Dirichlet ngoài hình cầu, đều thỏa $\lim_{r\to\infty}u_j=0$, $j=1,2$. Khi đó hiệu $v=u_1-u_2$ thỏa mãn
+Vì biên gồm hai mặt cầu nên, với $m_a=\min_{\partial B_a}v$, $M_a=\max_{\partial B_a}v$ ($a\in\{1,R\}$),
 \[
-\begin{cases}
-\Delta v = 0 & \text{ngoài } \overline{B_1},\\
-v = 0 & \text{trên } \partial B_1,\\
-\lim_{r\to\infty}v(x,y,z)=0. &
-\end{cases}
+\boxed{\,\min\{m_1,m_R\}\le v(x,y,z)\le \max\{M_1,M_R\}\quad \forall(x,y,z)\in\overline{\Omega_R}.\,}
 \]
 
-Ta sẽ chứng minh $v(x,y,z)=0$ với mọi $x^2+y^2+z^2>1$, bằng cách chứng minh
+\paragraph{Bước 3 --- thiết lập bài toán cho hiệu hai nghiệm.}
+Giả sử $u_1,u_2$ là hai nghiệm của bài toán Dirichlet ngoài hình cầu, đều thỏa $\lim_{r\to\infty}u_j(x,y,z)=0$ (với $r=\sqrt{x^2+y^2+z^2}$). Đặt $v=u_1-u_2$. Lập luận như Ví dụ A(b):
 \[
-|v(x,y,z)|\le \varepsilon,\quad \forall x^2+y^2+z^2>1,\ \forall \varepsilon>0.
+\Delta v=f-f=0 \text{ ngoài }\overline{B_1},\qquad
+v\big|_{\partial B_1}=\varphi-\varphi=0,\qquad
+\lim_{r\to\infty}v=0-0=0.
+\]
+Ta cần chứng minh $v\equiv 0$ ngoài $\overline{B_1}$.
+
+\paragraph{Bước 4 --- chiến lược: chặn $|v|\le\varepsilon$ với mọi $\varepsilon>0$.}
+Cố định một điểm $P_0=(x_0,y_0,z_0)$ với $r_0^2:=x_0^2+y_0^2+z_0^2>1$, và một số $\varepsilon>0$ tùy ý. Ta sẽ chỉ ra $|v(P_0)|\le\varepsilon$. Vì $\varepsilon>0$ tùy ý, cho $\varepsilon\to 0$ sẽ thu được $v(P_0)=0$.
+
+\emph{Bước 4a --- chọn bán kính ngoài $R$.}
+Do $\lim_{r\to\infty}v=0$, theo định nghĩa giới hạn, tồn tại $R^*>0$ sao cho $|v(x,y,z)|\le\varepsilon$ với mọi $r\ge R^*$. Chọn $R>\max\{R^*,r_0\}$. Khi đó:
+\begin{itemize}
+  \item $P_0\in\Omega_R$ vì $1<r_0<R$;
+  \item trên mặt cầu ngoài $\partial B_R$: $|v|\le\varepsilon$, suy ra
+  $-\varepsilon\le m_R\le M_R\le\varepsilon$.
+\end{itemize}
+
+\emph{Bước 4b --- chặn trên vành $\Omega_R$.}
+Trên $\partial B_1$: $v=0$, nên $m_1=M_1=0$. Áp dụng nguyên lý cực đại của Bước 2:
+\[
+\min\{m_1,m_R\}=\min\{0,m_R\}\ge \min\{0,-\varepsilon\}=-\varepsilon,
+\]
+\[
+\max\{M_1,M_R\}=\max\{0,M_R\}\le \max\{0,\varepsilon\}=\varepsilon.
+\]
+Do đó
+\[
+-\varepsilon\le v(x,y,z)\le\varepsilon\quad\forall(x,y,z)\in\overline{\Omega_R}.
 \]
 
-Lấy $\varepsilon>0$ và điểm $(x_0,y_0,z_0)\in\mathbb{R}^3\setminus\overline{B_1}$, nghĩa là $x_0^2+y_0^2+z_0^2>1$. Do $\lim_{r\to\infty}v=0$ nên tồn tại $R^2>x_0^2+y_0^2+z_0^2$ sao cho
-\[
-|v(x,y,z)|\le \varepsilon,\quad \forall x^2+y^2+z^2\ge R^2.
-\]
-Khi đó trên mặt cầu ngoài: $m_R=\min_{\partial B_R}v\ge -\varepsilon$, $M_R=\max_{\partial B_R}v\le \varepsilon$.
+\emph{Bước 4c --- thay $P_0$ vào.}
+Vì $P_0\in\Omega_R\subset\overline{\Omega_R}$, ta có $|v(P_0)|\le\varepsilon$.
 
-Lại có $v\big|_{\partial B_1}=0$, nên áp dụng nguyên lý cực đại cho hàm điều hòa trên vành $\Omega_R$:
-\[
--\varepsilon\le \min\{0,m_R\}\le v(x,y,z)\le \max\{0,M_R\}\le \varepsilon,\quad \forall(x,y,z)\in\overline{\Omega_R}.
-\]
-
-Nhắc lại $1<x_0^2+y_0^2+z_0^2<R^2$, nên điểm $(x_0,y_0,z_0)$ nằm trong $\Omega_R$, do đó $|v(x_0,y_0,z_0)|\le \varepsilon$. Cho $\varepsilon\to0$ ta được $v(x_0,y_0,z_0)=0$.
+\paragraph{Bước 5 --- cho $\varepsilon\to 0$ và kết luận.}
+$\varepsilon>0$ tùy ý nên $|v(P_0)|\le\varepsilon$ buộc $v(P_0)=0$. Vì $P_0$ là điểm tùy ý ngoài $\overline{B_1}$, ta có $v\equiv 0$ ngoài $\overline{B_1}$, hay $u_1\equiv u_2$.
 
 \begin{nhobox}
-Vì $(x_0,y_0,z_0)$ tùy ý ngoài $B_1$ nên $v\equiv0$, hay $u_1=u_2$. Bài toán Dirichlet ngoài hình cầu có tối đa một nghiệm thỏa $u\to0$ khi $r\to\infty$.
+Bài toán Dirichlet ngoài hình cầu có tối đa một nghiệm thỏa $u\to 0$ khi $r\to\infty$.
 \end{nhobox}
+
+\begin{luuybox}
+\textbf{Vì sao cần $u\to 0$ ở $\infty$?} Nếu chỉ yêu cầu $u$ điều hòa ngoài $\overline{B_1}$, bằng $\varphi$ trên $\partial B_1$, thì không duy nhất. Ví dụ với $\varphi\equiv 0$, $f\equiv 0$: cả $u\equiv 0$ lẫn $u(x,y,z)=1-\tfrac{1}{r}$ đều là nghiệm. Điều kiện $u\to 0$ chính là cái loại bỏ các nghiệm ``phụ'' kiểu này.
+\end{luuybox}

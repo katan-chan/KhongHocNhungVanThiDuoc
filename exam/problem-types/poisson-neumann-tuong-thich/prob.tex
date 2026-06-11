@@ -41,45 +41,147 @@ Tương thích: tổng thông lượng biên $\int_{\partial}\partial_\nu u=$ t�
 % ---------------------------------------------------------------
 \subsection*{Đề bài \& bài giải}
 % ---------------------------------------------------------------
-\paragraph{Hình học miền.} Đổi $x=1+r\cos\theta,\ y=1+r\sin\theta$ (tâm tại đỉnh $(1,1)$): điều kiện
-$y>1\Rightarrow\sin\theta>0$; $y<x\Rightarrow\sin\theta<\cos\theta\Rightarrow\theta<\tfrac{\pi}{4}$. Vậy $Q$ là
-\textbf{quạt} $0<\theta<\tfrac{\pi}{4},\ 0<r<1$; hai cạnh thẳng là $\theta=0$ và $\theta=\tfrac{\pi}{4}$, cung là $r=1$.
+\paragraph{Nhắc lại đề \& thuật ngữ.}\leavevmode
 
-\paragraph{(a) Điều kiện tương thích.} Green: $\displaystyle\int_{\partial Q}\partial_\nu u\,ds=\iint_Q\Delta u\,dA=|Q|$.
-Diện tích quạt $|Q|=\tfrac12 r^2\Delta\theta=\tfrac12\cdot1\cdot\tfrac{\pi}{4}=\tfrac{\pi}{8}$. Hai cạnh thẳng cho $0$;
-trên cung $r=1$ có $x=1+\cos\theta$, $ds=d\theta$:
+\emph{Bài toán Neumann} cho phương trình Poisson $\Delta u=F$ trong miền $Q\subset\mathbb R^2$ là bài toán mà trên \emph{toàn} biên $\partial Q$ ta chỉ định \emph{đạo hàm pháp tuyến} $\partial_\nu u=\nabla u\cdot\nu$ (với $\nu$ là vectơ pháp tuyến đơn vị hướng ra ngoài), chứ không chỉ định giá trị $u$. Khác với bài Dirichlet (chỉ định $u$ trên biên) có nghiệm duy nhất, bài Neumann có hai đặc thù:
+\begin{itemize}
+\item \textbf{Điều kiện tương thích} (compatibility): tồn tại nghiệm khi và chỉ khi tích phân toàn nguồn $\iint_Q F$ phải bằng tích phân toàn thông lượng biên $\int_{\partial Q}\partial_\nu u$. Đây là hệ quả \emph{bắt buộc} của \emph{định lý phân kỳ} (sẽ áp dụng dưới đây), nên dữ liệu của bài KHÔNG được cho tùy ý.
+\item \textbf{Sai khác hằng số} (nghiệm không duy nhất): nếu $u$ là nghiệm thì $u+\text{const}$ cũng là nghiệm (vì $\Delta\text{const}=0$ và $\partial_\nu\text{const}=0$).
+\end{itemize}
+
+\emph{Định lý phân kỳ} (dạng dùng ở đây, còn gọi là công thức Gauss--Green): với mọi trường vectơ trơn $\mathbf F$ trên $Q$,
 \[
-  \int_0^{\pi/4}(1+\cos\theta+C)\,d\theta=(1+C)\tfrac{\pi}{4}+\tfrac{\sqrt2}{2}.
+  \iint_Q \operatorname{div}\mathbf F\,dA=\int_{\partial Q}\mathbf F\cdot\nu\,ds.
 \]
-Cân bằng với $\tfrac{\pi}{8}$: $(1+C)\tfrac{\pi}{4}=\tfrac{\pi}{8}-\tfrac{\sqrt2}{2}\Rightarrow
-\boxed{C=-\tfrac12-\tfrac{2\sqrt2}{\pi}}$.
+Áp cho $\mathbf F=\nabla u$ thì $\operatorname{div}\nabla u=\Delta u$ và $\nabla u\cdot\nu=\partial_\nu u$, cho công thức then chốt
+\[
+  \boxed{\;\iint_Q\Delta u\,dA=\int_{\partial Q}\partial_\nu u\,ds.\;}\tag{$\ast$}
+\]
 
-\paragraph{(b) Sai khác hằng (năng lượng).} Hai nghiệm $u_1,u_2$; hiệu $w=u_1-u_2$ thỏa $\Delta w=0$,
-$\partial_\nu w=0$. Green: $\iint_Q|\nabla w|^2=\int_{\partial Q}w\,\partial_\nu w=0\Rightarrow\nabla w=0\Rightarrow w$ hằng.
-Vậy nghiệm tồn tại thì có vô số, sai khác một hằng số cộng.
+\paragraph{Bước 0 --- chuyển sang toạ độ cực để mô tả miền.}\leavevmode
 
-\paragraph{(c) Bước 1 --- nghiệm tổng quát.} $\Delta u=1$ có nghiệm riêng $\tfrac{r^2}{4}$ ($\Delta\tfrac{r^2}{4}=1$,
-lại $u_\theta=0$ nên thỏa Neumann hai cạnh). Phần điều hòa với $u_\theta(r,0)=0$ chọn $\cos(\mu\theta)$;
-$u_\theta(r,\tfrac{\pi}{4})=0\Rightarrow\mu=4n$. Bỏ $r^{-4n}$ (chặn tại $0$):
+Đỉnh $(1,1)$ là giao của ba phần biên (hai cạnh thẳng $y=1$, $y=x$ và cung tròn tâm $(1,1)$ bán kính $1$), nên ta đổi sang \emph{cực tâm tại $(1,1)$}:
+\[
+  x=1+r\cos\theta,\qquad y=1+r\sin\theta.
+\]
+Dịch các điều kiện hình học sang $(r,\theta)$:
+\begin{itemize}
+\item $y>1\iff r\sin\theta>0\iff\sin\theta>0\iff\theta\in(0,\pi)$.
+\item $y<x\iff r\sin\theta<r\cos\theta\iff\tan\theta<1\iff\theta<\tfrac{\pi}{4}$ (kết hợp $\theta>0$).
+\item $(x-1)^2+(y-1)^2<1\iff r^2<1\iff r<1$.
+\end{itemize}
+Vậy $Q$ là \textbf{quạt tròn}
+\[
+  Q=\big\{(r,\theta):\ 0<r<1,\ 0<\theta<\tfrac{\pi}{4}\big\}.
+\]
+Biên gồm ba phần: cạnh dưới $\theta=0$ (đoạn $y=1,\ 1\le x\le 2$), cạnh trên $\theta=\tfrac{\pi}{4}$ (đoạn $y=x$), và cung $r=1$. Trên hai cạnh thẳng, \emph{vectơ pháp tuyến vuông góc với cạnh} nên cùng phương với $\hat\theta$, do đó $\partial_\nu u=\pm\tfrac{1}{r}u_\theta$ --- điều kiện $\partial_\nu u=0$ tương đương $u_\theta=0$ tại $\theta=0$ và $\theta=\tfrac{\pi}{4}$. Trên cung $r=1$, pháp tuyến hướng ra ngoài là $\hat r$, nên $\partial_\nu u=u_r$.
+
+\paragraph{(a) Bước 1 --- viết tường minh điều kiện tương thích.}\leavevmode
+
+Áp $(\ast)$ cho bài: vế trái $\iint_Q\Delta u\,dA=\iint_Q 1\,dA=|Q|$.
+
+\emph{Tính diện tích quạt $|Q|$.} Quạt bán kính $R$ góc mở $\alpha$ có diện tích $\tfrac12 R^2\alpha$; ở đây $R=1$, $\alpha=\tfrac{\pi}{4}$, nên $|Q|=\tfrac12\cdot1^2\cdot\tfrac{\pi}{4}=\tfrac{\pi}{8}$.
+
+\emph{Tính vế phải $\int_{\partial Q}\partial_\nu u\,ds$.} Vì $\partial_\nu u=0$ trên hai cạnh thẳng nên hai đoạn này đóng góp $0$. Còn cung $r=1$: tham số hóa bởi $\theta\in[0,\tfrac{\pi}{4}]$, độ dài $ds=r\,d\theta=d\theta$, và trên cung $x=1+\cos\theta$ nên $\partial_\nu u=x+C=1+\cos\theta+C$. Do đó
+\[
+  \int_{\partial Q}\partial_\nu u\,ds=\int_0^{\pi/4}\!\!(1+\cos\theta+C)\,d\theta
+  =(1+C)\cdot\tfrac{\pi}{4}+\big[\sin\theta\big]_0^{\pi/4}
+  =(1+C)\tfrac{\pi}{4}+\tfrac{\sqrt2}{2}.
+\]
+
+\emph{Cân bằng hai vế.} $(\ast)$ cho
+\[
+  (1+C)\tfrac{\pi}{4}+\tfrac{\sqrt2}{2}=\tfrac{\pi}{8}
+  \ \Longrightarrow\ (1+C)\tfrac{\pi}{4}=\tfrac{\pi}{8}-\tfrac{\sqrt2}{2}
+  \ \Longrightarrow\ 1+C=\tfrac12-\tfrac{2\sqrt2}{\pi}.
+\]
+\[
+  \boxed{\;C=-\tfrac12-\tfrac{2\sqrt2}{\pi}.\;}
+\]
+
+\paragraph{(b) Bước 2 --- duy nhất sai khác hằng bằng tích phân năng lượng.}\leavevmode
+
+\emph{``Sai khác hằng''} nghĩa là: nếu $u_1,u_2$ cùng là nghiệm thì $u_1-u_2=\text{const}$. Đặt $w=u_1-u_2$; vì PDE tuyến tính và dữ liệu biên giống nhau, $w$ thoả bài \emph{thuần nhất}
+\[
+  \Delta w=0\ \text{trong }Q,\qquad \partial_\nu w=0\ \text{trên }\partial Q.
+\]
+
+\emph{Đồng nhất thức năng lượng (Green thứ nhất).} Áp định lý phân kỳ cho $\mathbf F=w\nabla w$: $\operatorname{div}(w\nabla w)=|\nabla w|^2+w\Delta w$ và $(w\nabla w)\cdot\nu=w\,\partial_\nu w$, nên
+\[
+  \iint_Q\big(|\nabla w|^2+w\Delta w\big)\,dA=\int_{\partial Q}w\,\partial_\nu w\,ds.
+\]
+Với $\Delta w=0$ trong $Q$ và $\partial_\nu w=0$ trên $\partial Q$, vế trong và vế biên đều triệt:
+\[
+  \iint_Q|\nabla w|^2\,dA=0.
+\]
+Tích phân của một đại lượng \emph{không âm} bằng $0$ nên $|\nabla w|\equiv0$, tức $\nabla w=\mathbf0$ khắp $Q$. Vì $Q$ liên thông, $w$ là hằng số. Do đó $u_1=u_2+\text{const}$. Vậy khi điều kiện (a) thoả thì \textbf{tồn tại vô số nghiệm, đôi một sai khác một hằng số cộng}.
+
+\paragraph{(c) Bước 3 --- dạng tổng quát của nghiệm trong toạ độ cực.}\leavevmode
+
+\emph{Bước 3.1 --- tách thành nghiệm riêng $+$ phần điều hòa.} Viết $u=u_p+v$ với $u_p$ là một \emph{nghiệm riêng} của $\Delta u_p=1$ và $v$ là phần \emph{điều hòa} ($\Delta v=0$) gánh đúng dữ liệu biên còn lại.
+
+\emph{Chọn $u_p=\tfrac{r^2}{4}$.} Laplacian trong toạ độ cực cho hàm chỉ phụ thuộc $r$ là $\Delta f(r)=f''(r)+\tfrac{1}{r}f'(r)$. Với $f=\tfrac{r^2}{4}$: $f'=\tfrac{r}{2}$, $f''=\tfrac12$, nên $\Delta\tfrac{r^2}{4}=\tfrac12+\tfrac12=1$. \checkmark\ Hơn nữa, $u_p$ không phụ thuộc $\theta$ nên $(u_p)_\theta=0$ tại $\theta=0$ và $\theta=\tfrac{\pi}{4}$ --- tự thoả Neumann trên hai cạnh thẳng. Tốt.
+
+\emph{Bước 3.2 --- chuỗi Fourier cho phần điều hòa $v$.} Tách biến $v=R(r)\Theta(\theta)$ trong phương trình Laplace cực $v_{rr}+\tfrac{1}{r}v_r+\tfrac{1}{r^2}v_{\theta\theta}=0$ cho hệ
+\[
+  \Theta''+\mu^2\Theta=0,\qquad r^2R''+rR'-\mu^2 R=0.
+\]
+Hai cạnh $\theta=0,\tfrac{\pi}{4}$ là biên Neumann ($\Theta'=0$ tại hai đầu), nên các hàm riêng theo $\theta$ là $\cos(\mu\theta)$ với $\sin(\mu\cdot0)\cdot\mu=0$ tự thoả ($\Theta'(0)=0$), và điều kiện $\Theta'(\tfrac{\pi}{4})=-\mu\sin(\mu\tfrac{\pi}{4})=0$ buộc $\mu\tfrac{\pi}{4}=n\pi$, tức $\mu=4n$ với $n=0,1,2,\dots$ Phương trình bán kính $r^2 R''+rR'-(4n)^2 R=0$ là Euler, có nghiệm $r^{4n}$ và $r^{-4n}$; ta \textbf{loại $r^{-4n}$} vì cần $v$ bị chặn (thực ra trơn) tại $r=0$ (đỉnh quạt nằm trong bao đóng của miền, nghiệm phải hữu hạn ở đó). Ứng $n=0$ là hằng số $A_0$.
+
+Vậy nghiệm tổng quát:
 \[
   u(r,\theta)=\frac{r^2}{4}+A_0+\sum_{n\ge1}A_n\,r^{4n}\cos(4n\theta).
 \]
 
-\paragraph{(c) Bước 2 --- khớp cung $r=1$.} $\partial_r u|_{r=1}=\tfrac12+\sum_{n\ge1}4nA_n\cos(4n\theta)$
-phải bằng $x+C=1+\cos\theta+C$. Chuyển vế ($\tfrac12+C=-\tfrac{2\sqrt2}{\pi}$):
+\paragraph{(c) Bước 4 --- khớp dữ liệu Neumann trên cung $r=1$.}\leavevmode
+
+\emph{Bước 4.1 --- tính $u_r$ tại $r=1$.} Đạo hàm theo $r$:
 \[
-  \sum_{n\ge1}4nA_n\cos(4n\theta)=\cos\theta-\tfrac{2\sqrt2}{\pi}.
+  u_r(r,\theta)=\frac{r}{2}+\sum_{n\ge1}4n\,A_n\,r^{4n-1}\cos(4n\theta)
+  \ \Longrightarrow\ u_r(1,\theta)=\frac12+\sum_{n\ge1}4nA_n\cos(4n\theta).
 \]
-Hệ $\{\cos(4n\theta)\}$ trực giao trên $[0,\tfrac{\pi}{4}]$ ($\int\cos^2=\tfrac{\pi}{8}$); số hạng hằng tự khử
-(đúng điều kiện (a)). Với $n\ge1$:
+Điều kiện biên trên cung: $u_r(1,\theta)=x+C=1+\cos\theta+C$. Thay $C=-\tfrac12-\tfrac{2\sqrt2}{\pi}$ thì $1+C=\tfrac12-\tfrac{2\sqrt2}{\pi}$, suy ra
 \[
-  4nA_n=\tfrac{8}{\pi}\!\int_0^{\pi/4}\!\cos\theta\cos(4n\theta)\,d\theta
-  =\tfrac{8}{\pi}\cdot\frac{(-1)^{n+1}\sqrt2}{2(16n^2-1)}
-  \Rightarrow A_n=\frac{(-1)^{n+1}\sqrt2}{n\pi(16n^2-1)}.
+  \frac12+\sum_{n\ge1}4nA_n\cos(4n\theta)=\tfrac12-\tfrac{2\sqrt2}{\pi}+\cos\theta.
 \]
+Triệt $\tfrac12$ ở hai vế:
+\[
+  \sum_{n\ge1}4nA_n\cos(4n\theta)=\cos\theta-\tfrac{2\sqrt2}{\pi}.\tag{$\star$}
+\]
+
+\emph{Bước 4.2 --- khai triển vế phải theo hệ cơ sở $\{1,\cos(4n\theta)\}_{n\ge1}$ trên $[0,\tfrac{\pi}{4}]$.} Hệ này \emph{trực giao} với tích trong $\langle f,g\rangle=\int_0^{\pi/4}fg\,d\theta$:
+\[
+  \int_0^{\pi/4}\!\!\cos(4n\theta)\cos(4m\theta)\,d\theta=
+  \begin{cases}\tfrac{\pi}{8},& n=m\ge1,\\ 0,& n\ne m.\end{cases}
+\]
+Hệ số $a_0$ (số hạng hằng) của vế phải: $a_0=\tfrac{1}{\pi/4}\int_0^{\pi/4}(\cos\theta-\tfrac{2\sqrt2}{\pi})\,d\theta=\tfrac{4}{\pi}\big(\tfrac{\sqrt2}{2}-\tfrac{2\sqrt2}{\pi}\cdot\tfrac{\pi}{4}\big)=\tfrac{4}{\pi}\cdot0=0$. Số hạng hằng \emph{tự khử} --- chính là điều kiện tương thích (a) đã đảm bảo! (Nếu nó khác $0$ thì $(\star)$ vô nghiệm vì vế trái không có thành phần hằng.)
+
+\emph{Bước 4.3 --- chiếu lên $\cos(4n\theta)$ để tìm $A_n$, $n\ge1$.} Nhân $(\star)$ với $\cos(4n\theta)$ rồi tích phân:
+\[
+  4nA_n\cdot\tfrac{\pi}{8}=\int_0^{\pi/4}\!\!\cos\theta\cos(4n\theta)\,d\theta-\tfrac{2\sqrt2}{\pi}\underbrace{\int_0^{\pi/4}\!\!\cos(4n\theta)\,d\theta}_{=\,0\ (n\ge1)}.
+\]
+Tích phân ở giữa: dùng $\cos A\cos B=\tfrac12[\cos(A-B)+\cos(A+B)]$,
+\[
+  \int_0^{\pi/4}\!\!\cos\theta\cos(4n\theta)\,d\theta
+  =\tfrac12\!\int_0^{\pi/4}\!\!\big[\cos((4n-1)\theta)+\cos((4n+1)\theta)\big]\,d\theta
+  =\tfrac12\Big[\tfrac{\sin((4n-1)\tfrac{\pi}{4})}{4n-1}+\tfrac{\sin((4n+1)\tfrac{\pi}{4})}{4n+1}\Big].
+\]
+Tính $\sin((4n\pm1)\tfrac{\pi}{4})=\sin(n\pi\pm\tfrac{\pi}{4})=(-1)^n\sin(\pm\tfrac{\pi}{4})=\pm(-1)^n\tfrac{\sqrt2}{2}$. Cụ thể $\sin((4n-1)\tfrac{\pi}{4})=-(-1)^n\tfrac{\sqrt2}{2}$ và $\sin((4n+1)\tfrac{\pi}{4})=(-1)^n\tfrac{\sqrt2}{2}$. Gộp:
+\[
+  \int_0^{\pi/4}\!\!\cos\theta\cos(4n\theta)\,d\theta
+  =\tfrac{(-1)^n\sqrt2}{4}\Big[-\tfrac{1}{4n-1}+\tfrac{1}{4n+1}\Big]
+  =\tfrac{(-1)^n\sqrt2}{4}\cdot\tfrac{-2}{16n^2-1}
+  =\tfrac{(-1)^{n+1}\sqrt2}{2(16n^2-1)}.
+\]
+Vậy
+\[
+  4nA_n\cdot\tfrac{\pi}{8}=\tfrac{(-1)^{n+1}\sqrt2}{2(16n^2-1)}
+  \ \Longrightarrow\ A_n=\frac{(-1)^{n+1}\sqrt2}{n\pi(16n^2-1)}.
+\]
+
 \begin{nhobox}
 \[
   u(r,\theta)=\frac{r^2}{4}+A_0+\frac{\sqrt2}{\pi}\sum_{n\ge1}\frac{(-1)^{n+1}}{n(16n^2-1)}\,r^{4n}\cos(4n\theta),
 \]
-với $A_0$ tùy ý (sai khác hằng) và $C=-\tfrac12-\tfrac{2\sqrt2}{\pi}$; $x=1+r\cos\theta,\ y=1+r\sin\theta$.
+với $A_0\in\mathbb R$ tuỳ ý (thể hiện ``sai khác hằng''), $C=-\tfrac12-\tfrac{2\sqrt2}{\pi}$, và phép đổi biến $x=1+r\cos\theta,\ y=1+r\sin\theta$.
 \end{nhobox}

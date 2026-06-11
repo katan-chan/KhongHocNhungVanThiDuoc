@@ -40,33 +40,105 @@ Chồng chất tách rồi xử lý từng phần; phần phẳng xem mục ``đ
 \paragraph{Nhắc lại đề.} $u_{tt}=\Delta u$ trên $\mathbb{R}^3$, $u(\cdot,0)=0$, $u_t(\cdot,0)=\psi=\chi_{B_1(0)}$
 (đối xứng cầu). Tính $u(0,t)$ tại tâm.
 
-\paragraph{Bước 1 --- đổi biến.} $c=1$, đặt $v=ru$. Vì $u(\cdot,0)=0$, $u_t(\cdot,0)=\psi(r)$:
+\paragraph{Bước 1 --- nhận xét đối xứng cầu \& viết PT theo $r$.}\leavevmode
+
+\emph{Đối xứng cầu} nghĩa là dữ liệu chỉ phụ thuộc $r=|x|$ chứ không phụ thuộc hướng. Vì $\psi(x)=\chi_{B_1(0)}(x)=\chi_{[0,1]}(|x|)$ chỉ phụ thuộc $r$, và $u(\cdot,0)=0$ cũng vậy, nên nghiệm $u$ cũng chỉ phụ thuộc $(r,t)$: viết $u=u(r,t)$. Trong toạ độ cầu, Laplacian của hàm chỉ phụ thuộc $r$ là
 \[
-  v_{tt}=v_{rr}\ (r>0),\quad v(r,0)=0,\quad v_t(r,0)=r\,\psi(r)=r\,\chi_{[0,1]}(r),\quad v(0,t)=0.
+  \Delta u=u_{rr}+\tfrac{2}{r}u_r,
+\]
+nên PT trở thành (với $c=1$):
+\[
+  u_{tt}=u_{rr}+\tfrac{2}{r}u_r,\quad r>0,\qquad u(r,0)=0,\quad u_t(r,0)=\psi(r)=\chi_{[0,1]}(r).
+\]
+Hệ số $\tfrac{2}{r}u_r$ khiến PT \emph{không phải} sóng 1D thông thường. Mục tiêu: dùng đổi biến để khử số hạng này.
+
+\paragraph{Bước 2 --- đổi biến $v=ru$ (định nghĩa) \& chứng minh $v_{rr}=r\Delta u$.}\leavevmode
+
+Đặt
+\[
+  v(r,t):=r\,u(r,t).
+\]
+Tính trực tiếp:
+\begin{align*}
+  v_r &= u+r\,u_r,\\
+  v_{rr} &= u_r+u_r+r\,u_{rr}=2u_r+r\,u_{rr}=r\Big(u_{rr}+\tfrac{2}{r}u_r\Big)=r\,\Delta u.
+\end{align*}
+Mặt khác $v_{tt}=r\,u_{tt}$ (vì $r$ không phụ thuộc $t$). Nhân PT của $u$ với $r$:
+\[
+  r\,u_{tt}=r\Big(u_{rr}+\tfrac{2}{r}u_r\Big)\ \Longrightarrow\ v_{tt}=v_{rr},\qquad r>0.
+\]
+Đây là \textbf{sóng 1D thuần nhất} cho $v$ trên nửa đường $r>0$.
+
+Dữ liệu đầu cho $v$:
+\[
+  v(r,0)=r\,u(r,0)=0,\qquad v_t(r,0)=r\,u_t(r,0)=r\,\chi_{[0,1]}(r).
 \]
 
-\paragraph{Bước 2 --- d'Alembert (thác triển lẻ qua $r=0$).} Với $h(r)=r\chi_{[0,1]}(r)$, thác triển lẻ
-$h_{\mathrm{lẻ}}(s)=s\,\chi_{[-1,1]}(s)$:
+\paragraph{Bước 3 --- điều kiện biên \emph{tự nhiên} tại tâm.}\leavevmode
+
+Vì $u$ phải hữu hạn ở tâm $r=0$ (giá trị vật lý tại điểm gốc) và $v=r\,u$, lấy $r\to0$ được
 \[
-  v(r,t)=\tfrac12\int_{r-t}^{r+t} h_{\mathrm{lẻ}}(s)\,ds,\qquad
-  u(r,t)=\frac{v(r,t)}{r}.
+  v(0,t)=0\qquad (\text{biên \textbf{Dirichlet} \emph{tự nhiên} ở tâm}).
+\]
+Gọi là ``tự nhiên'' vì ta không áp đặt mà do định nghĩa $v=ru$ tự bắt buộc.
+
+\paragraph{Bước 4 --- thác triển lẻ qua $r=0$ để dùng d'Alembert toàn trục.}\leavevmode
+
+Bài cho $v$ đang trên \emph{nửa đường} $r>0$ với biên Dirichlet $v(0,t)=0$. \textbf{Mẹo chuẩn:} thác triển dữ liệu sang $r<0$ rồi giải sóng 1D trên \emph{toàn trục} $\mathbb{R}$ bằng d'Alembert. Quy tắc:
+\begin{itemize}
+\item Biên Dirichlet ($v=0$ tại $0$) $\Rightarrow$ thác triển \textbf{lẻ} (hàm lẻ tự triệt tiêu tại $0$).
+\item Biên Neumann ($v_r=0$ tại $0$) $\Rightarrow$ thác triển \textbf{chẵn}.
+\end{itemize}
+Áp vào bài: đặt $h(r):=r\,\chi_{[0,1]}(r)$ (dữ liệu $v_t(\cdot,0)$ trên $r>0$). Thác triển lẻ ra toàn trục:
+\[
+  h_{\mathrm{lẻ}}(s)=\begin{cases} h(s)=s\,\chi_{[0,1]}(s),& s\ge0,\\ -h(-s)=s\,\chi_{[-1,0]}(s),& s<0,\end{cases}
+  \quad\text{gộp lại}\quad h_{\mathrm{lẻ}}(s)=s\,\chi_{[-1,1]}(s).
+\]
+(Kiểm tra lẻ: $h_{\mathrm{lẻ}}(-s)=-s\,\chi_{[-1,1]}(-s)=-s\,\chi_{[-1,1]}(s)=-h_{\mathrm{lẻ}}(s)$ vì $\chi_{[-1,1]}$ chẵn.)
+
+Vì dữ liệu lẻ và PT tuyến tính, nghiệm thu được trên toàn trục cũng lẻ theo $r$, do đó tự thoả $v(0,t)=0$.
+
+\paragraph{Bước 5 --- áp d'Alembert cho $v$ trên toàn trục.}\leavevmode
+
+Sóng 1D thuần nhất $v_{tt}=v_{rr}$ với $v(\cdot,0)=0$, $v_t(\cdot,0)=h_{\mathrm{lẻ}}$, công thức d'Alembert (chỉ còn phần vận tốc đầu):
+\[
+  v(r,t)=\tfrac12\int_{r-t}^{r+t} h_{\mathrm{lẻ}}(s)\,ds.
+\]
+Sau đó quay về $u$:
+\[
+  u(r,t)=\frac{v(r,t)}{r}\qquad (r>0).
 \]
 
-\paragraph{Bước 3 --- tại tâm $r=0$ (khử dạng $0/0$).} $u=v/r$ tại $r=0$ là $0/0$ vì
-$v(0,t)=\tfrac12\int_{-t}^{t}h_{\mathrm{lẻ}}=0$ ($h_{\mathrm{lẻ}}$ lẻ). L'Hôpital theo $r$:
-$u(0,t)=\lim_{r\to0}\tfrac{v(r,t)}{r}=v_r(0,t)$.
+\paragraph{Bước 6 --- tại tâm $r=0$: khử dạng $0/0$ bằng L'Hôpital.}\leavevmode
 
-\paragraph{Bước 3a --- đạo hàm theo cận.} $v_r(r,t)=\tfrac12\big[h_{\mathrm{lẻ}}(r+t)-h_{\mathrm{lẻ}}(r-t)\big]$.
-Tại $r=0$, dùng $h_{\mathrm{lẻ}}(-t)=-h_{\mathrm{lẻ}}(t)$:
+Công thức $u=v/r$ tại $r=0$ cho dạng $0/0$ vì:
 \[
-  u(0,t)=\tfrac12\big[h_{\mathrm{lẻ}}(t)-h_{\mathrm{lẻ}}(-t)\big]=h_{\mathrm{lẻ}}(t).
+  v(0,t)=\tfrac12\int_{-t}^{t} h_{\mathrm{lẻ}}(s)\,ds=0\quad (\text{tích phân hàm lẻ trên đoạn đối xứng}).
+\]
+Do $v$ trơn (đủ tốt) và $v(0,t)=0$, áp dụng L'Hôpital theo biến $r$ tại $r=0$:
+\[
+  u(0,t)=\lim_{r\to0}\frac{v(r,t)}{r}=\lim_{r\to0}\frac{v_r(r,t)}{1}=v_r(0,t).
 \]
 
-\paragraph{Bước 3b --- thay $h_{\mathrm{lẻ}}(t)=t\,\chi_{[-1,1]}(t)$.}\leavevmode
+\paragraph{Bước 7 --- tính $v_r(0,t)$ bằng đạo hàm theo cận.}\leavevmode
+
+Từ $v(r,t)=\tfrac12\int_{r-t}^{r+t} h_{\mathrm{lẻ}}(s)\,ds$, đạo hàm theo $r$ (quy tắc Leibniz, cận trên đạo hàm $+1$, cận dưới $+1$):
+\[
+  v_r(r,t)=\tfrac12\big[h_{\mathrm{lẻ}}(r+t)\cdot 1-h_{\mathrm{lẻ}}(r-t)\cdot 1\big]
+  =\tfrac12\big[h_{\mathrm{lẻ}}(r+t)-h_{\mathrm{lẻ}}(r-t)\big].
+\]
+Tại $r=0$, dùng tính lẻ $h_{\mathrm{lẻ}}(-t)=-h_{\mathrm{lẻ}}(t)$:
+\[
+  u(0,t)=v_r(0,t)=\tfrac12\big[h_{\mathrm{lẻ}}(t)-h_{\mathrm{lẻ}}(-t)\big]=\tfrac12\big[h_{\mathrm{lẻ}}(t)+h_{\mathrm{lẻ}}(t)\big]=h_{\mathrm{lẻ}}(t).
+\]
+
+\paragraph{Bước 8 --- thay biểu thức tường minh của $h_{\mathrm{lẻ}}$.}\leavevmode
+
+Với $t>0$: $h_{\mathrm{lẻ}}(t)=t\,\chi_{[-1,1]}(t)=t\,\chi_{[0,1]}(t)$ (do $t>0$).
 
 \begin{nhobox}
 \[
   u(0,t)=\begin{cases} t, & 0<t<1,\\ 0, & t>1.\end{cases}
 \]
-Tín hiệu qua tâm trong $(0,1)$ rồi tắt --- khớp Huygens mạnh (so sánh: dạng bài Kirchhoff cho cùng kết quả).
+Tín hiệu qua tâm trong $(0,1)$ rồi tắt --- khớp \textbf{nguyên lý Huygens mạnh} trong 3D (so sánh: dạng bài Kirchhoff cho cùng kết quả).
 \end{nhobox}

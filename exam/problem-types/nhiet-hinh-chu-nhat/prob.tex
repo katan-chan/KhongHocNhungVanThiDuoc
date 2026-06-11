@@ -70,60 +70,130 @@ tương tự cho $\sin$. Kernel làm tắt mỗi mode tần số $\beta$ theo $e
 
 \subsection*{Đề bài \& bài giải}
 
-\paragraph{(a) Duy nhất nghiệm bằng năng lượng 2D.}\leavevmode
+% ===============================================================
+\subsubsection*{(a) Duy nhất nghiệm bằng năng lượng 2D}
+% ===============================================================
 
-Giả sử $u_1,u_2$ là hai nghiệm. Hiệu $w=u_1-u_2$ thỏa $w_t=\Delta w$ trên $R$, cùng biên đã cho và $w(x,y,0)=0$. Đặt $I(t)=\iint_R w^2\,dx\,dy$, có $I(0)=0$. Khi đó
-\[
-  I'(t)=2\iint_R w\,w_t\,dx\,dy=2\iint_R w\,(w_{xx}+w_{yy})\,dx\,dy.
-\]
-Tích phân từng phần (công thức Green) trên hình chữ nhật:
-\[
-  I'(t)=2\oint_{\partial R} w\,\partial_n w\,ds-2\iint_R\big(w_x^2+w_y^2\big)\,dx\,dy.
-\]
-Trên hai cạnh $x=\pm1$: $w_x=0$ (Neumann) $\Rightarrow w\,\partial_n w=0$. Trên hai cạnh $y=0,\pi$: $w=0$ (Dirichlet) $\Rightarrow w\,\partial_n w=0$. Vậy số hạng biên triệt tiêu:
-\[
-  I'(t)=-2\iint_R\big(w_x^2+w_y^2\big)\,dx\,dy\le0.
-\]
-Do $0\le I(t)\le I(0)=0$ nên $I\equiv0$, suy ra $w\equiv0$, tức $u_1=u_2$: bài toán có duy nhất nghiệm.
+\paragraph{Bước 1 --- lập bài toán cho hiệu hai nghiệm.}\leavevmode
 
-\paragraph{(b) Bước 1 --- thác triển dữ liệu lên toàn mặt phẳng.}\leavevmode
+\emph{Ý tưởng:} muốn chứng minh \textbf{duy nhất nghiệm}, giả sử có hai nghiệm $u_1,u_2$ rồi chứng minh hiệu $w:=u_1-u_2\equiv0$. Vì PDE và mọi điều kiện (biên, đầu) đều \textbf{tuyến tính} và \textbf{cùng dữ kiện}, hiệu khử sạch nguồn $F$ và dữ kiện ban đầu:
+\[
+  w_t=w_{xx}+w_{yy}\ \text{trên}\ R,\quad
+  w_x(\pm1,y,t)=0,\quad w(x,0,t)=w(x,\pi,t)=0,\quad w(x,y,0)=0.
+\]
 
-Khớp đối xứng của hai loại biên, thác triển nghiệm $u$ thành $\bar u$ thỏa:
+\paragraph{Bước 2 --- định nghĩa năng lượng và tính đạo hàm.}\leavevmode
+
+\textbf{Tích phân năng lượng} là đại lượng vô hướng $I(t)=\iint_R w^2\,dx\,dy\ge0$ đo ``độ lớn'' tổng cộng của $w$ tại thời điểm $t$. Hai tính chất chìa khoá: $I\ge0$ luôn, và $I(0)=0$ do $w(\cdot,0)=0$. Lấy đạo hàm dưới dấu tích phân (miền $R$ cố định) rồi dùng $w_t=\Delta w$:
+\[
+  I'(t)=\iint_R 2w\,w_t\,dx\,dy=2\iint_R w\,(w_{xx}+w_{yy})\,dx\,dy.
+\]
+
+\paragraph{Bước 3 --- tích phân từng phần (Green) để tách phần biên.}\leavevmode
+
+Đẳng thức Green chuẩn (tích phân từng phần 2D) cho:
+\[
+  \iint_R w\,\Delta w\,dx\,dy=\oint_{\partial R} w\,\partial_n w\,ds-\iint_R |\nabla w|^2\,dx\,dy,
+\]
+với $\partial_n$ là đạo hàm pháp tuyến ngoài và $|\nabla w|^2=w_x^2+w_y^2$. Vậy
+\[
+  I'(t)=2\oint_{\partial R} w\,\partial_n w\,ds\;-\;2\iint_R(w_x^2+w_y^2)\,dx\,dy.
+\]
+
+\paragraph{Bước 4 --- triệt tích phân biên (xét từng cặp cạnh).}\leavevmode
+
+Biên $\partial R$ gồm 4 cạnh; trên mỗi cạnh tích $w\,\partial_n w$ tự triệt:
 \begin{itemize}
-\item theo $y$ (Dirichlet $u=0$ tại $y=0,\pi$): \textbf{lẻ}, tuần hoàn chu kỳ $2\pi$;
-\item theo $x$ (Neumann $u_x=0$ tại $x=\pm1$): \textbf{chẵn} tại $x=1$, tức $\bar u(2-x,y,t)=\bar u(x,y,t)$, tuần hoàn chu kỳ $4$.
+\item Cạnh $x=\pm1$ (Neumann): $\partial_n w=\pm w_x=0\Rightarrow w\,\partial_n w=0$.
+\item Cạnh $y=0,\pi$ (Dirichlet): $w=0\Rightarrow w\,\partial_n w=0$.
 \end{itemize}
-Dữ liệu ban đầu thác triển thành $\bar g(x,y)=\sin^2(\pi x)\sin(y)$ (đã sẵn đúng đối xứng trên).
-
-\paragraph{(b) Bước 2 --- công thức Poisson (kernel tách biến).}\leavevmode
-
+Do đó số hạng biên triệt tiêu hoàn toàn:
 \[
-  u(x,y,t)=\frac{1}{4\pi t}\int_{\mathbb R}\sin^2(\pi X)\,e^{-\frac{(x-X)^2}{4t}}dX
-  \int_{\mathbb R}\sin(Y)\,e^{-\frac{(y-Y)^2}{4t}}dY.
+  I'(t)=-2\iint_R(w_x^2+w_y^2)\,dx\,dy\le0.
 \]
 
-\paragraph{(b) Bước 3 --- tích phân theo $x$.}
-Viết $\sin^2(\pi X)=\tfrac12\big(1-\cos(2\pi X)\big)$. Hằng số giữ nguyên qua kernel, còn $\cos(2\pi X)$ bị làm tắt theo $e^{-(2\pi)^2 t}$ (mục (3)):
+\paragraph{Bước 5 --- kết luận từ $I\ge0$, $I(0)=0$, $I'\le0$.}\leavevmode
+
+Ba điều này ép $0\le I(t)\le I(0)=0$ với mọi $t\ge0$, nên $I\equiv0$. Vì $w^2\ge0$ liên tục, tích phân $\iint w^2=0$ kéo theo $w\equiv0$ trên $R$. Vậy $u_1\equiv u_2$: \textbf{bài toán có duy nhất nghiệm}. \hfill$\square$
+
+% ===============================================================
+\subsubsection*{(b) Giải tường minh với $F=0$, $g=\sin^2(\pi x)\sin y$}
+% ===============================================================
+
+\emph{Chiến lược:} thác triển $u$ và $g$ từ hình chữ nhật $R$ lên toàn mặt phẳng $\mathbb R^2$ sao cho thoả \emph{tự động} cả 4 điều kiện biên; bài toán biên-đầu trở thành \textbf{bài Cauchy} trên $\mathbb R^2$ giải bằng công thức Poisson. Sau đó tách kernel Gauss thành tích hai tích phân 1D rồi tính từng cái.
+
+\paragraph{Bước 1 --- thác triển: chọn đối xứng khớp từng loại biên.}\leavevmode
+
+Ta cần \emph{chuyển} biên thành một \emph{tính chất đối xứng} của hàm thác triển $\bar u$, để biên tự thoả mà không phải áp đặt:
+\begin{itemize}
+\item Theo $y$ (biên Dirichlet $u=0$ tại $y=0,\pi$): thác triển \textbf{lẻ} qua mỗi đầu, rồi tuần hoàn chu kỳ $2\pi$. Một hàm lẻ tại $y=0$ tự bằng $0$, ổn với Dirichlet.
+\item Theo $x$ (biên Neumann $u_x=0$ tại $x=\pm1$): thác triển \textbf{chẵn} qua mỗi đầu, rồi tuần hoàn chu kỳ $4$. Một hàm chẵn quanh $x=1$ thì $u_x(1,\cdot)=0$ tự động, ổn với Neumann.
+\end{itemize}
+(Quy tắc tổng quát: Dirichlet$\to$lẻ; Neumann$\to$chẵn --- xem Phụ lục C.)
+
+May mắn $g(x,y)=\sin^2(\pi x)\sin(y)$ \emph{đã sẵn} đúng cả hai đối xứng:
+\begin{itemize}
+\item $\sin y$ lẻ và $2\pi$-tuần hoàn theo $y$ $\Rightarrow$ khớp Dirichlet ở $y=0,\pi$;
+\item $\sin^2(\pi x)=\tfrac12(1-\cos(2\pi x))$ chẵn quanh mỗi $x=k$ ($k\in\mathbb Z$) và $1$-tuần hoàn $\Rightarrow$ khớp Neumann ở $x=\pm1$.
+\end{itemize}
+Do đó $\bar g(x,y)=\sin^2(\pi x)\sin(y)$ trên toàn $\mathbb R^2$.
+
+\paragraph{Bước 2 --- công thức Poisson 2D \& kernel tách biến.}\leavevmode
+
+Bài Cauchy $\bar u_t=\Delta\bar u$ trên $\mathbb R^2$, $\bar u(\cdot,0)=\bar g$ có nghiệm
 \[
-  \frac{1}{\sqrt{4\pi t}}\int_{\mathbb R}\sin^2(\pi X)\,e^{-\frac{(x-X)^2}{4t}}dX
+  \bar u(x,y,t)=\frac{1}{4\pi t}\!\iint_{\mathbb R^2}\bar g(X,Y)\,e^{-\frac{(x-X)^2+(y-Y)^2}{4t}}dX\,dY.
+\]
+Vì $\bar g(X,Y)=\sin^2(\pi X)\cdot\sin(Y)$ tách thành tích, và kernel Gauss cũng tách:
+\[
+  e^{-\frac{(x-X)^2+(y-Y)^2}{4t}}=e^{-\frac{(x-X)^2}{4t}}\,e^{-\frac{(y-Y)^2}{4t}},\qquad
+  \frac{1}{4\pi t}=\frac{1}{\sqrt{4\pi t}}\cdot\frac{1}{\sqrt{4\pi t}},
+\]
+nên tích phân đôi rã thành tích hai tích phân 1D:
+\[
+  \bar u(x,y,t)=\underbrace{\Big[\tfrac{1}{\sqrt{4\pi t}}\!\int_{\mathbb R}\!\sin^2(\pi X)\,e^{-\frac{(x-X)^2}{4t}}dX\Big]}_{=:\,A(x,t)}
+  \cdot\underbrace{\Big[\tfrac{1}{\sqrt{4\pi t}}\!\int_{\mathbb R}\!\sin(Y)\,e^{-\frac{(y-Y)^2}{4t}}dY\Big]}_{=:\,B(y,t)}.
+\]
+
+\paragraph{Bước 3 --- bổ đề: làm trơn nhiệt của $\cos/\sin$.}\leavevmode
+
+Phụ lục B cho công thức (tích phân cos-Gauss): với mọi $\beta\in\mathbb R$,
+\[
+  \tfrac{1}{\sqrt{4\pi t}}\!\int_{\mathbb R}\!\cos(\beta X)\,e^{-\frac{(x-X)^2}{4t}}dX=e^{-\beta^2 t}\cos(\beta x),
+\]
+và tương tự thay $\cos\to\sin$. Ý nghĩa: kernel nhiệt \textbf{không} làm lệch tần số, chỉ \textbf{tắt} biên độ mỗi mode tần số $\beta$ theo hệ số $e^{-\beta^2 t}$. Riêng hằng số ($\beta=0$): tích phân $\tfrac{1}{\sqrt{4\pi t}}\!\int e^{-(x-X)^2/(4t)}dX=1$ (giữ nguyên).
+
+\paragraph{Bước 4 --- tính $A(x,t)$ (mode hằng + mode $\cos2\pi$).}\leavevmode
+
+Hạ bậc: $\sin^2(\pi X)=\tfrac12-\tfrac12\cos(2\pi X)$. Áp bổ đề Bước 3 vào từng mode (tuyến tính):
+\[
+  A(x,t)=\tfrac12\cdot 1\;-\;\tfrac12\,e^{-(2\pi)^2 t}\cos(2\pi x)
   =\tfrac12\Big(1-e^{-4\pi^2 t}\cos(2\pi x)\Big).
 \]
 
-\paragraph{(b) Bước 4 --- tích phân theo $y$.}
-Với $\beta=1$:
+\paragraph{Bước 5 --- tính $B(y,t)$ (mode $\sin$ với $\beta=1$).}\leavevmode
+
+Áp bổ đề với $\beta=1$:
 \[
-  \frac{1}{\sqrt{4\pi t}}\int_{\mathbb R}\sin(Y)\,e^{-\frac{(y-Y)^2}{4t}}dY=e^{-t}\sin(y).
+  B(y,t)=e^{-t}\sin(y).
 \]
 
-\paragraph{(b) Bước 5 --- nhân hai phần.}\leavevmode
+\paragraph{Bước 6 --- ráp lại và kiểm tra.}\leavevmode
 
+Nghiệm thác triển $\bar u=A\cdot B$; hạn chế xuống $R$ (đúng đối xứng) cho \emph{chính} $u$:
 \begin{nhobox}
-Nghiệm cuối cùng:
 \[
-  u(x,y,t)=\tfrac12\Big(1-e^{-4\pi^2 t}\cos(2\pi x)\Big)\,e^{-t}\sin(y).
+  \boxed{\;u(x,y,t)=\tfrac12\Big(1-e^{-4\pi^2 t}\cos(2\pi x)\Big)\,e^{-t}\sin(y).\;}
 \]
-Kiểm nhanh: $t=0$ cho $\tfrac12(1-\cos2\pi x)\sin y=\sin^2(\pi x)\sin y=g$. Biên: $u_x\propto\sin(2\pi x)=0$ tại $x=\pm1$; $\sin y=0$ tại $y=0,\pi$. Đúng.
 \end{nhobox}
+
+\emph{Kiểm tra (ba đầu mối):}
+\begin{itemize}
+\item \textbf{Dữ kiện đầu} $t=0$: $\tfrac12(1-\cos2\pi x)\sin y=\sin^2(\pi x)\sin y=g$. \checkmark
+\item \textbf{Biên Neumann} $x=\pm1$: $u_x=\tfrac12\,e^{-4\pi^2 t}\cdot2\pi\sin(2\pi x)\,e^{-t}\sin y$; tại $x=\pm1$ có $\sin(\pm2\pi)=0$. \checkmark
+\item \textbf{Biên Dirichlet} $y=0,\pi$: $\sin(0)=\sin(\pi)=0\Rightarrow u=0$. \checkmark
+\end{itemize}
+(Theo (a), nghiệm là duy nhất, nên đây chính là nghiệm cần tìm.)
 
 \subsection*{Dạng bài lân cận}
 \begin{itemize}

@@ -70,61 +70,148 @@ chọn đúng cách hạ chiều: phần phụ thuộc \emph{một biến phẳn
 
 \paragraph{Nhắc lại đề.}
 $u_{tt}=\Delta u+\chi_{[0,1]}(t)\chi_{[-1,1]}(x)$ trên $\mathbb{R}^3$, $u(\cdot,0)=0$,
-$u_t(\cdot,0)=\chi_{B_1(0,0,2)}-\chi_{B_1(0,0,-2)}$. Tính $u(100,y,0,t)$.
+$u_t(\cdot,0)=\chi_{B_1(0,0,2)}-\chi_{B_1(0,0,-2)}$. Tính $u(100,y,0,t)$. (Vận tốc truyền sóng ở đây là $c=1$ vì hệ số trước $\Delta u$ bằng $1$.)
 
-\paragraph{Bước 0 --- Chồng chất (tách thành 2 bài con).} Tuyến tính nên bài gốc
-($u_{tt}=\Delta u+f$, $u(\cdot,0)=0$, $u_t(\cdot,0)=h$) tách $u=u_h+u_f$:
+\paragraph{Bước 0 --- Chồng chất (tách thành 2 bài con).}
+Vì phương trình tuyến tính, ta tách bài gốc thành \emph{hai bài con} dễ hơn rồi cộng nghiệm. Cụ thể, bài gốc có dạng $u_{tt}=\Delta u+f$ với dữ liệu đầu $u(\cdot,0)=0$, $u_t(\cdot,0)=h$, trong đó
+\[
+  h=\chi_{B_1(0,0,2)}-\chi_{B_1(0,0,-2)},\qquad f=\chi_{[0,1]}(t)\,\chi_{[-1,1]}(x).
+\]
+Ta đặt $u=u_h+u_f$, mỗi phần gánh đúng \emph{một} nguồn dữ kiện:
 \[
   (A)\ \begin{cases}(u_h)_{tt}=\Delta u_h\\ u_h(\cdot,0)=0,\ (u_h)_t(\cdot,0)=h\end{cases}
-  \quad
+  \qquad
   (B)\ \begin{cases}(u_f)_{tt}=\Delta u_f+f\\ u_f(\cdot,0)=0,\ (u_f)_t(\cdot,0)=0\end{cases}
 \]
-với $h=\chi_{B_1(0,0,2)}-\chi_{B_1(0,0,-2)}$, $f=\chi_{[0,1]}(t)\chi_{[-1,1]}(x)$.
-Kiểm tra: cộng lại được đúng bài gốc ($u_h$ gánh dữ liệu đầu, $u_f$ gánh nguồn).
-Điểm hỏi: $P=(100,y,0)$ --- nằm trên mặt phẳng $z=0$.
+Kiểm tra: cộng (A)$+$(B) cho $(u_h+u_f)_{tt}=\Delta(u_h+u_f)+f$ và dữ liệu đầu $0+0=0$, $h+0=h$ --- đúng bài gốc. $u_h$ gánh dữ liệu đầu (giải bằng Kirchhoff), $u_f$ gánh nguồn (giải bằng Duhamel rồi hạ chiều).
 
-\paragraph{Bước 1 --- Phần dữ liệu $u_h$ triệt tiêu (đối xứng).}
-Phép phản xạ $R:(x,y,z)\mapsto(x,y,-z)$ đổi $B_1(0,0,2)\leftrightarrow B_1(0,0,-2)$, nên
-$h(Rp)=-h(p)$ ($h$ \emph{lẻ} qua mặt phẳng $z=0$). Công thức Kirchhoff với $g=0$:
+Điểm hỏi: $P=(100,y,0)$ --- chú ý $P$ \emph{luôn nằm trên mặt phẳng $z=0$} (toạ độ $z$ thứ ba bằng $0$, bất kể $y$). Sự kiện này quyết định Bước 1 dưới đây.
+
+\paragraph{Bước 1 --- Phần dữ liệu $u_h$ triệt tiêu do đối xứng lẻ qua $z=0$.}\leavevmode
+
+\emph{Bước 1.1 --- Công thức Kirchhoff.} Với phương trình sóng 3D thuần nhất $u_{tt}=\Delta u$ và dữ liệu đầu $u(\cdot,0)=g$, $u_t(\cdot,0)=h$, \textbf{công thức Kirchhoff} cho nghiệm là
 \[
-  u_h(P,t)=\frac{1}{4\pi t}\int_{\partial B_t(P)} h\,dS .
+  u(P,t)=\partial_t\!\Big(\,t\cdot\overline{g}(P,t)\,\Big)+t\cdot\overline{h}(P,t),
 \]
-Vì $P$ nằm trên $z=0$ nên $RP=P$ và mặt cầu $\partial B_t(P)$ bất biến qua $R$. Đổi biến $q=Rp$:
+trong đó $\overline{\varphi}(P,t)$ là \textbf{trung bình mặt cầu} của hàm $\varphi$ trên mặt cầu $\partial B_t(P)$ tâm $P$ bán kính $t$ (vận tốc $c=1$):
 \[
-  \int_{\partial B_t(P)} h\,dS=\int_{\partial B_t(P)} h(Rq)\,dS=-\int_{\partial B_t(P)} h\,dS
-  \;\Rightarrow\; \int_{\partial B_t(P)} h\,dS=0 .
+  \overline{\varphi}(P,t)\;=\;\frac{1}{4\pi t^2}\int_{\partial B_t(P)} \varphi(p)\,dS(p)
+  \quad(\text{trung bình đơn giản: tích phân chia cho diện tích }4\pi t^2).
+\]
+Ở bài $u_h$ ta có $g=0$, nên công thức rút lại còn
+\[
+  u_h(P,t)=t\cdot\overline{h}(P,t)=\frac{1}{4\pi t}\int_{\partial B_t(P)} h(p)\,dS(p).
+\]
+
+\emph{Bước 1.2 --- Tính chất lẻ của $h$ qua mặt phẳng $z=0$.} Xét phép phản xạ $R(x,y,z)=(x,y,-z)$. Quả cầu $B_1(0,0,2)$ tâm $(0,0,2)$ phản xạ thành quả cầu tâm $(0,0,-2)$, tức $B_1(0,0,-2)$, và ngược lại. Do đó
+\[
+  \chi_{B_1(0,0,2)}(Rp)=\chi_{B_1(0,0,-2)}(p),\quad
+  \chi_{B_1(0,0,-2)}(Rp)=\chi_{B_1(0,0,2)}(p),
+\]
+nên $h(Rp)=\chi_{B_1(0,0,-2)}(p)-\chi_{B_1(0,0,2)}(p)=-h(p)$. Ta nói $h$ là hàm \textbf{lẻ} qua mặt phẳng $z=0$.
+
+\emph{Bước 1.3 --- Mặt cầu $\partial B_t(P)$ bất biến qua $R$.} Vì $P=(100,y,0)$ có toạ độ $z=0$ nên $RP=P$. Phản xạ qua một mặt phẳng đi qua tâm sẽ \emph{biến mặt cầu thành chính nó} (chỉ hoán đổi nửa trên với nửa dưới): $R(\partial B_t(P))=\partial B_t(P)$. Ngoài ra $R$ bảo toàn diện tích (là phép đẳng cự).
+
+\emph{Bước 1.4 --- Đổi biến trong tích phân mặt.} Đặt $q=R p$ (tức $p=R q$, vì $R^2=\mathrm{id}$). Khi $p$ quét $\partial B_t(P)$ thì $q$ cũng quét trọn mặt cầu này, và $dS(p)=dS(q)$. Vậy
+\[
+  I:=\int_{\partial B_t(P)} h(p)\,dS(p)
+   =\int_{\partial B_t(P)} h(Rq)\,dS(q)
+   =\int_{\partial B_t(P)} \big(-h(q)\big)\,dS(q)=-I.
+\]
+Suy ra $2I=0$, tức $I=0$, và do đó
+\[
+  u_h(P,t)=\frac{1}{4\pi t}\cdot 0=0\qquad\text{với mọi }t>0.
 \]
 \begin{nhobox}
-$u_h(100,y,0,t)=0$ với mọi $t$ --- hai quả cầu đối xứng qua mặt phẳng chứa điểm hỏi nên đóng góp khử nhau.
+$u_h(100,y,0,t)=0$ với mọi $t$ --- hai quả cầu nguồn đối xứng qua mặt phẳng $z=0$, mà $P$ nằm trên đúng mặt phẳng đó, nên đóng góp của hai quả cầu \emph{khử nhau} trên mọi mặt cầu $\partial B_t(P)$.
 \end{nhobox}
 
-\paragraph{Bước 2 --- Phần nguồn $u_f$ hạ về 1D.}
-Nguồn $f=\chi_{[0,1]}(t)\chi_{[-1,1]}(x)$ không phụ thuộc $y,z$. Vì dữ liệu ban đầu của $u_f$
-bằng 0 nên $u_f$ cũng không phụ thuộc $y,z$: đặt $u_f(x,y,z,t)=v(x,t)$ thì $u_{f,tt}=v_{tt}$,
-$\Delta u_f=v_{xx}$, dẫn về \textbf{phương trình sóng 1D}
+\paragraph{Bước 2 --- Phần nguồn $u_f$ hạ về sóng 1D.}\leavevmode
+
+\emph{Bước 2.1 --- Vì sao hạ chiều được?} Nguồn $f(x,y,z,t)=\chi_{[0,1]}(t)\chi_{[-1,1]}(x)$ \emph{không phụ thuộc $y,z$} (chỉ phụ thuộc $x$ và $t$). Dữ liệu ban đầu của $u_f$ cũng bằng $0$ (hằng số, không phụ thuộc $y,z$). Bài toán có \textbf{đối xứng tịnh tiến} theo $y$ và theo $z$: nếu $u_f(x,y,z,t)$ là nghiệm thì $u_f(x,y+a,z+b,t)$ cũng là nghiệm với cùng nguồn và dữ kiện đầu. Do tính \emph{duy nhất nghiệm}, hai hàm này phải trùng nhau, tức $u_f$ không thay đổi khi dịch $y$ hay $z$ --- nó chỉ phụ thuộc $(x,t)$.
+
+\emph{Bước 2.2 --- Phương trình thu gọn.} Đặt $u_f(x,y,z,t)=v(x,t)$. Khi đó $u_{f,tt}=v_{tt}$ và
 \[
-  v_{tt}=v_{xx}+\chi_{[0,1]}(t)\chi_{[-1,1]}(x),\quad v(x,0)=0,\ v_t(x,0)=0 .
+  \Delta u_f=v_{xx}+\underbrace{v_{yy}}_{=0}+\underbrace{v_{zz}}_{=0}=v_{xx},
 \]
-Công thức d'Alembert (Duhamel 1D):
+nên $u_f$ rút về \textbf{phương trình sóng 1D có nguồn}
 \[
-  v(x,t)=\frac12\int_0^t\!\!\int_{x-(t-s)}^{x+(t-s)} \chi_{[0,1]}(s)\chi_{[-1,1]}(\xi)\,d\xi\,ds .
+  v_{tt}=v_{xx}+\chi_{[0,1]}(t)\,\chi_{[-1,1]}(x),\qquad v(x,0)=0,\ v_t(x,0)=0.
 \]
 
-\paragraph{Bước 3 --- Tính tại $x=100$.}
-Đặt $\tau=t-s$. Độ dài giao của $[\,100-\tau,\,100+\tau\,]$ với $[-1,1]$:
+\emph{Bước 2.3 --- Công thức d'Alembert/Duhamel cho sóng 1D có nguồn.} Với phương trình $v_{tt}=v_{xx}+F(x,t)$, $v(\cdot,0)=v_t(\cdot,0)=0$, nguyên lý \textbf{Duhamel} cho
+\[
+  v(x,t)=\int_0^t w(x,t;s)\,ds,
+\]
+trong đó $w(x,t;s)$ là sóng con \emph{không nguồn} phát tại thời điểm $s$ với vận tốc đầu $F(\cdot,s)$:
+\[
+  \begin{cases} w_{tt}=w_{xx}&\text{(theo }t>s\text{)},\\ w(x,s;s)=0,\ w_t(x,s;s)=F(x,s).\end{cases}
+\]
+Công thức d'Alembert (sóng 1D vận tốc $c=1$, dữ liệu vị trí $=0$, vận tốc $=F(\cdot,s)$) cho
+\[
+  w(x,t;s)=\frac12\int_{x-(t-s)}^{x+(t-s)} F(\xi,s)\,d\xi.
+\]
+Ráp lại với $F(\xi,s)=\chi_{[0,1]}(s)\chi_{[-1,1]}(\xi)$:
+\[
+  v(x,t)=\frac12\int_0^t\!\!\int_{x-(t-s)}^{x+(t-s)} \chi_{[0,1]}(s)\,\chi_{[-1,1]}(\xi)\,d\xi\,ds.
+\]
+(Tích phân theo $\xi$ trên \textbf{miền phụ thuộc} $[x-(t-s),x+(t-s)]$ --- đoạn các điểm mà tín hiệu phát tại thời điểm $s$ có thể tới được $(x,t)$ với vận tốc $1$.)
+
+\paragraph{Bước 3 --- Tính $v(100,t)$.}\leavevmode
+
+\emph{Bước 3.1 --- Đổi biến $\tau=t-s$.} Ý nghĩa: $\tau$ là \emph{khoảng thời gian sóng con đã lan} kể từ lúc phát ($s$) tới thời điểm hiện tại ($t$). Khi $s$ chạy $0\to t$ thì $\tau$ chạy $t\to 0$ (ngược); $ds=-d\tau$, và $\chi_{[0,1]}(s)=\chi_{[0,1]}(t-\tau)$ bật khi $t-\tau\in[0,1]$, tức $\tau\in[t-1,t]$.
+
+Tại $x=100$, miền phụ thuộc theo $\xi$ là $[100-\tau,100+\tau]$. Đặt
+\[
+  L(\tau):=\big|[100-\tau,100+\tau]\cap[-1,1]\big|\;=\;\int \chi_{[-1,1]}(\xi)\,\chi_{[100-\tau,100+\tau]}(\xi)\,d\xi
+\]
+(độ dài đoạn giao). Tính bằng hình học: đoạn $[100-\tau,100+\tau]$ chỉ chạm $[-1,1]$ khi đầu trái $100-\tau\le 1$, tức $\tau\ge 99$; nó nuốt trọn $[-1,1]$ khi $100-\tau\le -1$, tức $\tau\ge 101$. Trong khoảng giữa, giao là $[-1,100+\tau\!-\!\text{xa}]\dots$ thực ra dễ thấy giao là $[-1,\,\min(1,\,-(100-\tau))]$ --- ngắn gọn:
 \[
   L(\tau)=\begin{cases}
-    0, & \tau<99,\\
-    \tau-99, & 99\le\tau\le101,\\
-    2, & \tau>101.
+    0,& \tau<99,\\
+    \tau-99,& 99\le\tau\le 101,\\
+    2,& \tau>101.
   \end{cases}
 \]
-Vì nguồn chỉ bật khi $s\in[0,1]$:
+
+\emph{Bước 3.2 --- Gộp hai tích phân về một biến.} Đổi sang $\tau$ trong $v(100,t)$:
 \[
-  v(100,t)=\frac12\int_{\max(0,\,t-1)}^{t} L(\tau)\,d\tau
-  \stackrel{t\ge1}{=}\frac12\int_{t-1}^{t} L(\tau)\,d\tau .
+  v(100,t)=\frac12\int_{s=0}^{t}\chi_{[0,1]}(s)\,L(t-s)\,ds
+          =\frac12\int_{\tau=\max(0,\,t-1)}^{t} L(\tau)\,d\tau.
 \]
-Tính theo từng đoạn:
+Với $t\ge 1$ ta có $\max(0,t-1)=t-1$, nên (ở khoảng $t$ ta sẽ quan tâm dưới đây, đều $\ge 99\gg 1$):
+\[
+  v(100,t)=\frac12\int_{t-1}^{t} L(\tau)\,d\tau.
+\]
+
+\emph{Bước 3.3 --- Tính tích phân theo từng khoảng $t$.} Vì $L$ có ba nhánh ngắt tại $\tau=99$ và $\tau=101$, đoạn $[t-1,t]$ rơi vào năm vị trí tương đối:
+
+\textbf{(a) $t\le 99$:} đoạn $[t-1,t]\subseteq(-\infty,99]$, $L\equiv 0$ trên đó. Vậy $v(100,t)=0$.
+
+\textbf{(b) $99\le t\le 100$:} đoạn $[t-1,t]$ vắt qua $\tau=99$. Trên $[t-1,99]$ thì $L=0$; trên $[99,t]$ thì $L(\tau)=\tau-99$. Vậy
+\[
+  v(100,t)=\frac12\int_{99}^{t}(\tau-99)\,d\tau=\frac12\cdot\frac{(t-99)^2}{2}=\frac{(t-99)^2}{4}.
+\]
+
+\textbf{(c) $100\le t\le 101$:} cả đoạn $[t-1,t]\subseteq[99,101]$, $L(\tau)=\tau-99$ trên trọn đoạn. Vậy
+\[
+  v(100,t)=\frac12\int_{t-1}^{t}(\tau-99)\,d\tau=\frac12\big[(\tfrac{\tau^2}{2}-99\tau)\big]_{t-1}^{t}=\frac{2t-199}{4}.
+\]
+(Cụ thể: $\tfrac{t^2-(t-1)^2}{2}=t-\tfrac12$, trừ $99\cdot 1=99$, chia $2$ ra $\tfrac{2t-199}{4}$.)
+
+\textbf{(d) $101\le t\le 102$:} đoạn $[t-1,t]$ vắt qua $\tau=101$. Trên $[t-1,101]$: $L=\tau-99$; trên $[101,t]$: $L=2$.
+\[
+  v(100,t)=\frac12\Big[\int_{t-1}^{101}(\tau-99)\,d\tau+\int_{101}^{t}2\,d\tau\Big].
+\]
+Tính: $\int_{t-1}^{101}(\tau-99)\,d\tau=\big[\tfrac{(\tau-99)^2}{2}\big]_{t-1}^{101}=2-\tfrac{(t-100)^2}{2}$; $\int_{101}^{t}2\,d\tau=2(t-101)$. Cộng lại rồi chia $2$:
+\[
+  v(100,t)=\frac12\Big(2-\tfrac{(t-100)^2}{2}+2(t-101)\Big)=(t-100)-\frac{(t-100)^2}{4}.
+\]
+
+\textbf{(e) $t\ge 102$:} cả đoạn $[t-1,t]\subseteq[101,\infty)$, $L\equiv 2$. Vậy $v(100,t)=\tfrac12\cdot 2\cdot 1=1$.
+
+\paragraph{Bước 4 --- Gộp kết quả $u=u_h+u_f$.}
+Vì $u_h\equiv 0$ tại $P=(100,y,0)$ (Bước 1) và $u_f(x,y,z,t)=v(x,t)$ (Bước 2), ta có $u(100,y,0,t)=v(100,t)$.
 \begin{nhobox}
 \[
   u(100,y,0,t)=v(100,t)=\begin{cases}
@@ -135,12 +222,11 @@ Tính theo từng đoạn:
     1, & t\ge 102.
   \end{cases}
 \]
-Đáp số \emph{không phụ thuộc $y$}; $u_h$ đã khử, chỉ còn phần nguồn 1D. Tín hiệu bắt đầu tại
-$t=99$, tăng dần rồi giữ giá trị không đổi $1$ từ $t=102$ (nguồn tắt, dịch chuyển dư trong sóng 1D).
+Đáp số \emph{không phụ thuộc $y$}: $u_h$ đã khử (đối xứng), $u_f$ vốn không phụ thuộc $y,z$. Tín hiệu bắt đầu tại $t=99$ (đúng lúc tín hiệu từ mép gần nhất $x=1$ của dải nguồn tới điểm $x=100$ với vận tốc $1$: $100-1=99$), tăng dần rồi giữ giá trị không đổi $1$ kể từ $t=102$.
 \end{nhobox}
 
-\paragraph{Kiểm tra liên tục.}
-$t=100$: $\tfrac{1}{4}$ (cả hai nhánh); $t=101$: $\tfrac34$; $t=102$: $1$. Khớp, $v$ liên tục.
+\paragraph{Kiểm tra liên tục các mối nối.}
+$t=99$: $\tfrac{0^2}{4}=0$ khớp nhánh trước. $t=100$: nhánh (b) cho $\tfrac{1}{4}$; nhánh (c) cho $\tfrac{2\cdot100-199}{4}=\tfrac14$. $t=101$: nhánh (c) cho $\tfrac{203-199}{4}=\tfrac34$; nhánh (d) cho $1-\tfrac14=\tfrac34$. $t=102$: nhánh (d) cho $2-1=1$; nhánh (e) cho $1$. Tất cả khớp, $v$ liên tục.
 
 % ---------------------------------------------------------------
 \subsection*{Dạng bài lân cận}

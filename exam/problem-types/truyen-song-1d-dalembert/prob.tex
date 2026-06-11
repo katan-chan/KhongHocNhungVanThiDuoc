@@ -46,78 +46,88 @@ Biên \textbf{Neumann} $u_x(0,t)=0\Rightarrow$ thác triển \textbf{chẵn}; bi
 % ---------------------------------------------------------------
 \subsection*{Đề bài \& bài giải}
 % ---------------------------------------------------------------
-\paragraph{Nhắc lại đề.} $u_{tt}=u_{xx}$ trên $\mathbb{R}_+$, biên $u_x(0,t)=0$, với
-$g(x)=u(x,0)$ (parabol rồi dốc xuống) và $h(x)=u_t(x,0)=\chi_{(0,1)}(x)$.
-
-\paragraph{Bước 1 --- Thác triển chẵn (câu a).}
-Biên Neumann $u_x(0,t)=0$ buộc ta thác triển dữ liệu \textbf{chẵn} qua $x=0$ ra toàn trục $\mathbb{R}$:
+\paragraph{Nhắc lại đề.} Phương trình $u_{tt}=u_{xx}$ trên nửa trục $x>0$ (vận tốc $c=1$), biên $u_x(0,t)=0$ (Neumann --- tường ``tự do''),
+với dữ liệu ban đầu
 \[
-  g_e(x)=g(|x|)=\begin{cases}
-    x^2 & 0\le |x|\le 1,\\
+  g(x):=u(x,0)=\begin{cases}x^2 & 0\le x\le1,\\ 2-x & 1\le x\le2,\\ 0 & x\ge2,\end{cases}
+  \qquad
+  h(x):=u_t(x,0)=\chi_{(0,1)}(x).
+\]
+
+\paragraph{Bước 1 --- Thác triển chẵn dữ liệu ra toàn trục (câu a).}\leavevmode
+
+\emph{Bước 1.1 --- Vì sao thác triển chẵn?} Bài đang trên \emph{nửa đường} $x>0$, công thức d'Alembert lại đòi hỏi dữ liệu trên \emph{toàn trục} $\mathbb{R}$. Mẹo chuẩn: kéo dài $g,h$ sang $x<0$ sao cho biên tự thoả mãn. Vì hàm \textbf{chẵn} có $\partial_x|_{x=0}=0$ (đồ thị đối xứng qua trục tung nên tiếp tuyến ngang), nên nếu nghiệm là hàm chẵn theo $x$ thì $u_x(0,t)=0$ \emph{tự động}. Do tính tuyến tính, dữ liệu chẵn $\Rightarrow$ nghiệm chẵn. Quy tắc tổng quát:
+\begin{itemize}
+\item Biên Dirichlet ($u=0$) $\Rightarrow$ thác triển \textbf{lẻ} (hàm lẻ triệt tiêu tại $0$).
+\item Biên Neumann ($u_x=0$) $\Rightarrow$ thác triển \textbf{chẵn} (hàm chẵn có đạo hàm $=0$ tại $0$).
+\end{itemize}
+
+\emph{Bước 1.2 --- Công thức tường minh.} Thác triển chẵn $g_e(x)=g(|x|)$, $h_e(x)=h(|x|)$:
+\[
+  g_e(x)=\begin{cases}
+    x^2 & |x|\le 1,\\
     2-|x| & 1\le |x|\le 2,\\
     0 & |x|\ge 2,
   \end{cases}
   \qquad
   h_e(x)=\chi_{(-1,1)}(x).
 \]
-(Thác triển chẵn vì hàm chẵn có đạo hàm bằng $0$ tại gốc, khớp $u_x(0,t)=0$.)
+(Trên $x<0$: $g_e(-x)=g(x)$; $h$ trở thành đặc trưng của khoảng đối xứng $(-1,1)$.)
 
-\paragraph{Bước 2 --- Áp dụng d'Alembert.}
-Trên toàn trục $\mathbb{R}$ với dữ liệu chẵn $(g_e,h_e)$:
+\paragraph{Bước 2 --- Áp công thức d'Alembert toàn trục.}\leavevmode
 
-\begin{nhobox}
+\emph{Bước 2.1 --- Ráp công thức.} Trên $\mathbb{R}$ với dữ liệu $(g_e,h_e)$ và $c=1$, công thức d'Alembert cho
 \[
-  u(x,t)=\underbrace{\tfrac12\, g_e(x-t)}_{\text{sóng tiến}}
-        +\underbrace{\tfrac12\, g_e(x+t)}_{\text{sóng lùi}}
-        +\tfrac12\!\int_{x-t}^{x+t}\! h_e(s)\,ds .
+  u(x,t)=\tfrac12\big(g_e(x-t)+g_e(x+t)\big)+\tfrac12\!\int_{x-t}^{x+t}\! h_e(s)\,ds.
 \]
-\end{nhobox}
+(Hệ số $\tfrac{1}{2c}=\tfrac12$ ở số hạng vận tốc do $c=1$.)
 
-\noindent Trong đó:
+\emph{Bước 2.2 --- Tách sóng tiến / sóng lùi.} Đây là dạng $u=F(x-t)+G(x+t)$ với
+\[
+  F(\xi)=\tfrac12 g_e(\xi)-\tfrac12\!\int_0^{\xi}\! h_e(s)\,ds,
+  \qquad
+  G(\xi)=\tfrac12 g_e(\xi)+\tfrac12\!\int_0^{\xi}\! h_e(s)\,ds.
+\]
 \begin{itemize}
-  \item \textbf{Sóng tiến} (chạy sang phải): $\tfrac12 g_e(x-t)$.
-  \item \textbf{Sóng lùi} (chạy sang trái): $\tfrac12 g_e(x+t)$.
-  \item Số hạng tích phân tách tiếp thành một dốc chạy phải và một dốc chạy trái (phần vận tốc).
+  \item $F(x-t)$ là \textbf{sóng tiến} (giữ nguyên hình dạng, chạy sang phải vận tốc $1$): trên đường đặc trưng $x-t=\text{const}$ giá trị $F$ không đổi.
+  \item $G(x+t)$ là \textbf{sóng lùi} (chạy sang trái): trên đường đặc trưng $x+t=\text{const}$ giá trị $G$ không đổi.
 \end{itemize}
+Hai họ đường thẳng $\{x-t=\text{const}\}$ và $\{x+t=\text{const}\}$ trong mặt phẳng $(x,t)$ chính là \textbf{hai họ đặc trưng}. \textbf{Miền phụ thuộc} của điểm $(x,t)$ là đoạn $[x-t,x+t]$ trên trục ban đầu.
 
-\begin{luuybox}
-\textbf{Ý nghĩa phản xạ:} với $x>0$, khi đặc trưng trái $x-t<0$ thì $g_e(x-t)=g_e(t-x)$ (do chẵn).
-Tức là sóng \textbf{phản xạ} ở tường $x=0$ và \textbf{giữ nguyên dấu} (phản xạ chẵn của biên Neumann).
-\end{luuybox}
+\emph{Bước 2.3 --- Ý nghĩa phản xạ ở biên.} Với $x>0$ và $t>x$, đặc trưng trái rơi vào miền âm: $x-t<0$. Khi đó tính chẵn cho
+\(g_e(x-t)=g_e(t-x)\), tức sóng lẽ ra đi sang trái khỏi tường $x=0$ thì \emph{phản xạ ngược lại} và giữ nguyên dấu. Đây là cách biên Neumann được mã hoá ngầm qua thác triển chẵn.
 
-\paragraph{Bước 3 --- Phần vận tốc.}
-Vì $h_e=\chi_{(-1,1)}$ chỉ nhận giá trị $1$ trên $(-1,1)$, ta có
+\paragraph{Bước 3 --- Tính phần vận tốc.}
+Vì $h_e=\chi_{(-1,1)}$, tích phân chính là độ đo Lebesgue của giao:
 \[
   \tfrac12\!\int_{x-t}^{x+t}\! h_e(s)\,ds
-  =\tfrac12\,\big|\,[x-t,\,x+t]\cap(-1,1)\,\big| ,
+  =\tfrac12\,\big|\,[x-t,\,x+t]\cap(-1,1)\,\big|.
 \]
-tức bằng nửa độ dài phần giao của đoạn phụ thuộc $[x-t,x+t]$ với khoảng $(-1,1)$.
-Số hạng này luôn \textbf{liên tục} theo $x$ (vì là tích phân của hàm bị chặn).
+Hàm này \textbf{liên tục theo $x$} (tích phân hàm bị chặn là liên tục Lipschitz).
 
-\paragraph{Bước 4 --- Điểm gãy của $u(\cdot,\tfrac12)$ (câu b).}
-Trước hết, $g$ \textbf{liên tục} (nối khớp: tại $x=1$ là $1=1$, tại $x=2$ là $0=0$) nhưng có
-\textbf{góc gãy} (đạo hàm nhảy) tại $x=0$ (thác triển chẵn), $x=1$ (độ dốc $2\to-1$), $x=2$ (độ dốc $-1\to0$).
-Vận tốc $h=\chi_{(0,1)}$ có \textbf{bước nhảy} tại $x=0$ và $x=1$.
+\paragraph{Bước 4 --- Câu (b): liệt kê điểm gãy của $u(\cdot,\tfrac12)$.}\leavevmode
 
-\begin{luuybox}
-Trong d'Alembert: góc gãy của \emph{vị trí} truyền dọc theo đặc trưng $x\pm t=\text{const}$ thành góc gãy của $u$;
-bước nhảy của \emph{vận tốc} cũng tạo góc gãy độ dốc. Bản thân $u$ vẫn \textbf{liên tục}
-(vì số hạng vận tốc là tích phân của $h$).
-\end{luuybox}
-
-\noindent Các điểm gãy của dữ liệu (chẵn): vị trí tại $x=0,1,2$; vận tốc tại $x=0,1$.
-Tại $t=\tfrac12$ chúng dịch đi $\pm\tfrac12$, cho các điểm (chỉ giữ $x>0$):
+\emph{Bước 4.1 --- Tìm các kỳ dị của dữ liệu thác triển.} Kiểm tra liên tục của $g_e$: tại $x=1$ giá trị $1=1$, tại $x=2$ giá trị $0=0$, tại $x=0$ thì $g_e(0^\pm)=0=0$ --- $g_e$ \emph{liên tục} khắp nơi nhưng \emph{đạo hàm nhảy} (góc gãy) tại
 \[
-  0\pm\tfrac12,\quad 1\pm\tfrac12,\quad 2\pm\tfrac12
-  \;\Longrightarrow\;
-  x=\tfrac12,\ \tfrac32,\ \tfrac52 .
+  x=0\ (\text{độ dốc } -2\to +2),\quad
+  x=\pm1\ (\text{từ } \pm2\ \text{sang} \mp1),\quad
+  x=\pm2\ (\text{từ } \mp1\ \text{sang } 0).
 \]
+Còn $h_e=\chi_{(-1,1)}$ có \textbf{bước nhảy} tại $x=\pm1$ (và \emph{không} có bước nhảy tại $x=0$ vì $h_e(0^-)=h_e(0^+)=1$ --- đây là ưu điểm của thác triển chẵn).
+
+\emph{Bước 4.2 --- Lan truyền kỳ dị dọc theo đặc trưng.} Trong công thức d'Alembert: mỗi kỳ dị của $g_e$ tại $x=x_0$ sinh ra góc gãy của $u(\cdot,t)$ tại $x_0\pm t$ (qua hai số hạng $g_e(x\mp t)$); mỗi bước nhảy của $h_e$ tại $x=x_1$ cũng sinh ra góc gãy của $u$ tại $x_1\pm t$ (qua tích phân; bước nhảy của tích phân biến thành góc gãy của $u$). Bản thân $u$ luôn \textbf{liên tục} (không có bước nhảy).
+
+\emph{Bước 4.3 --- Áp dụng tại $t=\tfrac12$, chỉ giữ $x>0$.} Dịch các điểm $\{0,\pm1,\pm2\}$ (kỳ dị của $g_e$) và $\{\pm1\}$ (bước nhảy của $h_e$) đi $\pm\tfrac12$:
+\[
+  \{0,\pm1,\pm2\}\pm\tfrac12=\Big\{\pm\tfrac12,\pm\tfrac32,\pm\tfrac52,\pm\tfrac32,\pm\tfrac12\Big\},\qquad
+  \{\pm1\}\pm\tfrac12=\Big\{\pm\tfrac12,\pm\tfrac32\Big\}.
+\]
+Lấy hợp rồi giữ $x>0$: ta có các ứng viên $x=\tfrac12,\tfrac32,\tfrac52$.
 
 \begin{nhobox}
-$u(x,\tfrac12)$ \textbf{liên tục} nhưng \textbf{đạo hàm gãy} (không khả vi) tại
+$u(x,\tfrac12)$ \textbf{liên tục} trên $[0,\infty)$ nhưng \textbf{không khả vi} (đạo hàm gãy) tại
 \[
-  x=\tfrac12,\quad x=\tfrac32,\quad x=\tfrac52 .
+  x=\tfrac12,\quad x=\tfrac32,\quad x=\tfrac52.
 \]
-Đây là ảnh của các điểm gãy của dữ liệu vị trí ($x=0,1,2$) và bước nhảy của vận tốc ($x=0,1$),
-dịch đi $\pm t=\pm\tfrac12$. Chữ ``không liên tục'' trong đề chỉ \textbf{đạo hàm} bị gãy, chứ $u$ không có bước nhảy.
+Ý ``không liên tục'' trong đề chỉ \textbf{đạo hàm} $u_x$ bị gián đoạn, còn bản thân $u$ không có bước nhảy.
 \end{nhobox}

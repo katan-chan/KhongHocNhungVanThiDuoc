@@ -35,30 +35,104 @@ Dirichlet $u=0\Rightarrow$ thác triển lẻ; Neumann $u_x=0\Rightarrow$ chẵn
 % ---------------------------------------------------------------
 \subsection*{Đề bài \& bài giải}
 % ---------------------------------------------------------------
-\paragraph{Bước 1 --- thác triển khử biên.} Dữ liệu tách được $g=\sin^3(x)\cdot\chi_{[0,1]}(y)$, nên giải
-tách theo $x$ và $y$. Theo $x$: $u=0$ tại $x=0,\pi\Rightarrow$ thác triển \textbf{lẻ}, tuần hoàn $2\pi$.
-Theo $y$: $u=0$ tại $y=0\Rightarrow$ thác triển \textbf{lẻ} ra $y<0$: $\chi_{[0,1]}\to\chi_{[0,1]}-\chi_{[-1,0]}$.
+\paragraph{Bước 0 --- tách dữ liệu \& chiến lược.}\leavevmode
 
-\paragraph{Bước 2 --- phần $x$ (chuỗi sin, mỗi mốt tắt riêng).} Hạ bậc: $\sin^3 x=\tfrac34\sin x-\tfrac14\sin 3x$.
-Mỗi $\sin(mx)$ là hàm riêng, qua nhiệt $u_t=4u_{xx}$ tắt theo $e^{-4m^2 t}$ ($m=1\to e^{-4t}$, $m=3\to e^{-36t}$):
+Dữ liệu ban đầu là một \textbf{tích tách biến}
+\[
+  g(x,y)=\sin^3(x)\cdot\chi_{[0,1]}(y),
+\]
+trong đó $\chi_{[0,1]}(y)$ là \emph{hàm đặc trưng} của đoạn $[0,1]$ (bằng $1$ trên $[0,1]$, bằng $0$ ngoài). Toán tử nhiệt cũng tách: $\Delta=\partial_{xx}+\partial_{yy}$, và biên cũng tách theo từng trục ($x=0,\pi$ riêng, $y=0$ riêng). Do đó ta \textbf{tìm nghiệm dạng tích}
+\[
+  u(x,y,t)=X(x,t)\cdot Y(y,t),
+\]
+với $X$ là nghiệm bài nhiệt 1D theo $x$ trên đoạn $(0,\pi)$ với biên Dirichlet $X(0,t)=X(\pi,t)=0$ và dữ liệu đầu $X(x,0)=\sin^3 x$; còn $Y$ là nghiệm bài nhiệt 1D theo $y$ trên nửa đường $y>0$ với biên Dirichlet $Y(0,t)=0$ và dữ liệu đầu $Y(y,0)=\chi_{[0,1]}(y)$. Thay vào kiểm tra: $u_t=X_t Y+XY_t=4X_{xx}Y+4XY_{yy}=4\Delta u$, biên và dữ liệu đầu cũng khớp.
+
+\paragraph{Bước 1 --- ý tưởng thác triển (định nghĩa).}\leavevmode
+
+\textbf{Thác triển} một hàm $h$ xác định trên nửa đường $y>0$ ra cả $\mathbb R$ là việc \emph{bổ sung} giá trị $h(y)$ cho $y<0$ sao cho hàm mở rộng có một tính chất đối xứng dùng được:
+\begin{itemize}
+  \item \textbf{Thác triển lẻ}: đặt $h(-y):=-h(y)$. Hàm mở rộng là hàm lẻ, \emph{tự triệt tiêu tại $0$}, nên tự thoả biên \textbf{Dirichlet} $h(0)=0$.
+  \item \textbf{Thác triển chẵn}: đặt $h(-y):=h(y)$. Hàm mở rộng là hàm chẵn, có \emph{đạo hàm bằng $0$ tại $0$}, nên tự thoả biên \textbf{Neumann} $h_y(0)=0$.
+\end{itemize}
+Áp vào bài: cả biên $x=0,\pi$ và $y=0$ đều là Dirichlet $u=0$, nên ta sẽ thác triển \textbf{lẻ}. Theo $x$: thác triển lẻ qua $0$ rồi tiếp tục \emph{tuần hoàn} $2\pi$ (vì có thêm biên tại $\pi$); kết quả là một chuỗi Fourier sin. Theo $y$: chỉ có một biên tại $y=0$, nên chỉ cần thác triển lẻ qua $0$:
+\[
+  \chi_{[0,1]}(y)\ \longmapsto\ \chi_{[0,1]}(y)-\chi_{[-1,0]}(y).
+\]
+(Trên $y>0$ giữ nguyên $\chi_{[0,1]}$; trên $y<0$ là $-\chi_{[-1,0]}$, đúng định nghĩa lẻ.)
+
+\paragraph{Bước 2 --- giải phần $x$ bằng tách biến hàm riêng.}\leavevmode
+
+\emph{Bước 2.1 --- hạ bậc $\sin^3$.} Từ $\sin 3x=3\sin x-4\sin^3 x$ suy ra
+\[
+  \sin^3 x=\tfrac{3\sin x-\sin 3x}{4}=\tfrac34\sin x-\tfrac14\sin 3x.
+\]
+Dữ liệu đầu theo $x$ đã được khai triển thành tổ hợp của hai hàm $\sin x$ và $\sin 3x$, đều triệt tiêu tại $x=0,\pi$ (khớp biên).
+
+\emph{Bước 2.2 --- $\sin(mx)$ là hàm riêng của $\partial_{xx}$.} Một hàm $\varphi$ là \textbf{hàm riêng} của toán tử $L$ nếu $L\varphi=\lambda\varphi$ với một hằng số $\lambda$ (gọi là \emph{trị riêng}). Tính trực tiếp:
+\[
+  \partial_{xx}\sin(mx)=-m^2\sin(mx),
+\]
+nên $\sin(mx)$ là hàm riêng của $\partial_{xx}$ với trị riêng $-m^2$.
+
+\emph{Bước 2.3 --- mỗi mốt tắt theo $\tau$ riêng.} Thử nghiệm dạng $X_m(x,t)=A_m(t)\sin(mx)$ vào $X_t=4X_{xx}$:
+\[
+  A_m'(t)\sin(mx)=4\cdot(-m^2)A_m(t)\sin(mx)\ \Longrightarrow\ A_m'(t)=-4m^2 A_m(t).
+\]
+Phần $\sin(mx)$ triệt hai bên. ODE này có nghiệm $A_m(t)=A_m(0)\,e^{-4m^2 t}$. Áp dữ liệu đầu với $m=1$ (hệ số $\tfrac34$) và $m=3$ (hệ số $-\tfrac14$):
 \[
   X(x,t)=\tfrac34 e^{-4t}\sin x-\tfrac14 e^{-36t}\sin 3x=\frac{3e^{-4t}\sin x-e^{-36t}\sin 3x}{4}.
 \]
-(Kiểm tra $t\to0$: $X\to\tfrac{3\sin x-\sin3x}{4}=\sin^3 x$. Khớp.)
+\emph{Kiểm tra $t\to0$:} $X\to\tfrac{3\sin x-\sin3x}{4}=\sin^3 x$. Khớp.
 
-\paragraph{Bước 3 --- phần $y$ (Gauss $\to$ erf).} Poisson với $k=4$ (nhân $\tfrac{1}{\sqrt{16\pi t}}e^{-(y-Y)^2/16t}$),
-dữ liệu lẻ $\chi_{[0,1]}-\chi_{[-1,0]}$ tách thành hai tích phân:
+\paragraph{Bước 3 --- giải phần $y$ bằng nhân nhiệt $\to$ erf.}\leavevmode
+
+\emph{Bước 3.1 --- công thức Poisson (định nghĩa nhân nhiệt).} Với bài nhiệt $Y_t=kY_{yy}$ trên toàn $\mathbb R$ và dữ liệu đầu $Y(y,0)=h(y)$, \textbf{nhân nhiệt} (Gaussian kernel) là
 \[
-  Y(y,t)=\Big[\int_0^1-\int_{-1}^0\Big]\tfrac{1}{\sqrt{16\pi t}}e^{-(y-Y)^2/16t}\,dY.
+  G_k(y,t)=\frac{1}{\sqrt{4\pi k t}}\,e^{-y^2/(4kt)},
 \]
-Đổi biến $z=\tfrac{Y-y}{4\sqrt t}$: mỗi $\int_p^q=\tfrac12\big(\operatorname{erf}\tfrac{q-y}{4\sqrt t}-\operatorname{erf}\tfrac{p-y}{4\sqrt t}\big)$.
-Dùng $\operatorname{erf}$ lẻ, gộp lại:
+và nghiệm cho bởi \textbf{công thức Poisson}
+\[
+  Y(y,t)=\int_{-\infty}^{\infty} G_k(y-Y',t)\,h(Y')\,dY'.
+\]
+Ở đây $k=4$, dữ liệu mở rộng (sau khi thác triển lẻ ở Bước 1) là $h=\chi_{[0,1]}-\chi_{[-1,0]}$, nên
+\[
+  Y(y,t)=\int_0^1\frac{e^{-(y-Y')^2/(16t)}}{\sqrt{16\pi t}}\,dY'\ -\ \int_{-1}^{0}\frac{e^{-(y-Y')^2/(16t)}}{\sqrt{16\pi t}}\,dY'.
+\]
+
+\emph{Bước 3.2 --- đổi biến Gauss.} Định nghĩa \textbf{hàm sai số}
+\[
+  \operatorname{erf}(w):=\frac{2}{\sqrt\pi}\int_0^{w}e^{-z^2}\,dz,
+\]
+là hàm lẻ ($\operatorname{erf}(-w)=-\operatorname{erf}(w)$), tăng nghiêm ngặt, $\operatorname{erf}(0)=0$, $\operatorname{erf}(\pm\infty)=\pm1$. Trong mỗi tích phân $\int_p^q$ ở Bước 3.1, đặt
+\[
+  z=\frac{Y'-y}{4\sqrt t}\ \Longrightarrow\ dY'=4\sqrt t\,dz,\quad
+  Y'=p\to z=\tfrac{p-y}{4\sqrt t},\ Y'=q\to z=\tfrac{q-y}{4\sqrt t}.
+\]
+Mũ đổi thành $-z^2$, còn thừa số ngoài $\tfrac{1}{\sqrt{16\pi t}}\cdot 4\sqrt t=\tfrac{1}{\sqrt\pi}$. Vậy
+\[
+  \int_p^{q}\frac{e^{-(y-Y')^2/(16t)}}{\sqrt{16\pi t}}\,dY'
+  =\frac{1}{\sqrt\pi}\int_{(p-y)/(4\sqrt t)}^{(q-y)/(4\sqrt t)}e^{-z^2}\,dz
+  =\tfrac12\Big(\operatorname{erf}\tfrac{q-y}{4\sqrt t}-\operatorname{erf}\tfrac{p-y}{4\sqrt t}\Big),
+\]
+ở bước cuối dùng định nghĩa $\operatorname{erf}$.
+
+\emph{Bước 3.3 --- ráp hai tích phân.} Áp công thức trên với $(p,q)=(0,1)$ rồi với $(p,q)=(-1,0)$:
+\[
+  Y(y,t)=\tfrac12\Big[\operatorname{erf}\tfrac{1-y}{4\sqrt t}-\operatorname{erf}\tfrac{-y}{4\sqrt t}\Big]
+  -\tfrac12\Big[\operatorname{erf}\tfrac{-y}{4\sqrt t}-\operatorname{erf}\tfrac{-1-y}{4\sqrt t}\Big].
+\]
+Dùng $\operatorname{erf}$ lẻ: $\operatorname{erf}\tfrac{-y}{4\sqrt t}=-\operatorname{erf}\tfrac{y}{4\sqrt t}$, $\operatorname{erf}\tfrac{1-y}{4\sqrt t}=-\operatorname{erf}\tfrac{y-1}{4\sqrt t}$, $\operatorname{erf}\tfrac{-1-y}{4\sqrt t}=-\operatorname{erf}\tfrac{y+1}{4\sqrt t}$. Thay vào:
+\[
+  Y(y,t)=\tfrac12\Big[-\operatorname{erf}\tfrac{y-1}{4\sqrt t}+\operatorname{erf}\tfrac{y}{4\sqrt t}\Big]
+  -\tfrac12\Big[-\operatorname{erf}\tfrac{y}{4\sqrt t}+\operatorname{erf}\tfrac{y+1}{4\sqrt t}\Big],
+\]
+gộp các hạng tử $\operatorname{erf}\tfrac{y}{4\sqrt t}$ cộng lại thành nguyên một lần:
 \[
   Y(y,t)=\operatorname{erf}\tfrac{y}{4\sqrt t}-\tfrac12\Big(\operatorname{erf}\tfrac{y+1}{4\sqrt t}+\operatorname{erf}\tfrac{y-1}{4\sqrt t}\Big).
 \]
-(Kiểm tra $t\to0$, $y=\tfrac12\in(0,1)$: $1-\tfrac12(1-1)=1$. Khớp $\chi_{[0,1]}$.)
+\emph{Kiểm tra $t\to0^+$ với $y=\tfrac12\in(0,1)$:} các đối số $\tfrac{1/2}{4\sqrt t},\tfrac{3/2}{4\sqrt t}\to+\infty$ (cho $\operatorname{erf}\to1$) và $\tfrac{-1/2}{4\sqrt t}\to-\infty$ (cho $\operatorname{erf}\to-1$), nên $Y\to1-\tfrac12(1+(-1))=1$. Khớp $\chi_{[0,1]}(1/2)=1$.
 
-\paragraph{Bước 4 --- nhân hai phần.}\leavevmode
+\paragraph{Bước 4 --- nhân hai phần lại.}\leavevmode
 
 \begin{nhobox}
 \[

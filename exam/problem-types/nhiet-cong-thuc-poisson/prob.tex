@@ -45,7 +45,7 @@ $u\in(0,1)$. (ii) $f=e^{-t}\cos(cx),\ g=\chi_{[a,b]}$: tính tường minh.
 
 \subsubsection*{(i) $f=0$, $g=\chi_{[a,b]}$}
 
-\paragraph{Bước 1 --- ráp vào công thức Poisson.} Nhân nhiệt với $k=1$:
+\paragraph{Bước 1 --- ráp vào công thức Poisson.} Bài là nhiệt thuần nhất ($f=0$) trên $\mathbb{R}$ với dữ liệu đầu $g$. Áp công thức Poisson 1D (xem mục ``Công thức \& phương pháp'') với hệ số khuếch tán $k=1$ (vì PDE là $u_t=u_{xx}$):
 \[
   u(x,t)=\frac{1}{\sqrt{4\pi t}}\int_{-\infty}^{\infty} e^{-(x-y)^2/(4t)}\,g(y)\,dy.
 \]
@@ -54,17 +54,29 @@ Vì $g=\chi_{[a,b]}$ ($=1$ trên $[a,b]$, $=0$ ngoài) nên tích phân chỉ c�
   u(x,t)=\frac{1}{\sqrt{4\pi t}}\int_a^b e^{-(x-y)^2/(4t)}\,dy.
 \]
 
-\paragraph{Bước 2 --- đổi biến để ra dạng Gauss chuẩn.} Đặt $z=\dfrac{y-x}{\sqrt{4t}}\Rightarrow dy=\sqrt{4t}\,dz$.
-Cận: $y=a\to z=\tfrac{a-x}{\sqrt{4t}}$, $y=b\to z=\tfrac{b-x}{\sqrt{4t}}$. Thừa số $\sqrt{4t}$ triệt với
-$\tfrac{1}{\sqrt{4\pi t}}$ còn $\tfrac{1}{\sqrt\pi}$:
+\paragraph{Bước 2 --- đổi biến để ra dạng Gauss chuẩn.} Mục tiêu: đưa mũ $-(x-y)^2/(4t)$ về $-z^2$ chuẩn. Đặt
 \[
-  u=\frac{1}{\sqrt\pi}\int_{(a-x)/\sqrt{4t}}^{(b-x)/\sqrt{4t}} e^{-z^2}\,dz.
+  z=\frac{y-x}{\sqrt{4t}}\ \Longrightarrow\ y=x+\sqrt{4t}\,z,\quad dy=\sqrt{4t}\,dz,\quad (x-y)^2/(4t)=z^2.
 \]
-
-\paragraph{Bước 3 --- gọi tên bằng erf.} Theo định nghĩa $\operatorname{erf}(w)=\tfrac{2}{\sqrt\pi}\int_0^w e^{-z^2}dz$,
-nên $\int_\alpha^\beta e^{-z^2}dz=\tfrac{\sqrt\pi}{2}\big(\operatorname{erf}\beta-\operatorname{erf}\alpha\big)$:
+Đổi cận theo $y$: $y=a\Rightarrow z=\tfrac{a-x}{\sqrt{4t}}$; $y=b\Rightarrow z=\tfrac{b-x}{\sqrt{4t}}$. Thay vào tích phân:
 \[
-  u(x,t)=\tfrac12\Big(\operatorname{erf}\tfrac{b-x}{\sqrt{4t}}-\operatorname{erf}\tfrac{a-x}{\sqrt{4t}}\Big).
+  u=\frac{1}{\sqrt{4\pi t}}\cdot\sqrt{4t}\int_{(a-x)/\sqrt{4t}}^{(b-x)/\sqrt{4t}} e^{-z^2}\,dz
+  =\frac{1}{\sqrt\pi}\int_{(a-x)/\sqrt{4t}}^{(b-x)/\sqrt{4t}} e^{-z^2}\,dz,
+\]
+trong đó $\dfrac{\sqrt{4t}}{\sqrt{4\pi t}}=\dfrac{1}{\sqrt\pi}$.
+
+\paragraph{Bước 3 --- gọi tên bằng erf.} \textbf{Định nghĩa} hàm sai số:
+\[
+  \operatorname{erf}(w):=\frac{2}{\sqrt\pi}\int_0^w e^{-z^2}\,dz.
+\]
+Đây là một hàm lẻ, tăng nghiêm ngặt và $\operatorname{erf}(\pm\infty)=\pm1$, nên $\operatorname{erf}(w)\in(-1,1)$ với $w\in\mathbb{R}$. Từ định nghĩa, tách tích phân tại $0$:
+\[
+  \int_\alpha^\beta e^{-z^2}\,dz=\int_0^\beta e^{-z^2}dz-\int_0^\alpha e^{-z^2}dz=\frac{\sqrt\pi}{2}\big(\operatorname{erf}\beta-\operatorname{erf}\alpha\big).
+\]
+Áp vào kết quả Bước 2 với $\alpha=\tfrac{a-x}{\sqrt{4t}}$, $\beta=\tfrac{b-x}{\sqrt{4t}}$:
+\[
+  u(x,t)=\frac{1}{\sqrt\pi}\cdot\frac{\sqrt\pi}{2}\big(\operatorname{erf}\beta-\operatorname{erf}\alpha\big)
+  =\tfrac12\Big(\operatorname{erf}\tfrac{b-x}{\sqrt{4t}}-\operatorname{erf}\tfrac{a-x}{\sqrt{4t}}\Big).
 \]
 \begin{nhobox}
 Vì $b>a$ và $\operatorname{erf}$ tăng nên hiệu hai erf $>0$; lại $\operatorname{erf}\in(-1,1)$ nên hiệu $<2$.
@@ -83,8 +95,15 @@ $u_t=u_{xx}+f,\ u(x,0)=g$ tách thành $u=u_g+u_f$, mỗi phần giải 1 bài �
 Kiểm tra: cộng (A)$+$(B) cho $(u_g+u_f)_t=(u_g+u_f)_{xx}+f$ và dữ liệu đầu $g+0=g$ --- đúng bài gốc.
 $u_g$ chính là phần (i) đã giải; còn $u_f$ (không dữ liệu đầu, có nguồn) giải bằng Duhamel dưới đây.
 
-\paragraph{Bước 2 --- dựng sóng con $w$.} Duhamel: $u_f=\int_0^t w(x,t;s)\,ds$, mỗi $w$ giải nhiệt
-\emph{không nguồn} với giá trị đầu tại $\tau=s$ bằng $f(\cdot,s)=e^{-s}\cos(cx)$.
+\paragraph{Bước 2 --- dựng sóng con $w$ (nguyên lý Duhamel).} \textbf{Nguyên lý Duhamel cho nhiệt} (xem mục ``Công thức \& phương pháp''): nghiệm của $u_{f,t}=u_{f,xx}+f$ với dữ liệu đầu $0$ là tổng đóng góp của các ``lát nguồn'' phát tại từng thời điểm $s\in(0,t)$:
+\[
+  u_f(x,t)=\int_0^t w(x,t;s)\,ds,
+\]
+trong đó với mỗi $s$ cố định, \emph{sóng con} $w(x,\tau;s)$ giải bài toán nhiệt \textbf{không nguồn} theo thời gian $\tau>s$:
+\[
+  w_\tau=w_{xx}\quad(\tau>s),\qquad w(x,s;s)=f(x,s)=e^{-s}\cos(cx).
+\]
+(Tức là nguồn ở thời điểm $s$ ``chích'' một giá trị đầu mới $f(\cdot,s)$ cho sóng con, rồi sóng con tự khuếch tán tự do từ $\tau=s$ tới $\tau=t$.) Mục tiêu Bước 3 dưới đây là tìm công thức tường minh cho $w$.
 
 \paragraph{Bước 3 --- giải $w$ bằng hàm riêng.}\leavevmode
 
@@ -119,12 +138,33 @@ Phần $\cos(cx)$ \emph{triệt} hai bên (nó là hàm riêng), chỉ còn ODE 
   w(x,t;s)=A(t)\cos(cx)=e^{-s}\,e^{-c^2(t-s)}\,\cos(cx).
 \]
 
-\paragraph{Bước 4 --- cộng theo $s$ (tính tích phân).} Gom mũ: $e^{-s}e^{-c^2(t-s)}=e^{-c^2 t}e^{(c^2-1)s}$, nên
+\paragraph{Bước 4 --- cộng theo $s$ (tính tích phân Duhamel).} Thay $w$ ở Bước 3d vào $u_f=\int_0^t w(x,t;s)\,ds$:
 \[
-  u_f=\cos(cx)\,e^{-c^2 t}\int_0^t e^{(c^2-1)s}\,ds
-     =\cos(cx)\,e^{-c^2 t}\cdot\frac{e^{(c^2-1)t}-1}{c^2-1}
-     =\frac{e^{-t}-e^{-c^2 t}}{c^2-1}\cos(cx).
+  u_f(x,t)=\int_0^t e^{-s}\,e^{-c^2(t-s)}\,\cos(cx)\,ds.
 \]
+Giả sử $c^2\ne1$ (trường hợp $c=\pm1$ sẽ lấy giới hạn $L'$Hôpital ở cuối). Tách $\cos(cx)$ (không phụ thuộc $s$) ra ngoài và \emph{gom mũ} theo $s$:
+\[
+  -s-c^2(t-s)=-c^2 t+(c^2-1)s
+  \ \Longrightarrow\ e^{-s}\,e^{-c^2(t-s)}=e^{-c^2 t}\,e^{(c^2-1)s}.
+\]
+Vậy
+\[
+  u_f(x,t)=\cos(cx)\,e^{-c^2 t}\int_0^t e^{(c^2-1)s}\,ds.
+\]
+Tích phân mũ cơ bản (nguyên hàm $\frac{1}{c^2-1}e^{(c^2-1)s}$):
+\[
+  \int_0^t e^{(c^2-1)s}\,ds=\frac{e^{(c^2-1)t}-1}{c^2-1}.
+\]
+Thay lại và phân phối $e^{-c^2 t}$ vào tử:
+\[
+  u_f(x,t)=\cos(cx)\,e^{-c^2 t}\cdot\frac{e^{(c^2-1)t}-1}{c^2-1}
+  =\cos(cx)\cdot\frac{e^{-c^2 t}\,e^{(c^2-1)t}-e^{-c^2 t}}{c^2-1}.
+\]
+Mũ đầu rút gọn: $-c^2 t+(c^2-1)t=-t$, nên
+\[
+  u_f(x,t)=\frac{e^{-t}-e^{-c^2 t}}{c^2-1}\,\cos(cx).
+\]
+(Trường hợp $c^2=1$: lấy giới hạn cho $u_f=t\,e^{-t}\cos(cx)$.) Cuối cùng $u=u_g+u_f$.
 \begin{nhobox}
 \[
   u(x,t)=\tfrac12\Big(\operatorname{erf}\tfrac{b-x}{\sqrt{4t}}-\operatorname{erf}\tfrac{a-x}{\sqrt{4t}}\Big)

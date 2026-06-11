@@ -59,67 +59,147 @@ Quy trình 3 bước:
 
 \subsection*{Đề bài \& bài giải}
 
-\paragraph{(a) Duy nhất nghiệm bằng năng lượng.}\leavevmode
+\paragraph{(a) Duy nhất nghiệm bằng phương pháp năng lượng.}\leavevmode
 
-Giả sử $u_1, u_2$ là hai nghiệm của bài toán. Khi đó $w = u_1 - u_2$ là nghiệm của
+\emph{Bước 1 --- dựng hàm hiệu.} Giả sử bài toán có hai nghiệm $u_1, u_2$ cùng dữ kiện. Đặt $w=u_1-u_2$. Do PDE và mọi điều kiện đều \emph{tuyến tính}, hiệu $w$ thoả bài toán \textbf{thuần nhất hoàn toàn} (vế phải, biên, dữ kiện đầu đều $=0$):
 \[
-w_t(x,t) = 2\,w_{xx}(x,t), \qquad 0 < x < 1,\ t > 0,
+w_t = 2\,w_{xx},\qquad 0<x<1,\ t>0,
 \]
-với điều kiện biên $w(0,t) = w_x(1,t) = 0$, $t \ge 0$, và điều kiện ban đầu $w(x,0) = 0$, $0 \le x \le 1$.
+\[
+w(0,t)=0,\quad w_x(1,t)=0,\quad w(x,0)=0.
+\]
+Mục tiêu: chứng minh $w\equiv0$, tức $u_1=u_2$.
 
-Xét $I(t) = \int_0^1 w^2(x,t)\,dx$. Do $w(x,0) = 0$ nên $I(0) = 0$.
+\emph{Bước 2 --- định nghĩa ``năng lượng''.} Gọi
+\[
+I(t):=\int_0^1 w^2(x,t)\,dx\ \ge 0
+\]
+là \textbf{tích phân năng lượng} (bình phương chuẩn $L^2$ của $w$ tại thời điểm $t$). Vì $w(x,0)=0$ nên $I(0)=0$. Ta sẽ chỉ ra $I$ \emph{không tăng}, kết hợp $I\ge0$ buộc $I\equiv0$.
 
-Lại có
+\emph{Bước 3 --- tính $I'(t)$.} Đạo hàm dưới dấu tích phân rồi thay $w_t=2w_{xx}$:
 \[
-I'(t) = 2\int_0^1 w\,w_t\,dx = 4\int_0^1 w\,w_{xx}\,dx.
+I'(t)=\int_0^1 2w\,w_t\,dx=4\int_0^1 w\,w_{xx}\,dx.
 \]
-Tích phân từng phần:
+Tích phân từng phần ($u=w$, $dv=w_{xx}dx$, suy ra $du=w_x dx$, $v=w_x$):
 \[
-I'(t) = 4\left( w\,w_x\Big|_{x=0}^{x=1} - \int_0^1 w_x^2\,dx \right).
+\int_0^1 w\,w_{xx}\,dx = \big[w\,w_x\big]_{x=0}^{x=1} - \int_0^1 w_x^2\,dx.
 \]
-Vì $w(0,t) = 0$ và $w_x(1,t) = 0$ nên số hạng biên triệt tiêu, do đó
+Áp biên: $w(0,t)=0$ làm tắt số hạng biên tại $x=0$; $w_x(1,t)=0$ làm tắt số hạng biên tại $x=1$. Vậy phần biên triệt tiêu và
 \[
-I'(t) = -4\int_0^1 w_x^2\,dx \le 0, \qquad t > 0.
+I'(t)=-4\int_0^1 w_x^2\,dx\ \le\ 0,\qquad t>0.
 \]
-Suy ra $0 \le I(t) \le I(0) = 0$ với mọi $t > 0$, tức $I(t) = 0$. Vậy $w \equiv 0$, hay $u_1 = u_2$: bài toán có duy nhất nghiệm.
 
-\paragraph{(b) Nghiệm dừng $v(x)$ và bài toán cho $w$.}\leavevmode
+\emph{Bước 4 --- kết luận.} $I$ không âm, không tăng, lại bắt đầu từ $I(0)=0$, do đó $I(t)\equiv0$. Tích phân của một hàm liên tục không âm bằng $0$ kéo theo bản thân hàm $\equiv0$, tức $w(x,t)\equiv0$. Vậy $u_1\equiv u_2$ --- bài toán có duy nhất nghiệm.
 
-Do $v''(x) = 0$ nên $v(x) = ax + b$. Từ $v(0) = 100$ được $b = 100$; từ $v'(1) = 0$ được $a = 0$. Vậy
-\[
-v(x) = 100.
-\]
-Đặt $w(x,t) = u(x,t) - v(x)$. Khi đó $w$ thỏa mãn bài toán \textbf{biên thuần nhất}:
-\[
-w_t = 2\,w_{xx} + f, \qquad 0 < x < 1,\ t > 0,
-\]
-với điều kiện biên $w(0,t) = w_x(1,t) = 0$ và điều kiện ban đầu $w(x,0) = g(x) - 100$.
+\paragraph{(b) Hạ biên không thuần nhất bằng nghiệm dừng.}\leavevmode
 
-\paragraph{(c) Tách biến và nghiệm cuối.}\leavevmode
+\emph{Bước 1 --- ý tưởng.} Biên $u(0,t)=100\ne0$ ngăn ta dùng tách biến trực tiếp (chuỗi hàm riêng đòi biên $=0$). Cách chuẩn: tìm hàm \textbf{nghiệm dừng} $v(x)$ --- tức nghiệm \emph{không phụ thuộc $t$} của phần thuần nhất của PDE --- khớp đúng các biên không thuần nhất; sau đó trừ đi.
 
-Biên hỗn hợp (Dirichlet tại $0$, Neumann tại $1$) cho hàm riêng $\sin((n+\tfrac12)\pi x)$. Tìm nghiệm dạng chuỗi
+\emph{Bước 2 --- giải $v$.} Vì $v$ độc lập $t$ và $f$ không tham gia ở đây, $v$ thoả
 \[
-w(x,t) = \sum_{n=0}^{\infty} T_n(t)\,\sin\!\big((n+\tfrac12)\pi x\big).
+v''(x)=0,\qquad v(0)=100,\quad v'(1)=0.
 \]
-Với $g(x) = 100$ thì $w(x,0) = g(x) - 100 = 0$, nên $T_n(0) = 0$. Thay $f = e^{-t}$ vào phương trình, mỗi hệ số $T_n$ thỏa
+Tích phân hai lần: $v(x)=ax+b$. Áp $v(0)=100$ cho $b=100$; áp $v'(1)=a=0$. Vậy
 \[
-T_n'(t) + 2\big(n+\tfrac12\big)^2\pi^2\,T_n(t)
-= 2e^{-t}\int_0^1 \sin\!\big((n+\tfrac12)\pi x\big)\,dx
-= \frac{4e^{-t}}{(2n+1)\pi}.
+\boxed{v(x)\equiv 100.}
 \]
-Giải ODE tuyến tính bậc một với $T_n(0)=0$:
+
+\emph{Bước 3 --- bài toán cho $w=u-v$.} Đặt $w(x,t):=u(x,t)-v(x)=u(x,t)-100$. Vì $v$ là hằng nên $w_t=u_t$, $w_{xx}=u_{xx}$. Thay vào PDE và các biên:
 \[
-T_n(t) = \frac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2 - 2\big]}
-\left( e^{-t} - e^{-\frac{(2n+1)^2\pi^2 t}{2}} \right).
+w_t=2w_{xx}+f(x,t),\qquad 0<x<1,\ t>0,
 \]
-Ghép lại $u = v + w$:
+\[
+w(0,t)=u(0,t)-100=0,\quad w_x(1,t)=u_x(1,t)-0=0,
+\]
+\[
+w(x,0)=g(x)-100.
+\]
+Biên của $w$ đã \textbf{thuần nhất} (cả hai $=0$); chỉ còn dữ kiện đầu và nguồn $f$.
+
+\paragraph{(c) Tách biến --- giải $w$ rồi ráp lại.}\leavevmode
+
+Áp dữ kiện cụ thể: $f(x,t)=e^{-t}$, $g(x)=100$, nên $w(x,0)=g(x)-100=0$.
+
+\emph{Bước 1 --- tìm hàm riêng (bài toán Sturm--Liouville).} Tách biến \emph{thử} cho phần thuần nhất $w_t=2w_{xx}$: viết $w=X(x)T(t)$, thay vào và chia hai vế cho $2XT$:
+\[
+\frac{T'(t)}{2T(t)}=\frac{X''(x)}{X(x)}=-\lambda\quad(\text{hằng số tách}).
+\]
+Vế phụ thuộc $x$ kèm biên thuần nhất sinh \textbf{bài toán trị riêng}:
+\[
+X''(x)+\lambda X(x)=0,\qquad X(0)=0,\quad X'(1)=0.
+\]
+Một \emph{trị riêng} là số $\lambda$ mà ODE trên có nghiệm $X\not\equiv0$ thoả cả hai biên; nghiệm đó gọi là \emph{hàm riêng}.
+
+\emph{Tìm $\lambda$.} Với $\lambda>0$, đặt $\lambda=\mu^2$, nghiệm tổng quát $X=A\cos(\mu x)+B\sin(\mu x)$. Biên $X(0)=0$ cho $A=0$, còn $X=B\sin(\mu x)$. Biên $X'(1)=B\mu\cos\mu=0$ với $B\ne0$ buộc $\cos\mu=0$, tức
+\[
+\mu_n=\big(n+\tfrac12\big)\pi,\qquad \lambda_n=\big(n+\tfrac12\big)^2\pi^2,\qquad n=0,1,2,\dots
+\]
+(Hai trường hợp $\lambda\le0$ chỉ cho $X\equiv0$, loại.) Hàm riêng tương ứng:
+\[
+X_n(x)=\sin\!\big((n+\tfrac12)\pi x\big).
+\]
+Hệ $\{X_n\}$ \textbf{trực giao} trên $[0,1]$:
+\[
+\int_0^1 X_n(x)X_m(x)\,dx=\tfrac12\,\delta_{nm}.
+\]
+
+\emph{Bước 2 --- khai triển nghiệm theo chuỗi Fourier hàm riêng.} Tìm $w$ dưới dạng
+\[
+w(x,t)=\sum_{n=0}^{\infty} T_n(t)\,X_n(x)=\sum_{n=0}^{\infty} T_n(t)\sin\!\big((n+\tfrac12)\pi x\big),
+\]
+với các \emph{hệ số khai triển} $T_n(t)$ cần tìm (mỗi $T_n$ là một hàm thời gian).
+
+\emph{Bước 3 --- khai triển nguồn $f$ theo cùng hệ hàm riêng.} Viết $f(x,t)=\sum_n f_n(t)X_n(x)$, hệ số (dùng trực giao và $\int_0^1 X_n^2=\tfrac12$):
+\[
+f_n(t)=\frac{\int_0^1 f(x,t)\sin((n+\tfrac12)\pi x)\,dx}{\int_0^1 \sin^2((n+\tfrac12)\pi x)\,dx}
+=2e^{-t}\int_0^1 \sin\!\big((n+\tfrac12)\pi x\big)\,dx.
+\]
+Tính tích phân trong:
+\[
+\int_0^1\!\sin\!\big((n+\tfrac12)\pi x\big)\,dx
+=\Big[-\tfrac{\cos((n+\tfrac12)\pi x)}{(n+\tfrac12)\pi}\Big]_0^1
+=\frac{1-\cos((n+\tfrac12)\pi)}{(n+\tfrac12)\pi}=\frac{1}{(n+\tfrac12)\pi}=\frac{2}{(2n+1)\pi},
+\]
+vì $\cos((n+\tfrac12)\pi)=0$. Vậy
+\[
+f_n(t)=\frac{4\,e^{-t}}{(2n+1)\pi}.
+\]
+
+\emph{Bước 4 --- ODE cho $T_n(t)$.} Thay khai triển $w=\sum T_n X_n$ vào $w_t=2w_{xx}+f$ và dùng $X_n''=-\lambda_n X_n$:
+\[
+\sum_n T_n'(t)X_n(x)=\sum_n\big(-2\lambda_n T_n(t)+f_n(t)\big)X_n(x).
+\]
+Trực giao của $\{X_n\}$ cho phép \emph{đồng nhất từng mode}:
+\[
+T_n'(t)+2\lambda_n T_n(t)=f_n(t),\qquad \lambda_n=\big(n+\tfrac12\big)^2\pi^2=\tfrac{(2n+1)^2\pi^2}{4}.
+\]
+Dữ kiện đầu $w(x,0)=0$ cho $T_n(0)=0$ với mọi $n$.
+
+\emph{Bước 5 --- giải ODE tuyến tính bậc một.} Đặt $\alpha_n:=2\lambda_n=\tfrac{(2n+1)^2\pi^2}{2}$. Nhân thừa số tích phân $e^{\alpha_n t}$:
+\[
+\big(e^{\alpha_n t}T_n\big)'=\frac{4\,e^{(\alpha_n-1)t}}{(2n+1)\pi}.
+\]
+Tích phân từ $0$ tới $t$ (dùng $T_n(0)=0$):
+\[
+e^{\alpha_n t}T_n(t)=\frac{4}{(2n+1)\pi}\cdot\frac{e^{(\alpha_n-1)t}-1}{\alpha_n-1}.
+\]
+Chia hai vế cho $e^{\alpha_n t}$:
+\[
+T_n(t)=\frac{4}{(2n+1)\pi(\alpha_n-1)}\big(e^{-t}-e^{-\alpha_n t}\big).
+\]
+Thay $\alpha_n-1=\tfrac{(2n+1)^2\pi^2-2}{2}$, nên $\dfrac{4}{(2n+1)\pi(\alpha_n-1)}=\dfrac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2-2\big]}$:
+\[
+T_n(t)=\frac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2-2\big]}\Big(e^{-t}-e^{-\frac{(2n+1)^2\pi^2 t}{2}}\Big).
+\]
+
+\emph{Bước 6 --- ráp lại $u=v+w$.}
 
 \begin{nhobox}
 Nghiệm cuối cùng:
 \[
-u(x,t) = 100 + \sum_{n=0}^{\infty}
-\frac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2 - 2\big]}
-\left( e^{-t} - e^{-\frac{(2n+1)^2\pi^2 t}{2}} \right)
+u(x,t)=100+\sum_{n=0}^{\infty}
+\frac{8}{(2n+1)\pi\big[(2n+1)^2\pi^2-2\big]}
+\Big(e^{-t}-e^{-\frac{(2n+1)^2\pi^2 t}{2}}\Big)
 \sin\!\big((n+\tfrac12)\pi x\big).
 \]
 \end{nhobox}
