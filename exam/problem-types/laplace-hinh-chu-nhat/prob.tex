@@ -1,0 +1,115 @@
+% problem-type: laplace-hinh-chu-nhat
+% order: 72
+% Nguon: De thi MAT2306 (PTDHR 1), cuoi ky 2021-2022, Cau 3. (co dap an chinh thuc)
+
+\section{Laplace/Poisson trong hình chữ nhật --- tách biến Descartes}
+
+\subsection*{Đề bài ví dụ}
+
+Xét bài toán biên cho phương trình Poisson trong hình vuông
+\[
+  u_{xx}+u_{yy}=1,\qquad -\pi<x,y<\pi,
+\]
+với điều kiện biên Neumann $u_x(-\pi,y)=u_x(\pi,y)=0$ ($-\pi<y<\pi$), và
+\[
+  u_y(x,-\pi)=x,\qquad u_y(x,\pi)=C \quad(-\pi<x<\pi),
+\]
+$C$ là hằng số.
+\begin{enumerate}
+\item[(a)] Tìm $v(x,y)=\alpha x^2+\beta xy+\gamma y^2$ thỏa $v_{xx}+v_{yy}=1$ và $v_x(\pm\pi,y)=0$. Đặt $w=u-v$; $w$ thỏa bài toán nào?
+\item[(b)] Tìm $C$ để bài toán có nghiệm; với $C$ đó, giải bài toán.
+\end{enumerate}
+
+\emph{\small(Nguồn: Đề thi MAT2306 --- PTĐHR 1, cuối kỳ 2021--2022, Câu 3. Có đáp án chính thức.)}
+
+\subsection*{Nhận ra dạng này khi nào?}
+
+\begin{itemize}
+\item Miền là \textbf{hình chữ nhật} (cạnh song song trục) $\Rightarrow$ tách biến \textbf{Descartes} $u=X(x)Y(y)$, KHÔNG dùng tọa độ cực.
+\item Vế phải $\ne0$ (Poisson) $\Rightarrow$ trừ \textbf{nghiệm riêng} (thường đa thức bậc 2) để đưa về Laplace thuần nhất.
+\item Biên Neumann hết các cạnh $\Rightarrow$ kiểm \textbf{điều kiện tương thích} để tìm hằng số, nghiệm sai khác hằng.
+\end{itemize}
+
+\begin{meobox}
+Cạnh nào \textbf{thuần nhất} (Neumann $u_x=0$ hay Dirichlet $u=0$) thì chọn biến đó làm \textbf{hàm riêng}:
+Neumann hai cạnh $\Rightarrow \cos\frac{k(x-a)}{\,\cdot\,}$; Dirichlet hai cạnh $\Rightarrow \sin$. Biến còn lại ra $\cosh/\sinh$.
+\end{meobox}
+
+\subsection*{Công thức \& phương pháp}
+
+\begin{dieukienbox}
+Dùng khi: Laplace/Poisson trên hình chữ nhật, ít nhất một cặp cạnh đối diện có biên thuần nhất (để có hàm riêng).
+\end{dieukienbox}
+
+\begin{nhobox}
+\textbf{Quy trình:}
+\begin{enumerate}
+\item \textbf{Nghiệm riêng} (nếu Poisson $\Delta u=f$): tìm $v$ đơn giản (đa thức) thỏa $\Delta v=f$ và khớp các cạnh thuần nhất. Đặt $w=u-v$ $\Rightarrow$ $\Delta w=0$.
+\item \textbf{Tương thích Neumann} (nếu toàn Neumann): $\displaystyle\oint_{\partial\Omega}\partial_\nu u\,dS=\int_\Omega \Delta u\,dA$ (Đẳng thức Green, Phụ lục B) $\Rightarrow$ phương trình cho hằng số chưa biết.
+\item \textbf{Tách biến:} cạnh thuần nhất cho hàm riêng ($\cos$ nếu Neumann, $\sin$ nếu Dirichlet); biến kia thỏa ODE $Y''-\lambda Y=0$ $\Rightarrow$ $\cosh/\sinh$.
+\item \textbf{Khớp hệ số} bằng dữ liệu hai cạnh còn lại (chuỗi Fourier).
+\end{enumerate}
+\end{nhobox}
+
+\subsection*{Đề bài \& bài giải}
+
+\paragraph{(a) Nghiệm riêng đa thức $v$.}\leavevmode
+
+Cần $v_{xx}+v_{yy}=2\alpha+2\gamma=1$ và $v_x=2\alpha x+\beta y=0$ tại $x=\pm\pi$ với mọi $y$. Điều kiện sau buộc $\alpha=0$, $\beta=0$; rồi $2\gamma=1\Rightarrow\gamma=\tfrac12$. Vậy
+\[
+  v(x,y)=\frac{y^2}{2}.
+\]
+Đặt $w=u-v$. Khi đó $\Delta w=\Delta u-\Delta v=1-1=0$, $w_x(\pm\pi,y)=0$, và (vì $v_y=y$):
+\[
+  w_y(x,-\pi)=u_y(x,-\pi)-(-\pi)=x+\pi,\qquad w_y(x,\pi)=u_y(x,\pi)-\pi=C-\pi.
+\]
+Tức $w$: điều hòa trong hình vuông, Neumann $0$ hai cạnh $x=\pm\pi$, dữ liệu $w_y=x+\pi$ ở $y=-\pi$ và $w_y=C-\pi$ ở $y=\pi$.
+
+\paragraph{(b) Bước 1 --- tìm $C$ bằng điều kiện tương thích.}\leavevmode
+
+Bài toàn Neumann giải được khi tổng thông lượng qua biên bằng tích phân nguồn (Đẳng thức Green):
+\[
+  \oint_{\partial\Omega}\partial_\nu u\,dS=\int_\Omega \Delta u\,dA=\int_\Omega 1\,dA=(2\pi)^2=4\pi^2.
+\]
+Hai cạnh $x=\pm\pi$ có $\partial_\nu u=\pm u_x=0$. Hai cạnh $y=\pm\pi$:
+\[
+  \oint=\underbrace{\int_{-\pi}^{\pi}\!\! C\,dx}_{y=\pi}+\underbrace{\int_{-\pi}^{\pi}\!\!(-x)\,dx}_{y=-\pi}=2\pi C+0 .
+\]
+Vậy $2\pi C=4\pi^2\Rightarrow \boxed{C=2\pi}$.
+
+\paragraph{(b) Bước 2 --- nghiệm tổng quát của $w$ (tách biến).}\leavevmode
+
+Neumann $w_x(\pm\pi,y)=0$ cho hàm riêng theo $x$ là $\cos\!\big(\tfrac{k(x+\pi)}{2}\big)$, $k=0,1,2,\dots$ (trị riêng $(\tfrac k2)^2$). Biến $y$ thỏa $Y''-(\tfrac k2)^2Y=0$ $\Rightarrow$ tổ hợp $\cosh$:
+\[
+  w(x,y)=a_0+b_0\,y+\sum_{k\ge1}\Big[a_k\cosh\tfrac{k(\pi+y)}{2}+b_k\cosh\tfrac{k(\pi-y)}{2}\Big]\cos\tfrac{k(\pi+x)}{2}.
+\]
+
+\paragraph{(b) Bước 3 --- khớp dữ liệu cạnh $y=-\pi$.}
+Đạo hàm $w_y$ tại $y=-\pi$ rồi chiếu $x+\pi$ lên $\{1,\cos\tfrac{k(\pi+x)}{2}\}$:
+\[
+  b_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}(x+\pi)\,dx=\pi,\qquad
+  b_k=\frac{8\big((-1)^k-1\big)}{\pi k^3\sinh(k\pi)}\ (k\ge1).
+\]
+
+\paragraph{(b) Bước 4 --- khớp dữ liệu cạnh $y=\pi$.}
+Tương tự với $w_y(x,\pi)=C-\pi$ (hằng): được $a_k=0$ ($k\ge1$) và $b_0=C-\pi$. Khớp $b_0=\pi$ ở Bước 3 $\Rightarrow C-\pi=\pi\Rightarrow C=2\pi$ (đúng Bước 1). Hằng $a_0$ \textbf{tùy ý} (Neumann thuần $\Rightarrow$ sai khác hằng).
+
+\paragraph{(b) Bước 5 --- ghép $u=v+w$.}\leavevmode
+
+Chỉ $k$ lẻ sống sót ($(-1)^k-1\ne0$): đặt $k=2n+1$, $b_k=-\dfrac{16}{\pi k^3\sinh(k\pi)}$.
+\begin{nhobox}
+\[
+  u(x,y)=\frac{y^2}{2}+\pi y+a_0
+  -\frac{16}{\pi}\sum_{n=0}^{\infty}
+  \frac{\cosh\!\big((2n{+}1)\tfrac{\pi-y}{2}\big)}{(2n+1)^3\sinh\!\big((2n+1)\pi\big)}
+  \cos\!\big((2n{+}1)\tfrac{\pi+x}{2}\big).
+\]
+$a_0$ tùy ý (nghiệm sai khác hằng số --- đặc trưng bài Neumann thuần).
+\end{nhobox}
+
+\subsection*{Dạng bài lân cận}
+\begin{itemize}
+\item \textbf{Toàn Neumann + tích phân năng lượng:} chữ nhật $\Delta u=1$, Neumann mọi cạnh; dùng $I=\iint(u_x^2+u_y^2)$ chứng minh \emph{vô số nghiệm sai khác hằng}. Xem Đề MAT3365 cuối kỳ K66 Câu 1.
+\item \textbf{Laplace chữ nhật biên Dirichlet:} hàm riêng $\sin$; xem Đề GK MAT2306 K65/K66 Câu 3.
+\item Laplace \textbf{tọa độ cực} (đĩa/quạt/vành khăn) --- xem các mục riêng.
+\end{itemize}
