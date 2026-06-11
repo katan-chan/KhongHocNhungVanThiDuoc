@@ -51,7 +51,19 @@ Dùng phương pháp này khi: bài nhiệt $u_t = a\,u_{xx} + f$ trên đoạn 
 \begin{nhobox}
 Quy trình 3 bước:
 \begin{enumerate}
-\item \textbf{Năng lượng $\Rightarrow$ duy nhất:} đặt $I(t)=\int_0^1 w^2\,dx \ge 0$ cho hiệu hai nghiệm $w=u_1-u_2$. Tính $I'(t)=2\int_0^1 w\,w_t = 2a\int_0^1 w\,w_{xx}$, tích phân từng phần $+$ biên thuần nhất $\Rightarrow I'(t)\le 0$. Vì $I(0)=0$ nên $I\equiv 0 \Rightarrow w\equiv 0$.
+\item \textbf{Năng lượng $\Rightarrow$ duy nhất.} Cho hiệu $w=u_1-u_2$ của hai nghiệm. Đặt $I(t)=\int_0^L w^2\,dx$. Cần chỉ ra $I$ thoả \emph{ba tính chất}:
+\begin{enumerate}
+  \item[(P1)] $I(t)\ge 0$ (vì là tích phân của bình phương).
+  \item[(P2)] $I(0)=0$ (vì $w(\cdot,0)=u_1(\cdot,0)-u_2(\cdot,0)=0$).
+  \item[(P3)] $I'(t)\le 0$ (\emph{đơn điệu không tăng}).
+\end{enumerate}
+Khi đó (P2)+(P3) cho $I(t)\le I(0)=0$, cộng (P1) suy ra $I(t)=0$ với mọi $t$, nên $w\equiv 0$, tức $u_1=u_2$.
+
+\textbf{Vì sao có (P3):} đạo hàm trong dấu tích phân $I'(t)=2\int_0^L w\,w_t\,dx = 2a\int_0^L w\,w_{xx}\,dx$. Tích phân từng phần:
+\[
+  \int_0^L w\,w_{xx}\,dx=\big[w\,w_x\big]_0^L-\int_0^L (w_x)^2\,dx.
+\]
+Hai nghiệm cùng thoả \emph{một} biên (Dirichlet hoặc Neumann), nên $w$ thoả biên \textbf{thuần nhất} ($w=0$ hoặc $w_x=0$ tại hai đầu) $\Rightarrow$ phần biên $[w\,w_x]_0^L=0$. Còn lại $I'(t)=-2a\int_0^L (w_x)^2\,dx\le 0$ vì $a>0$. Đây chính là (P3).
 \item \textbf{Nghiệm dừng $\Rightarrow$ biên thuần nhất:} giải $v''=0$ (hoặc $a v''+f_\infty=0$) khớp biên KHÔNG thuần nhất. Đặt $w=u-v$ thì $w$ có biên THUẦN NHẤT.
 \item \textbf{Tách biến chuỗi hàm riêng:} viết $w=\sum_n T_n(t)X_n(x)$, $X_n$ là hàm riêng Sturm--Liouville của biên thuần nhất. Giải ODE $T_n'+a\lambda_n T_n = (\text{hệ số nguồn})$; hệ số đầu lấy từ khai triển $g-v$.
 \end{enumerate}
