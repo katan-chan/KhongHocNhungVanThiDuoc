@@ -43,6 +43,7 @@ $formulaGroups = [ordered]@{
   'mat-cau'       = 'Hình học mặt cầu'
   'toa-do'        = 'Laplacian theo tọa độ'
   'nghiem-co-ban' = 'Nghiệm cơ bản \& nhân nhiệt'
+  'green'         = 'Đẳng thức Green'
 }
 $b = Build-Clustered (Join-Path $exam 'shared\integrals') 'shared/integrals' $formulaGroups $true
 Set-Content -Path (Join-Path $exam '_integrals.tex') -Value $b.Tex -Encoding utf8

@@ -1,0 +1,12 @@
+% formula: dang-thuc-green
+\textbf{Đẳng thức Green} (tích phân từng phần nhiều chiều). Cho $\Omega\subset\mathbb{R}^n$ bị chặn, biên trơn, $\partial_\nu$ là đạo hàm pháp tuyến ngoài.
+\[
+  \text{(Green 1)}\quad \int_\Omega\big(u\,\Delta v+\nabla u\cdot\nabla v\big)\,dx=\oint_{\partial\Omega} u\,\partial_\nu v\,dS.
+\]
+\[
+  \text{(Green 2)}\quad \int_\Omega\big(u\,\Delta v-v\,\Delta u\big)\,dx=\oint_{\partial\Omega}\big(u\,\partial_\nu v-v\,\partial_\nu u\big)\,dS.
+\]
+\emph{Hệ quả} ($v=u$): $\displaystyle\int_\Omega\big(u\,\Delta u+|\nabla u|^2\big)\,dx=\oint_{\partial\Omega}u\,\partial_\nu u\,dS$ --- nền tảng của \textbf{tích phân năng lượng} (chứng minh duy nhất nghiệm).
+
+\smallskip
+\emph{Biểu diễn nghiệm Dirichlet qua hàm Green} $G$ (xem Phụ lục A --- Hàm Green): $\displaystyle u(X)=-\oint_{\partial\Omega}\partial_\nu G(X,Y)\,\varphi(Y)\,dS_Y$.
