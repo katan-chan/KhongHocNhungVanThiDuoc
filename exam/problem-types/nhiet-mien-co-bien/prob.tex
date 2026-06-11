@@ -60,29 +60,40 @@ với $X$ là nghiệm bài nhiệt 1D theo $x$ trên đoạn $(0,\pi)$ với bi
 \]
 (Trên $y>0$ giữ nguyên $\chi_{[0,1]}$; trên $y<0$ là $-\chi_{[-1,0]}$, đúng định nghĩa lẻ.)
 
-\paragraph{Bước 2 --- giải phần $x$ bằng tách biến hàm riêng.}\leavevmode
+\paragraph{Bước 2 --- giải phần $x$ bằng nhân nhiệt $+$ công thức $\cos$-Gauss.}\leavevmode
 
 \emph{Bước 2.1 --- hạ bậc $\sin^3$.} Từ $\sin 3x=3\sin x-4\sin^3 x$ suy ra
 \[
   \sin^3 x=\tfrac{3\sin x-\sin 3x}{4}=\tfrac34\sin x-\tfrac14\sin 3x.
 \]
-Dữ liệu đầu theo $x$ đã được khai triển thành tổ hợp của hai hàm $\sin x$ và $\sin 3x$, đều triệt tiêu tại $x=0,\pi$ (khớp biên).
+Dữ liệu đầu theo $x$ thành tổ hợp của $\sin x$ và $\sin 3x$ --- cả hai đều triệt tiêu tại $x=0,\pi$ (khớp biên Dirichlet) và đã là hàm lẻ-tuần hoàn $2\pi$ trên toàn $\mathbb{R}$, nên thác triển ở Bước 1 không cần thêm thao tác.
 
-\emph{Bước 2.2 --- $\sin(mx)$ là hàm riêng của $\partial_{xx}$.} Một hàm $\varphi$ là \textbf{hàm riêng} của toán tử $L$ nếu $L\varphi=\lambda\varphi$ với một hằng số $\lambda$ (gọi là \emph{trị riêng}). Tính trực tiếp:
+\emph{Bước 2.2 --- nhân nhiệt áp vào $\sin(mx)$.} Bài $X_t=4X_{xx}$ trên $\mathbb{R}$ với dữ liệu đầu $\sin(mx)$ giải bằng công thức Poisson 1D, hệ số khuếch tán $k=4$:
 \[
-  \partial_{xx}\sin(mx)=-m^2\sin(mx),
+  X_m(x,t)=\frac{1}{\sqrt{16\pi t}}\int_{-\infty}^{\infty} e^{-(x-y)^2/(16t)}\sin(my)\,dy.
 \]
-nên $\sin(mx)$ là hàm riêng của $\partial_{xx}$ với trị riêng $-m^2$.
+Đổi biến $z=y-x$ ($dy=dz$, $y=x+z$) và dùng $\sin\big(m(x+z)\big)=\sin(mx)\cos(mz)+\cos(mx)\sin(mz)$:
+\[
+  X_m(x,t)=\frac{1}{\sqrt{16\pi t}}\Big[\sin(mx)\!\int_{-\infty}^{\infty}\!e^{-z^2/(16t)}\cos(mz)\,dz+\cos(mx)\!\underbrace{\int_{-\infty}^{\infty}\!e^{-z^2/(16t)}\sin(mz)\,dz}_{=0\ (\text{lẻ})}\Big].
+\]
+Áp công thức $\cos$-Gauss (Phụ lục B) $\int e^{-az^2}\cos(bz)dz=\sqrt{\pi/a}\,e^{-b^2/(4a)}$ với $a=\tfrac{1}{16t}$, $b=m$:
+\[
+  \int_{-\infty}^{\infty} e^{-z^2/(16t)}\cos(mz)\,dz=\sqrt{16\pi t}\;e^{-4m^2 t}.
+\]
+Chia hằng $\sqrt{16\pi t}$ triệt, được:
+\[
+  X_m(x,t)=e^{-4m^2 t}\,\sin(mx).
+\]
 
-\emph{Bước 2.3 --- mỗi mốt tắt theo $\tau$ riêng.} Thử nghiệm dạng $X_m(x,t)=A_m(t)\sin(mx)$ vào $X_t=4X_{xx}$:
+\begin{meobox}
+\textbf{Quy tắc nhớ:} nhân nhiệt $u_t=k u_{xx}$ áp vào $\sin(bx)$ (hoặc $\cos(bx)$) chỉ \emph{tắt biên độ} theo $e^{-kb^2 t}$ --- tần số $b$ giữ nguyên. Nhờ vậy KHÔNG cần tách biến, KHÔNG cần ODE, lấy thẳng kết quả.
+\end{meobox}
+
+\emph{Bước 2.3 --- chồng chất tuyến tính.} Vì PDE và Poisson đều tuyến tính, áp Bước 2.2 cho $m=1$ (hệ số $\tfrac34$) và $m=3$ (hệ số $-\tfrac14$):
 \[
-  A_m'(t)\sin(mx)=4\cdot(-m^2)A_m(t)\sin(mx)\ \Longrightarrow\ A_m'(t)=-4m^2 A_m(t).
+  X(x,t)=\tfrac34\,e^{-4t}\sin x-\tfrac14\,e^{-36t}\sin 3x=\frac{3e^{-4t}\sin x-e^{-36t}\sin 3x}{4}.
 \]
-Phần $\sin(mx)$ triệt hai bên. ODE này có nghiệm $A_m(t)=A_m(0)\,e^{-4m^2 t}$. Áp dữ liệu đầu với $m=1$ (hệ số $\tfrac34$) và $m=3$ (hệ số $-\tfrac14$):
-\[
-  X(x,t)=\tfrac34 e^{-4t}\sin x-\tfrac14 e^{-36t}\sin 3x=\frac{3e^{-4t}\sin x-e^{-36t}\sin 3x}{4}.
-\]
-\emph{Kiểm tra $t\to0$:} $X\to\tfrac{3\sin x-\sin3x}{4}=\sin^3 x$. Khớp.
+\emph{Kiểm tra $t\to 0$:} $X\to\tfrac{3\sin x-\sin 3x}{4}=\sin^3 x$. Khớp.
 
 \paragraph{Bước 3 --- giải phần $y$ bằng nhân nhiệt $\to$ erf.}\leavevmode
 
